@@ -19,7 +19,9 @@
       <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
-    <link rel="search" title="Search" href="../search.html" /> 
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Exercises" href="../exercises/readme.html" />
+    <link rel="prev" title="Zumo-32U4" href="../project2/readme.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -41,7 +43,11 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">Project 1</span></p>
+              <p class="caption" role="heading"><span class="caption-text">Introduction</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/readme.html">Introduction</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Project 1</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../project1/readme.html">Aeropendulum</a></li>
 </ul>
@@ -50,8 +56,134 @@
 <li class="toctree-l1"><a class="reference internal" href="../project2/readme.html">Zumo-32U4</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Project 3</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="readme.html">Reaction Wheel Inverted Pendulum</a></li>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">COIL Project: Inverted Pendulum on a Reaction Wheel</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#project-scope">Project Scope</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#learning-objectives">Learning Objectives</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#what-is-a-coil">What is a COIL?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#week-by-week-collaboration-plan">🌍 Week-by-Week Collaboration Plan</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#week-1-kickoff-icebreakers">Week 1: Kickoff &amp; Icebreakers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#week-2-system-understanding-conceptual-study">Week 2: System Understanding &amp; Conceptual Study</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#week-3-planning-simulation">Week 3: Planning &amp; Simulation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#week-4-implementation-analysis">Week 4: Implementation &amp; Analysis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#final-session-reflection-presentation">Final Session: Reflection &amp; Presentation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#overview">Overview</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#the-inverted-pendulum">🪄 The Inverted Pendulum</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#real-world-examples">📌 Real-World Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#the-reaction-wheel">🔁 The Reaction Wheel</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#why-is-this-important">🎯 Why is This Important?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#educational-value">📚 Educational Value</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#main-components">🔧 Main Components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#project-workflow">🧪 Project Workflow</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#tools">Tools</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#computational-tools">💻 Computational Tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#hardware-implementation-tools">🧩 Hardware &amp; Implementation Tools</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#tools-to-create-stl-files">Tools to Create <code class="docutils literal notranslate"><span class="pre">.stl</span></code> Files</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#electrical-component-characterization">📊 Electrical Component Characterization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#file-data-formats">📁 File &amp; Data Formats</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#documentation-final-dossier">📘 Documentation &amp; Final Dossier</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#concepts">Concepts</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#kinematics-linear-vs-angular-motion">🔁 Kinematics: Linear vs. Angular Motion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#newtons-laws">🧮 Newton’s Laws</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#linear-motion">Linear Motion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rotational-motion">Rotational Motion</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#moment-of-inertia">⚙️ Moment of Inertia</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#measuring-moment-of-inertia-in-the-lab">🧪 Measuring Moment of Inertia in the Lab</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#method-1-torsional-oscillation">🌀 Method 1: Torsional Oscillation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#method-2-angular-acceleration">⚙️ Method 2: Angular Acceleration</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#power-conversion">⚡ Power conversion</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#rotational-power">🔁 Rotational Power</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#kinetic-energy-of-rotation">🔋 Kinetic Energy of Rotation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id1">⚡ Power conversion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#numerical-example">🔢 Numerical Example</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#moment-of-inertia-of-the-disk">1. Moment of Inertia of the Disk:</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id2">2. Kinetic Energy of Rotation:</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#required-torque">3. Required Torque:</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mechanical-power">4. Mechanical Power:</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#electrical-power-required">5. Electrical Power Required:</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#dc-motor-basics">🔌 DC Motor Basics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#typical-motor-parameters">📄 Typical Motor Parameters</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#trade-offs-in-motor-selection">⚠️ Trade-Offs in Motor Selection</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#gears">⚙️ Gears</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#basic-gear-equations">📐 Basic Gear Equations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#why-use-gears">⚙️ Why Use Gears?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#example-gear-matching">🛠️ Example: Gear Matching</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#magnetic-position-sensor-as5600">🧭 Magnetic Position Sensor (AS5600)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#control-systems">🎛 Control Systems</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#main-elements">Main Elements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#feedback-control">Feedback Control</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#controllers">Controllers</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#arduino-system-integration">🔧 Arduino System Integration</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#typical-setup-components">🔌 Typical Setup Components</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#migrating-from-python-simulation-to-arduino-deployment">📤 Migrating from Python Simulation to Arduino Deployment</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#modelling">Modelling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#simulation">Simulation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#getting-started">Getting Started</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#prerequisites">Prerequisites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#installation">Installation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#usage">Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#methodology">Methodology</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#system-modeling">System Modeling</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#rwip-parameter">RWIP Parameter</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#kinetic-energy">Kinetic Energy</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#potential-energy">Potential Energy</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#lagrange-method">Lagrange Method</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mathematical-equations-of-rwip-is-described-as">Mathematical equations of RWIP is described as</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#brushed-dc-motor-parameter">Brushed DC Motor Parameter</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#electrical-part">Electrical part</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mechanical-part">Mechanical Part</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">Controllers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sound-generation">Sound Generation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#compare-pid-controller-and-lqr-controller">Compare PID controller and LQR controller</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#conclusion">Conclusion</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#implementation">Implementation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#analysis">Analysis</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#acknowledgments">Acknowledgments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#reference">Reference</a></li>
+</ul>
+</li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Exercises</span></p>
 <ul>
@@ -60,6 +192,9 @@
 <p class="caption" role="heading"><span class="caption-text">Resources</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../resources/readme.html">Resources</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Demos</span></p>
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="../demos/prototypes.html">Prototypes</a></li>
 </ul>
 
@@ -79,7 +214,7 @@
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
       <li class="breadcrumb-item active">COIL Project: Inverted Pendulum on a Reaction Wheel</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="../_sources/project3/README.md.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/project3/readme.md.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -162,7 +297,7 @@
 <section id="overview">
 <h2>Overview<a class="headerlink" href="#overview" title="Link to this heading"></a></h2>
 <p>A <strong>Reaction Wheel Inverted Pendulum</strong> is a complex mechanical system designed to balance an upright pendulum using a rotating disk (the <em>reaction wheel</em>) rather than moving a base. The goal is to control the wheel’s angular momentum to stabilize the pendulum in an upright position.</p>
-<p><img alt="Reaction Wheel Inverted Pendulum" src="project3/img/system.png" /></p>
+<p><img alt="Reaction Wheel Inverted Pendulum" src="../_images/system.png" /></p>
 <section id="the-inverted-pendulum">
 <h3>🪄 The Inverted Pendulum<a class="headerlink" href="#the-inverted-pendulum" title="Link to this heading"></a></h3>
 <p>An <strong>inverted pendulum</strong> is a pendulum balanced in its unstable upright position — like trying to keep a stick standing vertically on your fingertip. It is a classical example of an unstable system that requires active <strong>control</strong> to maintain balance.</p>
@@ -1296,7 +1431,10 @@ The LQR controller is designed based on the principles of optimal control theory
 
            </div>
           </div>
-          <footer>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../project2/readme.html" class="btn btn-neutral float-left" title="Zumo-32U4" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../exercises/readme.html" class="btn btn-neutral float-right" title="Exercises" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
 
   <hr/>
 

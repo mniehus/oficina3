@@ -63,7 +63,7 @@ The goal is to combine theoretical analysis, computational modeling, and practic
 
 A **Reaction Wheel Inverted Pendulum** is a complex mechanical system designed to balance an upright pendulum using a rotating disk (the *reaction wheel*) rather than moving a base. The goal is to control the wheel's angular momentum to stabilize the pendulum in an upright position.
 
-![Reaction Wheel Inverted Pendulum](img/system.png)
+![Reaction Wheel Inverted Pendulum](../img/system.png)
 
 ### 🪄 The Inverted Pendulum
 

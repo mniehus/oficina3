@@ -69,10 +69,14 @@ Useful links
 - `Course documentation (this page) <https://mniehus.github.io/oficina3>`_ 
 - `Course repository (online) <https://github.com/mniehus/oficina3>`_
 
+===
+
+Content
 
 .. toctree::
    :maxdepth: 1
    :caption: Introduction 
+
    introduction/readme.ipynb
  
 .. toctree::
@@ -91,7 +95,7 @@ Useful links
    :maxdepth: 1
    :caption: Project 3 
 
-   project3/readme.ipynb
+   project3/readme.md
 
 .. toctree::
    :maxdepth: 1
@@ -105,7 +109,7 @@ Useful links
    
    resources/readme.ipynb
 
-   .. toctree::
+.. toctree::
    :maxdepth: 1
    :caption: Demos
 
