@@ -29,10 +29,8 @@ Author
    :maxdepth: 1
    :caption: Introduction 
 
-   lessons/pt1/readme.ipynb
+   content/introduction/readme.ipynb
  
-
-
 .. toctree::
    :maxdepth: 1
    :caption: Project 1 

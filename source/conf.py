@@ -15,7 +15,9 @@ author = 'mniehus'
 
 extensions = [
     'nbsphinx',  # or 'myst_nb'
-    'myst_parser',
+    'myst_parser', # for markdown
+    'sphinx.ext.autodoc', #for python api docs
+
 ]
 
 templates_path = ['_templates']
