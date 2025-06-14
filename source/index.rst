@@ -25,14 +25,32 @@ Useful links
 Author
 ------
 
+.. toctree::
+   :maxdepth: 1
+   :caption: Introduction 
+
+   lessons/pt1/readme.ipynb
  
 
 
 .. toctree::
    :maxdepth: 1
-   :caption: Lessons
+   :caption: Project 1 
 
-   lessons/pt3/coil.ipynb
+   content/project1/readme.ipynb
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Project 2 
+
+   content/project2/readme.ipynb
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Project 3 
+
+   content/project3/readme.ipynb
+
 
 .. toctree::
    :maxdepth: 1
@@ -40,42 +58,14 @@ Author
 
    thinking_exercises.rst
 
-
-.. toctree::
-   :maxdepth: 1
-   :caption: Projects
-
-   spectrophotometer.rst
-
-
-.. toctree::
-   :maxdepth: 1
-   :caption: Schedule
-
-   schedule.rst
-
-
 .. toctree::
    :maxdepth: 1
    :caption: Resources
 
    resources.rst
 
-
-.. toctree::
-   :maxdepth: 1
-   :caption: Policies
-
-   policies.rst
-
 .. toctree::
    :maxdepth: 1
    :caption: Components
 
    components.rst
-
-
-Links to moodle
-------------------------------- 
-
-- `Fall 2024 <https://2425moodle.isel.pt/course/view.php?id=8793>`_
