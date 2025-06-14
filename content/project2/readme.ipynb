@@ -5,7 +5,7 @@
    "id": "df1ed26d",
    "metadata": {},
    "source": [
-    "# Project 2"
+    "# Zumo-32U4"
    ]
   },
   {

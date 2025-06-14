@@ -5,7 +5,7 @@
    "id": "2ce0d28d",
    "metadata": {},
    "source": [
-    "# Project 1"
+    "# Aeropendulum"
    ]
   },
   {
