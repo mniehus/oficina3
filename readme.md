@@ -1,6 +1,8 @@
-# 📘 LEFA Oficina III – Laboratório de Estimação e Controlo
 
-Bem-vindo ao repositório oficial de documentação da **disciplina laboratorial do 3.º semestre** do curso de **Licenciatura em Engenharia Física Aplicada (LEFA)** do [ISEL - Instituto Superior de Engenharia de Lisboa](https://www.isel.pt), pertencente ao [Instituto Politécnico de Lisboa](https://www.ulisboa.pt).
+
+# 📘 LEFA Oficina 3 – Laboratório de Estimação e Controlo
+
+Bem-vindo ao repositório de documentação das **Oficinas de Engenharia Física 3 - Estimação e controlo**, uma disciplina laboratorial do 3.º semestre  do curso de [**Licenciatura em Engenharia Física Aplicada (LEFA)**](https://www.isel.pt/curso/licenciatura/licenciatura-em-engenharia-fisica-aplicada) do [ISEL - Instituto Superior de Engenharia de Lisboa](https://www.isel.pt), pertencente ao [Instituto Politécnico de Lisboa](https://www.ipl.pt), e membro da [Universidade Europeia U!reka](https://ureka.eu/).
 
 ## 🎯 Objetivos da Disciplina
 
@@ -18,15 +20,13 @@ Os projetos incluem atualmente:
 
 Cada sistema envolve modelação, simulação, implementação em hardware e validação experimental.
 
-## 🌐 Página Oficial da Disciplina
-
-Informações adicionais, documentação e materiais do projeto estão disponíveis em:
+Informações detalhadas, documentação e materiais do projeto estão disponíveis em:
 
 👉 [https://mniehus.github.io/oficina3](https://mniehus.github.io/oficina3)
 
 ## 🌍 Nota sobre o Idioma
 
-A documentação e o código neste repositório estão escritos **parcialmente em português** e **parcialmente em inglês**, refletindo a abordagem bilingue adotada na disciplina.
+A documentação neste repositório está escrita **parcialmente em português** e **parcialmente em inglês**, refletindo a abordagem bilingue adotada na disciplina.
 
 ## 📁 Conteúdos do Repositório
 
@@ -46,11 +46,11 @@ O conteúdo deste repositório destina-se ao uso educativo pelos estudantes do c
 
 🛠️ Bons projetos e boas experiências!
 
+===
 
+# 📘 LEFA Oficina 3 – Estimation and Control Lab
 
-# 📘 LEFA Oficina III – Estimation and Control Lab
-
-Welcome to the official documentation repository for the **3rd semester project-based laboratory course** in **Estimation and Control** at the **Applied Physics Engineering (LEFA)** program of [ISEL - Instituto Superior de Engenharia de Lisboa](https://www.isel.pt), part of the [Polytechnic University of Lisbon](https://www.ulisboa.pt).
+Welcome to the documentation repository for the **Engineering Physics Workshops 3 - Estimation and Control**, a 3rd semester project-based laboratory course at the **Applied Physics Engineering (LEFA)** (https://www.isel.pt/curso/licenciatura/licenciatura-em-engenharia-fisica-aplicada) bachelor course at [ISEL - Instituto Superior de Engenharia de Lisboa](https://www.isel.pt) at the [Polytechnic University of Lisbon, Portugal](https://www.ipl.pt), member of the [European University U!reka](https://ureka.eu/).
 
 ## 🎯 Course Scope
 
@@ -68,9 +68,7 @@ The projects currently include:
 
 Each system involves modeling, simulation, hardware implementation, and experimental validation.
 
-## 🌐 Course Webpage
-
-More information, documentation, and project materials are available at:
+Detailed information, documentation, and project materials are available at:
 
 👉 [https://mniehus.github.io/oficina3](https://mniehus.github.io/oficina3)
 
