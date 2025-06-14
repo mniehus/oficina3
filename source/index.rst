@@ -48,7 +48,7 @@ Author
    :caption: Project 3 
 
    content/project3/readme.ipynb
-
+   content/project3/prototypes.ipynb
 
 .. toctree::
    :maxdepth: 1
