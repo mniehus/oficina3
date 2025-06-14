@@ -1,114 +1,65 @@
 
-# COIL Project: Inverted Pendulum on a Reaction Wheel
+# COIL Project: Inverted Pendulum with Reaction Wheel
 
 This COIL project brings together students from Lisbon Polytechnical University (Portugal) and Amsterdam University of Applied Sciences (Netherlands) in a shared, hands-on learning experience rooted in applied physics and engineering.
 
-## Project Scope
+## Introduction
 
 Over a four-week period, mixed international student teams will collaborate to **design, simulate, and implement a reaction-wheel inverted pendulum** — a classic control systems challenge with applications in robotics and aerospace.
 
 The goal is to combine theoretical analysis, computational modeling, and practical design, all while engaging in international teamwork and intercultural exchange.
 
-## Learning Objectives
-
+**Learning Objectives**
 - Apply principles of classical mechanics, control theory, and embedded systems.  
 - Simulate dynamic behavior of the pendulum system using Python.  
 - Collaborate across institutions and cultures using online tools.  
 - Develop technical, communication, and project management skills.  
 - Reflect on engineering practices in a global context.
 
-## What is a COIL?
-
+**What is a COIL?**
 **COIL** stands for **Collaborative Online International Learning**. It’s a teaching method that connects courses from different countries through online, project-based collaboration. In a COIL module, two or more instructors co-design and co-teach a shared activity where students work in mixed international teams to complete authentic tasks and reflect on intercultural learning. 
 
 [How to COIL (Collaborative Online International Learning)](https://ureka.eu/how-to-coil-collaborative-online-international-learning-coil/)
 
-## 🌍 Week-by-Week Collaboration Plan
-
-### Week 1: Kickoff & Icebreakers
-- Meet your international teammates (Zoom or Teams).
-- Participate in structured icebreaker activities.
-- Share backgrounds, expectations, and technical interests.
-- Set up tools: VS Code, Python, GitHub, shared folders.
-
-### Week 2: System Understanding & Conceptual Study
-- Study the inverted pendulum and reaction wheel system.
-- Identify key physical and control concepts (e.g. torque, moment of inertia, stability).
-- Analyze reference materials and clarify goals.
-
-### Week 3: Planning & Simulation
-- Define system requirements and control objectives.
-- Distribute roles within the team (e.g. modeling, coding, documentation).
-- Develop and test Python simulations of the system.
-- Compare open-loop and closed-loop behavior.
-
-### Week 4: Implementation & Analysis
-- Finalize and run the simulation with realistic parameters.
-- Debug and document the system's response.
-- Discuss and analyze results across teams.
-- Prepare joint presentations.
-
-### Final Session: Reflection & Presentation
-- Present each team’s technical approach and outcomes.
-- Reflect on the technical, intercultural, and collaborative aspects of the project.
-- Share feedback with your peers and instructors.
-- Discuss potential real-world applications and next steps.
-
----
-
-💡 _Tip: Keep a team logbook and schedule short weekly check-ins for smooth collaboration._
-
-
-## Overview
-
-A **Reaction Wheel Inverted Pendulum** is a complex mechanical system designed to balance an upright pendulum using a rotating disk (the *reaction wheel*) rather than moving a base. The goal is to control the wheel's angular momentum to stabilize the pendulum in an upright position.
-
-![Reaction Wheel Inverted Pendulum](../img/system.png)
-
-### 🪄 The Inverted Pendulum
+**What is a Reaction Wheel Inverted Pendulum?**
+A **Reaction Wheel Inverted Pendulum** is a complex mechanical system designed to balance an upright pendulum using a rotating disk (the *reaction wheel*, often being called a **Fly-Wheel**). The goal is to control the wheel's angular momentum to stabilize the pendulum in an upright position.
 
 An **inverted pendulum** is a pendulum balanced in its unstable upright position — like trying to keep a stick standing vertically on your fingertip. It is a classical example of an unstable system that requires active **control** to maintain balance.
 
-#### 📌 Real-World Examples
+**Real-World Examples**
 - A **Segway** balancing on two wheels  
 - A **rocket** stabilizing itself during launch  
 - A **human** standing upright, continuously adjusting posture
 
 In our case, the pendulum starts hanging downward (its stable position) and must first **swing up**, then be **stabilized upright** — even when subjected to unknown disturbances (like small external pushes).
 
----
+The system uses a **reaction wheel**, rather than a laterally moving base (like in a cart-pendulum): 
 
-### 🔁 The Reaction Wheel
-
-Instead of using a laterally moving base (like in a cart-pendulum), the system uses a **reaction wheel**:
-
-- A **rotating disk** mounted on the pendulum, driven by a **DC motor**
-- According to **Newton’s laws of motion**, a change in the wheel’s angular velocity creates a **reaction torque**
+- It consists of a **rotating rigid disk or wheel** which is mounted on the pendulums arm.
+- The axis of rotation of **reaction wheel** and **pendulum** are **co-linear**. 
+- The wheel is driven by **DC motor** which is attached directly, or through a system of gears or pulley and belts.
+- According to **Newton’s laws of motion**, a **change** in the wheel’s angular velocity creates a **reaction torque**
 - This torque can be used to adjust the angle of the pendulum
 
 Thus, the pendulum can be brought upright and kept balanced using only the internal motion of the wheel.
 
 ---
 
-### 🎯 Why is This Important?
-
+**Why is This Important?**
 This is more than a mechanical challenge — it’s a **control engineering problem**.
 
 - The goal is not just to make it work, but to **optimize** it:
   - Minimal energy use
   - Fast stabilization
   - High resilience to noise or disturbances
+  
 - The system is **nonlinear**, **coupled**, and **unstable by nature**
 - It requires a well-designed controller:
   - First a **bang-bang controller** to swing it up  
   - Then a **PID** or **LQR** controller to stabilize it upright  
     - LQR (Linear Quadratic Regulator) is expected to give the best results
 
----
-
-### 📚 Educational Value
-
-This project combines physics, mechanics, electronics, and software with real-world constraints — an ideal platform to learn:
+As such, the project combines physics, mechanics, electronics, and software with real-world constraints — an ideal platform to learn:
 
 - Dynamics and modeling of unstable systems  
 - Sensor and actuator integration  
@@ -119,46 +70,140 @@ This project combines physics, mechanics, electronics, and software with real-wo
 It’s a hands-on way to understand **how to design, simulate, build, and control** a dynamic system — a core challenge in modern engineering.
 
 
+## Collaboration Plan
 
-## 🔧 Main Components
+This project brings together international student teams to model, simulate, implement, and control a Reaction Wheel Inverted Pendulum (RWIP). The goal is to explore both technical and collaborative challenges in control engineering through simulation and physical implementation.
 
-- **Pendulum**: A rigid arm that pivots at its base and must be balanced vertically.
-- **Reaction Wheel**: A rotating mass driven by a motor, mounted on the pendulum. It creates a counteracting torque to stabilize the system.
-- **Controller**: Software that measures the system's state (e.g., angle and angular velocity) and determines how to drive the wheel to maintain balance.
+---
 
-## 🧪 Project Workflow
+**Week 1: Kickoff & Icebreakers**
+- Meet your international teammates (via Zoom or Teams).
+- Participate in structured icebreaker activities.
+- Share backgrounds, expectations, and technical interests.
+- Set up collaborative tools: VS Code, Python, GitHub, shared folders.
+- Begin reading reference material on inverted pendulums and reaction wheels.
 
-1. **Parameter Assignment**  
-   Each team works with a unique set of parameters (e.g., pendulum length, mass, wheel inertia, controller parameters, etc).
+💡 _Tip: Keep a shared team logbook and schedule weekly check-ins._
 
-2. **Simulation Phase**  
-   - Explore the system dynamics in a Python simulation.  
-   - Identify stable and unstable regions in the parameter space.  
-   - Evaluate control strategies under different conditions.
+---
 
-3. **Implementation Phase**  
-   - Build the pendulum and wheel using available materials (e.g., 3D printed parts, hardware store components).  
-   - Assemble and wire the system with sensors and actuators.  
-   - Characterize real-world component parameters (mass, friction, motor limits).
+**Week 2: System Understanding & Parameter Assignment**
+- Study the inverted pendulum and reaction wheel system.
+- Identify key physical and control concepts: torque, moment of inertia, stability.
+- Assign unique parameter sets to each team (e.g., pendulum length, mass, motor power, wheel inertia).
+- Clarify technical goals and system constraints.
+- Start drafting control objectives.
 
-4. **Control Strategy**  
-   - Use a **bang-bang controller** to swing the pendulum up.  
-   - Once upright, stabilize it using either:
-     - **PID controller** (simpler, but may oscillate), or  
-     - **LQR controller** (more stable and optimal — to be discovered through simulation).
+---
 
-5. **Testing & Comparison**  
-   - Compare the real-world system behavior with simulation predictions.  
-   - Analyze performance metrics (e.g., stability, response time).  
-   - Reflect on implementation challenges and controller effectiveness.
+**Week 3: Simulation & Strategy Development**
+- Build Python simulations of the RWIP system.
+- Explore system dynamics (e.g., swing-up vs. stabilization).
+- Identify stable and unstable parameter regions.
+- Test control strategies:
+  - Open-loop behavior
+  - Swing-up with **bang-bang control**
+  - Stabilization using **PID** and **LQR** controllers
+- Compare performance metrics across teams.
 
+---
 
-# Tools
+**Week 4: Physical Implementation & Integration**
+- Assemble the RWIP using available materials (e.g., 3D printed parts, hardware components).
+- Integrate sensors (e.g., AS5600 magnetic sensor) and actuators (brushed DC motor).
+- Wire and interface the system with Arduino or compatible microcontroller.
+- Characterize physical properties: friction, inertia, motor constants.
+- Validate component specs vs. datasheets.
+
+---
+
+**Week 5: Testing, Comparison & Analysis**
+- Deploy controllers on the Arduino (migrating from Python simulations).
+- Test swing-up and stabilization phases in real conditions.
+- Compare experimental results with simulated predictions.
+- Measure performance: response time, overshoot, stability margins.
+- Evaluate control effectiveness and hardware limitations.
+
+---
+
+**Final Session: Reflection & Presentation**
+- Present each team’s approach, implementation, and results.
+- Reflect on the technical, intercultural, and collaborative experiences.
+- Share lessons learned and insights into system limitations.
+- Discuss real-world relevance and next steps for further development.
+
+**Optional Deliverables**
+Each team should maintain:
+- Simulation notebooks (.ipynb)
+- Arduino code (.ino)
+- CAD files (.stl, .step)
+- Data logs (.csv)
+- Diagrams, images, and demo videos (.png, .mp4)
+- -Description of the system and control strategy  
+- Simulations and analysis  
+- Photographs and diagrams  
+- Electrical and mechanical schematics  
+- STL files for 3D parts
+- Software architecture diagrams  
+- Source code (Python and Arduino)
+- Description of tests and results  
+- Short video of system in action  
+- Reflections and conclusions
+
+Include all in your team’s final GitHub repository.
+
+---
+
+🧭 _Remember: Control engineering is not just about making it work — it's about making it optimal, reliable, and tracable._
+
+## Tools
 
 This project combines software-based simulation with hands-on hardware implementation. Below is a list of the essential tools and components you'll be working with, as well as the formats and documentation expected for your final report.
 
+###  Hardware 
 
-## 💻 Computational Tools
+- **Mechanical workshop tools and materials**  
+  - Use mechanical workshop tools (saw, drill, etc) and materials (wood, bars, tubes, etc.) to manufacture the overall support structure of the system, and to fix the system.  
+
+- **3D Printer and filaments**  
+  - Use 3D printing for custom parts such as wheel mounts, pendulum arms, mechanical joints and gears.  
+
+- **Rods, bearings and belts**  
+  - Special components that are hard to manufacture to the required precision, like rods, bearings and belts, can be acquired in specialist shops, e.g. for 3d printers or UAVs or sports equipment, or similar. 
+
+- **Cabling, Breadboarding, Wiring & Soldering Equipment**  
+  - Needed to build and connect the system reliably.
+
+- **DC Motor (Actuator)**  
+  - Drives the reaction wheel. Choose components carefully based on ratings.
+
+- **DC Power supply**  
+  - While batteries could do the job, it is highly recommended to use laboratory grade power supplies during development: the power requirements are typically high, and more importantly, a lab grade power supply provides a direct control over the maximum ratings. 
+  
+- **DC Motor Driver Circuit**  
+  - Drives the reaction wheel. Choose components carefully based on ratings.
+ 
+- **(Sensor) AS5600 Magnetic Rotary Sensor**  
+  - Precise angle measurement of the pendulum shaft.  
+  👉 https://www.ams.com/en/as5600
+
+- **Arduino (Microcontroller)**  
+  - Arduino board that runs the real-time control logic. Any UNO grade microcontroller should do. We recommend to use   
+
+- **Multimeter & Osciloscope**  
+  - Instruments to analyze and characterize the performance of components and the final system
+
+You must know very well the behavior and limitations of your electrical components:
+
+- **Key Specs to Review**:
+  - Supply voltage range
+  - Max current and power
+  - Sensitivity and accuracy (e.g., of sensors)
+- Include this in your **technical dossier**.
+
+---
+
+###  Software
 
 - **Visual Studio Code (VS Code)**  
   Main environment for code editing, running Python/Jupyter, and managing Git projects, i.e. tools below can be accessed **directly within VS Code** using extensions.  
@@ -176,57 +221,21 @@ This project combines software-based simulation with hands-on hardware implement
   Version control and collaboration platform.  
   👉 https://github.com/
 
----
-
-## 🧩 Hardware & Implementation Tools
-
-- **Arduino (Microcontroller + IDE)**  
-  - Arduino board runs the real-time control logic.  
+  - **Arduino (Microcontroller + IDE)**  
   - The Arduino IDE is used to write and upload `.ino` files.  
   👉 https://www.arduino.cc/
 
-- **AS5600 Magnetic Rotary Sensor**  
-  - Precise angle measurement of the pendulum shaft.  
-  👉 https://www.ams.com/en/as5600
+  - **CAD-Based Tools**:
+  - **Onshape** 
+  - Cloud-based CAD tool 
+  👉 https://www.onshape.com/
 
-- **DC Motor + Motor Driver**  
-  - Drives the reaction wheel. Choose components carefully based on ratings.
-
-- **Wiring & Soldering Equipment**  
-  - Needed to build and connect the system reliably.
-
-- **3D Printing & Mechanical Fabrication**  
-  - Use 3D printing for custom parts such as wheel mounts and pendulum arms and mechanical joints.  
-  - Recommended slicer software: **Ultimaker Cura** – to prepare `.stl` files for printing  
-      👉 https://ultimaker.com/software/ultimaker-cura/
-
-### Tools to Create `.stl` Files
-
-- **Script-Based Modeling**:
-  - **Python for parametric design**: You can use Python to generate 3D models programmatically. A useful library for working with STL files is [`numpy-stl`](https://pypi.org/project/numpy-stl/), which allows reading, modifying, and writing STL files using NumPy arrays.
-  - **OpenSCAD**: A script-based 3D CAD modeler ideal for parametric design. It's widely used for precise, reproducible models and supports direct STL export.  
-    👉 https://openscad.org/
-  
-- **CAD-Based Tools**:
-  - **Onshape** (cloud-based CAD) 👉 https://www.onshape.com/
-  - **Autodesk Fusion 360** 👉 https://www.autodesk.com/products/fusion-360/
-  - **SolidWorks** (licensed) 👉 https://www.solidworks.com/
-
+  - **Ultimaker Cura** 
+  - Recommended slicer software to prepare `.stl` files for printing  
+  👉 https://ultimaker.com/software/ultimaker-cura/
 ---
 
-## 📊 Electrical Component Characterization
-
-You must analyze the behavior and limitations of your electrical components:
-
-- **Key Specs to Review**:
-  - Supply voltage range
-  - Max current and power
-  - Sensitivity and accuracy (e.g., of sensors)
-- Include this in your **technical dossier**.
-
----
-
-## 📁 File & Data Formats
+**Data Formats**
 
 | Extension | Description                        | Tool/Use                          |
 |-----------|------------------------------------|-----------------------------------|
@@ -241,26 +250,48 @@ You must analyze the behavior and limitations of your electrical components:
 
 ---
 
-## 📘 Documentation & Final Dossier
 
-Your **final report** should include:
+## Technical Overview
 
-- Description of the system and control strategy  
-- Simulations and analysis  
-- Photographs and diagrams  
-- Electrical and mechanical schematics  
-- STL files for 3D parts  
-- Source code (Python and Arduino)  
-- Short video of system in action  
-- Reflections and conclusions
+A **Reaction Wheel Inverted Pendulum** is a complex mechanical system designed to balance an upright pendulum using a rotating disk (the *reaction wheel*, often being called a **Fly-Wheel**). The goal is to control the wheel's angular momentum to stabilize the pendulum in an upright position.
 
-# Concepts
+
+
+An **inverted pendulum** is a pendulum balanced in its unstable upright position — like trying to keep a stick standing vertically on your fingertip. It is a classical example of an unstable system that requires active **control** to maintain balance.
+
+**Real-World Examples of inverted pendulum**
+- A **Segway** balancing on two wheels  
+- A **rocket** stabilizing itself during launch  
+- A **human** standing upright, continuously adjusting posture
+
+In our case, the pendulum starts hanging downward (its stable position) and must first **swing up**, then be **stabilized upright** — even when subjected to unknown disturbances (like small external pushes).
+
+The system uses a **reaction wheel**, rather than a laterally moving base (like in a cart-pendulum): 
+
+- It consists of a **rotating rigid disk or wheel** which is attached to the pendulums arm.
+- The axis of rotation of **reaction wheel** and **pendulum** are **co-linear**. 
+- The wheel is driven by **DC motor** which is attached directly, or through a system of gears or pulley and belts.
+- According to **Newton’s laws of motion**, a **change** in the wheel’s angular velocity creates a **reaction torque**
+- This torque can be used to adjust the angle of the pendulum
+
+Thus, the pendulum can be brought upright and kept balanced using only the internal motion of the wheel.
+
+![Reaction Wheel Inverted Pendulum](../img/system.png)
+
+**Components**
+- **Pendulum**: A rigid arm that pivots at its base and must be balanced vertically.
+- **Reaction Wheel**: A rotating mass driven by a motor, mounted on the pendulum. It creates a counteracting torque to stabilize the system.
+- **Controller**: Software that measures the system's state (e.g., angle and angular velocity) and determines how to drive the wheel to maintain balance.
+
+
+
+## Fundamentals
 
 This section introduces the fundamental concepts and equations behind the Reaction Wheel Inverted Pendulum. It combines physics, electromechanics, and control theory.
 
 ---
 
-## 🔁 Kinematics: Linear vs. Angular Motion
+### Kinematics: Linear vs. Angular Motion
 
 | Quantity      | Linear                         | Angular                         |
 |---------------|--------------------------------|----------------------------------|
@@ -268,28 +299,21 @@ This section introduces the fundamental concepts and equations behind the Reacti
 | Velocity      | $v = \frac{dx}{dt}$            | $\omega = \frac{d\theta}{dt}$    |
 | Acceleration  | $a = \frac{dv}{dt}$            | $\alpha = \frac{d\omega}{dt}$    |
 
-For **rolling** objects (**not the case here**), linear and angular quantities are related by the wheel radius $r$:
-- $x = r \theta$
-- $v = r \omega$
-- $a = r \alpha$
-
 ---
 
-## 🧮 Newton’s Laws
-
-### Linear Motion
- $$ 
+###  Newton’s Laws for Linear Motion
+$$ 
 F = m a
- $$ 
+$$ 
 
 - $F$: Force (N)  
 - $m$: Mass (kg)  
 - $a$: Acceleration (m/s²)
 
-### Rotational Motion
- $$ 
+###  Newton’s Laws for Rotational Motion
+$$ 
 \tau = I \alpha
- $$ 
+$$ 
 
 - $\tau$: Torque (Nm)  
 - $I$: Moment of inertia (kg·m²)  
@@ -297,19 +321,20 @@ F = m a
 
 To rotate a body with **friction torque** $\tau_f$:
 
- $$ 
+$$ 
 \tau_{\text{net}} = I \alpha + \tau_f
- $$ 
+$$ 
 
 A spinning disk induces a **reaction torque**:
 
- $$ 
+$$ 
 \tau_{\text{reaction}} = -I \alpha
- $$ 
+$$ 
+
+Note the correspondence of linear vs angular motion parameters. 
 
 
-
-## ⚙️ Moment of Inertia
+### Moment of Inertia
 
 For a **solid disk** of mass $m$ and radius $r$, rotating about its center:
 
@@ -345,11 +370,11 @@ I_{\text{total}} = I_1 + I_2 + \dots + I_n = \sum_{i=1}^n I_i
 🔗 [Wikipedia: Moment of Inertia](https://en.wikipedia.org/wiki/Moment_of_inertia)
 
 
-### 🧪 Measuring Moment of Inertia in the Lab
+**Measuring Moment of Inertia in the Lab**
 
 The **moment of inertia** of an object can be determined experimentally using various methods. One simple and effective method is the **torsional pendulum** or **rotational acceleration method**.
 
-#### 🌀 Method 1: Torsional Oscillation
+**Method 1: Torsional Oscillation**
 
 1. **Suspend** the object from a thin wire or torsion spring, allowing it to rotate freely about a vertical axis.
 2. **Measure the period** $T$ of small-angle oscillations.
@@ -365,7 +390,7 @@ The **moment of inertia** of an object can be determined experimentally using va
    - $T$ is the oscillation period,
    - $k$ is the torsional stiffness.
 
-#### ⚙️ Method 2: Angular Acceleration
+**Method 2: Angular Acceleration**
 
 1. Apply a **known torque** $\tau$ (e.g., via a hanging mass and pulley).
 2. Measure the resulting **angular acceleration** $\alpha$ (using a rotary encoder or sensor).
@@ -379,22 +404,10 @@ The **moment of inertia** of an object can be determined experimentally using va
 
 ---
 
-## ⚡ Power conversion
+### Energy of Rotation and Power conversion
 
-In a rotating system, energy and power are governed by the following key relations:
+In a rotating system, energy and power are governed by the following key relations.
 
-### 🔁 Rotational Power
-The **mechanical power** delivered to or from a rotating body is:
-
- $$ 
-P_{\text{mech}} = \tau \cdot \omega
- $$ 
-
-where:
-- $\tau$ is the torque (in N·m),
-- $\omega$ is the angular velocity (in rad/s).
-
-### 🔋 Kinetic Energy of Rotation
 The **rotational kinetic energy** of a spinning body is:
 
  $$ 
@@ -405,29 +418,34 @@ where:
 - $I$ is the moment of inertia (in kg·m²),
 - $\omega$ is the angular velocity (in rad/s).
 
+The **mechanical power** delivered to or from a rotating body is:
 
-### ⚡ Power conversion
+ $$ 
+P_{\text{mech}} = \tau \cdot \omega
+ $$ 
+
+where:
+- $\tau$ is the torque (in N·m),
+- $\omega$ is the angular velocity (in rad/s).
 
 In electromechanical systems (e.g. DC motor + disk), the mechanical power must come from electrical input power. If $\eta$ is the efficiency of conversion:
 
- $$ 
+$$ 
 P_{\text{elec}} = \frac{P_{\text{mech}}}{\eta}
- $$ 
+$$ 
 
 and
 
- $$ 
+$$ 
 P_{\text{elec}} = V \cdot I
- $$ 
+$$ 
 
 where:
 - $V$ is the supply voltage (in volts),
 - $I$ is the current (in amperes),
 - $\eta$ is the efficiency (e.g. 0.8 for 80%).
 
----
-
-### 🔢 Numerical Example
+**Numerical Example**
 
 Let’s consider a **solid disk** with:
 - mass $m = 1$ kg,
@@ -436,21 +454,21 @@ Let’s consider a **solid disk** with:
 - angular acceleration $\alpha = 2\pi$ rad/s²,
 - efficiency $\eta = 0.8$.
 
-#### 1. Moment of Inertia of the Disk:
+1. Moment of Inertia of the Disk:
 
  $$ 
 I = \frac{1}{2} m r^2 = \frac{1}{2} \cdot 1 \cdot (0.05)^2 = 0.00125 \ kg·m^2
  $$ 
 
 
-#### 2. Kinetic Energy of Rotation:
+2. Kinetic Energy of Rotation:
 
  $$ 
 E_{\text{rot}} = \frac{1}{2} I \omega^2 = \frac{1}{2} \cdot 0.00125 \cdot (2\pi)^2 \approx 0.049 \ \text{J}
  $$ 
 
 
-#### 3. Required Torque:
+3. Required Torque:
 Assuming angular acceleration $\alpha = 2\pi$ rad/s²:
 
  $$ 
@@ -458,14 +476,14 @@ Assuming angular acceleration $\alpha = 2\pi$ rad/s²:
  $$ 
 
 
-#### 4. Mechanical Power:
+4. Mechanical Power:
 
  $$ 
 P_{\text{mech}} = \tau \cdot \omega = 0.00785 \cdot 2\pi \approx 0.049 \ \text{W}
  $$ 
 
 
-#### 5. Electrical Power Required:
+5. Electrical Power Required:
 With 80% efficiency:
 
  $$ 
@@ -476,7 +494,7 @@ P_{\text{elec}} = \frac{P_{\text{mech}}}{\eta} = \frac{0.049}{0.8} \approx 0.061
 > 🔧 This example highlights the relevance of inertia and torque in system design. Note also that the power levels required to drive mechanical motion are typically beyond what basic microcontrollers can provide, and as such it is required to use a transistor based driver circuit between the Arduino and the Dc motors. 
 
 
-## 🔌 DC Motor Basics
+###  DC Motor Basics
 
 DC motors convert electrical energy into mechanical torque and rotational motion. The fundamental equations are:
 
@@ -502,7 +520,7 @@ Where:
 - $k_e$: back-EMF constant (V·s/rad)  
 - $R$: motor coil resistance (Ω)
 
-## 📄 Typical Motor Parameters
+#### Typical Parameters
 
 To correctly simulate and use a DC motor in a control system, you must know or estimate the following key parameters:
 
@@ -530,7 +548,7 @@ From these, you can compute:
 - $k_t = \tau_{\text{stall}} / I_{\text{stall}}$
 - $k_e = V_{\text{free}} / \omega_{\text{free}}$
   
-### ⚠️ Trade-Offs in Motor Selection
+#### Trade-Offs in Motor Selection
 
 The performance of a DC motor is a balance between torque and speed. Key considerations:
 - Higher torque → requires more current.
@@ -540,11 +558,11 @@ The performance of a DC motor is a balance between torque and speed. Key conside
 
 > ⚠️ Always respect **maximum ratings**: exceeding current, voltage, or power may permanently damage the motor.
 
-## ⚙️ Gears
+#### Gears
 
 Gears can be used to **adapt motor output** to desired speed and torque levels.
 
-### 📐 Basic Gear Equations
+**Basic Gear Equations**
 
 - Gear ratio:  
 - 
@@ -568,7 +586,7 @@ Gears can be used to **adapt motor output** to desired speed and torque levels.
    $$ 
 
 
-### ⚙️ Why Use Gears?
+**Why Use Gears?**
 
 - **Increase torque** at the cost of lower speed.
 - **Reduce load** on the motor to avoid overheating.
@@ -576,7 +594,7 @@ Gears can be used to **adapt motor output** to desired speed and torque levels.
 
 **Pulleys (with belts)** provide similar mechanical advantages as gears.They are quieter than gears, and the distance between shafts is more flexible, so systems with pulleys and belts they are more simple to design and align. At the same time, they are less precise (risk of belt slippage), and limited to moderate torque applications.
 
-### 🛠️ Example: Gear Matching
+**Example: Gear Matching**
 
 Suppose your pendulum needs:
 - Torque of $0.1$ N·m
@@ -604,7 +622,7 @@ This brings output torque up to $0.1$ N·m, and reduces speed to:
 
 ---
 
-## 🧭 Magnetic Position Sensor (AS5600)
+### Magnetic Position Sensor (AS5600)
 
 - Contactless rotary sensor using a magnetic field.
 - Measures absolute angle with high resolution.
@@ -615,11 +633,11 @@ This brings output torque up to $0.1$ N·m, and reduces speed to:
 ---
 
 
-## 🎛 Control Systems
+### Control Systems
 
 A control system aims to keep the pendulum balanced using feedback.
 
-### Main Elements
+Main Elements
 
 - **Plant**: The physical system to be controlled (e.g., pendulum)
 - **Controller**: Algorithm producing control signals
@@ -627,11 +645,11 @@ A control system aims to keep the pendulum balanced using feedback.
 - **Actuator**: Applies control input (motor)
 - **Feedback**: Uses sensor data to adjust behavior
 
-### Feedback Control
+Feedback Control
 
 Continuously reduces error by adjusting inputs based on outputs.
 
-### Controllers
+#### Controllers
 
 - **Bang-bang**: All-or-nothing control; fast but unstable.
 - **PID**: Combines:
@@ -649,7 +667,7 @@ Continuously reduces error by adjusting inputs based on outputs.
   where $x$ is the system state and $K$ is the gain matrix.
 
 
-## 🔧 Arduino System Integration
+### System Integration with Arduino
 
 Arduino microcontrollers are widely used for real-time control systems due to their simplicity, low cost, and large ecosystem of libraries and tutorials. In this project, the Arduino is responsible for:
 
@@ -657,7 +675,7 @@ Arduino microcontrollers are widely used for real-time control systems due to th
 - Running the control algorithm (Bang-Bang, PID, or LQR)
 - Sending the command to the motor driver to actuate the reaction wheel
 
-### 🔌 Typical Setup Components
+**Typical Setup Components**
 
 - **Microcontroller**: Arduino Uno / Nano / Mega  
 - **Sensor**: AS5600 magnetic rotary position sensor (via I2C)  
@@ -665,7 +683,7 @@ Arduino microcontrollers are widely used for real-time control systems due to th
 - **Power supply**: Appropriate for motor and controller (check ratings!)  
 - **Other**: Wires, resistors, capacitors, breadboards or PCBs  
 
-### 📤 Migrating from Python Simulation to Arduino Deployment
+#### Migrating from Python Simulation to Arduino Deployment
 
 In your development process, you will first simulate the control system (e.g., pendulum dynamics and reaction wheel behavior) using Python. This allows you to:
 
@@ -777,65 +795,10 @@ void loop() {
 ```
 
 
+## Architectures
 
 
-
-# Modelling
-
-
-
-
-
-
-
-# Simulation
-
-This project simulates the dynamics of a Reaction Wheel Inverted Pendulum.
-
- and includes controllers such as LQR and a Bang-bang controller.
-## Getting Started
-
-### Prerequisites
-
-Ensure you have the following dependencies installed:
-
-- `numpy`
-- `pygame`
-- `matplotlib`
-- `PyQt5`
-- `pygetwindow`
-- `pyaudio`
-- `threading`
-- `control` (install via `pip install control`)
-
-### Installation
-
-Clone the repository and install the dependencies:
-
-```bash
-git clone https://github.com/B-Paweekorn/Reaction-wheel-inverted-pendulum.git
-cd Reaction-wheel-inverted-pendulum
-pip install -r requirements.txt
-```
-
-<br>
-
-## Usage
-
-![Image of the program](https://github.com/B-Paweekorn/Reaction-wheel-inverted-pendulum/assets/47713359/e2ff45d4-bfb2-4831-9ec9-334b88f8ff77)
-
-**Inject** - Type the amount of torque into the box and click `INJECT` or ENTER key to inject a disturbance to the system
-
-**Reset** - Click `RESET` to reset the system
-
-**Plotting** - Click on the pendulum plot or the plot window to plot the data
-
-Edit the parameters in ```param.py```
-
-<br>
-
-## Methodology
-### System Modeling
+## Modelling
 
 The simulation involves modeling the dynamics of a Reaction Wheel Inverted Pendulum (RWIP) system. The key components include:
 
@@ -977,6 +940,56 @@ The swing up control routine and the stabilizing control routine are switched be
 &nbsp;&nbsp; <img src="https://github.com/B-Paweekorn/Reaction-wheel-inverted-pendulum/assets/122732439/79e6d6d3-9ab2-49eb-a58b-3ad10a96a96b" width="480">
 
 - **Brake Controller**: Used as reduced energy of RWIP when RWIP have too much energy for stabilze
+
+
+
+
+## Simulation
+
+This project simulates the dynamics of a Reaction Wheel Inverted Pendulum and includes controllers such as LQR and a Bang-bang controller.
+
+### Getting Started
+
+### Prerequisites
+
+Ensure you have the following dependencies installed:
+
+- `numpy`
+- `pygame`
+- `matplotlib`
+- `PyQt5`
+- `pygetwindow`
+- `pyaudio`
+- `threading`
+- `control` (install via `pip install control`)
+
+### Installation
+
+Clone the repository and install the dependencies:
+
+```bash
+git clone https://github.com/B-Paweekorn/Reaction-wheel-inverted-pendulum.git
+cd Reaction-wheel-inverted-pendulum
+pip install -r requirements.txt
+```
+
+<br>
+
+### Usage
+
+![Image of the program](https://github.com/B-Paweekorn/Reaction-wheel-inverted-pendulum/assets/47713359/e2ff45d4-bfb2-4831-9ec9-334b88f8ff77)
+
+**Inject** - Type the amount of torque into the box and click `INJECT` or ENTER key to inject a disturbance to the system
+
+**Reset** - Click `RESET` to reset the system
+
+**Plotting** - Click on the pendulum plot or the plot window to plot the data
+
+Edit the parameters in ```param.py```
+
+<br>
+
+
 ### Sound Generation
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; The simulation incorporates sound generation related to the speed of the reaction wheel. This feature adds an auditory element to the simulation, enhancing the user experience.
@@ -1056,17 +1069,9 @@ Max Disturbance : **8.05 Nm**
 
 
 
-# Implementation
+## Implementation
 
-# Analysis
-
-
-
-
-## Acknowledgments
-
-
-
+## Analysis
 
 ## Reference
 

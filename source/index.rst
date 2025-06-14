@@ -78,16 +78,22 @@ Content
    :caption: Introduction 
 
    introduction/readme.ipynb
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Teoria
+
+   teoria/readme.ipynb
  
 .. toctree::
    :maxdepth: 1
-   :caption: Project 1 
+   :caption: Projeto 1 
 
    project1/readme.ipynb
 
 .. toctree::
    :maxdepth: 1
-   :caption: Project 2 
+   :caption: Projeto 2
 
    project2/readme.ipynb
 
@@ -108,6 +114,7 @@ Content
    :caption: Resources
    
    resources/readme.ipynb
+   tutorials/readme.ipynb
 
 .. toctree::
    :maxdepth: 1

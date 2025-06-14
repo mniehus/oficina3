@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>COIL Project: Inverted Pendulum on a Reaction Wheel &mdash; oficina3  documentation</title>
+  <title>COIL Project: Inverted Pendulum with Reaction Wheel &mdash; oficina3  documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
 
@@ -47,128 +47,70 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../introduction/readme.html">Introduction</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Project 1</span></p>
+<p class="caption" role="heading"><span class="caption-text">Teoria</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../teoria/readme.html">Teoria</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Projeto 1</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../project1/readme.html">Aeropendulum</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Project 2</span></p>
+<p class="caption" role="heading"><span class="caption-text">Projeto 2</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../project2/readme.html">Zumo-32U4</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Project 3</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">COIL Project: Inverted Pendulum on a Reaction Wheel</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#project-scope">Project Scope</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#learning-objectives">Learning Objectives</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#what-is-a-coil">What is a COIL?</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#week-by-week-collaboration-plan">🌍 Week-by-Week Collaboration Plan</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#week-1-kickoff-icebreakers">Week 1: Kickoff &amp; Icebreakers</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#week-2-system-understanding-conceptual-study">Week 2: System Understanding &amp; Conceptual Study</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#week-3-planning-simulation">Week 3: Planning &amp; Simulation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#week-4-implementation-analysis">Week 4: Implementation &amp; Analysis</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#final-session-reflection-presentation">Final Session: Reflection &amp; Presentation</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">COIL Project: Inverted Pendulum with Reaction Wheel</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#introduction">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#collaboration-plan">Collaboration Plan</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#tools">Tools</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#hardware">Hardware</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#software">Software</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#overview">Overview</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#the-inverted-pendulum">🪄 The Inverted Pendulum</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#real-world-examples">📌 Real-World Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#technical-overview">Technical Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#fundamentals">Fundamentals</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#kinematics-linear-vs-angular-motion">Kinematics: Linear vs. Angular Motion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#newtons-laws-for-linear-motion">Newton’s Laws for Linear Motion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#newtons-laws-for-rotational-motion">Newton’s Laws for Rotational Motion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#moment-of-inertia">Moment of Inertia</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#energy-of-rotation-and-power-conversion">Energy of Rotation and Power conversion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dc-motor-basics">DC Motor Basics</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#typical-parameters">Typical Parameters</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#trade-offs-in-motor-selection">Trade-Offs in Motor Selection</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gears">Gears</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#the-reaction-wheel">🔁 The Reaction Wheel</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#why-is-this-important">🎯 Why is This Important?</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#educational-value">📚 Educational Value</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#magnetic-position-sensor-as5600">Magnetic Position Sensor (AS5600)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#control-systems">Control Systems</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#controllers">Controllers</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#main-components">🔧 Main Components</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#project-workflow">🧪 Project Workflow</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="#tools">Tools</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#computational-tools">💻 Computational Tools</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#hardware-implementation-tools">🧩 Hardware &amp; Implementation Tools</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#tools-to-create-stl-files">Tools to Create <code class="docutils literal notranslate"><span class="pre">.stl</span></code> Files</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#electrical-component-characterization">📊 Electrical Component Characterization</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#file-data-formats">📁 File &amp; Data Formats</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#documentation-final-dossier">📘 Documentation &amp; Final Dossier</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="#concepts">Concepts</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#kinematics-linear-vs-angular-motion">🔁 Kinematics: Linear vs. Angular Motion</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#newtons-laws">🧮 Newton’s Laws</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#linear-motion">Linear Motion</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#rotational-motion">Rotational Motion</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#moment-of-inertia">⚙️ Moment of Inertia</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#measuring-moment-of-inertia-in-the-lab">🧪 Measuring Moment of Inertia in the Lab</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#method-1-torsional-oscillation">🌀 Method 1: Torsional Oscillation</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#method-2-angular-acceleration">⚙️ Method 2: Angular Acceleration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#system-integration-with-arduino">System Integration with Arduino</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#migrating-from-python-simulation-to-arduino-deployment">Migrating from Python Simulation to Arduino Deployment</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#power-conversion">⚡ Power conversion</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#rotational-power">🔁 Rotational Power</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#kinetic-energy-of-rotation">🔋 Kinetic Energy of Rotation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id1">⚡ Power conversion</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#numerical-example">🔢 Numerical Example</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#moment-of-inertia-of-the-disk">1. Moment of Inertia of the Disk:</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id2">2. Kinetic Energy of Rotation:</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#required-torque">3. Required Torque:</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#mechanical-power">4. Mechanical Power:</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#electrical-power-required">5. Electrical Power Required:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#architectures">Architectures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#modelling">Modelling</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#rwip-parameter">RWIP Parameter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#kinetic-energy">Kinetic Energy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#potential-energy">Potential Energy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#lagrange-method">Lagrange Method</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mathematical-equations-of-rwip-is-described-as">Mathematical equations of RWIP is described as</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#brushed-dc-motor-parameter">Brushed DC Motor Parameter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#electrical-part">Electrical part</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mechanical-part">Mechanical Part</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id1">Controllers</a></li>
 </ul>
 </li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#dc-motor-basics">🔌 DC Motor Basics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#typical-motor-parameters">📄 Typical Motor Parameters</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#trade-offs-in-motor-selection">⚠️ Trade-Offs in Motor Selection</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#gears">⚙️ Gears</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#basic-gear-equations">📐 Basic Gear Equations</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#why-use-gears">⚙️ Why Use Gears?</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#example-gear-matching">🛠️ Example: Gear Matching</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#magnetic-position-sensor-as5600">🧭 Magnetic Position Sensor (AS5600)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#control-systems">🎛 Control Systems</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#main-elements">Main Elements</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#feedback-control">Feedback Control</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#controllers">Controllers</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#arduino-system-integration">🔧 Arduino System Integration</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#typical-setup-components">🔌 Typical Setup Components</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#migrating-from-python-simulation-to-arduino-deployment">📤 Migrating from Python Simulation to Arduino Deployment</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="#modelling">Modelling</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#simulation">Simulation</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#getting-started">Getting Started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#simulation">Simulation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#getting-started">Getting Started</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#prerequisites">Prerequisites</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#installation">Installation</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#usage">Usage</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#methodology">Methodology</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#system-modeling">System Modeling</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#rwip-parameter">RWIP Parameter</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#kinetic-energy">Kinetic Energy</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#potential-energy">Potential Energy</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#lagrange-method">Lagrange Method</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#mathematical-equations-of-rwip-is-described-as">Mathematical equations of RWIP is described as</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#brushed-dc-motor-parameter">Brushed DC Motor Parameter</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#electrical-part">Electrical part</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#mechanical-part">Mechanical Part</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#id3">Controllers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#usage">Usage</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#sound-generation">Sound Generation</a></li>
 </ul>
 </li>
@@ -176,11 +118,8 @@
 <li class="toctree-l3"><a class="reference internal" href="#conclusion">Conclusion</a></li>
 </ul>
 </li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="#implementation">Implementation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#analysis">Analysis</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#acknowledgments">Acknowledgments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#implementation">Implementation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#analysis">Analysis</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#reference">Reference</a></li>
 </ul>
 </li>
@@ -192,6 +131,7 @@
 <p class="caption" role="heading"><span class="caption-text">Resources</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../resources/readme.html">Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/readme.html">Aeropendulum</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Demos</span></p>
 <ul>
@@ -212,7 +152,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">COIL Project: Inverted Pendulum on a Reaction Wheel</li>
+      <li class="breadcrumb-item active">COIL Project: Inverted Pendulum with Reaction Wheel</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/project3/readme.md.txt" rel="nofollow"> View page source</a>
       </li>
@@ -222,16 +162,14 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="coil-project-inverted-pendulum-on-a-reaction-wheel">
-<h1>COIL Project: Inverted Pendulum on a Reaction Wheel<a class="headerlink" href="#coil-project-inverted-pendulum-on-a-reaction-wheel" title="Link to this heading"></a></h1>
+  <section id="coil-project-inverted-pendulum-with-reaction-wheel">
+<h1>COIL Project: Inverted Pendulum with Reaction Wheel<a class="headerlink" href="#coil-project-inverted-pendulum-with-reaction-wheel" title="Link to this heading"></a></h1>
 <p>This COIL project brings together students from Lisbon Polytechnical University (Portugal) and Amsterdam University of Applied Sciences (Netherlands) in a shared, hands-on learning experience rooted in applied physics and engineering.</p>
-<section id="project-scope">
-<h2>Project Scope<a class="headerlink" href="#project-scope" title="Link to this heading"></a></h2>
+<section id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Link to this heading"></a></h2>
 <p>Over a four-week period, mixed international student teams will collaborate to <strong>design, simulate, and implement a reaction-wheel inverted pendulum</strong> — a classic control systems challenge with applications in robotics and aerospace.</p>
 <p>The goal is to combine theoretical analysis, computational modeling, and practical design, all while engaging in international teamwork and intercultural exchange.</p>
-</section>
-<section id="learning-objectives">
-<h2>Learning Objectives<a class="headerlink" href="#learning-objectives" title="Link to this heading"></a></h2>
+<p><strong>Learning Objectives</strong></p>
 <ul class="simple">
 <li><p>Apply principles of classical mechanics, control theory, and embedded systems.</p></li>
 <li><p>Simulate dynamic behavior of the pendulum system using Python.</p></li>
@@ -239,93 +177,32 @@
 <li><p>Develop technical, communication, and project management skills.</p></li>
 <li><p>Reflect on engineering practices in a global context.</p></li>
 </ul>
-</section>
-<section id="what-is-a-coil">
-<h2>What is a COIL?<a class="headerlink" href="#what-is-a-coil" title="Link to this heading"></a></h2>
-<p><strong>COIL</strong> stands for <strong>Collaborative Online International Learning</strong>. It’s a teaching method that connects courses from different countries through online, project-based collaboration. In a COIL module, two or more instructors co-design and co-teach a shared activity where students work in mixed international teams to complete authentic tasks and reflect on intercultural learning.</p>
+<p><strong>What is a COIL?</strong>
+<strong>COIL</strong> stands for <strong>Collaborative Online International Learning</strong>. It’s a teaching method that connects courses from different countries through online, project-based collaboration. In a COIL module, two or more instructors co-design and co-teach a shared activity where students work in mixed international teams to complete authentic tasks and reflect on intercultural learning.</p>
 <p><a class="reference external" href="https://ureka.eu/how-to-coil-collaborative-online-international-learning-coil/">How to COIL (Collaborative Online International Learning)</a></p>
-</section>
-<section id="week-by-week-collaboration-plan">
-<h2>🌍 Week-by-Week Collaboration Plan<a class="headerlink" href="#week-by-week-collaboration-plan" title="Link to this heading"></a></h2>
-<section id="week-1-kickoff-icebreakers">
-<h3>Week 1: Kickoff &amp; Icebreakers<a class="headerlink" href="#week-1-kickoff-icebreakers" title="Link to this heading"></a></h3>
-<ul class="simple">
-<li><p>Meet your international teammates (Zoom or Teams).</p></li>
-<li><p>Participate in structured icebreaker activities.</p></li>
-<li><p>Share backgrounds, expectations, and technical interests.</p></li>
-<li><p>Set up tools: VS Code, Python, GitHub, shared folders.</p></li>
-</ul>
-</section>
-<section id="week-2-system-understanding-conceptual-study">
-<h3>Week 2: System Understanding &amp; Conceptual Study<a class="headerlink" href="#week-2-system-understanding-conceptual-study" title="Link to this heading"></a></h3>
-<ul class="simple">
-<li><p>Study the inverted pendulum and reaction wheel system.</p></li>
-<li><p>Identify key physical and control concepts (e.g. torque, moment of inertia, stability).</p></li>
-<li><p>Analyze reference materials and clarify goals.</p></li>
-</ul>
-</section>
-<section id="week-3-planning-simulation">
-<h3>Week 3: Planning &amp; Simulation<a class="headerlink" href="#week-3-planning-simulation" title="Link to this heading"></a></h3>
-<ul class="simple">
-<li><p>Define system requirements and control objectives.</p></li>
-<li><p>Distribute roles within the team (e.g. modeling, coding, documentation).</p></li>
-<li><p>Develop and test Python simulations of the system.</p></li>
-<li><p>Compare open-loop and closed-loop behavior.</p></li>
-</ul>
-</section>
-<section id="week-4-implementation-analysis">
-<h3>Week 4: Implementation &amp; Analysis<a class="headerlink" href="#week-4-implementation-analysis" title="Link to this heading"></a></h3>
-<ul class="simple">
-<li><p>Finalize and run the simulation with realistic parameters.</p></li>
-<li><p>Debug and document the system’s response.</p></li>
-<li><p>Discuss and analyze results across teams.</p></li>
-<li><p>Prepare joint presentations.</p></li>
-</ul>
-</section>
-<section id="final-session-reflection-presentation">
-<h3>Final Session: Reflection &amp; Presentation<a class="headerlink" href="#final-session-reflection-presentation" title="Link to this heading"></a></h3>
-<ul class="simple">
-<li><p>Present each team’s technical approach and outcomes.</p></li>
-<li><p>Reflect on the technical, intercultural, and collaborative aspects of the project.</p></li>
-<li><p>Share feedback with your peers and instructors.</p></li>
-<li><p>Discuss potential real-world applications and next steps.</p></li>
-</ul>
-<hr class="docutils" />
-<p>💡 <em>Tip: Keep a team logbook and schedule short weekly check-ins for smooth collaboration.</em></p>
-</section>
-</section>
-<section id="overview">
-<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading"></a></h2>
-<p>A <strong>Reaction Wheel Inverted Pendulum</strong> is a complex mechanical system designed to balance an upright pendulum using a rotating disk (the <em>reaction wheel</em>) rather than moving a base. The goal is to control the wheel’s angular momentum to stabilize the pendulum in an upright position.</p>
+<p><strong>What is a Reaction Wheel Inverted Pendulum?</strong>
+A <strong>Reaction Wheel Inverted Pendulum</strong> is a complex mechanical system designed to balance an upright pendulum using a rotating disk (the <em>reaction wheel</em>, often being called a <strong>Fly-Wheel</strong>). The goal is to control the wheel’s angular momentum to stabilize the pendulum in an upright position.</p>
 <p><img alt="Reaction Wheel Inverted Pendulum" src="../_images/system.png" /></p>
-<section id="the-inverted-pendulum">
-<h3>🪄 The Inverted Pendulum<a class="headerlink" href="#the-inverted-pendulum" title="Link to this heading"></a></h3>
 <p>An <strong>inverted pendulum</strong> is a pendulum balanced in its unstable upright position — like trying to keep a stick standing vertically on your fingertip. It is a classical example of an unstable system that requires active <strong>control</strong> to maintain balance.</p>
-<section id="real-world-examples">
-<h4>📌 Real-World Examples<a class="headerlink" href="#real-world-examples" title="Link to this heading"></a></h4>
+<p><strong>Real-World Examples</strong></p>
 <ul class="simple">
 <li><p>A <strong>Segway</strong> balancing on two wheels</p></li>
 <li><p>A <strong>rocket</strong> stabilizing itself during launch</p></li>
 <li><p>A <strong>human</strong> standing upright, continuously adjusting posture</p></li>
 </ul>
 <p>In our case, the pendulum starts hanging downward (its stable position) and must first <strong>swing up</strong>, then be <strong>stabilized upright</strong> — even when subjected to unknown disturbances (like small external pushes).</p>
-</section>
-</section>
-<hr class="docutils" />
-<section id="the-reaction-wheel">
-<h3>🔁 The Reaction Wheel<a class="headerlink" href="#the-reaction-wheel" title="Link to this heading"></a></h3>
-<p>Instead of using a laterally moving base (like in a cart-pendulum), the system uses a <strong>reaction wheel</strong>:</p>
+<p>The system uses a <strong>reaction wheel</strong>, rather than a laterally moving base (like in a cart-pendulum):</p>
 <ul class="simple">
-<li><p>A <strong>rotating disk</strong> mounted on the pendulum, driven by a <strong>DC motor</strong></p></li>
-<li><p>According to <strong>Newton’s laws of motion</strong>, a change in the wheel’s angular velocity creates a <strong>reaction torque</strong></p></li>
+<li><p>It consists of a <strong>rotating rigid disk or wheel</strong> which is mounted on the pendulums arm.</p></li>
+<li><p>The axis of rotation of <strong>reaction wheel</strong> and <strong>pendulum</strong> are <strong>co-linear</strong>.</p></li>
+<li><p>The wheel is driven by <strong>DC motor</strong> which is attached directly, or through a system of gears or pulley and belts.</p></li>
+<li><p>According to <strong>Newton’s laws of motion</strong>, a <strong>change</strong> in the wheel’s angular velocity creates a <strong>reaction torque</strong></p></li>
 <li><p>This torque can be used to adjust the angle of the pendulum</p></li>
 </ul>
 <p>Thus, the pendulum can be brought upright and kept balanced using only the internal motion of the wheel.</p>
-</section>
 <hr class="docutils" />
-<section id="why-is-this-important">
-<h3>🎯 Why is This Important?<a class="headerlink" href="#why-is-this-important" title="Link to this heading"></a></h3>
-<p>This is more than a mechanical challenge — it’s a <strong>control engineering problem</strong>.</p>
+<p><strong>Why is This Important?</strong>
+This is more than a mechanical challenge — it’s a <strong>control engineering problem</strong>.</p>
 <ul class="simple">
 <li><p>The goal is not just to make it work, but to <strong>optimize</strong> it:</p>
 <ul>
@@ -346,11 +223,7 @@
 </ul>
 </li>
 </ul>
-</section>
-<hr class="docutils" />
-<section id="educational-value">
-<h3>📚 Educational Value<a class="headerlink" href="#educational-value" title="Link to this heading"></a></h3>
-<p>This project combines physics, mechanics, electronics, and software with real-world constraints — an ideal platform to learn:</p>
+<p>As such, the project combines physics, mechanics, electronics, and software with real-world constraints — an ideal platform to learn:</p>
 <ul class="simple">
 <li><p>Dynamics and modeling of unstable systems</p></li>
 <li><p>Sensor and actuator integration</p></li>
@@ -360,134 +233,151 @@
 </ul>
 <p>It’s a hands-on way to understand <strong>how to design, simulate, build, and control</strong> a dynamic system — a core challenge in modern engineering.</p>
 </section>
-</section>
-<section id="main-components">
-<h2>🔧 Main Components<a class="headerlink" href="#main-components" title="Link to this heading"></a></h2>
+<section id="collaboration-plan">
+<h2>Collaboration Plan<a class="headerlink" href="#collaboration-plan" title="Link to this heading"></a></h2>
+<p>This project brings together international student teams to model, simulate, implement, and control a Reaction Wheel Inverted Pendulum (RWIP). The goal is to explore both technical and collaborative challenges in control engineering through simulation and physical implementation.</p>
+<hr class="docutils" />
+<p><strong>Week 1: Kickoff &amp; Icebreakers</strong></p>
 <ul class="simple">
-<li><p><strong>Pendulum</strong>: A rigid arm that pivots at its base and must be balanced vertically.</p></li>
-<li><p><strong>Reaction Wheel</strong>: A rotating mass driven by a motor, mounted on the pendulum. It creates a counteracting torque to stabilize the system.</p></li>
-<li><p><strong>Controller</strong>: Software that measures the system’s state (e.g., angle and angular velocity) and determines how to drive the wheel to maintain balance.</p></li>
+<li><p>Meet your international teammates (via Zoom or Teams).</p></li>
+<li><p>Participate in structured icebreaker activities.</p></li>
+<li><p>Share backgrounds, expectations, and technical interests.</p></li>
+<li><p>Set up collaborative tools: VS Code, Python, GitHub, shared folders.</p></li>
+<li><p>Begin reading reference material on inverted pendulums and reaction wheels.</p></li>
 </ul>
-</section>
-<section id="project-workflow">
-<h2>🧪 Project Workflow<a class="headerlink" href="#project-workflow" title="Link to this heading"></a></h2>
-<ol class="arabic simple">
-<li><p><strong>Parameter Assignment</strong><br />
-Each team works with a unique set of parameters (e.g., pendulum length, mass, wheel inertia, controller parameters, etc).</p></li>
-<li><p><strong>Simulation Phase</strong></p>
+<p>💡 <em>Tip: Keep a shared team logbook and schedule weekly check-ins.</em></p>
+<hr class="docutils" />
+<p><strong>Week 2: System Understanding &amp; Parameter Assignment</strong></p>
 <ul class="simple">
-<li><p>Explore the system dynamics in a Python simulation.</p></li>
-<li><p>Identify stable and unstable regions in the parameter space.</p></li>
-<li><p>Evaluate control strategies under different conditions.</p></li>
+<li><p>Study the inverted pendulum and reaction wheel system.</p></li>
+<li><p>Identify key physical and control concepts: torque, moment of inertia, stability.</p></li>
+<li><p>Assign unique parameter sets to each team (e.g., pendulum length, mass, motor power, wheel inertia).</p></li>
+<li><p>Clarify technical goals and system constraints.</p></li>
+<li><p>Start drafting control objectives.</p></li>
 </ul>
-</li>
-<li><p><strong>Implementation Phase</strong></p>
+<hr class="docutils" />
+<p><strong>Week 3: Simulation &amp; Strategy Development</strong></p>
 <ul class="simple">
-<li><p>Build the pendulum and wheel using available materials (e.g., 3D printed parts, hardware store components).</p></li>
-<li><p>Assemble and wire the system with sensors and actuators.</p></li>
-<li><p>Characterize real-world component parameters (mass, friction, motor limits).</p></li>
-</ul>
-</li>
-<li><p><strong>Control Strategy</strong></p>
-<ul class="simple">
-<li><p>Use a <strong>bang-bang controller</strong> to swing the pendulum up.</p></li>
-<li><p>Once upright, stabilize it using either:</p>
+<li><p>Build Python simulations of the RWIP system.</p></li>
+<li><p>Explore system dynamics (e.g., swing-up vs. stabilization).</p></li>
+<li><p>Identify stable and unstable parameter regions.</p></li>
+<li><p>Test control strategies:</p>
 <ul>
-<li><p><strong>PID controller</strong> (simpler, but may oscillate), or</p></li>
-<li><p><strong>LQR controller</strong> (more stable and optimal — to be discovered through simulation).</p></li>
+<li><p>Open-loop behavior</p></li>
+<li><p>Swing-up with <strong>bang-bang control</strong></p></li>
+<li><p>Stabilization using <strong>PID</strong> and <strong>LQR</strong> controllers</p></li>
 </ul>
 </li>
+<li><p>Compare performance metrics across teams.</p></li>
 </ul>
-</li>
-<li><p><strong>Testing &amp; Comparison</strong></p>
+<hr class="docutils" />
+<p><strong>Week 4: Physical Implementation &amp; Integration</strong></p>
 <ul class="simple">
-<li><p>Compare the real-world system behavior with simulation predictions.</p></li>
-<li><p>Analyze performance metrics (e.g., stability, response time).</p></li>
-<li><p>Reflect on implementation challenges and controller effectiveness.</p></li>
+<li><p>Assemble the RWIP using available materials (e.g., 3D printed parts, hardware components).</p></li>
+<li><p>Integrate sensors (e.g., AS5600 magnetic sensor) and actuators (brushed DC motor).</p></li>
+<li><p>Wire and interface the system with Arduino or compatible microcontroller.</p></li>
+<li><p>Characterize physical properties: friction, inertia, motor constants.</p></li>
+<li><p>Validate component specs vs. datasheets.</p></li>
 </ul>
-</li>
-</ol>
-</section>
+<hr class="docutils" />
+<p><strong>Week 5: Testing, Comparison &amp; Analysis</strong></p>
+<ul class="simple">
+<li><p>Deploy controllers on the Arduino (migrating from Python simulations).</p></li>
+<li><p>Test swing-up and stabilization phases in real conditions.</p></li>
+<li><p>Compare experimental results with simulated predictions.</p></li>
+<li><p>Measure performance: response time, overshoot, stability margins.</p></li>
+<li><p>Evaluate control effectiveness and hardware limitations.</p></li>
+</ul>
+<hr class="docutils" />
+<p><strong>Final Session: Reflection &amp; Presentation</strong></p>
+<ul class="simple">
+<li><p>Present each team’s approach, implementation, and results.</p></li>
+<li><p>Reflect on the technical, intercultural, and collaborative experiences.</p></li>
+<li><p>Share lessons learned and insights into system limitations.</p></li>
+<li><p>Discuss real-world relevance and next steps for further development.</p></li>
+</ul>
+<p><strong>Optional Deliverables</strong>
+Each team should maintain:</p>
+<ul class="simple">
+<li><p>Simulation notebooks (.ipynb)</p></li>
+<li><p>Arduino code (.ino)</p></li>
+<li><p>CAD files (.stl, .step)</p></li>
+<li><p>Data logs (.csv)</p></li>
+<li><p>Diagrams, images, and demo videos (.png, .mp4)</p></li>
+<li><p>-Description of the system and control strategy</p></li>
+<li><p>Simulations and analysis</p></li>
+<li><p>Photographs and diagrams</p></li>
+<li><p>Electrical and mechanical schematics</p></li>
+<li><p>STL files for 3D parts</p></li>
+<li><p>Software architecture diagrams</p></li>
+<li><p>Source code (Python and Arduino)</p></li>
+<li><p>Description of tests and results</p></li>
+<li><p>Short video of system in action</p></li>
+<li><p>Reflections and conclusions</p></li>
+</ul>
+<p>Include all in your team’s final GitHub repository.</p>
+<hr class="docutils" />
+<p>🧭 <em>Remember: Control engineering is not just about making it work — it’s about making it optimal, reliable, and tracable.</em></p>
 </section>
 <section id="tools">
-<h1>Tools<a class="headerlink" href="#tools" title="Link to this heading"></a></h1>
+<h2>Tools<a class="headerlink" href="#tools" title="Link to this heading"></a></h2>
 <p>This project combines software-based simulation with hands-on hardware implementation. Below is a list of the essential tools and components you’ll be working with, as well as the formats and documentation expected for your final report.</p>
-<section id="computational-tools">
-<h2>💻 Computational Tools<a class="headerlink" href="#computational-tools" title="Link to this heading"></a></h2>
+<section id="hardware">
+<h3>Hardware<a class="headerlink" href="#hardware" title="Link to this heading"></a></h3>
 <ul class="simple">
-<li><p><strong>Visual Studio Code (VS Code)</strong><br />
-Main environment for code editing, running Python/Jupyter, and managing Git projects, i.e. tools below can be accessed <strong>directly within VS Code</strong> using extensions.<br />
-👉 https://code.visualstudio.com/</p></li>
-<li><p><strong>Python</strong><br />
-Used for modeling, simulation, and data analysis.<br />
-👉 https://www.python.org/</p></li>
-<li><p><strong>Jupyter Notebooks</strong><br />
-Interactive Python environment combining code, plots, and documentation.<br />
-👉 https://jupyter.org/</p></li>
-<li><p><strong>GitHub</strong><br />
-Version control and collaboration platform.<br />
-👉 https://github.com/</p></li>
-</ul>
-</section>
-<hr class="docutils" />
-<section id="hardware-implementation-tools">
-<h2>🧩 Hardware &amp; Implementation Tools<a class="headerlink" href="#hardware-implementation-tools" title="Link to this heading"></a></h2>
-<ul class="simple">
-<li><p><strong>Arduino (Microcontroller + IDE)</strong></p>
+<li><p><strong>Mechanical workshop tools and materials</strong></p>
 <ul>
-<li><p>Arduino board runs the real-time control logic.</p></li>
-<li><p>The Arduino IDE is used to write and upload <code class="docutils literal notranslate"><span class="pre">.ino</span></code> files.<br />
-👉 https://www.arduino.cc/</p></li>
+<li><p>Use mechanical workshop tools (saw, drill, etc) and materials (wood, bars, tubes, etc.) to manufacture the overall support structure of the system, and to fix the system.</p></li>
 </ul>
 </li>
-<li><p><strong>AS5600 Magnetic Rotary Sensor</strong></p>
+<li><p><strong>3D Printer and filaments</strong></p>
+<ul>
+<li><p>Use 3D printing for custom parts such as wheel mounts, pendulum arms, mechanical joints and gears.</p></li>
+</ul>
+</li>
+<li><p><strong>Rods, bearings and belts</strong></p>
+<ul>
+<li><p>Special components that are hard to manufacture to the required precision, like rods, bearings and belts, can be acquired in specialist shops, e.g. for 3d printers or UAVs or sports equipment, or similar.</p></li>
+</ul>
+</li>
+<li><p><strong>Cabling, Breadboarding, Wiring &amp; Soldering Equipment</strong></p>
+<ul>
+<li><p>Needed to build and connect the system reliably.</p></li>
+</ul>
+</li>
+<li><p><strong>DC Motor (Actuator)</strong></p>
+<ul>
+<li><p>Drives the reaction wheel. Choose components carefully based on ratings.</p></li>
+</ul>
+</li>
+<li><p><strong>DC Power supply</strong></p>
+<ul>
+<li><p>While batteries could do the job, it is highly recommended to use laboratory grade power supplies during development: the power requirements are typically high, and more importantly, a lab grade power supply provides a direct control over the maximum ratings.</p></li>
+</ul>
+</li>
+<li><p><strong>DC Motor Driver Circuit</strong></p>
+<ul>
+<li><p>Drives the reaction wheel. Choose components carefully based on ratings.</p></li>
+</ul>
+</li>
+<li><p><strong>(Sensor) AS5600 Magnetic Rotary Sensor</strong></p>
 <ul>
 <li><p>Precise angle measurement of the pendulum shaft.<br />
 👉 https://www.ams.com/en/as5600</p></li>
 </ul>
 </li>
-<li><p><strong>DC Motor + Motor Driver</strong></p>
+<li><p><strong>Arduino (Microcontroller)</strong></p>
 <ul>
-<li><p>Drives the reaction wheel. Choose components carefully based on ratings.</p></li>
+<li><p>Arduino board that runs the real-time control logic. Any UNO grade microcontroller should do. We recommend to use</p></li>
 </ul>
 </li>
-<li><p><strong>Wiring &amp; Soldering Equipment</strong></p>
+<li><p><strong>Multimeter &amp; Osciloscope</strong></p>
 <ul>
-<li><p>Needed to build and connect the system reliably.</p></li>
-</ul>
-</li>
-<li><p><strong>3D Printing &amp; Mechanical Fabrication</strong></p>
-<ul>
-<li><p>Use 3D printing for custom parts such as wheel mounts and pendulum arms and mechanical joints.</p></li>
-<li><p>Recommended slicer software: <strong>Ultimaker Cura</strong> – to prepare <code class="docutils literal notranslate"><span class="pre">.stl</span></code> files for printing<br />
-👉 https://ultimaker.com/software/ultimaker-cura/</p></li>
+<li><p>Instruments to analyze and characterize the performance of components and the final system</p></li>
 </ul>
 </li>
 </ul>
-<section id="tools-to-create-stl-files">
-<h3>Tools to Create <code class="docutils literal notranslate"><span class="pre">.stl</span></code> Files<a class="headerlink" href="#tools-to-create-stl-files" title="Link to this heading"></a></h3>
-<ul class="simple">
-<li><p><strong>Script-Based Modeling</strong>:</p>
-<ul>
-<li><p><strong>Python for parametric design</strong>: You can use Python to generate 3D models programmatically. A useful library for working with STL files is <a class="reference external" href="https://pypi.org/project/numpy-stl/"><code class="docutils literal notranslate"><span class="pre">numpy-stl</span></code></a>, which allows reading, modifying, and writing STL files using NumPy arrays.</p></li>
-<li><p><strong>OpenSCAD</strong>: A script-based 3D CAD modeler ideal for parametric design. It’s widely used for precise, reproducible models and supports direct STL export.<br />
-👉 https://openscad.org/</p></li>
-</ul>
-</li>
-<li><p><strong>CAD-Based Tools</strong>:</p>
-<ul>
-<li><p><strong>Onshape</strong> (cloud-based CAD) 👉 https://www.onshape.com/</p></li>
-<li><p><strong>Autodesk Fusion 360</strong> 👉 https://www.autodesk.com/products/fusion-360/</p></li>
-<li><p><strong>SolidWorks</strong> (licensed) 👉 https://www.solidworks.com/</p></li>
-</ul>
-</li>
-</ul>
-</section>
-</section>
-<hr class="docutils" />
-<section id="electrical-component-characterization">
-<h2>📊 Electrical Component Characterization<a class="headerlink" href="#electrical-component-characterization" title="Link to this heading"></a></h2>
-<p>You must analyze the behavior and limitations of your electrical components:</p>
+<p>You must know very well the behavior and limitations of your electrical components:</p>
 <ul class="simple">
 <li><p><strong>Key Specs to Review</strong>:</p>
 <ul>
@@ -500,8 +390,37 @@ Version control and collaboration platform.<br />
 </ul>
 </section>
 <hr class="docutils" />
-<section id="file-data-formats">
-<h2>📁 File &amp; Data Formats<a class="headerlink" href="#file-data-formats" title="Link to this heading"></a></h2>
+<section id="software">
+<h3>Software<a class="headerlink" href="#software" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><strong>Visual Studio Code (VS Code)</strong><br />
+Main environment for code editing, running Python/Jupyter, and managing Git projects, i.e. tools below can be accessed <strong>directly within VS Code</strong> using extensions.<br />
+👉 https://code.visualstudio.com/</p></li>
+<li><p><strong>Python</strong><br />
+Used for modeling, simulation, and data analysis.<br />
+👉 https://www.python.org/</p></li>
+<li><p><strong>Jupyter Notebooks</strong><br />
+Interactive Python environment combining code, plots, and documentation.<br />
+👉 https://jupyter.org/</p></li>
+<li><p><strong>GitHub</strong><br />
+Version control and collaboration platform.<br />
+👉 https://github.com/</p>
+<ul>
+<li><p><strong>Arduino (Microcontroller + IDE)</strong></p></li>
+<li><p>The Arduino IDE is used to write and upload <code class="docutils literal notranslate"><span class="pre">.ino</span></code> files.<br />
+👉 https://www.arduino.cc/</p></li>
+<li><p><strong>CAD-Based Tools</strong>:</p></li>
+<li><p><strong>Onshape</strong></p></li>
+<li><p>Cloud-based CAD tool
+👉 https://www.onshape.com/</p></li>
+<li><p><strong>Ultimaker Cura</strong></p></li>
+<li><p>Recommended slicer software to prepare <code class="docutils literal notranslate"><span class="pre">.stl</span></code> files for printing<br />
+👉 https://ultimaker.com/software/ultimaker-cura/</p></li>
+</ul>
+</li>
+</ul>
+<hr class="docutils" />
+<p><strong>Data Formats</strong></p>
 <table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p>Extension</p></th>
@@ -545,28 +464,42 @@ Version control and collaboration platform.<br />
 </tbody>
 </table>
 </section>
+</section>
 <hr class="docutils" />
-<section id="documentation-final-dossier">
-<h2>📘 Documentation &amp; Final Dossier<a class="headerlink" href="#documentation-final-dossier" title="Link to this heading"></a></h2>
-<p>Your <strong>final report</strong> should include:</p>
+<section id="technical-overview">
+<h2>Technical Overview<a class="headerlink" href="#technical-overview" title="Link to this heading"></a></h2>
+<p>A <strong>Reaction Wheel Inverted Pendulum</strong> is a complex mechanical system designed to balance an upright pendulum using a rotating disk (the <em>reaction wheel</em>, often being called a <strong>Fly-Wheel</strong>). The goal is to control the wheel’s angular momentum to stabilize the pendulum in an upright position.</p>
+<p>An <strong>inverted pendulum</strong> is a pendulum balanced in its unstable upright position — like trying to keep a stick standing vertically on your fingertip. It is a classical example of an unstable system that requires active <strong>control</strong> to maintain balance.</p>
+<p><strong>Real-World Examples of inverted pendulum</strong></p>
 <ul class="simple">
-<li><p>Description of the system and control strategy</p></li>
-<li><p>Simulations and analysis</p></li>
-<li><p>Photographs and diagrams</p></li>
-<li><p>Electrical and mechanical schematics</p></li>
-<li><p>STL files for 3D parts</p></li>
-<li><p>Source code (Python and Arduino)</p></li>
-<li><p>Short video of system in action</p></li>
-<li><p>Reflections and conclusions</p></li>
+<li><p>A <strong>Segway</strong> balancing on two wheels</p></li>
+<li><p>A <strong>rocket</strong> stabilizing itself during launch</p></li>
+<li><p>A <strong>human</strong> standing upright, continuously adjusting posture</p></li>
+</ul>
+<p>In our case, the pendulum starts hanging downward (its stable position) and must first <strong>swing up</strong>, then be <strong>stabilized upright</strong> — even when subjected to unknown disturbances (like small external pushes).</p>
+<p>The system uses a <strong>reaction wheel</strong>, rather than a laterally moving base (like in a cart-pendulum):</p>
+<ul class="simple">
+<li><p>It consists of a <strong>rotating rigid disk or wheel</strong> which is attached to the pendulums arm.</p></li>
+<li><p>The axis of rotation of <strong>reaction wheel</strong> and <strong>pendulum</strong> are <strong>co-linear</strong>.</p></li>
+<li><p>The wheel is driven by <strong>DC motor</strong> which is attached directly, or through a system of gears or pulley and belts.</p></li>
+<li><p>According to <strong>Newton’s laws of motion</strong>, a <strong>change</strong> in the wheel’s angular velocity creates a <strong>reaction torque</strong></p></li>
+<li><p>This torque can be used to adjust the angle of the pendulum</p></li>
+</ul>
+<p>Thus, the pendulum can be brought upright and kept balanced using only the internal motion of the wheel.</p>
+<p><img alt="Reaction Wheel Inverted Pendulum" src="../_images/system.png" /></p>
+<p><strong>Components</strong></p>
+<ul class="simple">
+<li><p><strong>Pendulum</strong>: A rigid arm that pivots at its base and must be balanced vertically.</p></li>
+<li><p><strong>Reaction Wheel</strong>: A rotating mass driven by a motor, mounted on the pendulum. It creates a counteracting torque to stabilize the system.</p></li>
+<li><p><strong>Controller</strong>: Software that measures the system’s state (e.g., angle and angular velocity) and determines how to drive the wheel to maintain balance.</p></li>
 </ul>
 </section>
-</section>
-<section id="concepts">
-<h1>Concepts<a class="headerlink" href="#concepts" title="Link to this heading"></a></h1>
+<section id="fundamentals">
+<h2>Fundamentals<a class="headerlink" href="#fundamentals" title="Link to this heading"></a></h2>
 <p>This section introduces the fundamental concepts and equations behind the Reaction Wheel Inverted Pendulum. It combines physics, electromechanics, and control theory.</p>
 <hr class="docutils" />
 <section id="kinematics-linear-vs-angular-motion">
-<h2>🔁 Kinematics: Linear vs. Angular Motion<a class="headerlink" href="#kinematics-linear-vs-angular-motion" title="Link to this heading"></a></h2>
+<h3>Kinematics: Linear vs. Angular Motion<a class="headerlink" href="#kinematics-linear-vs-angular-motion" title="Link to this heading"></a></h3>
 <table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p>Quantity</p></th>
@@ -589,18 +522,10 @@ Version control and collaboration platform.<br />
 </tr>
 </tbody>
 </table>
-<p>For <strong>rolling</strong> objects (<strong>not the case here</strong>), linear and angular quantities are related by the wheel radius $r$:</p>
-<ul class="simple">
-<li><p>$x = r \theta$</p></li>
-<li><p>$v = r \omega$</p></li>
-<li><p>$a = r \alpha$</p></li>
-</ul>
 </section>
 <hr class="docutils" />
-<section id="newtons-laws">
-<h2>🧮 Newton’s Laws<a class="headerlink" href="#newtons-laws" title="Link to this heading"></a></h2>
-<section id="linear-motion">
-<h3>Linear Motion<a class="headerlink" href="#linear-motion" title="Link to this heading"></a></h3>
+<section id="newtons-laws-for-linear-motion">
+<h3>Newton’s Laws for Linear Motion<a class="headerlink" href="#newtons-laws-for-linear-motion" title="Link to this heading"></a></h3>
 <p>$$
 F = m a
 $$</p>
@@ -610,8 +535,8 @@ $$</p>
 <li><p>$a$: Acceleration (m/s²)</p></li>
 </ul>
 </section>
-<section id="rotational-motion">
-<h3>Rotational Motion<a class="headerlink" href="#rotational-motion" title="Link to this heading"></a></h3>
+<section id="newtons-laws-for-rotational-motion">
+<h3>Newton’s Laws for Rotational Motion<a class="headerlink" href="#newtons-laws-for-rotational-motion" title="Link to this heading"></a></h3>
 <p>$$
 \tau = I \alpha
 $$</p>
@@ -628,10 +553,10 @@ $$</p>
 <p>$$
 \tau_{\text{reaction}} = -I \alpha
 $$</p>
-</section>
+<p>Note the correspondence of linear vs angular motion parameters.</p>
 </section>
 <section id="moment-of-inertia">
-<h2>⚙️ Moment of Inertia<a class="headerlink" href="#moment-of-inertia" title="Link to this heading"></a></h2>
+<h3>Moment of Inertia<a class="headerlink" href="#moment-of-inertia" title="Link to this heading"></a></h3>
 <p>For a <strong>solid disk</strong> of mass $m$ and radius $r$, rotating about its center:</p>
 <p>$$
 I = \frac{1}{2} m r^2
@@ -653,11 +578,9 @@ $$</p>
 I_{\text{total}} = I_1 + I_2 + \dots + I_n = \sum_{i=1}^n I_i
 $$</p>
 <p>🔗 <a class="reference external" href="https://en.wikipedia.org/wiki/Moment_of_inertia">Wikipedia: Moment of Inertia</a></p>
-<section id="measuring-moment-of-inertia-in-the-lab">
-<h3>🧪 Measuring Moment of Inertia in the Lab<a class="headerlink" href="#measuring-moment-of-inertia-in-the-lab" title="Link to this heading"></a></h3>
+<p><strong>Measuring Moment of Inertia in the Lab</strong></p>
 <p>The <strong>moment of inertia</strong> of an object can be determined experimentally using various methods. One simple and effective method is the <strong>torsional pendulum</strong> or <strong>rotational acceleration method</strong>.</p>
-<section id="method-1-torsional-oscillation">
-<h4>🌀 Method 1: Torsional Oscillation<a class="headerlink" href="#method-1-torsional-oscillation" title="Link to this heading"></a></h4>
+<p><strong>Method 1: Torsional Oscillation</strong></p>
 <ol class="arabic">
 <li><p><strong>Suspend</strong> the object from a thin wire or torsion spring, allowing it to rotate freely about a vertical axis.</p></li>
 <li><p><strong>Measure the period</strong> $T$ of small-angle oscillations.</p></li>
@@ -674,9 +597,7 @@ $$</p>
 </ul>
 </li>
 </ol>
-</section>
-<section id="method-2-angular-acceleration">
-<h4>⚙️ Method 2: Angular Acceleration<a class="headerlink" href="#method-2-angular-acceleration" title="Link to this heading"></a></h4>
+<p><strong>Method 2: Angular Acceleration</strong></p>
 <ol class="arabic">
 <li><p>Apply a <strong>known torque</strong> $\tau$ (e.g., via a hanging mass and pulley).</p></li>
 <li><p>Measure the resulting <strong>angular acceleration</strong> $\alpha$ (using a rotary encoder or sensor).</p></li>
@@ -690,26 +611,10 @@ $$</p>
 </li>
 </ol>
 </section>
-</section>
-</section>
 <hr class="docutils" />
-<section id="power-conversion">
-<h2>⚡ Power conversion<a class="headerlink" href="#power-conversion" title="Link to this heading"></a></h2>
-<p>In a rotating system, energy and power are governed by the following key relations:</p>
-<section id="rotational-power">
-<h3>🔁 Rotational Power<a class="headerlink" href="#rotational-power" title="Link to this heading"></a></h3>
-<p>The <strong>mechanical power</strong> delivered to or from a rotating body is:</p>
-<p>$$
-P_{\text{mech}} = \tau \cdot \omega
-$$</p>
-<p>where:</p>
-<ul class="simple">
-<li><p>$\tau$ is the torque (in N·m),</p></li>
-<li><p>$\omega$ is the angular velocity (in rad/s).</p></li>
-</ul>
-</section>
-<section id="kinetic-energy-of-rotation">
-<h3>🔋 Kinetic Energy of Rotation<a class="headerlink" href="#kinetic-energy-of-rotation" title="Link to this heading"></a></h3>
+<section id="energy-of-rotation-and-power-conversion">
+<h3>Energy of Rotation and Power conversion<a class="headerlink" href="#energy-of-rotation-and-power-conversion" title="Link to this heading"></a></h3>
+<p>In a rotating system, energy and power are governed by the following key relations.</p>
 <p>The <strong>rotational kinetic energy</strong> of a spinning body is:</p>
 <p>$$
 E_{\text{rot}} = \frac{1}{2} I \omega^2
@@ -719,9 +624,15 @@ $$</p>
 <li><p>$I$ is the moment of inertia (in kg·m²),</p></li>
 <li><p>$\omega$ is the angular velocity (in rad/s).</p></li>
 </ul>
-</section>
-<section id="id1">
-<h3>⚡ Power conversion<a class="headerlink" href="#id1" title="Link to this heading"></a></h3>
+<p>The <strong>mechanical power</strong> delivered to or from a rotating body is:</p>
+<p>$$
+P_{\text{mech}} = \tau \cdot \omega
+$$</p>
+<p>where:</p>
+<ul class="simple">
+<li><p>$\tau$ is the torque (in N·m),</p></li>
+<li><p>$\omega$ is the angular velocity (in rad/s).</p></li>
+</ul>
 <p>In electromechanical systems (e.g. DC motor + disk), the mechanical power must come from electrical input power. If $\eta$ is the efficiency of conversion:</p>
 <p>$$
 P_{\text{elec}} = \frac{P_{\text{mech}}}{\eta}
@@ -736,10 +647,7 @@ $$</p>
 <li><p>$I$ is the current (in amperes),</p></li>
 <li><p>$\eta$ is the efficiency (e.g. 0.8 for 80%).</p></li>
 </ul>
-</section>
-<hr class="docutils" />
-<section id="numerical-example">
-<h3>🔢 Numerical Example<a class="headerlink" href="#numerical-example" title="Link to this heading"></a></h3>
+<p><strong>Numerical Example</strong></p>
 <p>Let’s consider a <strong>solid disk</strong> with:</p>
 <ul class="simple">
 <li><p>mass $m = 1$ kg,</p></li>
@@ -748,34 +656,35 @@ $$</p>
 <li><p>angular acceleration $\alpha = 2\pi$ rad/s²,</p></li>
 <li><p>efficiency $\eta = 0.8$.</p></li>
 </ul>
-<section id="moment-of-inertia-of-the-disk">
-<h4>1. Moment of Inertia of the Disk:<a class="headerlink" href="#moment-of-inertia-of-the-disk" title="Link to this heading"></a></h4>
+<ol class="arabic simple">
+<li><p>Moment of Inertia of the Disk:</p></li>
+</ol>
 <p>$$
 I = \frac{1}{2} m r^2 = \frac{1}{2} \cdot 1 \cdot (0.05)^2 = 0.00125 \ kg·m^2
 $$</p>
-</section>
-<section id="id2">
-<h4>2. Kinetic Energy of Rotation:<a class="headerlink" href="#id2" title="Link to this heading"></a></h4>
+<ol class="arabic simple" start="2">
+<li><p>Kinetic Energy of Rotation:</p></li>
+</ol>
 <p>$$
 E_{\text{rot}} = \frac{1}{2} I \omega^2 = \frac{1}{2} \cdot 0.00125 \cdot (2\pi)^2 \approx 0.049 \ \text{J}
 $$</p>
-</section>
-<section id="required-torque">
-<h4>3. Required Torque:<a class="headerlink" href="#required-torque" title="Link to this heading"></a></h4>
-<p>Assuming angular acceleration $\alpha = 2\pi$ rad/s²:</p>
+<ol class="arabic simple" start="3">
+<li><p>Required Torque:
+Assuming angular acceleration $\alpha = 2\pi$ rad/s²:</p></li>
+</ol>
 <p>$$
 \tau = I \cdot \alpha = 0.00125 \cdot 2\pi \approx 0.00785 \ N·m
 $$</p>
-</section>
-<section id="mechanical-power">
-<h4>4. Mechanical Power:<a class="headerlink" href="#mechanical-power" title="Link to this heading"></a></h4>
+<ol class="arabic simple" start="4">
+<li><p>Mechanical Power:</p></li>
+</ol>
 <p>$$
 P_{\text{mech}} = \tau \cdot \omega = 0.00785 \cdot 2\pi \approx 0.049 \ \text{W}
 $$</p>
-</section>
-<section id="electrical-power-required">
-<h4>5. Electrical Power Required:<a class="headerlink" href="#electrical-power-required" title="Link to this heading"></a></h4>
-<p>With 80% efficiency:</p>
+<ol class="arabic simple" start="5">
+<li><p>Electrical Power Required:
+With 80% efficiency:</p></li>
+</ol>
 <p>$$
 P_{\text{elec}} = \frac{P_{\text{mech}}}{\eta} = \frac{0.049}{0.8} \approx 0.061 \ \text{W}
 $$</p>
@@ -783,10 +692,8 @@ $$</p>
 <div><p>🔧 This example highlights the relevance of inertia and torque in system design. Note also that the power levels required to drive mechanical motion are typically beyond what basic microcontrollers can provide, and as such it is required to use a transistor based driver circuit between the Arduino and the Dc motors.</p>
 </div></blockquote>
 </section>
-</section>
-</section>
 <section id="dc-motor-basics">
-<h2>🔌 DC Motor Basics<a class="headerlink" href="#dc-motor-basics" title="Link to this heading"></a></h2>
+<h3>DC Motor Basics<a class="headerlink" href="#dc-motor-basics" title="Link to this heading"></a></h3>
 <p>DC motors convert electrical energy into mechanical torque and rotational motion. The fundamental equations are:</p>
 <ul class="simple">
 <li><p>Torque generated:</p></li>
@@ -808,9 +715,8 @@ $$</p></li>
 <li><p>$k_e$: back-EMF constant (V·s/rad)</p></li>
 <li><p>$R$: motor coil resistance (Ω)</p></li>
 </ul>
-</section>
-<section id="typical-motor-parameters">
-<h2>📄 Typical Motor Parameters<a class="headerlink" href="#typical-motor-parameters" title="Link to this heading"></a></h2>
+<section id="typical-parameters">
+<h4>Typical Parameters<a class="headerlink" href="#typical-parameters" title="Link to this heading"></a></h4>
 <p>To correctly simulate and use a DC motor in a control system, you must know or estimate the following key parameters:</p>
 <table class="docutils align-default">
 <thead>
@@ -872,8 +778,9 @@ $$</p></li>
 <li><p>$k_t = \tau_{\text{stall}} / I_{\text{stall}}$</p></li>
 <li><p>$k_e = V_{\text{free}} / \omega_{\text{free}}$</p></li>
 </ul>
+</section>
 <section id="trade-offs-in-motor-selection">
-<h3>⚠️ Trade-Offs in Motor Selection<a class="headerlink" href="#trade-offs-in-motor-selection" title="Link to this heading"></a></h3>
+<h4>Trade-Offs in Motor Selection<a class="headerlink" href="#trade-offs-in-motor-selection" title="Link to this heading"></a></h4>
 <p>The performance of a DC motor is a balance between torque and speed. Key considerations:</p>
 <ul class="simple">
 <li><p>Higher torque → requires more current.</p></li>
@@ -885,12 +792,10 @@ $$</p></li>
 <div><p>⚠️ Always respect <strong>maximum ratings</strong>: exceeding current, voltage, or power may permanently damage the motor.</p>
 </div></blockquote>
 </section>
-</section>
 <section id="gears">
-<h2>⚙️ Gears<a class="headerlink" href="#gears" title="Link to this heading"></a></h2>
+<h4>Gears<a class="headerlink" href="#gears" title="Link to this heading"></a></h4>
 <p>Gears can be used to <strong>adapt motor output</strong> to desired speed and torque levels.</p>
-<section id="basic-gear-equations">
-<h3>📐 Basic Gear Equations<a class="headerlink" href="#basic-gear-equations" title="Link to this heading"></a></h3>
+<p><strong>Basic Gear Equations</strong></p>
 <ul>
 <li><p>Gear ratio:</p></li>
 <li><p>$$
@@ -907,18 +812,14 @@ $$</p></li>
 \omega_{\text{out}} = \frac{\omega_{\text{in}}}{R}
 $$</p></li>
 </ul>
-</section>
-<section id="why-use-gears">
-<h3>⚙️ Why Use Gears?<a class="headerlink" href="#why-use-gears" title="Link to this heading"></a></h3>
+<p><strong>Why Use Gears?</strong></p>
 <ul class="simple">
 <li><p><strong>Increase torque</strong> at the cost of lower speed.</p></li>
 <li><p><strong>Reduce load</strong> on the motor to avoid overheating.</p></li>
 <li><p><strong>Match the dynamics</strong> of the controlled system (e.g. pendulum).</p></li>
 </ul>
 <p><strong>Pulleys (with belts)</strong> provide similar mechanical advantages as gears.They are quieter than gears, and the distance between shafts is more flexible, so systems with pulleys and belts they are more simple to design and align. At the same time, they are less precise (risk of belt slippage), and limited to moderate torque applications.</p>
-</section>
-<section id="example-gear-matching">
-<h3>🛠️ Example: Gear Matching<a class="headerlink" href="#example-gear-matching" title="Link to this heading"></a></h3>
+<p><strong>Example: Gear Matching</strong></p>
 <p>Suppose your pendulum needs:</p>
 <ul class="simple">
 <li><p>Torque of $0.1$ N·m</p></li>
@@ -941,7 +842,7 @@ $$</p>
 </section>
 <hr class="docutils" />
 <section id="magnetic-position-sensor-as5600">
-<h2>🧭 Magnetic Position Sensor (AS5600)<a class="headerlink" href="#magnetic-position-sensor-as5600" title="Link to this heading"></a></h2>
+<h3>Magnetic Position Sensor (AS5600)<a class="headerlink" href="#magnetic-position-sensor-as5600" title="Link to this heading"></a></h3>
 <ul class="simple">
 <li><p>Contactless rotary sensor using a magnetic field.</p></li>
 <li><p>Measures absolute angle with high resolution.</p></li>
@@ -951,10 +852,9 @@ $$</p>
 </section>
 <hr class="docutils" />
 <section id="control-systems">
-<h2>🎛 Control Systems<a class="headerlink" href="#control-systems" title="Link to this heading"></a></h2>
+<h3>Control Systems<a class="headerlink" href="#control-systems" title="Link to this heading"></a></h3>
 <p>A control system aims to keep the pendulum balanced using feedback.</p>
-<section id="main-elements">
-<h3>Main Elements<a class="headerlink" href="#main-elements" title="Link to this heading"></a></h3>
+<p>Main Elements</p>
 <ul class="simple">
 <li><p><strong>Plant</strong>: The physical system to be controlled (e.g., pendulum)</p></li>
 <li><p><strong>Controller</strong>: Algorithm producing control signals</p></li>
@@ -962,13 +862,10 @@ $$</p>
 <li><p><strong>Actuator</strong>: Applies control input (motor)</p></li>
 <li><p><strong>Feedback</strong>: Uses sensor data to adjust behavior</p></li>
 </ul>
-</section>
-<section id="feedback-control">
-<h3>Feedback Control<a class="headerlink" href="#feedback-control" title="Link to this heading"></a></h3>
+<p>Feedback Control</p>
 <p>Continuously reduces error by adjusting inputs based on outputs.</p>
-</section>
 <section id="controllers">
-<h3>Controllers<a class="headerlink" href="#controllers" title="Link to this heading"></a></h3>
+<h4>Controllers<a class="headerlink" href="#controllers" title="Link to this heading"></a></h4>
 <ul class="simple">
 <li><p><strong>Bang-bang</strong>: All-or-nothing control; fast but unstable.</p></li>
 <li><p><strong>PID</strong>: Combines:</p></li>
@@ -986,16 +883,15 @@ $$</p>
 </ul>
 </section>
 </section>
-<section id="arduino-system-integration">
-<h2>🔧 Arduino System Integration<a class="headerlink" href="#arduino-system-integration" title="Link to this heading"></a></h2>
+<section id="system-integration-with-arduino">
+<h3>System Integration with Arduino<a class="headerlink" href="#system-integration-with-arduino" title="Link to this heading"></a></h3>
 <p>Arduino microcontrollers are widely used for real-time control systems due to their simplicity, low cost, and large ecosystem of libraries and tutorials. In this project, the Arduino is responsible for:</p>
 <ul class="simple">
 <li><p>Reading sensor data (e.g., from the AS5600 magnetic rotary sensor)</p></li>
 <li><p>Running the control algorithm (Bang-Bang, PID, or LQR)</p></li>
 <li><p>Sending the command to the motor driver to actuate the reaction wheel</p></li>
 </ul>
-<section id="typical-setup-components">
-<h3>🔌 Typical Setup Components<a class="headerlink" href="#typical-setup-components" title="Link to this heading"></a></h3>
+<p><strong>Typical Setup Components</strong></p>
 <ul class="simple">
 <li><p><strong>Microcontroller</strong>: Arduino Uno / Nano / Mega</p></li>
 <li><p><strong>Sensor</strong>: AS5600 magnetic rotary position sensor (via I2C)</p></li>
@@ -1003,9 +899,8 @@ $$</p>
 <li><p><strong>Power supply</strong>: Appropriate for motor and controller (check ratings!)</p></li>
 <li><p><strong>Other</strong>: Wires, resistors, capacitors, breadboards or PCBs</p></li>
 </ul>
-</section>
 <section id="migrating-from-python-simulation-to-arduino-deployment">
-<h3>📤 Migrating from Python Simulation to Arduino Deployment<a class="headerlink" href="#migrating-from-python-simulation-to-arduino-deployment" title="Link to this heading"></a></h3>
+<h4>Migrating from Python Simulation to Arduino Deployment<a class="headerlink" href="#migrating-from-python-simulation-to-arduino-deployment" title="Link to this heading"></a></h4>
 <p>In your development process, you will first simulate the control system (e.g., pendulum dynamics and reaction wheel behavior) using Python. This allows you to:</p>
 <ul class="simple">
 <li><p>Explore different parameters (e.g., control gains, system constants)</p></li>
@@ -1115,59 +1010,17 @@ $$</p>
 </section>
 </section>
 </section>
+<section id="architectures">
+<h2>Architectures<a class="headerlink" href="#architectures" title="Link to this heading"></a></h2>
+</section>
 <section id="modelling">
-<h1>Modelling<a class="headerlink" href="#modelling" title="Link to this heading"></a></h1>
-</section>
-<section id="simulation">
-<h1>Simulation<a class="headerlink" href="#simulation" title="Link to this heading"></a></h1>
-<p>This project simulates the dynamics of a Reaction Wheel Inverted Pendulum.</p>
-<p>and includes controllers such as LQR and a Bang-bang controller.</p>
-<section id="getting-started">
-<h2>Getting Started<a class="headerlink" href="#getting-started" title="Link to this heading"></a></h2>
-<section id="prerequisites">
-<h3>Prerequisites<a class="headerlink" href="#prerequisites" title="Link to this heading"></a></h3>
-<p>Ensure you have the following dependencies installed:</p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">numpy</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">pygame</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">matplotlib</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">PyQt5</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">pygetwindow</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">pyaudio</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">threading</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">control</span></code> (install via <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">control</span></code>)</p></li>
-</ul>
-</section>
-<section id="installation">
-<h3>Installation<a class="headerlink" href="#installation" title="Link to this heading"></a></h3>
-<p>Clone the repository and install the dependencies:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/B-Paweekorn/Reaction-wheel-inverted-pendulum.git
-<span class="nb">cd</span><span class="w"> </span>Reaction-wheel-inverted-pendulum
-pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt
-</pre></div>
-</div>
-<br>
-</section>
-</section>
-<section id="usage">
-<h2>Usage<a class="headerlink" href="#usage" title="Link to this heading"></a></h2>
-<p><img alt="Image of the program" src="https://github.com/B-Paweekorn/Reaction-wheel-inverted-pendulum/assets/47713359/e2ff45d4-bfb2-4831-9ec9-334b88f8ff77" /></p>
-<p><strong>Inject</strong> - Type the amount of torque into the box and click <code class="docutils literal notranslate"><span class="pre">INJECT</span></code> or ENTER key to inject a disturbance to the system</p>
-<p><strong>Reset</strong> - Click <code class="docutils literal notranslate"><span class="pre">RESET</span></code> to reset the system</p>
-<p><strong>Plotting</strong> - Click on the pendulum plot or the plot window to plot the data</p>
-<p>Edit the parameters in <code class="docutils literal notranslate"><span class="pre">param.py</span></code></p>
-<br>
-</section>
-<section id="methodology">
-<h2>Methodology<a class="headerlink" href="#methodology" title="Link to this heading"></a></h2>
-<section id="system-modeling">
-<h3>System Modeling<a class="headerlink" href="#system-modeling" title="Link to this heading"></a></h3>
+<h2>Modelling<a class="headerlink" href="#modelling" title="Link to this heading"></a></h2>
 <p>The simulation involves modeling the dynamics of a Reaction Wheel Inverted Pendulum (RWIP) system. The key components include:</p>
 <p><em><strong>Reaction Wheel Inverted Pendulum Dynamics</strong></em></p>
 <br>
 <img src="https://github.com/B-Paweekorn/Reaction-wheel-inverted-pendulum/assets/122732439/6c59b7a7-6aa7-4a73-b353-9e242e6aae1c" width="480">
 <section id="rwip-parameter">
-<h4>RWIP Parameter<a class="headerlink" href="#rwip-parameter" title="Link to this heading"></a></h4>
+<h3>RWIP Parameter<a class="headerlink" href="#rwip-parameter" title="Link to this heading"></a></h3>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">L1</span></code> - Pendulum length from orgin to center of mass</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">L2</span></code> - Pendulum length</p></li>
@@ -1183,16 +1036,16 @@ pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </s
 </ul>
 </section>
 <section id="kinetic-energy">
-<h4>Kinetic Energy<a class="headerlink" href="#kinetic-energy" title="Link to this heading"></a></h4>
+<h3>Kinetic Energy<a class="headerlink" href="#kinetic-energy" title="Link to this heading"></a></h3>
 <p>  $K = \frac{1}{2}(m_{1}L_{1}^{2}+m_{2}L_{2}^{2}+I_{1})\dot{θ_p}^{2} + \frac{1}{2}I_{2}(\dot{θ_p}+\dot{θ_r})^{2}$</p>
 <p>  $K = \frac{1}{2}(m_{1}L_{1}^{2}+m_{2}L_{2}^{2}+I_{1}+I_{2})\dot{θ_p}^{2} + I_{2}\dot{θ_p}\dot{θ_r} + \frac{1}{2}I_{2}\dot{θ_r}^{2}$</p>
 </section>
 <section id="potential-energy">
-<h4>Potential Energy<a class="headerlink" href="#potential-energy" title="Link to this heading"></a></h4>
+<h3>Potential Energy<a class="headerlink" href="#potential-energy" title="Link to this heading"></a></h3>
 <p>  $V = (m_1L + m_2L)g\cosθ_p$</p>
 </section>
 <section id="lagrange-method">
-<h4>Lagrange Method<a class="headerlink" href="#lagrange-method" title="Link to this heading"></a></h4>
+<h3>Lagrange Method<a class="headerlink" href="#lagrange-method" title="Link to this heading"></a></h3>
 <p>  $\frac{d}{dt} \left( \frac{\partial L}{\partial \dot{θ_r}} \right) - \frac{\partial L}{\partial θ_r} = 0$
    and</p>
 <p>  $\frac{d}{dt} \left( \frac{\partial L}{\partial \dot{θ_p}} \right) - \frac{\partial L}{\partial θ_p} = T_m$</p>
@@ -1200,7 +1053,7 @@ pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </s
 <p>  $L = K - V$</p>
 </section>
 <section id="mathematical-equations-of-rwip-is-described-as">
-<h4>Mathematical equations of RWIP is described as<a class="headerlink" href="#mathematical-equations-of-rwip-is-described-as" title="Link to this heading"></a></h4>
+<h3>Mathematical equations of RWIP is described as<a class="headerlink" href="#mathematical-equations-of-rwip-is-described-as" title="Link to this heading"></a></h3>
 <p>  $\ddot{\theta_p} = \frac{m_{1}gL_{1}\sin\left(\theta_{p}\right)\ +\ m_{2}gL_{2}\sin\left(\theta_{p}\right)\ -\ T_{m} +\ T_{d}}{m_{1}L_{1}^{2}+m_{2}L_{2}+I_{1}}$</p>
 <br>
 <p>  $\ddot{\theta_r} = \frac{T_{r}}{I_{2}}-\frac{m_{1}gL_{1}\ +\ m_{2}gL_{2}\ -\ T_{m} +\ T_{d}}{m_{1}L_{1}^{2}+m_{2}L_{2}+I_{1}}$</p>
@@ -1210,7 +1063,7 @@ pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </s
 <br>
 </section>
 <section id="brushed-dc-motor-parameter">
-<h4>Brushed DC Motor Parameter<a class="headerlink" href="#brushed-dc-motor-parameter" title="Link to this heading"></a></h4>
+<h3>Brushed DC Motor Parameter<a class="headerlink" href="#brushed-dc-motor-parameter" title="Link to this heading"></a></h3>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">Vin</span></code> - Input Voltage</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">R</span></code> - Motor resistance</p></li>
@@ -1223,18 +1076,17 @@ pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </s
 </ul>
 </section>
 <section id="electrical-part">
-<h4>Electrical part<a class="headerlink" href="#electrical-part" title="Link to this heading"></a></h4>
+<h3>Electrical part<a class="headerlink" href="#electrical-part" title="Link to this heading"></a></h3>
 <p>  $Vin = R i + L \frac{di}{dt} + k_e θ_r$</p>
 </section>
 <section id="mechanical-part">
-<h4>Mechanical Part<a class="headerlink" href="#mechanical-part" title="Link to this heading"></a></h4>
+<h3>Mechanical Part<a class="headerlink" href="#mechanical-part" title="Link to this heading"></a></h3>
 <p>  $T_{m} = Bθ_r + J\frac{\dot{θ_r}}{dt}$</p>
 <p>  $T_{m} = k_t i$
 <br></p>
 </section>
-</section>
-<section id="id3">
-<h3>Controllers<a class="headerlink" href="#id3" title="Link to this heading"></a></h3>
+<section id="id1">
+<h3>Controllers<a class="headerlink" href="#id1" title="Link to this heading"></a></h3>
 <ul>
 <li><p><strong>LQR Controller</strong>: A linear quadratic regulator designed to stabilize the pendulum in the upright position.</p>
 <p class="rubric" id="linearization-dynamics-model">Linearization dynamics model</p>
@@ -1278,6 +1130,46 @@ The swing up control routine and the stabilizing control routine are switched be
 <ul class="simple">
 <li><p><strong>Brake Controller</strong>: Used as reduced energy of RWIP when RWIP have too much energy for stabilze</p></li>
 </ul>
+</section>
+</section>
+<section id="simulation">
+<h2>Simulation<a class="headerlink" href="#simulation" title="Link to this heading"></a></h2>
+<p>This project simulates the dynamics of a Reaction Wheel Inverted Pendulum and includes controllers such as LQR and a Bang-bang controller.</p>
+<section id="getting-started">
+<h3>Getting Started<a class="headerlink" href="#getting-started" title="Link to this heading"></a></h3>
+</section>
+<section id="prerequisites">
+<h3>Prerequisites<a class="headerlink" href="#prerequisites" title="Link to this heading"></a></h3>
+<p>Ensure you have the following dependencies installed:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">numpy</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pygame</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">matplotlib</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">PyQt5</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pygetwindow</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pyaudio</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">threading</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">control</span></code> (install via <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">control</span></code>)</p></li>
+</ul>
+</section>
+<section id="installation">
+<h3>Installation<a class="headerlink" href="#installation" title="Link to this heading"></a></h3>
+<p>Clone the repository and install the dependencies:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/B-Paweekorn/Reaction-wheel-inverted-pendulum.git
+<span class="nb">cd</span><span class="w"> </span>Reaction-wheel-inverted-pendulum
+pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt
+</pre></div>
+</div>
+<br>
+</section>
+<section id="usage">
+<h3>Usage<a class="headerlink" href="#usage" title="Link to this heading"></a></h3>
+<p><img alt="Image of the program" src="https://github.com/B-Paweekorn/Reaction-wheel-inverted-pendulum/assets/47713359/e2ff45d4-bfb2-4831-9ec9-334b88f8ff77" /></p>
+<p><strong>Inject</strong> - Type the amount of torque into the box and click <code class="docutils literal notranslate"><span class="pre">INJECT</span></code> or ENTER key to inject a disturbance to the system</p>
+<p><strong>Reset</strong> - Click <code class="docutils literal notranslate"><span class="pre">RESET</span></code> to reset the system</p>
+<p><strong>Plotting</strong> - Click on the pendulum plot or the plot window to plot the data</p>
+<p>Edit the parameters in <code class="docutils literal notranslate"><span class="pre">param.py</span></code></p>
+<br>
 </section>
 <section id="sound-generation">
 <h3>Sound Generation<a class="headerlink" href="#sound-generation" title="Link to this heading"></a></h3>
@@ -1410,14 +1302,11 @@ The LQR controller is designed based on the principles of optimal control theory
 </ul>
 </section>
 </section>
-</section>
 <section id="implementation">
-<h1>Implementation<a class="headerlink" href="#implementation" title="Link to this heading"></a></h1>
+<h2>Implementation<a class="headerlink" href="#implementation" title="Link to this heading"></a></h2>
 </section>
 <section id="analysis">
-<h1>Analysis<a class="headerlink" href="#analysis" title="Link to this heading"></a></h1>
-<section id="acknowledgments">
-<h2>Acknowledgments<a class="headerlink" href="#acknowledgments" title="Link to this heading"></a></h2>
+<h2>Analysis<a class="headerlink" href="#analysis" title="Link to this heading"></a></h2>
 </section>
 <section id="reference">
 <h2>Reference<a class="headerlink" href="#reference" title="Link to this heading"></a></h2>

@@ -2,7 +2,7 @@
 
 # 📘 LEFA Oficina 3 – Laboratório de Estimação e Controlo
 
-Bem-vindo ao repositório de documentação das **Oficinas de Engenharia Física 3 - Estimação e controlo**, uma disciplina laboratorial do 3.º semestre  do curso de [**Licenciatura em Engenharia Física Aplicada (LEFA)**](https://www.isel.pt/curso/licenciatura/licenciatura-em-engenharia-fisica-aplicada) do [ISEL - Instituto Superior de Engenharia de Lisboa](https://www.isel.pt), pertencente ao [Instituto Politécnico de Lisboa](https://www.ipl.pt), e membro da [Universidade Europeia U!reka](https://ureka.eu/).
+Bem-vindo ao repositório de documentação das **Oficinas de Engenharia Física 3 - Estimação e Controlo**, uma disciplina laboratorial do 3.º semestre  do curso de [**Licenciatura em Engenharia Física Aplicada (LEFA)**](https://www.isel.pt/curso/licenciatura/licenciatura-em-engenharia-fisica-aplicada) do [ISEL - Instituto Superior de Engenharia de Lisboa](https://www.isel.pt), pertencente ao [Instituto Politécnico de Lisboa](https://www.ipl.pt), e membro da [Universidade Europeia U!reka](https://ureka.eu/).
 
 ## 🎯 Objetivos da Disciplina
 
