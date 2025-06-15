@@ -17,8 +17,11 @@ extensions = [
     'nbsphinx',  # or 'myst_nb'
     'myst_parser', # for markdown
     'sphinx.ext.autodoc', #for python api docs
-
+    'sphinx.ext.mathjax',  # Recommended for HTML output
+    # or 'sphinx.ext.imgmath' for image-based math
 ]
+
+myst_enable_extensions = ["dollarmath"]
 
 templates_path = ['_templates']
 exclude_patterns = []
