@@ -99,19 +99,6 @@ Content
 
 .. toctree::
    :maxdepth: 1
-   :caption: Exercises
-
-   exercises/readme.ipynb
-
-.. toctree::
-   :maxdepth: 1
    :caption: Resources
    
    resources/readme.ipynb
-   tutorials/readme.ipynb
-
-.. toctree::
-   :maxdepth: 1
-   :caption: Demos
-
-   demos/prototypes.ipynb
