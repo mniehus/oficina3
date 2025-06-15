@@ -10,21 +10,28 @@
   },
   {
    "cell_type": "markdown",
-   "id": "1105290c",
-   "metadata": {},
-   "source": []
-  },
-  {
-   "cell_type": "markdown",
    "id": "70e22338",
    "metadata": {},
    "source": [
-    "## em breve"
+    "(em breve)"
    ]
   },
   {
    "cell_type": "markdown",
-   "id": "5edc94ca",
+   "id": "9513ce09",
+   "metadata": {},
+   "source": [
+    "  Topics:\n",
+    "- Estimation\n",
+    "- Kalman filter\n",
+    "- IMU\n",
+    "- Encoder\n",
+    "- Sensor fusion"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "532cd19c",
    "metadata": {},
    "source": []
   }

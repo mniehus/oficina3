@@ -205,34 +205,19 @@ You must know very well the behavior and limitations of your electrical componen
 
 ###  Software
 
-- **Visual Studio Code (VS Code)**  
-  Main environment for code editing, running Python/Jupyter, and managing Git projects, i.e. tools below can be accessed **directly within VS Code** using extensions.  
-  👉 https://code.visualstudio.com/
+- **[Visual Studio Code (VS Code)](https://code.visualstudio.com/)**  - Main environment for code editing, running Python/Jupyter, and managing Git projects, i.e. tools below can be accessed **directly within VS Code** using extensions.
 
-- **Python**  
-  Used for modeling, simulation, and data analysis.  
-  👉 https://www.python.org/
+- **[Python](https://www.python.org/)**  Used for modeling, simulation, and data analysis.
 
-- **Jupyter Notebooks**  
-  Interactive Python environment combining code, plots, and documentation.  
-  👉 https://jupyter.org/
+- **[Jupyter Notebooks](https://jupyter.org/)**  - Interactive Python environment combining code, plots, and documentation.
 
-- **GitHub**  
-  Version control and collaboration platform.  
-  👉 https://github.com/
+- **[GitHub](https://github.com/)**  - Version control and collaboration platform.
 
-  - **Arduino (Microcontroller + IDE)**  
-  - The Arduino IDE is used to write and upload `.ino` files.  
-  👉 https://www.arduino.cc/
+- **[Arduino (Microcontroller + IDE)](https://www.arduino.cc/)**  - The Arduino IDE is used to write and upload `.ino` files.
 
-  - **CAD-Based Tools**:
-  - **Onshape** 
-  - Cloud-based CAD tool 
-  👉 https://www.onshape.com/
+- **[Onshape](https://www.onshape.com/)** - Cloud-based CAD tool
 
-  - **Ultimaker Cura** 
-  - Recommended slicer software to prepare `.stl` files for printing  
-  👉 https://ultimaker.com/software/ultimaker-cura/
+- **[Ultimaker Cura](https://ultimaker.com/software/ultimaker-cura/)** - Recommended slicer software to prepare `.stl` files for
 ---
 
 **Data Formats**
