@@ -808,7 +808,7 @@ The simulation involves modeling the dynamics of a Reaction Wheel Inverted Pendu
 
 <img src="https://github.com/B-Paweekorn/Reaction-wheel-inverted-pendulum/assets/122732439/6c59b7a7-6aa7-4a73-b353-9e242e6aae1c" width="480">
 
-#### RWIP Parameter
+RWIP Parameter
 - `L1` - Pendulum length from orgin to center of mass
 - `L2` - Pendulum length
 - `m1` - Mass of pendulum
@@ -821,18 +821,18 @@ The simulation involves modeling the dynamics of a Reaction Wheel Inverted Pendu
 - `Tm` - Torque apply by DC motor
 - `Td` - Disturbance
 
-#### Kinetic Energy
+Kinetic Energy
 
 &emsp; $K = \frac{1}{2}(m_{1}L_{1}^{2}+m_{2}L_{2}^{2}+I_{1})\dot{θ_p}^{2} + \frac{1}{2}I_{2}(\dot{θ_p}+\dot{θ_r})^{2}$
 
 &emsp; $K = \frac{1}{2}(m_{1}L_{1}^{2}+m_{2}L_{2}^{2}+I_{1}+I_{2})\dot{θ_p}^{2} + I_{2}\dot{θ_p}\dot{θ_r} + \frac{1}{2}I_{2}\dot{θ_r}^{2}$
 
-#### Potential Energy
+Potential Energy
 
 &emsp; $V = (m_1L + m_2L)g\cosθ_p$
 
 
-#### Lagrange Method
+Lagrange Method
 
 &emsp; $\frac{d}{dt} \left( \frac{\partial L}{\partial \dot{θ_r}} \right) - \frac{\partial L}{\partial θ_r} = 0$
 &emsp;&emsp; and
@@ -844,7 +844,7 @@ The simulation involves modeling the dynamics of a Reaction Wheel Inverted Pendu
 &emsp; $L = K - V$
 
 
-#### Mathematical equations of RWIP is described as
+Mathematical equations of RWIP is described as
 
 &emsp; $\ddot{\theta_p} = \frac{m_{1}gL_{1}\sin\left(\theta_{p}\right)\ +\ m_{2}gL_{2}\sin\left(\theta_{p}\right)\ -\ T_{m} +\ T_{d}}{m_{1}L_{1}^{2}+m_{2}L_{2}+I_{1}}$
 
@@ -860,7 +860,7 @@ The simulation involves modeling the dynamics of a Reaction Wheel Inverted Pendu
 
 <br>
 
-#### Brushed DC Motor Parameter
+Brushed DC Motor Parameter
 
 - `Vin` - Input Voltage
 - `R` - Motor resistance
@@ -871,11 +871,11 @@ The simulation involves modeling the dynamics of a Reaction Wheel Inverted Pendu
 - `ke` - Back EMF constant
 - `kt` - Torque constant
 
-#### Electrical part
+Electrical part
 
 &emsp; $Vin = R i + L \frac{di}{dt} + k_e θ_r$
 
-#### Mechanical Part
+Mechanical Part
 
 &emsp; $T_{m} = Bθ_r + J\frac{\dot{θ_r}}{dt}$
 
