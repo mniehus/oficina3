@@ -24,8 +24,6 @@ The goal is to combine theoretical analysis, computational modeling, and practic
 **What is a Reaction Wheel Inverted Pendulum?**
 A **Reaction Wheel Inverted Pendulum** is a complex mechanical system designed to balance an upright pendulum using a rotating disk (the *reaction wheel*, often being called a **Fly-Wheel**). The goal is to control the wheel's angular momentum to stabilize the pendulum in an upright position.
 
-![Reaction Wheel Inverted Pendulum](../img/system.png)
-
 An **inverted pendulum** is a pendulum balanced in its unstable upright position — like trying to keep a stick standing vertically on your fingertip. It is a classical example of an unstable system that requires active **control** to maintain balance.
 
 **Real-World Examples**
