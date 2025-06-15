@@ -1,5 +1,12 @@
 # Resources
 
+## Course links
+- [Course communication via Moodle](https://2425moodle.isel.pt/course/view.php?id=8793)
+- [Course documentation (this page)](https://mniehus.github.io/oficina3)
+- [Course repository (online)](https://github.com/mniehus/oficina3)
+
+--- 
+
 ## Tutorials
 
 ---
@@ -34,7 +41,6 @@
 ## Code snippets
 
 
----
 ```cpp
 #include <Wire.h>
 #include <AS5600.h>
