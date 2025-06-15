@@ -1,0 +1,131 @@
+# Resources
+
+## Tutorials
+
+---
+
+## Reference implementation
+
+---
+
+## Repository
+
+---
+
+## Technical data
+
+---
+
+## Data Formats
+
+| Extension | Description                        | Tool/Use                          |
+|-----------|------------------------------------|-----------------------------------|
+| `.py`     | Python scripts                     | VS Code, Python                   |
+| `.ipynb`  | Jupyter notebooks                  | VS Code (Jupyter), JupyterLab     |
+| `.ino`    | Arduino sketches                   | Arduino IDE                       |
+| `.stl`    | 3D models for printing             | Fusion 360, Onshape, Cura         |
+| `.csv`    | Sensor logs, tabular data          | Python, Excel, Pandas             |
+| `.mp4` / `.mp3` | Video/audio demos            | OBS, DaVinci Resolve, Phones      |
+| `.jpg` / `.png`| Diagrams, photos              | draw.io, Canva, Snipping Tool     |
+| `.pdf`    | Final report and documentation     | Word, LaTeX, Google Docs          |
+
+---
+
+## Code snippets
+
+
+---
+```cpp
+#include <Wire.h>
+#include <AS5600.h>
+
+// === Sensor Setup ===
+AMS_5600 encoder;
+
+// === Motor Pins ===
+const int pwmPin = 9;     // PWM signal to motor
+const int dirPin1 = 7;    // Motor direction
+const int dirPin2 = 8;
+
+float targetAngle = 180.0;   // Upright position in degrees
+float currentAngle = 0.0;
+
+// === PID Parameters ===
+float kp = 1.5;
+float ki = 0.1;
+float kd = 0.05;
+
+float error = 0;
+float previousError = 0;
+float integral = 0;
+
+unsigned long lastTime = 0;
+float dt = 0;
+
+// === Motor Control Function ===
+void setMotor(float pwmValue) {
+  pwmValue = constrain(pwmValue, -255, 255);
+
+  if (pwmValue > 0) {
+    digitalWrite(dirPin1, HIGH);
+    digitalWrite(dirPin2, LOW);
+    analogWrite(pwmPin, pwmValue);
+  } else {
+    digitalWrite(dirPin1, LOW);
+    digitalWrite(dirPin2, HIGH);
+    analogWrite(pwmPin, -pwmValue);
+  }
+}
+
+// === Get Angle in Degrees ===
+float getAngleDeg() {
+  int rawAngle = encoder.getRawAngle(); // 0–4095
+  float angle = (rawAngle / 4095.0) * 360.0;
+  return angle;
+}
+
+void setup() {
+  Serial.begin(9600);
+  Wire.begin();
+
+  pinMode(pwmPin, OUTPUT);
+  pinMode(dirPin1, OUTPUT);
+  pinMode(dirPin2, OUTPUT);
+
+  delay(500); // Allow sensor startup
+  Serial.println("PID Control Initialized");
+  lastTime = millis();
+}
+
+void loop() {
+  unsigned long currentTime = millis();
+  dt = (currentTime - lastTime) / 1000.0;
+  lastTime = currentTime;
+
+  currentAngle = getAngleDeg();
+  error = targetAngle - currentAngle;
+
+  integral += error * dt;
+  float derivative = (error - previousError) / dt;
+
+  float output = kp * error + ki * integral + kd * derivative;
+  setMotor(output);
+
+  previousError = error;
+
+  // Debug info
+  Serial.print("Angle: ");
+  Serial.print(currentAngle);
+  Serial.print(" | Output: ");
+  Serial.println(output);
+
+  delay(10); // ~100 Hz loop
+}
+
+```
+---
+
+## References
+- [Swing Up and Balancing of a Reaction Wheel Inverted Pendulum](http://ise.ait.ac.th/wp-content/uploads/sites/57/2020/12/Swing-Up-and-Balancing-of-a-Reaction-Wheel-Inverted-Pendulum.pdf)
+
+- [Inverted Pendulum: State-Space Methods for Controller Design](https://ctms.engin.umich.edu/CTMS/index.php?example=InvertedPendulum&section=ControlStateSpace)

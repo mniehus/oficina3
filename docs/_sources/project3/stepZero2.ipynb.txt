@@ -1,0 +1,100 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "id": "c5bd8d9d",
+   "metadata": {},
+   "source": [
+    "# Iteration Zero"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "1d8ef2ce",
+   "metadata": {},
+   "source": [
+    "It is best practice to start with an informal scoping phase that focuses on understanding, probing the challenge, and sketching a preliminary solution, before entering structured development. \n",
+    "\n",
+    "It's where creativity meets physics and feasibility.\n",
+    "\n",
+    "**1. Quick Conceptualization & Brainstorming**\n",
+    "* Sketch rough ideas of the system configuration: where the pendulum is mounted, how the mechnical system is fixed, how the wheel is attached and rotates, where the motor and sensor go, where the wires go.\n",
+    "* Discuss what the main goal is: e.g., swing-up and stabilization.\n",
+    "* Look at reference examples.\n",
+    "\n",
+    "**2. Back-of-the-Envelope Calculations**\n",
+    "* Estimate:\n",
+    "  * Mass and length of the pendulum ($m$, $l$)\n",
+    "  * Moment of inertia of the reaction wheel ($I$)\n",
+    "  * Required torque ($\\tau = I \\alpha$) during bang-bang swing-up, and during PID or LQR stabilization.\n",
+    "  * Approximate rotational speed ranges ($\\omega$)\n",
+    "* Check if motor power, voltage, and gear ratio are within reach.\n",
+    "\n",
+    "**3. Quick and Dirty Prototype**\n",
+    "* Build a first rudimentary prototype using:\n",
+    "  * Readily available parts (LEGO, wood, printed parts, scrap electronics)\n",
+    "  * A simple DC motor and basic wheel (plastic or metal disk)\n",
+    "  * Temporary mounts (tape, clamps, hot glue, cardboard)\n",
+    "* Power the motor manually (e.g., via a lab supply or battery) and observe the dynamics.\n",
+    "\n",
+    "**4. Physics Scoping and Trade-offs**\n",
+    "* Identify key physical quantities to control: torque, angular position, friction.\n",
+    "* Recognize constraints:\n",
+    "  * Voltage/current limits of motors\n",
+    "  * Sensor resolution (e.g., AS5600 for angle)\n",
+    "  * Microcontroller limitations (timing, ADC resolution)\n",
+    "* Think about trade-offs:\n",
+    "  * Larger wheel = more inertia, but heavier\n",
+    "  * Faster motor = higher voltage/power needs\n",
+    "  * Longer pendulum = slower dynamics but easier to observe\n",
+    "\n",
+    "**5. Sketch System Configurations**\n",
+    "* Draw block diagrams:\n",
+    "  * Mechanical layout \n",
+    "  * Electrical layout \n",
+    "  * Signal flow: Sensor → Controller → Motor → Wheel\n",
+    "  * Controller layout\n",
+    "  * Software layout\n",
+    "* Identify knowns, unknowns, and to-be-measured parameters\n",
+    "\n",
+    "**6. Understand Project Scope and Complexity**\n",
+    "* Ask:\n",
+    "  * How many components do we need to integrate?\n",
+    "  * How difficult is swing-up vs. stabilization?\n",
+    "  * What precision do we need?\n",
+    "* List major work packages:\n",
+    "  * Mechanics\n",
+    "  * Electronics\n",
+    "  * Control software\n",
+    "  * Testing\n",
+    "  * Documentation\n",
+    "\n",
+    "**7. First Draft of System Requirements**\n",
+    "Write a lightweight, flexible document that includes:\n",
+    "* Objective: “Stabilize a pendulum using a reaction wheel”\n",
+    "* Constraints:\n",
+    "  * Max motor power: 12 V, 2 A\n",
+    "  * Sensor: AS5600, 12-bit resolution\n",
+    "* Desired behavior:\n",
+    "  * Swing up in less than 5 seconds\n",
+    "  * Stabilize within ±5°\n",
+    "* Materials allowed: 3D printing, wood, aluminum, plastic\n",
+    "* Tools: Arduino, basic soldering, power supply, oscilloscope\n",
+    "\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "88346ec6",
+   "metadata": {},
+   "source": []
+  }
+ ],
+ "metadata": {
+  "language_info": {
+   "name": "python"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}

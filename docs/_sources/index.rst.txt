@@ -95,10 +95,17 @@ Content
    :maxdepth: 1
    :caption: Project 3 
 
-   project3/readme.md
+   project3/introduction.md
+   project3/fundamentals.md
+   project3/stepZero.ipynb
+   project3/modelling.ipynb
+   project3/simulation.ipynb
+   project3/design.md
+   project3/implementation.md
+   project3/tests.md
 
 .. toctree::
    :maxdepth: 1
    :caption: Resources
    
-   resources/readme.ipynb
+   resources/resources.md
