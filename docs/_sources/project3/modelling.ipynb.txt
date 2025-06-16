@@ -12,11 +12,18 @@
     "\n",
     "***Reaction Wheel Inverted Pendulum Dynamics***\n",
     "\n",
-    "<br>\n",
+    "<br>\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "c31a96b4",
+   "metadata": {},
+   "source": [
     "\n",
     "<img src=\"https://github.com/B-Paweekorn/Reaction-wheel-inverted-pendulum/assets/122732439/6c59b7a7-6aa7-4a73-b353-9e242e6aae1c\" width=\"480\">\n",
     "\n",
-    "RWIP Parameter\n",
+    "### Parameters\n",
     "- `L1` - Pendulum length from orgin to center of mass\n",
     "- `L2` - Pendulum length\n",
     "- `m1` - Mass of pendulum\n",
@@ -28,7 +35,14 @@
     "- `g` - Gravitational acceleration\n",
     "- `Tm` - Torque apply by DC motor\n",
     "- `Td` - Disturbance\n",
-    "\n",
+    "\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "7eb2da47",
+   "metadata": {},
+   "source": [
     "Kinetic Energy\n",
     "\n",
     "&emsp; $K = \\frac{1}{2}(m_{1}L_{1}^{2}+m_{2}L_{2}^{2}+I_{1})\\dot{θ_p}^{2} + \\frac{1}{2}I_{2}(\\dot{θ_p}+\\dot{θ_r})^{2}$\n",

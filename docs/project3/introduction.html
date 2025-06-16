@@ -60,8 +60,7 @@
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Inverted Pendulum with Reaction Wheel</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#introduction">Introduction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#its-a-hands-on-way-to-understand-how-to-design-simulate-build-and-control-a-dynamic-system-a-core-challenge-in-modern-engineering">It’s a hands-on way to understand <strong>how to design, simulate, build, and control</strong> a dynamic system — a core challenge in modern engineering.</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#system-overview">System Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#overview">Overview</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#tools">Tools</a></li>
 </ul>
 </li>
@@ -154,12 +153,11 @@
 <li><p>Simulation vs implementation differences</p></li>
 <li><p>Performance analysis in real-world conditions</p></li>
 </ul>
+<p>It’s a hands-on way to understand <strong>how to design, simulate, build, and control</strong> a dynamic system — a core challenge in modern engineering.</p>
 </section>
-<section id="its-a-hands-on-way-to-understand-how-to-design-simulate-build-and-control-a-dynamic-system-a-core-challenge-in-modern-engineering">
-<h2>It’s a hands-on way to understand <strong>how to design, simulate, build, and control</strong> a dynamic system — a core challenge in modern engineering.<a class="headerlink" href="#its-a-hands-on-way-to-understand-how-to-design-simulate-build-and-control-a-dynamic-system-a-core-challenge-in-modern-engineering" title="Link to this heading"></a></h2>
-</section>
-<section id="system-overview">
-<h2>System Overview<a class="headerlink" href="#system-overview" title="Link to this heading"></a></h2>
+<hr class="docutils" />
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading"></a></h2>
 <p>A <strong>Reaction Wheel Inverted Pendulum</strong> is a complex mechanical system designed to balance an upright pendulum using a rotating disk (the <em>reaction wheel</em>, often being called a <strong>Fly-Wheel</strong>). The goal is to control the wheel’s angular momentum to stabilize the pendulum in an upright position.</p>
 <p>An <strong>inverted pendulum</strong> is a pendulum balanced in its unstable upright position — like trying to keep a stick standing vertically on your fingertip. It is a classical example of an unstable system that requires active <strong>control</strong> to maintain balance.</p>
 <p><strong>Examples of inverted pendulum</strong></p>
@@ -182,11 +180,13 @@
 </li>
 <li><p><strong>Flywheel Energy Storage</strong> – Used in power systems to store kinetic energy in high-mass, high-speed rotating wheels.</p></li>
 </ul>
-<p>A <strong>reaction wheel inverted pendulum</strong> ,</p>
+<p>A <strong>reaction wheel inverted pendulum</strong> combines the inverted pendulum and the reaction wheel:</p>
 <ul class="simple">
-<li><p>It consists of a <strong>rotating rigid disk or wheel</strong> which is attached to the pendulums arm.</p></li>
-<li><p>The axis of rotation of <strong>reaction wheel</strong> and <strong>pendulum</strong> are <strong>co-linear</strong>.</p></li>
-<li><p>The wheel is driven by <strong>DC motor</strong> which is attached directly, or through a system of gears or pulley and belts.</p></li>
+<li><p>The wheel is attached to the pendulums arm, at a distance from the pivot.</p></li>
+<li><p>The axis of rotation of <strong>reaction wheel</strong> and <strong>pendulum</strong> are parallel (co-linear).</p></li>
+<li><p>The pendulums oscillation and the disk rotation occur in the same plane.</p></li>
+<li><p>The wheel is driven by a <strong>DC motor</strong> which is attached directly, or through a system of gears or pulley and belts.</p></li>
+<li><p>This is a coupled dynamical system, to the extent that the mass and shape/form and the position of the wheel (plus motor) contribute to the the mass and inercia of both the wheel as the pendulum.</p></li>
 <li><p>According to <strong>Newton’s laws of motion</strong>, a <strong>change</strong> in the wheel’s angular velocity creates a <strong>reaction torque</strong></p></li>
 <li><p>This torque can be used to adjust the angle of the pendulum</p></li>
 </ul>

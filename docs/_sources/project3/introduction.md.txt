@@ -54,9 +54,10 @@ As such, the project combines physics, mechanics, electronics, and software with
 - Performance analysis in real-world conditions
 
 It’s a hands-on way to understand **how to design, simulate, build, and control** a dynamic system — a core challenge in modern engineering.
+
 ---
 
-## System Overview
+## Overview
 
 A **Reaction Wheel Inverted Pendulum** is a complex mechanical system designed to balance an upright pendulum using a rotating disk (the *reaction wheel*, often being called a **Fly-Wheel**). The goal is to control the wheel's angular momentum to stabilize the pendulum in an upright position.
 
@@ -79,10 +80,12 @@ The system uses a **reaction wheel** — a **rotating rigid disk** mounted on th
   * **Magnetorquers** work alongside reaction wheels, interacting with Earth’s magnetic field to manage orientation.
 * **Flywheel Energy Storage** – Used in power systems to store kinetic energy in high-mass, high-speed rotating wheels.
 
- A **reaction wheel inverted pendulum** , 
-- It consists of a **rotating rigid disk or wheel** which is attached to the pendulums arm.
-- The axis of rotation of **reaction wheel** and **pendulum** are **co-linear**. 
-- The wheel is driven by **DC motor** which is attached directly, or through a system of gears or pulley and belts.
+ A **reaction wheel inverted pendulum** combines the inverted pendulum and the reaction wheel:
+- The wheel is attached to the pendulums arm, at a distance from the pivot.
+- The axis of rotation of **reaction wheel** and **pendulum** are parallel (co-linear).
+- The pendulums oscillation and the disk rotation occur in the same plane.  
+- The wheel is driven by a **DC motor** which is attached directly, or through a system of gears or pulley and belts.
+- This is a coupled dynamical system, to the extent that the mass and shape/form and the position of the wheel (plus motor) contribute to the the mass and inercia of both the wheel as the pendulum. 
 - According to **Newton’s laws of motion**, a **change** in the wheel’s angular velocity creates a **reaction torque**
 - This torque can be used to adjust the angle of the pendulum
 

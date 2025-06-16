@@ -66,14 +66,27 @@
 <li class="toctree-l1"><a class="reference internal" href="stepZero.html">Step Zero</a></li>
 <li class="toctree-l1"><a class="reference internal" href="modelling.html">Modelling</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Simulation</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#Getting-Started">Getting Started</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#Prerequisites">Prerequisites</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#Installation">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Parameters">Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Wheel-simulation">Wheel simulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#DC-motor-simulation">DC motor simulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Pendulum-simulation">Pendulum simulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Sensor-simulation">Sensor simulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Controller-simulation">Controller simulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#System-simulation">System simulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Set-up-the-simulator">Set up the simulator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Visualization">Visualization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Sound-(optional)">Sound (optional)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Run-the-simulator">Run the simulator</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#Usage">Usage</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#Sound-Generation">Sound Generation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Example-runs">Example runs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Export-to-python-script?">Export to python script?</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="design.html">Design</a></li>
+<li class="toctree-l1"><a class="reference internal" href="design.html#design-drivers">Design drivers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="design.html#design-1">Design 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="design.html#design-2">Design 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="design.html#design-3">Design 3</a></li>
 <li class="toctree-l1"><a class="reference internal" href="implementation.html">Implementation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tests.html">Tests</a></li>
 </ul>
@@ -108,90 +121,40 @@
              
   <section id="Simulation">
 <h1>Simulation<a class="headerlink" href="#Simulation" title="Link to this heading"></a></h1>
-<p>This project simulates the dynamics of a Reaction Wheel Inverted Pendulum and includes controllers such as LQR and a Bang-bang controller.</p>
-<section id="Getting-Started">
-<h2>Getting Started<a class="headerlink" href="#Getting-Started" title="Link to this heading"></a></h2>
-</section>
-<section id="Prerequisites">
-<h2>Prerequisites<a class="headerlink" href="#Prerequisites" title="Link to this heading"></a></h2>
-<p>Ensure you have the following dependencies installed:</p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">numpy</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">pygame</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">matplotlib</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">PyQt5</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">pygetwindow</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">pyaudio</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">threading</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">control</span></code> (install via <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">control</span></code>)</p></li>
-</ul>
-</section>
-<section id="Installation">
-<h2>Installation<a class="headerlink" href="#Installation" title="Link to this heading"></a></h2>
-<p>Clone the repository and install the dependencies:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/B-Paweekorn/Reaction-wheel-inverted-pendulum.git
-<span class="nb">cd</span><span class="w"> </span>Reaction-wheel-inverted-pendulum
-pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt
-</pre></div>
-</div>
-</section>
-<section id="Usage">
-<h2>Usage<a class="headerlink" href="#Usage" title="Link to this heading"></a></h2>
-<p><img alt="Image of the program" src="https://github.com/B-Paweekorn/Reaction-wheel-inverted-pendulum/assets/47713359/e2ff45d4-bfb2-4831-9ec9-334b88f8ff77" /></p>
-<p><strong>Inject</strong> - Type the amount of torque into the box and click <code class="docutils literal notranslate"><span class="pre">INJECT</span></code> or ENTER key to inject a disturbance to the system</p>
-<p><strong>Reset</strong> - Click <code class="docutils literal notranslate"><span class="pre">RESET</span></code> to reset the system</p>
-<p><strong>Plotting</strong> - Click on the pendulum plot or the plot window to plot the data</p>
-<p>Edit the parameters in <code class="docutils literal notranslate"><span class="pre">param.py</span></code></p>
-</section>
-<section id="Sound-Generation">
-<h2>Sound Generation<a class="headerlink" href="#Sound-Generation" title="Link to this heading"></a></h2>
-<p>        The simulation incorporates sound generation related to the speed of the reaction wheel. This feature adds an auditory element to the simulation, enhancing the user experience.</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<p>This page is based on a Jupyter notebook, which is accessible through the repository.</p>
+<p>Additionally, it was exported to python source code, which can equally be downloaded and run.</p>
+<p>It is recommended to use a virtual environment and the associated requirements file.</p>
+<p>Running the jupyter/python simulation file, two graphic windows open (case they do not pop up pls check in the PC task bar and make them visible): on the left hand side, an interactive animation (with possibility to apply a perturbation torque, and to reset to initial conditions), and on the right hand side, the time series of control variables - they are updated on a click.</p>
+<section id="Parameters">
+<h2>Parameters<a class="headerlink" href="#Parameters" title="Link to this heading"></a></h2>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[41]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">pygame</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">pygame.locals</span><span class="w"> </span><span class="kn">import</span> <span class="n">QUIT</span><span class="p">,</span> <span class="n">MOUSEBUTTONDOWN</span><span class="p">,</span> <span class="n">KEYDOWN</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">PyQt5.QtWidgets</span><span class="w"> </span><span class="kn">import</span> <span class="n">QApplication</span><span class="p">,</span> <span class="n">QMainWindow</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">PyQt5.QtCore</span><span class="w"> </span><span class="kn">import</span> <span class="n">Qt</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib.backends.backend_qt5agg</span><span class="w"> </span><span class="kn">import</span> <span class="n">FigureCanvasQTAgg</span> <span class="k">as</span> <span class="n">FigureCanvas</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">pygetwindow</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">gw</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">pyaudio</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">threading</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">control</span>
-<span class="c1">#import source.content.project3.code.thai.param as param</span>
-<br/></pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-pygame 2.6.1 (SDL 2.28.4, Python 3.13.3)
-Hello from the pygame community. https://www.pygame.org/contribute.html
-</pre></div></div>
-</div>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Reaction Wheel Inverted Pendulum parameters</span>
-<span class="n">L1</span> <span class="o">=</span> <span class="mf">0.11</span>  <span class="c1"># Length of Pendulum from origin to center of mass (m)</span>
-<span class="n">L2</span> <span class="o">=</span> <span class="mf">0.18</span>  <span class="c1"># Length of Pendulum (m)</span>
-<span class="n">m1</span> <span class="o">=</span> <span class="mf">0.1</span>  <span class="c1"># Mass of Pendulum (kg)</span>
-<span class="n">m2</span> <span class="o">=</span> <span class="mf">0.1</span>  <span class="c1"># Mass of Wheel (kg)</span>
-<span class="n">I1</span> <span class="o">=</span> <span class="mf">0.0212</span>  <span class="c1"># Inertia moment of Pendulum (Kg*m^2)</span>
-<span class="n">I2</span> <span class="o">=</span> <span class="mf">0.0027</span>  <span class="c1"># Inertia moment of Wheel (Kg*m^2)</span>
-<span class="n">g</span> <span class="o">=</span> <span class="mf">9.81</span>  <span class="c1"># Gravitational acceleration (m*s^2)</span>
-<span class="n">dp</span> <span class="o">=</span> <span class="mf">0.01</span>  <span class="c1"># RWIP damping</span>
-<span class="n">wheelradius</span> <span class="o">=</span> <span class="mf">0.3</span>  <span class="c1"># Radius of Reaction wheel (m)</span>
 
-<span class="c1"># Brushed DC motor parameters</span>
+<span class="c1"># Parameters</span>
+<span class="c1"># to-do: if not self-explaining, add info how to calculate or measure</span>
+
+<span class="n">g</span> <span class="o">=</span> <span class="mf">9.81</span>  <span class="c1"># Gravitational acceleration (m*s^2)</span>
+
+<span class="c1"># Wheel parameters</span>
+<span class="n">wheelradius</span> <span class="o">=</span> <span class="mf">0.3</span>  <span class="c1"># Radius of Reaction wheel (m)</span>
+<span class="n">wheelheight</span> <span class="o">=</span> <span class="mf">0.01</span>  <span class="c1"># height of Reaction wheel (m)</span>
+<span class="n">wheelrho</span><span class="o">=</span><span class="mi">1250</span> <span class="c1"># mass density of 100% infill PLA — as used in 3D printing — is typically 1.25 g/cm³</span>
+<span class="c1">#m2 = 0.1  # Mass of Wheel (kg)</span>
+<span class="n">m2</span> <span class="o">=</span> <span class="mf">3.14</span><span class="o">*</span><span class="n">wheelradius</span><span class="o">**</span><span class="mi">2</span><span class="o">*</span><span class="n">wheelheight</span><span class="o">*</span><span class="n">wheelrho</span>  <span class="c1"># Mass of Wheel (kg)</span>
+<span class="c1">#I2 = 0.0027  # Inertia moment of Wheel (Kg*m^2)</span>
+<span class="n">I2</span> <span class="o">=</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">m2</span><span class="o">*</span><span class="n">wheelradius</span><span class="o">**</span><span class="mi">2</span>  <span class="c1"># Inertia moment of Wheel (Kg*m^2)</span>
+
+<span class="c1"># DC  Motor parameters</span>
+<span class="c1">#would be nice to have combinations for motor1, motor2, and motor3</span>
+<span class="n">motormass</span><span class="o">=</span><span class="mf">0.1</span> <span class="c1">#kg, ad hoc estimate</span>
+<span class="n">m2</span> <span class="o">=</span> <span class="n">m2</span><span class="o">+</span><span class="n">motormass</span>  <span class="c1"># updated</span>
+<span class="n">I2</span> <span class="o">=</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">m2</span><span class="o">*</span><span class="n">wheelradius</span><span class="o">**</span><span class="mi">2</span>  <span class="c1"># Inertia moment of Wheel (Kg*m^2)</span>
+<span class="c1">#max voltages</span>
+<span class="c1">#max rpm</span>
 <span class="n">J</span> <span class="o">=</span> <span class="mf">0.0027</span>  <span class="c1"># Inertia Motor (Kgm^2)</span>
 <span class="n">Ng</span> <span class="o">=</span> <span class="mf">0.83</span>  <span class="c1"># Transmission ratio of DC Motor</span>
 <span class="n">ke</span> <span class="o">=</span> <span class="mf">3.69e-2</span>  <span class="c1"># Electrical constant of DC Motor (Vs/rad)</span>
@@ -199,12 +162,62 @@ Hello from the pygame community. https://www.pygame.org/contribute.html
 <span class="n">R</span> <span class="o">=</span> <span class="mf">2.85</span>  <span class="c1"># Resistor of DC Motor (Ohm)</span>
 <span class="n">L</span> <span class="o">=</span> <span class="mf">3.73e-4</span>  <span class="c1"># Inductance of DC Motor (Henry)</span>
 <span class="n">B</span> <span class="o">=</span> <span class="mf">3.85e-3</span>  <span class="c1"># Damping of DC Motor (Nn/v)</span>
-
-<span class="c1"># Sound</span>
-<span class="n">Sound</span> <span class="o">=</span> <span class="kc">False</span> <span class="c1"># Flag to enable/disable sound</span>
-
 <span class="c1"># Motor Limit</span>
 <span class="n">MotorLimit</span> <span class="o">=</span> <span class="kc">True</span> <span class="c1"># Set to False if you don&#39;t serious about hardware Limitation</span>
+<span class="c1"># internal encoder ?</span>
+<span class="c1"># gear properties ?</span>
+<span class="c1"># gear ratio</span>
+<span class="c1"># driver properties ? PWM vs DAC ?</span>
+<span class="c1"># power supply ?</span>
+
+<span class="c1"># Pendulum parameters</span>
+<span class="n">L1</span> <span class="o">=</span> <span class="mf">0.5</span>  <span class="c1"># Length of Pendulum (from pivot to center of mass) (m)</span>
+<span class="c1">#L2 = 0.18  # Length of Pendulum (m)</span>
+<span class="n">L2</span> <span class="o">=</span> <span class="n">L1</span>  <span class="c1"># Length of Pendulum (m)</span>
+<span class="c1">#m1 = 0.1  # Mass of Pendulum (kg)</span>
+<span class="n">m1</span> <span class="o">=</span> <span class="n">m2</span>  <span class="c1"># Mass of Pendulum (kg)</span>
+<span class="c1">#I1 = 0.0212  # Inertia moment of Pendulum (Kg*m^2)</span>
+<span class="n">I1</span> <span class="o">=</span> <span class="n">m2</span><span class="o">*</span><span class="n">L1</span><span class="o">**</span><span class="mi">2</span>  <span class="c1"># Inertia moment of Pendulum (Kg*m^2)</span>
+<span class="n">dp</span> <span class="o">=</span> <span class="mf">0.01</span>  <span class="c1"># Pendulum damping constant (unit ? how to calculate, how to measure)</span>
+
+<span class="c1"># Sensor parameters</span>
+
+
+<span class="c1">#Controller parameters</span>
+<span class="n">Stabilize_Controller</span> <span class="o">=</span> <span class="s2">&quot;LQR&quot;</span> <span class="c1"># Select stabilize mode: &quot;LQR&quot; or &quot;PID&quot;</span>
+<span class="n">StabilizeBound</span> <span class="o">=</span> <span class="mi">25</span>  <span class="c1"># Angle at which switch from Bang-bang swing up to PID/LQR starts to stabilize (degree)</span>
+<span class="c1"># criteria for break mode ?</span>
+
+<span class="c1"># Manual controller parameters?</span>
+<span class="c1"># some manual control wheel with some handle or so ?</span>
+<span class="c1"># some kinda gaming wheel as user interface ? with some haptic/manual feedback ?</span>
+
+<span class="c1"># Controller parameters for Bang-bang?</span>
+<span class="c1"># Margin ?</span>
+
+<span class="c1"># Controller parameters for PID</span>
+<span class="n">Kp</span> <span class="o">=</span> <span class="mi">2143</span> <span class="c1">#PID gain others ? how to calculate</span>
+
+<span class="c1"># Controller parameters for LQR</span>
+<span class="n">Q_LQR</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">342</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>  <span class="c1"># Weight for qp</span>
+                  <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">541</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>  <span class="c1"># Weight for qp_d</span>
+                  <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>  <span class="c1"># Weight for qr</span>
+                  <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]])</span>  <span class="c1"># Weight for qr_d</span>
+<span class="n">R_LQR</span> <span class="o">=</span> <span class="mi">100</span>  <span class="c1"># Weight for the control input</span>
+
+<span class="n">N_LQR</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">],</span>  <span class="c1"># No cross-coupling terms for LQR</span>
+                  <span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+                  <span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+                  <span class="p">[</span><span class="mi">0</span><span class="p">]])</span>
+
+<span class="c1">#System parameters ?</span>
+<span class="c1"># Arduino ? Delay? Digitation? Memory? Speed?</span>
+
+<span class="c1"># Simulation configuration</span>
+<span class="c1">#time</span>
+<span class="c1"># Sound</span>
+<span class="n">Sound</span> <span class="o">=</span> <span class="kc">False</span> <span class="c1"># Flag to enable/disable sound</span>
+<span class="n">plot_rootlocus</span> <span class="o">=</span> <span class="kc">False</span> <span class="c1"># Flag to enable/disable Plot root locus</span>
 
 <span class="c1"># Initial state</span>
 <span class="n">init_qp</span> <span class="o">=</span> <span class="mf">180.0</span>  <span class="c1"># Initial pendulum angle (degree)</span>
@@ -215,54 +228,37 @@ Hello from the pygame community. https://www.pygame.org/contribute.html
 
 <span class="n">init_Tm</span> <span class="o">=</span> <span class="mf">0.0</span>  <span class="c1"># Initial reaction wheel torque</span>
 <span class="n">init_Tp</span> <span class="o">=</span> <span class="mf">0.0</span>  <span class="c1"># Initial disturbance torque</span>
-
-<span class="c1">#StabilizeBound = 25  # Angle at which LQR starts to stabilize (degree)</span>
-<span class="n">Stabilize_Controller</span> <span class="o">=</span> <span class="s2">&quot;LQR&quot;</span> <span class="c1"># Stabilize mode &quot;LQR&quot; or &quot;PID&quot;</span>
-
-<span class="c1"># Controller parameters for PID</span>
-<span class="n">plot_rootlocus</span> <span class="o">=</span> <span class="kc">False</span> <span class="c1"># Flag to enable/disable Plot root locus</span>
-<span class="n">Kp</span> <span class="o">=</span> <span class="mi">2143</span>
-
-<span class="c1"># Controller parameters for LQR</span>
-<span class="n">Q_LQR</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">342</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>  <span class="c1"># Weight for qp</span>
-                  <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">541</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>  <span class="c1"># Weight for qp_d</span>
-                  <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>  <span class="c1"># Weight for qr</span>
-                  <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]])</span>  <span class="c1"># Weight for qr_d</span>
-
-<span class="n">R_LQR</span> <span class="o">=</span> <span class="mi">100</span>  <span class="c1"># Weight for the control input</span>
-
-<span class="n">N_LQR</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">],</span>  <span class="c1"># No cross-coupling terms for LQR</span>
-                  <span class="p">[</span><span class="mi">0</span><span class="p">],</span>
-                  <span class="p">[</span><span class="mi">0</span><span class="p">],</span>
-                  <span class="p">[</span><span class="mi">0</span><span class="p">]])</span>
-
-<span class="n">StabilizeBound</span> <span class="o">=</span> <span class="mi">25</span>  <span class="c1"># Angle at which LQR starts to stabilize (degree)</span>
 <br/></pre></div>
 </div>
 </div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</section>
+<section id="Wheel-simulation">
+<h2>Wheel simulation<a class="headerlink" href="#Wheel-simulation" title="Link to this heading"></a></h2>
+</section>
+<section id="DC-motor-simulation">
+<h2>DC motor simulation<a class="headerlink" href="#DC-motor-simulation" title="Link to this heading"></a></h2>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[42]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot; # Extracting constants from param module</span>
-<span class="sd">L1, L2, m1, m2, I1, I2, g, dp, wheelradius = param.L1, L2, param.m1, param.m2, param.I1, param.I2, param.g, param.dp, param.wheelradius</span>
-<span class="sd">J, Ng, ke, kt, R, L, B = param.J, param.Ng, param.ke, param.kt, param.R, param.L, param.B</span>
-<span class="sd">Q_LQR, R_LQR, N_LQR = param.Q_LQR, param.R_LQR, param.N_LQR</span>
-<span class="sd">StabilizeBound = param.StabilizeBound</span>
-<span class="sd"> &quot;&quot;&quot;</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">MotorDynamics</span><span class="p">(</span><span class="n">Vin</span><span class="p">,</span> <span class="n">dt</span><span class="p">):</span>
+    <span class="k">global</span> <span class="n">qr_d</span><span class="p">,</span> <span class="n">qr</span><span class="p">,</span> <span class="n">curr_prev</span><span class="p">,</span> <span class="n">curr_d</span>
+    <span class="n">curr</span> <span class="o">=</span> <span class="p">(</span><span class="n">Vin</span> <span class="o">-</span> <span class="p">(</span><span class="n">qr_d</span> <span class="o">*</span> <span class="n">ke</span><span class="p">)</span> <span class="o">-</span> <span class="p">(</span><span class="n">L</span> <span class="o">*</span> <span class="n">curr_d</span><span class="p">))</span> <span class="o">/</span> <span class="n">R</span>
+    <span class="n">curr_d</span> <span class="o">=</span> <span class="p">(</span><span class="n">curr</span> <span class="o">-</span> <span class="n">curr_prev</span><span class="p">)</span><span class="o">/</span><span class="n">dt</span>
+    <span class="n">Tm</span> <span class="o">=</span> <span class="n">curr</span> <span class="o">*</span> <span class="n">kt</span>
+    <span class="n">qr_dd</span> <span class="o">=</span> <span class="p">(</span><span class="n">Tm</span> <span class="o">-</span> <span class="n">B</span> <span class="o">*</span> <span class="n">qr_d</span><span class="p">)</span> <span class="o">/</span> <span class="n">J</span>
+    <span class="n">qr_d</span> <span class="o">=</span> <span class="n">qr_d</span> <span class="o">+</span> <span class="p">(</span><span class="n">qr_dd</span> <span class="o">*</span> <span class="n">dt</span><span class="p">)</span>
+    <span class="n">qr</span> <span class="o">=</span> <span class="n">qr</span> <span class="o">+</span> <span class="p">(</span><span class="n">qr_d</span> <span class="o">*</span> <span class="n">dt</span><span class="p">)</span>
+    <span class="n">curr_prev</span> <span class="o">=</span> <span class="n">curr</span>
+    <span class="k">return</span> <span class="n">Tm</span>
 <br/></pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-&#39; # Extracting constants from param module\nL1, L2, m1, m2, I1, I2, g, dp, wheelradius = param.L1, param.L2, param.m1, param.m2, param.I1, param.I2, param.g, param.dp, param.wheelradius\nJ, Ng, ke, kt, R, L, B = param.J, param.Ng, param.ke, param.kt, param.R, param.L, param.B\nQ_LQR, R_LQR, N_LQR = param.Q_LQR, param.R_LQR, param.N_LQR\nStabilizeBound = param.StabilizeBound\n &#39;
-</pre></div></div>
-</div>
+</section>
+<section id="Pendulum-simulation">
+<h2>Pendulum simulation<a class="headerlink" href="#Pendulum-simulation" title="Link to this heading"></a></h2>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[43]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">Forwardkinematics</span><span class="p">(</span><span class="n">q</span><span class="p">):</span>
@@ -279,28 +275,17 @@ Hello from the pygame community. https://www.pygame.org/contribute.html
     <span class="p">)</span>  <span class="c1"># Kinetic energy</span>
     <span class="n">P</span> <span class="o">=</span> <span class="p">(</span><span class="n">m1</span> <span class="o">+</span> <span class="n">m2</span><span class="p">)</span> <span class="o">*</span> <span class="n">g</span> <span class="o">*</span> <span class="n">L2</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">q</span><span class="p">)</span>  <span class="c1"># Potential energy</span>
     <span class="k">return</span> <span class="n">K</span> <span class="o">+</span> <span class="n">P</span>
-
-<span class="k">def</span><span class="w"> </span><span class="nf">MotorDynamics</span><span class="p">(</span><span class="n">Vin</span><span class="p">,</span> <span class="n">dt</span><span class="p">):</span>
-    <span class="k">global</span> <span class="n">qr_d</span><span class="p">,</span> <span class="n">qr</span><span class="p">,</span> <span class="n">curr_prev</span><span class="p">,</span> <span class="n">curr_d</span>
-    <span class="n">curr</span> <span class="o">=</span> <span class="p">(</span><span class="n">Vin</span> <span class="o">-</span> <span class="p">(</span><span class="n">qr_d</span> <span class="o">*</span> <span class="n">ke</span><span class="p">)</span> <span class="o">-</span> <span class="p">(</span><span class="n">L</span> <span class="o">*</span> <span class="n">curr_d</span><span class="p">))</span> <span class="o">/</span> <span class="n">R</span>
-    <span class="n">curr_d</span> <span class="o">=</span> <span class="p">(</span><span class="n">curr</span> <span class="o">-</span> <span class="n">curr_prev</span><span class="p">)</span><span class="o">/</span><span class="n">dt</span>
-    <span class="n">Tm</span> <span class="o">=</span> <span class="n">curr</span> <span class="o">*</span> <span class="n">kt</span>
-    <span class="n">qr_dd</span> <span class="o">=</span> <span class="p">(</span><span class="n">Tm</span> <span class="o">-</span> <span class="n">B</span> <span class="o">*</span> <span class="n">qr_d</span><span class="p">)</span> <span class="o">/</span> <span class="n">J</span>
-    <span class="n">qr_d</span> <span class="o">=</span> <span class="n">qr_d</span> <span class="o">+</span> <span class="p">(</span><span class="n">qr_dd</span> <span class="o">*</span> <span class="n">dt</span><span class="p">)</span>
-    <span class="n">qr</span> <span class="o">=</span> <span class="n">qr</span> <span class="o">+</span> <span class="p">(</span><span class="n">qr_d</span> <span class="o">*</span> <span class="n">dt</span><span class="p">)</span>
-    <span class="n">curr_prev</span> <span class="o">=</span> <span class="n">curr</span>
-    <span class="k">return</span> <span class="n">Tm</span>
-
-<span class="k">def</span><span class="w"> </span><span class="nf">RwipDynamics</span><span class="p">(</span><span class="n">q</span><span class="p">,</span> <span class="n">Tr</span><span class="p">,</span> <span class="n">Tp</span><span class="p">):</span>
-    <span class="n">qdd</span> <span class="o">=</span> <span class="p">(</span>
-        <span class="p">(</span><span class="n">m1</span> <span class="o">*</span> <span class="n">g</span> <span class="o">*</span> <span class="n">L1</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">q</span><span class="p">))</span> <span class="o">+</span> <span class="p">(</span><span class="n">m2</span> <span class="o">*</span> <span class="n">g</span> <span class="o">*</span> <span class="n">L2</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">q</span><span class="p">))</span> <span class="o">-</span> <span class="n">Tr</span> <span class="o">+</span> <span class="n">Tp</span> <span class="o">-</span> <span class="n">dp</span> <span class="o">*</span> <span class="n">qp_d</span>
-    <span class="p">)</span> <span class="o">/</span> <span class="p">((</span><span class="n">m1</span> <span class="o">*</span> <span class="n">L1</span><span class="o">**</span><span class="mf">2.0</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">m2</span> <span class="o">*</span> <span class="n">L2</span><span class="p">)</span> <span class="o">+</span> <span class="n">I1</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">qdd</span>
 <br/></pre></div>
 </div>
 </div>
+</section>
+<section id="Sensor-simulation">
+<h2>Sensor simulation<a class="headerlink" href="#Sensor-simulation" title="Link to this heading"></a></h2>
+</section>
+<section id="Controller-simulation">
+<h2>Controller simulation<a class="headerlink" href="#Controller-simulation" title="Link to this heading"></a></h2>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[44]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># LQR parameter</span>
@@ -329,8 +314,50 @@ Hello from the pygame community. https://www.pygame.org/contribute.html
 <br/></pre></div>
 </div>
 </div>
+</section>
+<section id="System-simulation">
+<h2>System simulation<a class="headerlink" href="#System-simulation" title="Link to this heading"></a></h2>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[45]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">RwipDynamics</span><span class="p">(</span><span class="n">q</span><span class="p">,</span> <span class="n">Tr</span><span class="p">,</span> <span class="n">Tp</span><span class="p">):</span>
+    <span class="n">qdd</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="p">(</span><span class="n">m1</span> <span class="o">*</span> <span class="n">g</span> <span class="o">*</span> <span class="n">L1</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">q</span><span class="p">))</span> <span class="o">+</span> <span class="p">(</span><span class="n">m2</span> <span class="o">*</span> <span class="n">g</span> <span class="o">*</span> <span class="n">L2</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">q</span><span class="p">))</span> <span class="o">-</span> <span class="n">Tr</span> <span class="o">+</span> <span class="n">Tp</span> <span class="o">-</span> <span class="n">dp</span> <span class="o">*</span> <span class="n">qp_d</span>
+    <span class="p">)</span> <span class="o">/</span> <span class="p">((</span><span class="n">m1</span> <span class="o">*</span> <span class="n">L1</span><span class="o">**</span><span class="mf">2.0</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">m2</span> <span class="o">*</span> <span class="n">L2</span><span class="p">)</span> <span class="o">+</span> <span class="n">I1</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">qdd</span>
+<br/></pre></div>
+</div>
+</div>
+</section>
+<section id="Set-up-the-simulator">
+<h2>Set up the simulator<a class="headerlink" href="#Set-up-the-simulator" title="Link to this heading"></a></h2>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[46]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pygame</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pygame.locals</span><span class="w"> </span><span class="kn">import</span> <span class="n">QUIT</span><span class="p">,</span> <span class="n">MOUSEBUTTONDOWN</span><span class="p">,</span> <span class="n">KEYDOWN</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">PyQt5.QtWidgets</span><span class="w"> </span><span class="kn">import</span> <span class="n">QApplication</span><span class="p">,</span> <span class="n">QMainWindow</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">PyQt5.QtCore</span><span class="w"> </span><span class="kn">import</span> <span class="n">Qt</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib.backends.backend_qt5agg</span><span class="w"> </span><span class="kn">import</span> <span class="n">FigureCanvasQTAgg</span> <span class="k">as</span> <span class="n">FigureCanvas</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pygetwindow</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">gw</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pyaudio</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">threading</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">control</span>
+<span class="c1">#import source.content.project3.code.thai.param as param  #only required when using param.py file</span>
+<br/></pre></div>
+</div>
+</div>
+</section>
+<section id="Visualization">
+<h2>Visualization<a class="headerlink" href="#Visualization" title="Link to this heading"></a></h2>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[47]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">plot_figure</span><span class="p">(</span><span class="n">screen</span><span class="p">,</span> <span class="n">qp</span><span class="p">,</span> <span class="n">qp_d</span><span class="p">,</span> <span class="n">qr_d</span><span class="p">,</span> <span class="n">Tm</span><span class="p">,</span> <span class="n">Vin</span><span class="p">,</span> <span class="n">Tp</span><span class="p">,</span> <span class="n">setpoint</span><span class="p">):</span>
@@ -419,8 +446,11 @@ Hello from the pygame community. https://www.pygame.org/contribute.html
 <br/></pre></div>
 </div>
 </div>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+</section>
+<section id="Sound-(optional)">
+<h2>Sound (optional)<a class="headerlink" href="#Sound-(optional)" title="Link to this heading"></a></h2>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p</span> <span class="o">=</span> <span class="n">pyaudio</span><span class="o">.</span><span class="n">PyAudio</span><span class="p">()</span>
@@ -452,8 +482,25 @@ Hello from the pygame community. https://www.pygame.org/contribute.html
 <br/></pre></div>
 </div>
 </div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-intense-fg ansi-bold">The Kernel crashed while executing code in the current cell or a previous cell.
+
+</span><span class="ansi-red-intense-fg ansi-bold">Please review the code in the cell(s) to identify a possible cause of the failure.
+
+</span><span class="ansi-red-intense-fg ansi-bold">Click &lt;a href=&#39;https://aka.ms/vscodeJupyterKernelCrash&#39;&gt;here&lt;/a&gt; for more info.
+
+</span><span class="ansi-red-intense-fg ansi-bold">View Jupyter &lt;a href=&#39;command:jupyter.viewOutput&#39;&gt;log&lt;/a&gt; for further details.</span>
+</pre></div></div>
+</div>
+</section>
+<section id="Run-the-simulator">
+<h2>Run the simulator<a class="headerlink" href="#Run-the-simulator" title="Link to this heading"></a></h2>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><br/><span></span><span class="c1"># ==========================================================================================</span>
@@ -540,6 +587,8 @@ Hello from the pygame community. https://www.pygame.org/contribute.html
 <span class="n">win</span><span class="o">.</span><span class="n">setCentralWidget</span><span class="p">(</span><span class="n">canvas</span><span class="p">)</span>
 <span class="n">win</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">gcf</span><span class="p">()</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">mpl_connect</span><span class="p">(</span><span class="s1">&#39;button_press_event&#39;</span><span class="p">,</span> <span class="n">on_click</span><span class="p">)</span>
+
+<span class="c1">#variable initialization</span>
 <span class="n">timedt_data</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="n">qp_data</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="n">setpoint_data</span> <span class="o">=</span> <span class="p">[]</span>
@@ -548,9 +597,9 @@ Hello from the pygame community. https://www.pygame.org/contribute.html
 
 <span class="k">while</span> <span class="n">running</span><span class="p">:</span>
     <span class="k">for</span> <span class="n">event</span> <span class="ow">in</span> <span class="n">pygame</span><span class="o">.</span><span class="n">event</span><span class="o">.</span><span class="n">get</span><span class="p">():</span>
-        <span class="k">if</span> <span class="n">event</span><span class="o">.</span><span class="n">type</span> <span class="o">==</span> <span class="n">QUIT</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">event</span><span class="o">.</span><span class="n">type</span> <span class="o">==</span> <span class="n">QUIT</span><span class="p">:</span>  <span class="c1">#close event</span>
             <span class="n">running</span> <span class="o">=</span> <span class="kc">False</span>
-        <span class="k">elif</span> <span class="n">event</span><span class="o">.</span><span class="n">type</span> <span class="o">==</span> <span class="n">MOUSEBUTTONDOWN</span><span class="p">:</span>
+        <span class="k">elif</span> <span class="n">event</span><span class="o">.</span><span class="n">type</span> <span class="o">==</span> <span class="n">MOUSEBUTTONDOWN</span><span class="p">:</span> <span class="c1">#reset event</span>
             <span class="k">if</span> <span class="mi">10</span> <span class="o">&lt;</span> <span class="n">event</span><span class="o">.</span><span class="n">pos</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">110</span> <span class="ow">and</span> <span class="mi">10</span> <span class="o">&lt;</span> <span class="n">event</span><span class="o">.</span><span class="n">pos</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">60</span><span class="p">:</span>
                 <span class="n">input_flag</span> <span class="o">=</span> <span class="kc">True</span>
             <span class="k">if</span> <span class="mi">292</span> <span class="o">&lt;</span> <span class="n">event</span><span class="o">.</span><span class="n">pos</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">392</span> <span class="ow">and</span> <span class="mi">10</span> <span class="o">&lt;</span> <span class="n">event</span><span class="o">.</span><span class="n">pos</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">60</span><span class="p">:</span>
@@ -572,7 +621,7 @@ Hello from the pygame community. https://www.pygame.org/contribute.html
                 <span class="n">controller_energy</span> <span class="o">=</span> <span class="mi">0</span>
             <span class="k">if</span> <span class="n">event</span><span class="o">.</span><span class="n">pos</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">160</span><span class="p">:</span>
                 <span class="n">plot_graph</span><span class="p">()</span>
-        <span class="k">elif</span> <span class="n">event</span><span class="o">.</span><span class="n">type</span> <span class="o">==</span> <span class="n">KEYDOWN</span><span class="p">:</span>
+        <span class="k">elif</span> <span class="n">event</span><span class="o">.</span><span class="n">type</span> <span class="o">==</span> <span class="n">KEYDOWN</span><span class="p">:</span>  <span class="c1">#not sure what event</span>
             <span class="k">if</span> <span class="n">event</span><span class="o">.</span><span class="n">key</span> <span class="o">==</span> <span class="n">pygame</span><span class="o">.</span><span class="n">K_BACKSPACE</span><span class="p">:</span>
                 <span class="n">input_string</span> <span class="o">=</span> <span class="n">input_string</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
             <span class="k">elif</span> <span class="n">event</span><span class="o">.</span><span class="n">key</span> <span class="o">==</span> <span class="n">pygame</span><span class="o">.</span><span class="n">K_RETURN</span><span class="p">:</span>
@@ -580,7 +629,7 @@ Hello from the pygame community. https://www.pygame.org/contribute.html
             <span class="k">else</span><span class="p">:</span>
                 <span class="n">input_string</span> <span class="o">+=</span> <span class="n">event</span><span class="o">.</span><span class="n">unicode</span>
 
-    <span class="k">if</span> <span class="n">input_flag</span> <span class="o">==</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">input_flag</span> <span class="o">==</span> <span class="kc">True</span><span class="p">:</span>  <span class="c1">#event: inject external perturbation torque Tp</span>
         <span class="k">try</span><span class="p">:</span>
             <span class="n">Tp</span> <span class="o">=</span> <span class="o">-</span><span class="nb">float</span><span class="p">(</span><span class="n">input_string</span><span class="p">)</span>
         <span class="k">except</span><span class="p">:</span>
@@ -593,17 +642,18 @@ Hello from the pygame community. https://www.pygame.org/contribute.html
     <span class="c1"># ==========================================================================================</span>
     <span class="c1"># ======================================= Controller =======================================</span>
     <span class="c1"># ==========================================================================================</span>
-    <span class="n">setpoint_offset</span> <span class="o">=</span> <span class="p">(</span><span class="n">qp</span> <span class="o">-</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span>
+    <span class="n">setpoint_offset</span> <span class="o">=</span> <span class="p">(</span><span class="n">qp</span> <span class="o">-</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span> <span class="c1">#why ?</span>
     <span class="k">if</span> <span class="n">setpoint_offset</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
         <span class="n">setpoint</span> <span class="o">=</span> <span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">floor</span><span class="p">(</span><span class="n">setpoint_offset</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span>
     <span class="k">elif</span> <span class="n">setpoint_offset</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
         <span class="n">setpoint</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">ceil</span><span class="p">(</span><span class="n">setpoint_offset</span><span class="p">)</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span>
+    <span class="c1">#well: would be more convenient to fold the phase</span>
 
     <span class="n">E</span> <span class="o">=</span> <span class="n">PendulumEnergy</span><span class="p">(</span><span class="n">q</span><span class="o">=</span><span class="n">qp</span><span class="p">)</span>
 
     <span class="k">if</span> <span class="n">wait_flag</span><span class="p">:</span>
         <span class="n">controller_mode</span> <span class="o">=</span> <span class="s2">&quot;brake&quot;</span>
-        <span class="k">if</span> <span class="nb">abs</span><span class="p">(</span><span class="n">E</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mf">0.05</span><span class="p">:</span>
+        <span class="k">if</span> <span class="nb">abs</span><span class="p">(</span><span class="n">E</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mf">0.05</span><span class="p">:</span>   <span class="c1">#should be a parameter</span>
             <span class="n">wait_flag</span> <span class="o">=</span> <span class="kc">False</span>
     <span class="k">elif</span> <span class="nb">abs</span><span class="p">(</span><span class="n">qp</span><span class="p">)</span> <span class="o">%</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="n">np</span><span class="o">.</span><span class="n">deg2rad</span><span class="p">(</span><span class="n">StabilizeBound</span><span class="p">)</span> <span class="ow">or</span> <span class="nb">abs</span><span class="p">(</span><span class="n">qp</span><span class="p">)</span> <span class="o">%</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="n">np</span><span class="o">.</span><span class="n">deg2rad</span><span class="p">(</span><span class="mi">360</span> <span class="o">-</span> <span class="n">StabilizeBound</span><span class="p">):</span>
         <span class="n">settled_flag</span> <span class="o">=</span> <span class="kc">True</span>
@@ -707,33 +757,6 @@ Hello from the pygame community. https://www.pygame.org/contribute.html
 <span class="n">stop_thread</span> <span class="o">=</span> <span class="kc">True</span>
 <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">()</span>
 <br/></pre></div>
-</div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-An exception has occurred, use %tb to see the full traceback.
-
-<span class="ansi-red-fg">SystemExit</span>
-
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area stderr docutils container">
-<div class="highlight"><pre>
-C:\Users\Utilizador\AppData\Roaming\Python\Python313\site-packages\IPython\core\interactiveshell.py:3678: UserWarning: To exit: use &#39;exit&#39;, &#39;quit&#39;, or Ctrl-D.
-  warn(&#34;To exit: use &#39;exit&#39;, &#39;quit&#39;, or Ctrl-D.&#34;, stacklevel=1)
-</pre></div></div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<img alt="../_images/project3_simulation_8_2.png" src="../_images/project3_simulation_8_2.png" />
 </div>
 </div>
 <div class="nbinput nblast docutils container">
@@ -995,6 +1018,20 @@ C:\Users\Utilizador\AppData\Roaming\Python\Python313\site-packages\IPython\core\
 <br/></pre></div>
 </div>
 </div>
+</section>
+<section id="Usage">
+<h2>Usage<a class="headerlink" href="#Usage" title="Link to this heading"></a></h2>
+<p><img alt="Image of the program" src="https://github.com/B-Paweekorn/Reaction-wheel-inverted-pendulum/assets/47713359/e2ff45d4-bfb2-4831-9ec9-334b88f8ff77" /></p>
+<p><strong>Inject</strong> - Type the amount of torque into the box and click <code class="docutils literal notranslate"><span class="pre">INJECT</span></code> or ENTER key to inject a disturbance to the system</p>
+<p><strong>Reset</strong> - Click <code class="docutils literal notranslate"><span class="pre">RESET</span></code> to reset the system</p>
+<p><strong>Plotting</strong> - Click on the pendulum plot or the plot window to plot the data</p>
+<p>Edit the parameters in <code class="docutils literal notranslate"><span class="pre">param.py</span></code> (or above)S</p>
+</section>
+<section id="Example-runs">
+<h2>Example runs<a class="headerlink" href="#Example-runs" title="Link to this heading"></a></h2>
+</section>
+<section id="Export-to-python-script?">
+<h2>Export to python script?<a class="headerlink" href="#Export-to-python-script?" title="Link to this heading"></a></h2>
 </section>
 </section>
 
