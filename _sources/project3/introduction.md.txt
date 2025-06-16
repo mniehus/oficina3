@@ -1,0 +1,157 @@
+
+# Inverted Pendulum with Reaction Wheel
+
+This COIL project brings together students from Lisbon Polytechnical University (Portugal) and Amsterdam University of Applied Sciences (Netherlands) in a shared, hands-on learning experience rooted in applied physics and engineering.
+
+## Introduction
+
+Over a four-week period, mixed international student teams will collaborate to **design, simulate, and implement a reaction-wheel inverted pendulum** — a classic control systems challenge with applications in robotics and aerospace.
+
+The goal is to combine theoretical analysis, computational modeling, and practical design, all while engaging in international teamwork and intercultural exchange.
+
+**Learning Objectives**
+- Apply principles of classical mechanics, control theory, and embedded systems.  
+- Simulate dynamic behavior of the pendulum system using Python.  
+- Collaborate across institutions and cultures using online tools.  
+- Develop technical, communication, and project management skills.  
+- Reflect on engineering practices in a global context.
+
+**What is a COIL?**
+
+**COIL** stands for **Collaborative Online International Learning**. It’s a teaching method that connects courses from different countries through online, project-based collaboration. In a COIL module, two or more instructors co-design and co-teach a shared activity where students work in mixed international teams to complete authentic tasks and reflect on intercultural learning. 
+
+
+[How to COIL (Collaborative Online International Learning)](https://ureka.eu/how-to-coil-collaborative-online-international-learning-coil/)
+
+**What is a Reaction Wheel Inverted Pendulum?**
+
+A **Reaction Wheel Inverted Pendulum** is a complex mechanical system designed to balance an upright pendulum using a rotating disk (the *reaction wheel*, often being called a **Fly-Wheel**). The goal is to control the wheel's angular momentum to stabilize the pendulum in an upright position.
+
+Thus, the pendulum can be brought upright and kept balanced using only the internal motion of the wheel.
+
+---
+
+**Why is This Important?**
+
+This is more than a mechanical challenge — it’s a **control engineering problem**.
+
+- The goal is not just to make it work, but to **optimize** it:
+  - Minimal energy use
+  - Fast stabilization
+  - High resilience to noise or disturbances
+  
+- The system is **nonlinear**, **coupled**, and **unstable by nature**
+- It requires a well-designed controller:
+  - First a **bang-bang controller** to swing it up  
+  - Then a **PID** or **LQR** controller to stabilize it upright  
+    - LQR (Linear Quadratic Regulator) is expected to give the best results
+
+As such, the project combines physics, mechanics, electronics, and software with real-world constraints — an ideal platform to learn:
+- Dynamics and modeling of unstable systems  
+- Sensor and actuator integration  
+- Real-time control strategies  
+- Simulation vs implementation differences  
+- Performance analysis in real-world conditions
+
+It’s a hands-on way to understand **how to design, simulate, build, and control** a dynamic system — a core challenge in modern engineering.
+
+---
+
+## Overview
+
+A **Reaction Wheel Inverted Pendulum** is a complex mechanical system designed to balance an upright pendulum using a rotating disk (the *reaction wheel*, often being called a **Fly-Wheel**). The goal is to control the wheel's angular momentum to stabilize the pendulum in an upright position.
+
+An **inverted pendulum** is a pendulum balanced in its unstable upright position — like trying to keep a stick standing vertically on your fingertip. It is a classical example of an unstable system that requires active **control** to maintain balance.
+
+**Examples of inverted pendulum**
+- A **Segway** balancing on two wheels  
+- A **rocket** stabilizing itself during launch  
+- A **human** standing upright, continuously adjusting posture
+
+In our case, the pendulum starts hanging downward (its stable position) and must first **swing up**, then be **stabilized upright** — even when subjected to unknown disturbances (like small external pushes).
+
+The system uses a **reaction wheel** — a **rotating rigid disk** mounted on the system and driven by a motor. By accelerating or decelerating this wheel, the system generates a **reaction torque** in the opposite direction, based on Newton’s third law. This induced torque allows the system (e.g., an inverted pendulum) to control its own angular position or velocity **without relying on external supports**.
+
+**Examples of Reaction Wheels & Flywheels**
+* **Physics Toys** – Gyroscopic tops and inertia wheels that demonstrate angular momentum conservation.
+* **Gimbal Systems** – Stabilize cameras or sensors by counteracting movement using inertial rotation.
+* **Satellites**:
+  * **Reaction Wheels** are used for attitude control by modulating wheel speed.
+  * **Magnetorquers** work alongside reaction wheels, interacting with Earth’s magnetic field to manage orientation.
+* **Flywheel Energy Storage** – Used in power systems to store kinetic energy in high-mass, high-speed rotating wheels.
+
+ A **reaction wheel inverted pendulum** combines the inverted pendulum and the reaction wheel:
+- The wheel is attached to the pendulums arm, at a distance from the pivot.
+- The axis of rotation of **reaction wheel** and **pendulum** are parallel (co-linear).
+- The pendulums oscillation and the disk rotation occur in the same plane.  
+- The wheel is driven by a **DC motor** which is attached directly, or through a system of gears or pulley and belts.
+- This is a coupled dynamical system, to the extent that the mass and shape/form and the position of the wheel (plus motor) contribute to the the mass and inercia of both the wheel as the pendulum. 
+- According to **Newton’s laws of motion**, a **change** in the wheel’s angular velocity creates a **reaction torque**
+- This torque can be used to adjust the angle of the pendulum
+
+Thus, the pendulum can be brought upright and kept balanced using only the internal motion of the wheel.
+
+![Reaction Wheel Inverted Pendulum](../img/system.png)
+
+**Components**
+- **Pendulum**: A rigid arm that pivots at its base and must be balanced vertically.
+- **Reaction Wheel**: A rotating mass driven by a motor, mounted on the pendulum. It creates a counteracting torque to stabilize the system.
+- **Controller**: Software that measures the system's state (e.g., angle and angular velocity) and determines how to drive the wheel to maintain balance.
+
+## Tools
+
+This project combines software-based simulation with hands-on hardware implementation. Below is a list of the essential tools and components you'll be working with, as well as the formats and documentation expected for your final report.
+
+**Hardware** 
+
+- **Mechanical workshop tools and materials**  
+  - Use mechanical workshop tools (saw, drill, etc) and materials (wood, bars, tubes, etc.) to manufacture the overall support structure of the system, and to fix the system.  
+  - 
+- **3D Printer and filaments**  
+  - Use 3D printing for custom parts such as wheel mounts, pendulum arms, mechanical joints and gears.  
+
+- **Rods, bearings and belts**  
+  - Special components that are hard to manufacture to the required precision, like rods, bearings and belts, can be acquired in specialist shops, e.g. for 3d printers or UAVs or sports equipment, or similar. 
+
+- **Cabling, Breadboarding, Wiring & Soldering Equipment**  
+  - Needed to build and connect the system reliably.
+
+- **DC Motor (Actuator)**  
+  - Drives the reaction wheel. Choose components carefully based on ratings.
+
+- **DC Power supply**  
+  - While batteries could do the job, it is highly recommended to use laboratory grade power supplies during development: the power requirements are typically high, and more importantly, a lab grade power supply provides a direct control over the maximum ratings. 
+  
+- **DC Motor Driver Circuit**  
+  - Drives the reaction wheel. Choose components carefully based on ratings.
+ 
+- **(Sensor) AS5600 Magnetic Rotary Sensor**  
+  - Precise angle measurement of the pendulum shaft.  
+   https://www.ams.com/en/as5600
+
+- **Arduino (Microcontroller)**  
+  - Arduino board that runs the real-time control logic. Any UNO grade microcontroller should do. We recommend to use   
+
+- **Multimeter & Osciloscope**  
+  - Instruments to analyze and characterize the performance of components and the final system
+
+You must know very well the behavior and limitations of your electrical components:
+
+- **Key Specs to Review**:
+  - Supply voltage range
+  - Max current and power
+  - Sensitivity and accuracy (e.g., of sensors)
+- Include this in your **technical dossier**.
+
+---
+
+**Software**
+
+- **[Visual Studio Code (VS Code)](https://code.visualstudio.com/)**  - Main environment for code editing, running Python/Jupyter, and managing Git projects, i.e. tools below can be accessed **directly within VS Code** using extensions.
+- **[Python](https://www.python.org/)**  Used for modeling, simulation, and data analysis.
+- **[Jupyter Notebooks](https://jupyter.org/)**  - Interactive Python environment combining code, plots, and documentation.
+- **[GitHub](https://github.com/)**  - Version control and collaboration platform.
+- **[Arduino (Microcontroller + IDE)](https://www.arduino.cc/)**  - The Arduino IDE is used to write and upload `.ino` files.
+- **[Onshape](https://www.onshape.com/)** - Cloud-based CAD tool
+- **[Ultimaker Cura](https://ultimaker.com/software/ultimaker-cura/)** - Recommended slicer software to prepare `.stl` files for
+---
