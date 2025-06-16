@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>COIL Project: Inverted Pendulum with Reaction Wheel &mdash; oficina3  documentation</title>
+  <title>Inverted Pendulum with Reaction Wheel &mdash; oficina3  documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
 
@@ -43,9 +43,10 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">Introduction</span></p>
+              <p class="caption" role="heading"><span class="caption-text">oficina3</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../introduction/readme.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../readme.html">LEFA Oficina 3 – Laboratório de Estimação e Controlo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../readme.html#lefa-oficina-3-estimation-and-control-lab">LEFA Oficina 3 – Estimation and Control Lab</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Projeto 1</span></p>
 <ul>
@@ -57,11 +58,11 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Project 3</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">COIL Project: Inverted Pendulum with Reaction Wheel</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Inverted Pendulum with Reaction Wheel</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#introduction">Introduction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#tools">Tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#its-a-hands-on-way-to-understand-how-to-design-simulate-build-and-control-a-dynamic-system-a-core-challenge-in-modern-engineering">It’s a hands-on way to understand <strong>how to design, simulate, build, and control</strong> a dynamic system — a core challenge in modern engineering.</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#system-overview">System Overview</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#collaboration-plan">Collaboration Plan</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#tools">Tools</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="fundamentals.html">Fundamentals</a></li>
@@ -91,7 +92,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">COIL Project: Inverted Pendulum with Reaction Wheel</li>
+      <li class="breadcrumb-item active">Inverted Pendulum with Reaction Wheel</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/project3/introduction.md.txt" rel="nofollow"> View page source</a>
       </li>
@@ -101,8 +102,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section class="tex2jax_ignore mathjax_ignore" id="coil-project-inverted-pendulum-with-reaction-wheel">
-<h1>COIL Project: Inverted Pendulum with Reaction Wheel<a class="headerlink" href="#coil-project-inverted-pendulum-with-reaction-wheel" title="Link to this heading"></a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="inverted-pendulum-with-reaction-wheel">
+<h1>Inverted Pendulum with Reaction Wheel<a class="headerlink" href="#inverted-pendulum-with-reaction-wheel" title="Link to this heading"></a></h1>
 <p>This COIL project brings together students from Lisbon Polytechnical University (Portugal) and Amsterdam University of Applied Sciences (Netherlands) in a shared, hands-on learning experience rooted in applied physics and engineering.</p>
 <section id="introduction">
 <h2>Introduction<a class="headerlink" href="#introduction" title="Link to this heading"></a></h2>
@@ -116,31 +117,15 @@
 <li><p>Develop technical, communication, and project management skills.</p></li>
 <li><p>Reflect on engineering practices in a global context.</p></li>
 </ul>
-<p><strong>What is a COIL?</strong>
-<strong>COIL</strong> stands for <strong>Collaborative Online International Learning</strong>. It’s a teaching method that connects courses from different countries through online, project-based collaboration. In a COIL module, two or more instructors co-design and co-teach a shared activity where students work in mixed international teams to complete authentic tasks and reflect on intercultural learning.</p>
+<p><strong>What is a COIL?</strong></p>
+<p><strong>COIL</strong> stands for <strong>Collaborative Online International Learning</strong>. It’s a teaching method that connects courses from different countries through online, project-based collaboration. In a COIL module, two or more instructors co-design and co-teach a shared activity where students work in mixed international teams to complete authentic tasks and reflect on intercultural learning.</p>
 <p><a class="reference external" href="https://ureka.eu/how-to-coil-collaborative-online-international-learning-coil/">How to COIL (Collaborative Online International Learning)</a></p>
-<p><strong>What is a Reaction Wheel Inverted Pendulum?</strong>
-A <strong>Reaction Wheel Inverted Pendulum</strong> is a complex mechanical system designed to balance an upright pendulum using a rotating disk (the <em>reaction wheel</em>, often being called a <strong>Fly-Wheel</strong>). The goal is to control the wheel’s angular momentum to stabilize the pendulum in an upright position.</p>
-<p>An <strong>inverted pendulum</strong> is a pendulum balanced in its unstable upright position — like trying to keep a stick standing vertically on your fingertip. It is a classical example of an unstable system that requires active <strong>control</strong> to maintain balance.</p>
-<p><strong>Real-World Examples</strong></p>
-<ul class="simple">
-<li><p>A <strong>Segway</strong> balancing on two wheels</p></li>
-<li><p>A <strong>rocket</strong> stabilizing itself during launch</p></li>
-<li><p>A <strong>human</strong> standing upright, continuously adjusting posture</p></li>
-</ul>
-<p>In our case, the pendulum starts hanging downward (its stable position) and must first <strong>swing up</strong>, then be <strong>stabilized upright</strong> — even when subjected to unknown disturbances (like small external pushes).</p>
-<p>The system uses a <strong>reaction wheel</strong>, rather than a laterally moving base (like in a cart-pendulum):</p>
-<ul class="simple">
-<li><p>It consists of a <strong>rotating rigid disk or wheel</strong> which is mounted on the pendulums arm.</p></li>
-<li><p>The axis of rotation of <strong>reaction wheel</strong> and <strong>pendulum</strong> are <strong>co-linear</strong>.</p></li>
-<li><p>The wheel is driven by <strong>DC motor</strong> which is attached directly, or through a system of gears or pulley and belts.</p></li>
-<li><p>According to <strong>Newton’s laws of motion</strong>, a <strong>change</strong> in the wheel’s angular velocity creates a <strong>reaction torque</strong></p></li>
-<li><p>This torque can be used to adjust the angle of the pendulum</p></li>
-</ul>
+<p><strong>What is a Reaction Wheel Inverted Pendulum?</strong></p>
+<p>A <strong>Reaction Wheel Inverted Pendulum</strong> is a complex mechanical system designed to balance an upright pendulum using a rotating disk (the <em>reaction wheel</em>, often being called a <strong>Fly-Wheel</strong>). The goal is to control the wheel’s angular momentum to stabilize the pendulum in an upright position.</p>
 <p>Thus, the pendulum can be brought upright and kept balanced using only the internal motion of the wheel.</p>
 <hr class="docutils" />
-<p><strong>Why is This Important?</strong>
-This is more than a mechanical challenge — it’s a <strong>control engineering problem</strong>.</p>
+<p><strong>Why is This Important?</strong></p>
+<p>This is more than a mechanical challenge — it’s a <strong>control engineering problem</strong>.</p>
 <ul class="simple">
 <li><p>The goal is not just to make it work, but to <strong>optimize</strong> it:</p>
 <ul>
@@ -169,7 +154,50 @@ This is more than a mechanical challenge — it’s a <strong>control engineerin
 <li><p>Simulation vs implementation differences</p></li>
 <li><p>Performance analysis in real-world conditions</p></li>
 </ul>
-<p>It’s a hands-on way to understand <strong>how to design, simulate, build, and control</strong> a dynamic system — a core challenge in modern engineering.</p>
+</section>
+<section id="its-a-hands-on-way-to-understand-how-to-design-simulate-build-and-control-a-dynamic-system-a-core-challenge-in-modern-engineering">
+<h2>It’s a hands-on way to understand <strong>how to design, simulate, build, and control</strong> a dynamic system — a core challenge in modern engineering.<a class="headerlink" href="#its-a-hands-on-way-to-understand-how-to-design-simulate-build-and-control-a-dynamic-system-a-core-challenge-in-modern-engineering" title="Link to this heading"></a></h2>
+</section>
+<section id="system-overview">
+<h2>System Overview<a class="headerlink" href="#system-overview" title="Link to this heading"></a></h2>
+<p>A <strong>Reaction Wheel Inverted Pendulum</strong> is a complex mechanical system designed to balance an upright pendulum using a rotating disk (the <em>reaction wheel</em>, often being called a <strong>Fly-Wheel</strong>). The goal is to control the wheel’s angular momentum to stabilize the pendulum in an upright position.</p>
+<p>An <strong>inverted pendulum</strong> is a pendulum balanced in its unstable upright position — like trying to keep a stick standing vertically on your fingertip. It is a classical example of an unstable system that requires active <strong>control</strong> to maintain balance.</p>
+<p><strong>Examples of inverted pendulum</strong></p>
+<ul class="simple">
+<li><p>A <strong>Segway</strong> balancing on two wheels</p></li>
+<li><p>A <strong>rocket</strong> stabilizing itself during launch</p></li>
+<li><p>A <strong>human</strong> standing upright, continuously adjusting posture</p></li>
+</ul>
+<p>In our case, the pendulum starts hanging downward (its stable position) and must first <strong>swing up</strong>, then be <strong>stabilized upright</strong> — even when subjected to unknown disturbances (like small external pushes).</p>
+<p>The system uses a <strong>reaction wheel</strong> — a <strong>rotating rigid disk</strong> mounted on the system and driven by a motor. By accelerating or decelerating this wheel, the system generates a <strong>reaction torque</strong> in the opposite direction, based on Newton’s third law. This induced torque allows the system (e.g., an inverted pendulum) to control its own angular position or velocity <strong>without relying on external supports</strong>.</p>
+<p><strong>Examples of Reaction Wheels &amp; Flywheels</strong></p>
+<ul class="simple">
+<li><p><strong>Physics Toys</strong> – Gyroscopic tops and inertia wheels that demonstrate angular momentum conservation.</p></li>
+<li><p><strong>Gimbal Systems</strong> – Stabilize cameras or sensors by counteracting movement using inertial rotation.</p></li>
+<li><p><strong>Satellites</strong>:</p>
+<ul>
+<li><p><strong>Reaction Wheels</strong> are used for attitude control by modulating wheel speed.</p></li>
+<li><p><strong>Magnetorquers</strong> work alongside reaction wheels, interacting with Earth’s magnetic field to manage orientation.</p></li>
+</ul>
+</li>
+<li><p><strong>Flywheel Energy Storage</strong> – Used in power systems to store kinetic energy in high-mass, high-speed rotating wheels.</p></li>
+</ul>
+<p>A <strong>reaction wheel inverted pendulum</strong> ,</p>
+<ul class="simple">
+<li><p>It consists of a <strong>rotating rigid disk or wheel</strong> which is attached to the pendulums arm.</p></li>
+<li><p>The axis of rotation of <strong>reaction wheel</strong> and <strong>pendulum</strong> are <strong>co-linear</strong>.</p></li>
+<li><p>The wheel is driven by <strong>DC motor</strong> which is attached directly, or through a system of gears or pulley and belts.</p></li>
+<li><p>According to <strong>Newton’s laws of motion</strong>, a <strong>change</strong> in the wheel’s angular velocity creates a <strong>reaction torque</strong></p></li>
+<li><p>This torque can be used to adjust the angle of the pendulum</p></li>
+</ul>
+<p>Thus, the pendulum can be brought upright and kept balanced using only the internal motion of the wheel.</p>
+<p><img alt="Reaction Wheel Inverted Pendulum" src="../_images/system.png" /></p>
+<p><strong>Components</strong></p>
+<ul class="simple">
+<li><p><strong>Pendulum</strong>: A rigid arm that pivots at its base and must be balanced vertically.</p></li>
+<li><p><strong>Reaction Wheel</strong>: A rotating mass driven by a motor, mounted on the pendulum. It creates a counteracting torque to stabilize the system.</p></li>
+<li><p><strong>Controller</strong>: Software that measures the system’s state (e.g., angle and angular velocity) and determines how to drive the wheel to maintain balance.</p></li>
+</ul>
 </section>
 <section id="tools">
 <h2>Tools<a class="headerlink" href="#tools" title="Link to this heading"></a></h2>
@@ -179,6 +207,7 @@ This is more than a mechanical challenge — it’s a <strong>control engineerin
 <li><p><strong>Mechanical workshop tools and materials</strong></p>
 <ul>
 <li><p>Use mechanical workshop tools (saw, drill, etc) and materials (wood, bars, tubes, etc.) to manufacture the overall support structure of the system, and to fix the system.</p></li>
+<li></li>
 </ul>
 </li>
 <li><p><strong>3D Printer and filaments</strong></p>
@@ -214,7 +243,7 @@ This is more than a mechanical challenge — it’s a <strong>control engineerin
 <li><p><strong>(Sensor) AS5600 Magnetic Rotary Sensor</strong></p>
 <ul>
 <li><p>Precise angle measurement of the pendulum shaft.<br />
-👉 https://www.ams.com/en/as5600</p></li>
+https://www.ams.com/en/as5600</p></li>
 </ul>
 </li>
 <li><p><strong>Arduino (Microcontroller)</strong></p>
@@ -250,133 +279,7 @@ This is more than a mechanical challenge — it’s a <strong>control engineerin
 <li><p><strong><a class="reference external" href="https://www.onshape.com/">Onshape</a></strong> - Cloud-based CAD tool</p></li>
 <li><p><strong><a class="reference external" href="https://ultimaker.com/software/ultimaker-cura/">Ultimaker Cura</a></strong> - Recommended slicer software to prepare <code class="docutils literal notranslate"><span class="pre">.stl</span></code> files for</p></li>
 </ul>
-</section>
 <hr class="docutils" />
-<section id="system-overview">
-<h2>System Overview<a class="headerlink" href="#system-overview" title="Link to this heading"></a></h2>
-<p>A <strong>Reaction Wheel Inverted Pendulum</strong> is a complex mechanical system designed to balance an upright pendulum using a rotating disk (the <em>reaction wheel</em>, often being called a <strong>Fly-Wheel</strong>). The goal is to control the wheel’s angular momentum to stabilize the pendulum in an upright position.</p>
-<p>An <strong>inverted pendulum</strong> is a pendulum balanced in its unstable upright position — like trying to keep a stick standing vertically on your fingertip. It is a classical example of an unstable system that requires active <strong>control</strong> to maintain balance.</p>
-<p><strong>Real-World Examples of inverted pendulum</strong></p>
-<ul class="simple">
-<li><p>A <strong>Segway</strong> balancing on two wheels</p></li>
-<li><p>A <strong>rocket</strong> stabilizing itself during launch</p></li>
-<li><p>A <strong>human</strong> standing upright, continuously adjusting posture</p></li>
-</ul>
-<p>In our case, the pendulum starts hanging downward (its stable position) and must first <strong>swing up</strong>, then be <strong>stabilized upright</strong> — even when subjected to unknown disturbances (like small external pushes).</p>
-<p>The system uses a <strong>reaction wheel</strong>, - It consists of a driven or freely <strong>rotating rigid disk or wheel</strong>.</p>
-<p><strong>Real-World Examples of reaction wheels / flywheels</strong></p>
-<ul class="simple">
-<li><p>Physics Toys</p></li>
-<li><p>Gimbal</p></li>
-<li><p>A magnetotorque in satellites</p></li>
-</ul>
-<p>A <strong>reaction wheel inverted pendulum</strong> ,</p>
-<ul class="simple">
-<li><p>It consists of a <strong>rotating rigid disk or wheel</strong> which is attached to the pendulums arm.</p></li>
-<li><p>The axis of rotation of <strong>reaction wheel</strong> and <strong>pendulum</strong> are <strong>co-linear</strong>.</p></li>
-<li><p>The wheel is driven by <strong>DC motor</strong> which is attached directly, or through a system of gears or pulley and belts.</p></li>
-<li><p>According to <strong>Newton’s laws of motion</strong>, a <strong>change</strong> in the wheel’s angular velocity creates a <strong>reaction torque</strong></p></li>
-<li><p>This torque can be used to adjust the angle of the pendulum</p></li>
-</ul>
-<p>Thus, the pendulum can be brought upright and kept balanced using only the internal motion of the wheel.</p>
-<p>Note: there is a variants:</p>
-<ul class="simple">
-<li><p>the cart-pendulum, which uses a laterally moving base to stabilize the inverted pendulum</p></li>
-<li><p>similarly, a rotating base</p></li>
-</ul>
-<p><img alt="Reaction Wheel Inverted Pendulum" src="../_images/system.png" /></p>
-<p><strong>Components</strong></p>
-<ul class="simple">
-<li><p><strong>Pendulum</strong>: A rigid arm that pivots at its base and must be balanced vertically.</p></li>
-<li><p><strong>Reaction Wheel</strong>: A rotating mass driven by a motor, mounted on the pendulum. It creates a counteracting torque to stabilize the system.</p></li>
-<li><p><strong>Controller</strong>: Software that measures the system’s state (e.g., angle and angular velocity) and determines how to drive the wheel to maintain balance.</p></li>
-</ul>
-</section>
-<section id="collaboration-plan">
-<h2>Collaboration Plan<a class="headerlink" href="#collaboration-plan" title="Link to this heading"></a></h2>
-<p>This project brings together international student teams to model, simulate, implement, and control a Reaction Wheel Inverted Pendulum (RWIP). The goal is to explore both technical and collaborative challenges in control engineering through simulation and physical implementation.</p>
-<hr class="docutils" />
-<p><strong>Week 1: Kickoff &amp; Icebreakers</strong></p>
-<ul class="simple">
-<li><p>Meet your international teammates (via Zoom or Teams).</p></li>
-<li><p>Participate in structured icebreaker activities.</p></li>
-<li><p>Share backgrounds, expectations, and technical interests.</p></li>
-<li><p>Set up collaborative tools: VS Code, Python, GitHub, shared folders.</p></li>
-<li><p>Begin reading reference material on inverted pendulums and reaction wheels.</p></li>
-</ul>
-<p>💡 <em>Tip: Keep a shared team logbook and schedule weekly check-ins.</em></p>
-<hr class="docutils" />
-<p><strong>Week 2: System Understanding &amp; Parameter Assignment</strong></p>
-<ul class="simple">
-<li><p>Study the inverted pendulum and reaction wheel system.</p></li>
-<li><p>Identify key physical and control concepts: torque, moment of inertia, stability.</p></li>
-<li><p>Assign unique parameter sets to each team (e.g., pendulum length, mass, motor power, wheel inertia).</p></li>
-<li><p>Clarify technical goals and system constraints.</p></li>
-<li><p>Start drafting control objectives.</p></li>
-</ul>
-<hr class="docutils" />
-<p><strong>Week 3: Simulation &amp; Strategy Development</strong></p>
-<ul class="simple">
-<li><p>Build Python simulations of the RWIP system.</p></li>
-<li><p>Explore system dynamics (e.g., swing-up vs. stabilization).</p></li>
-<li><p>Identify stable and unstable parameter regions.</p></li>
-<li><p>Test control strategies:</p>
-<ul>
-<li><p>Open-loop behavior</p></li>
-<li><p>Swing-up with <strong>bang-bang control</strong></p></li>
-<li><p>Stabilization using <strong>PID</strong> and <strong>LQR</strong> controllers</p></li>
-</ul>
-</li>
-<li><p>Compare performance metrics across teams.</p></li>
-</ul>
-<hr class="docutils" />
-<p><strong>Week 4: Physical Implementation &amp; Integration</strong></p>
-<ul class="simple">
-<li><p>Assemble the RWIP using available materials (e.g., 3D printed parts, hardware components).</p></li>
-<li><p>Integrate sensors (e.g., AS5600 magnetic sensor) and actuators (brushed DC motor).</p></li>
-<li><p>Wire and interface the system with Arduino or compatible microcontroller.</p></li>
-<li><p>Characterize physical properties: friction, inertia, motor constants.</p></li>
-<li><p>Validate component specs vs. datasheets.</p></li>
-</ul>
-<hr class="docutils" />
-<p><strong>Week 5: Testing, Comparison &amp; Analysis</strong></p>
-<ul class="simple">
-<li><p>Deploy controllers on the Arduino (migrating from Python simulations).</p></li>
-<li><p>Test swing-up and stabilization phases in real conditions.</p></li>
-<li><p>Compare experimental results with simulated predictions.</p></li>
-<li><p>Measure performance: response time, overshoot, stability margins.</p></li>
-<li><p>Evaluate control effectiveness and hardware limitations.</p></li>
-</ul>
-<hr class="docutils" />
-<p><strong>Final Session: Reflection &amp; Presentation</strong></p>
-<ul class="simple">
-<li><p>Present each team’s approach, implementation, and results.</p></li>
-<li><p>Reflect on the technical, intercultural, and collaborative experiences.</p></li>
-<li><p>Share lessons learned and insights into system limitations.</p></li>
-<li><p>Discuss real-world relevance and next steps for further development.</p></li>
-</ul>
-<p><strong>Optional Deliverables</strong>
-Each team should maintain:</p>
-<ul class="simple">
-<li><p>Simulation notebooks (.ipynb)</p></li>
-<li><p>Arduino code (.ino)</p></li>
-<li><p>CAD files (.stl, .step)</p></li>
-<li><p>Data logs (.csv)</p></li>
-<li><p>Diagrams, images, and demo videos (.png, .mp4)</p></li>
-<li><p>-Description of the system and control strategy</p></li>
-<li><p>Simulations and analysis</p></li>
-<li><p>Photographs and diagrams</p></li>
-<li><p>Electrical and mechanical schematics</p></li>
-<li><p>STL files for 3D parts</p></li>
-<li><p>Software architecture diagrams</p></li>
-<li><p>Source code (Python and Arduino)</p></li>
-<li><p>Description of tests and results</p></li>
-<li><p>Short video of system in action</p></li>
-<li><p>Reflections and conclusions</p></li>
-</ul>
-<p>Include all in your team’s final GitHub repository.</p>
-<hr class="docutils" />
-<p>🧭 <em>Remember: Control engineering is not just about making it work — it’s about making it optimal, reliable, and tracable.</em></p>
 </section>
 </section>
 

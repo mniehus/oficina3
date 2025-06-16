@@ -22,12 +22,10 @@ Informações detalhadas, documentação e materiais do projeto estão disponív
 
 **Licença e Utilização** O conteúdo deste repositório destina-se ao uso educativo pelos estudantes do curso LEFA no ISEL. Contribuições são bem-vindas por parte de estudantes, docentes e colaboradores.
 
----
-
 🛠️ Bons projetos e boas experiências!
 
 
-===
+---
 
 # LEFA Oficina 3 – Estimation and Control Lab 
 
@@ -53,6 +51,6 @@ Detailed information, documentation, and project materials are available at:
 
 **License and Use** Content in this repository is intended for educational use by students of the LEFA program at ISEL. Contributions are welcome from students, instructors, and collaborators.
 
----
-
 🛠️ Happy building and experimenting!
+
+---
