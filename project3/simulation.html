@@ -127,8 +127,8 @@
 <p>Running the jupyter/python simulation file, two graphic windows open (case they do not pop up pls check in the PC task bar and make them visible): on the left hand side, an interactive animation (with possibility to apply a perturbation torque, and to reset to initial conditions), and on the right hand side, the time series of control variables - they are updated on a click.</p>
 <section id="Parameters">
 <h2>Parameters<a class="headerlink" href="#Parameters" title="Link to this heading"></a></h2>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[41]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[51]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
@@ -155,13 +155,19 @@
 <span class="n">I2</span> <span class="o">=</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">m2</span><span class="o">*</span><span class="n">wheelradius</span><span class="o">**</span><span class="mi">2</span>  <span class="c1"># Inertia moment of Wheel (Kg*m^2)</span>
 <span class="c1">#max voltages</span>
 <span class="c1">#max rpm</span>
-<span class="n">J</span> <span class="o">=</span> <span class="mf">0.0027</span>  <span class="c1"># Inertia Motor (Kgm^2)</span>
-<span class="n">Ng</span> <span class="o">=</span> <span class="mf">0.83</span>  <span class="c1"># Transmission ratio of DC Motor</span>
 <span class="n">ke</span> <span class="o">=</span> <span class="mf">3.69e-2</span>  <span class="c1"># Electrical constant of DC Motor (Vs/rad)</span>
+
+<span class="n">Ng</span> <span class="o">=</span> <span class="mf">0.83</span>  <span class="c1"># Transmission ratio of DC Motor</span>
 <span class="n">kt</span> <span class="o">=</span> <span class="n">ke</span> <span class="o">*</span> <span class="n">Ng</span>  <span class="c1"># Mechanical constant of DC Motor (Nm/A)</span>
 <span class="n">R</span> <span class="o">=</span> <span class="mf">2.85</span>  <span class="c1"># Resistor of DC Motor (Ohm)</span>
 <span class="n">L</span> <span class="o">=</span> <span class="mf">3.73e-4</span>  <span class="c1"># Inductance of DC Motor (Henry)</span>
+<span class="n">J</span> <span class="o">=</span> <span class="mf">0.0027</span>  <span class="c1"># Inertia Motor (Kgm^2)</span>
 <span class="n">B</span> <span class="o">=</span> <span class="mf">3.85e-3</span>  <span class="c1"># Damping of DC Motor (Nn/v)</span>
+<span class="c1">#time constants</span>
+<span class="n">tau_el</span><span class="o">=</span><span class="n">L</span><span class="o">/</span><span class="n">R</span>
+<span class="n">tau_mech</span><span class="o">=</span><span class="n">J</span><span class="o">/</span><span class="n">B</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">tau_el</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">tau_mech</span><span class="p">)</span>
 <span class="c1"># Motor Limit</span>
 <span class="n">MotorLimit</span> <span class="o">=</span> <span class="kc">True</span> <span class="c1"># Set to False if you don&#39;t serious about hardware Limitation</span>
 <span class="c1"># internal encoder ?</span>
@@ -218,16 +224,37 @@
 <span class="c1"># Sound</span>
 <span class="n">Sound</span> <span class="o">=</span> <span class="kc">False</span> <span class="c1"># Flag to enable/disable sound</span>
 <span class="n">plot_rootlocus</span> <span class="o">=</span> <span class="kc">False</span> <span class="c1"># Flag to enable/disable Plot root locus</span>
+<br/><br/><br/></pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+0.00013087719298245613
+0.7012987012987013
+</pre></div></div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">resetInitialState</span><span class="p">():</span>
+    <span class="k">global</span> <span class="n">init_qp</span><span class="p">,</span><span class="n">init_qp_d</span> <span class="p">,</span><span class="n">init_qr</span><span class="p">,</span><span class="n">init_qr_d</span><span class="p">,</span><span class="n">init_Tm</span><span class="p">,</span><span class="n">init_Tp</span>
 
-<span class="c1"># Initial state</span>
-<span class="n">init_qp</span> <span class="o">=</span> <span class="mf">180.0</span>  <span class="c1"># Initial pendulum angle (degree)</span>
-<span class="n">init_qp_d</span> <span class="o">=</span> <span class="mf">0.0</span>  <span class="c1"># Initial pendulum speed</span>
+    <span class="c1"># Initial state</span>
 
-<span class="n">init_qr</span> <span class="o">=</span> <span class="mf">0.0</span>  <span class="c1"># Initial reaction wheel angle</span>
-<span class="n">init_qr_d</span> <span class="o">=</span> <span class="mf">0.0</span>  <span class="c1"># Initial reaction wheel speed</span>
+    <span class="n">init_qp</span> <span class="o">=</span> <span class="mf">180.0</span>  <span class="c1"># Initial pendulum angle (degree)</span>
+    <span class="n">init_qp_d</span> <span class="o">=</span> <span class="mf">0.0</span>  <span class="c1"># Initial pendulum speed</span>
 
-<span class="n">init_Tm</span> <span class="o">=</span> <span class="mf">0.0</span>  <span class="c1"># Initial reaction wheel torque</span>
-<span class="n">init_Tp</span> <span class="o">=</span> <span class="mf">0.0</span>  <span class="c1"># Initial disturbance torque</span>
+    <span class="n">init_qr</span> <span class="o">=</span> <span class="mf">0.0</span>  <span class="c1"># Initial reaction wheel angle</span>
+    <span class="n">init_qr_d</span> <span class="o">=</span> <span class="mf">0.0</span>  <span class="c1"># Initial reaction wheel speed</span>
+
+    <span class="n">init_Tm</span> <span class="o">=</span> <span class="mf">0.0</span>  <span class="c1"># Initial reaction wheel torque</span>
+    <span class="n">init_Tp</span> <span class="o">=</span> <span class="mf">0.0</span>  <span class="c1"># Initial disturbance torque</span>
+
+<span class="n">resetInitialState</span><span class="p">()</span>
 <br/></pre></div>
 </div>
 </div>
@@ -237,28 +264,194 @@
 </section>
 <section id="DC-motor-simulation">
 <h2>DC motor simulation<a class="headerlink" href="#DC-motor-simulation" title="Link to this heading"></a></h2>
+<p>Model</p>
+<p><img alt="DC motor diagrams" src="../_images/dcmotor.png" /></p>
+<p>Parameter</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">va</span></code> - Applied Voltage</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">R</span></code> - Resistance</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">L</span></code> - Inductance</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">i</span></code> - Current</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">b</span></code> - Damping coefficient</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">J</span></code> - Rotor Inertia</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ke</span></code> - Back EMF constant</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">kt</span></code> - Torque constant</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">θ</span></code> - Rotor shaft angle</p></li>
+</ul>
+<p>Electrical part</p>
+<p>  <span class="math notranslate nohighlight">\(va = R i + L \frac{di}{dt} + k_e \frac{dθ}{dt}\)</span></p>
+<p>Electromechanical Conversion</p>
+<p>  <span class="math notranslate nohighlight">\(T_{m} = k_t i\)</span></p>
+<p>Mechanical Part</p>
+<p>  <span class="math notranslate nohighlight">\(T_{m} = b \frac{dθ}{dt} + J\frac{d^2θ}{dt^2}\)</span></p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[42]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">MotorDynamics</span><span class="p">(</span><span class="n">Vin</span><span class="p">,</span> <span class="n">dt</span><span class="p">):</span>
-    <span class="k">global</span> <span class="n">qr_d</span><span class="p">,</span> <span class="n">qr</span><span class="p">,</span> <span class="n">curr_prev</span><span class="p">,</span> <span class="n">curr_d</span>
-    <span class="n">curr</span> <span class="o">=</span> <span class="p">(</span><span class="n">Vin</span> <span class="o">-</span> <span class="p">(</span><span class="n">qr_d</span> <span class="o">*</span> <span class="n">ke</span><span class="p">)</span> <span class="o">-</span> <span class="p">(</span><span class="n">L</span> <span class="o">*</span> <span class="n">curr_d</span><span class="p">))</span> <span class="o">/</span> <span class="n">R</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">MotorDynamics</span><span class="p">(</span><span class="n">va</span><span class="p">,</span> <span class="n">dt</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    updates dc motor torque based on input voltage and time step</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="c1">#global qr_d, qr, curr_prev, curr_d, curr</span>
+    <span class="n">curr</span> <span class="o">=</span> <span class="p">(</span><span class="n">va</span> <span class="o">-</span> <span class="n">qr_d</span> <span class="o">*</span> <span class="n">ke</span> <span class="o">-</span> <span class="n">L</span> <span class="o">*</span> <span class="n">curr_d</span><span class="p">)</span> <span class="o">/</span> <span class="n">R</span>
     <span class="n">curr_d</span> <span class="o">=</span> <span class="p">(</span><span class="n">curr</span> <span class="o">-</span> <span class="n">curr_prev</span><span class="p">)</span><span class="o">/</span><span class="n">dt</span>
     <span class="n">Tm</span> <span class="o">=</span> <span class="n">curr</span> <span class="o">*</span> <span class="n">kt</span>
     <span class="n">qr_dd</span> <span class="o">=</span> <span class="p">(</span><span class="n">Tm</span> <span class="o">-</span> <span class="n">B</span> <span class="o">*</span> <span class="n">qr_d</span><span class="p">)</span> <span class="o">/</span> <span class="n">J</span>
-    <span class="n">qr_d</span> <span class="o">=</span> <span class="n">qr_d</span> <span class="o">+</span> <span class="p">(</span><span class="n">qr_dd</span> <span class="o">*</span> <span class="n">dt</span><span class="p">)</span>
-    <span class="n">qr</span> <span class="o">=</span> <span class="n">qr</span> <span class="o">+</span> <span class="p">(</span><span class="n">qr_d</span> <span class="o">*</span> <span class="n">dt</span><span class="p">)</span>
+    <span class="n">qr_d</span> <span class="o">=</span> <span class="n">qr_d</span> <span class="o">+</span> <span class="n">qr_dd</span> <span class="o">*</span> <span class="n">dt</span>
+    <span class="n">qr</span> <span class="o">=</span> <span class="n">qr</span> <span class="o">+</span> <span class="n">qr_d</span> <span class="o">*</span> <span class="n">dt</span>
     <span class="n">curr_prev</span> <span class="o">=</span> <span class="n">curr</span>
     <span class="k">return</span> <span class="n">Tm</span>
 <br/></pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[61]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Test</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+<span class="c1">#def runTestMotorDC():</span>
+<span class="n">qr</span> <span class="o">=</span> <span class="n">init_qr</span>
+<span class="n">qr_d</span> <span class="o">=</span> <span class="n">init_qr_d</span>
+<span class="n">curr_prev</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">curr</span><span class="o">=</span><span class="mi">0</span>
+<span class="n">curr_d</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="n">timedt</span> <span class="o">=</span> <span class="mi">0</span>  <span class="c1">#??</span>
+<span class="c1">#dt = 1 / 100  # frequency (Hz)</span>
+<span class="n">dt</span> <span class="o">=</span> <span class="mf">0.1e-3</span>
+<span class="n">t_end</span> <span class="o">=</span> <span class="mi">1</span>  <span class="c1"># end time (seconds)</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">t_end</span> <span class="o">+</span> <span class="n">dt</span><span class="p">,</span> <span class="n">dt</span><span class="p">)</span>
+
+<span class="n">f</span> <span class="o">=</span> <span class="mi">490</span>       <span class="c1"># PWM frequency (Hz)</span>
+<span class="n">T</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="n">f</span>       <span class="c1"># PWM period</span>
+<span class="n">duty</span><span class="o">=</span><span class="mf">0.25</span>
+<span class="n">TH</span> <span class="o">=</span> <span class="n">duty</span><span class="o">*</span><span class="n">T</span>    <span class="c1"># High duration (s)</span>
+<span class="n">TL</span> <span class="o">=</span> <span class="n">T</span><span class="o">-</span><span class="n">TH</span>      <span class="c1"># Low duration (s)</span>
+
+<span class="c1">#voltage = np.where((t % T) &lt; TH, 5, 0)  #pwm</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">inout</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="n">TH</span><span class="p">,</span><span class="n">t</span><span class="p">):</span>
+    <span class="c1"># Initialize state variables</span>
+    <span class="n">qr</span> <span class="o">=</span> <span class="mf">0.0</span>
+    <span class="n">qr_d</span> <span class="o">=</span> <span class="mf">0.0</span>
+    <span class="n">curr</span> <span class="o">=</span> <span class="mf">0.0</span>
+    <span class="n">curr_prev</span> <span class="o">=</span> <span class="mf">0.0</span>
+    <span class="n">curr_d</span> <span class="o">=</span> <span class="mf">0.0</span>
+
+    <span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">t_end</span><span class="o">+</span><span class="n">dt</span><span class="p">,</span> <span class="n">dt</span><span class="p">)</span>
+    <span class="c1">#voltage=5*t/0.01</span>
+    <span class="n">Tmm</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">Imm</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">wmm</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">Vmm</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">for</span> <span class="n">tx</span> <span class="ow">in</span> <span class="n">t</span><span class="p">:</span>
+        <span class="c1">#value = MotorDynamics(vx, dt)</span>
+        <span class="c1">#vx=5*tx/(t_end+dt)</span>
+        <span class="n">vx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">((</span><span class="n">tx</span> <span class="o">%</span> <span class="n">T</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">TH</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>  <span class="c1">#pwm</span>
+        <span class="c1">#curr = (vx - qr_d * ke - L * curr_d) / R</span>
+        <span class="c1">#curr_d = (curr - curr_prev)/dt</span>
+        <span class="n">curr_d</span> <span class="o">=</span> <span class="p">(</span><span class="n">vx</span> <span class="o">-</span> <span class="n">qr_d</span> <span class="o">*</span> <span class="n">ke</span> <span class="o">-</span> <span class="n">R</span> <span class="o">*</span> <span class="n">curr</span><span class="p">)</span> <span class="o">/</span> <span class="n">L</span>
+        <span class="n">curr</span> <span class="o">=</span> <span class="n">curr</span> <span class="o">+</span> <span class="n">curr_d</span> <span class="o">*</span> <span class="n">dt</span>
+        <span class="n">value</span> <span class="o">=</span> <span class="n">curr</span> <span class="o">*</span> <span class="n">kt</span>
+        <span class="n">qr_dd</span> <span class="o">=</span> <span class="p">(</span><span class="n">value</span> <span class="o">-</span> <span class="n">B</span> <span class="o">*</span> <span class="n">qr_d</span><span class="p">)</span> <span class="o">/</span> <span class="n">J</span>
+        <span class="n">qr_d</span> <span class="o">=</span> <span class="n">qr_d</span> <span class="o">+</span> <span class="n">qr_dd</span> <span class="o">*</span> <span class="n">dt</span>
+        <span class="n">qr</span> <span class="o">=</span> <span class="n">qr</span> <span class="o">+</span> <span class="n">qr_d</span> <span class="o">*</span> <span class="n">dt</span>
+        <span class="n">curr_prev</span> <span class="o">=</span> <span class="n">curr</span>
+        <span class="n">Tmm</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+        <span class="n">wmm</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">qr_d</span><span class="p">)</span>
+        <span class="n">Imm</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">curr</span><span class="p">)</span>
+        <span class="n">Vmm</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">vx</span><span class="p">)</span>
+
+    <span class="n">Tmm</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">Tmm</span><span class="p">)</span>
+    <span class="n">wmm</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">wmm</span><span class="p">)</span>
+    <span class="n">Imm</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">Imm</span><span class="p">)</span>
+    <span class="n">Vmm</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">Vmm</span><span class="p">)</span>
+
+    <span class="c1"># Top-left: Time series input (voltage)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">Vmm</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">TH</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Applied (PWM)&#39;</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Time (s)&#39;</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Voltage (V)&#39;</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="c1"># Bottom-left: Time series output1 (angular velocity)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">wmm</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">TH</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Output: Angular Velocity&#39;</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Time (s)&#39;</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Angular Velocity (rad/s)&#39;</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="c1"># Top-right: Time series output2 (motor torque)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">Tmm</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">TH</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Output:Torque&#39;</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Time (s)&#39;</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Motor Torque (Nm)&#39;</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="c1"># Bottom-right: Time series output3 (current)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">Imm</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">TH</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Output: Current&#39;</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Time (s)&#39;</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Current (A)&#39;</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+
+
+<span class="n">T</span><span class="o">=</span><span class="mf">1e-3</span>
+<span class="n">TH</span><span class="o">=</span><span class="n">T</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.75</span><span class="p">])</span>
+<span class="n">dt</span> <span class="o">=</span> <span class="mf">0.1e-3</span>
+<span class="n">t_end</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">t_end</span><span class="p">,</span> <span class="n">dt</span><span class="p">)</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">THH</span> <span class="ow">in</span> <span class="n">TH</span><span class="p">:</span>
+    <span class="n">inout</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="n">THH</span><span class="p">,</span><span class="n">t</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="n">T</span><span class="o">=</span><span class="mf">2e-3</span>
+<span class="n">TH</span><span class="o">=</span><span class="n">T</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.75</span><span class="p">])</span>
+<span class="n">dt</span> <span class="o">=</span> <span class="mf">0.001e-3</span>
+<span class="n">t_end</span> <span class="o">=</span> <span class="mf">0.01</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">t_end</span><span class="p">,</span> <span class="n">dt</span><span class="p">)</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">THH</span> <span class="ow">in</span> <span class="n">TH</span><span class="p">:</span>
+    <span class="n">inout</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="n">THH</span><span class="p">,</span><span class="n">t</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="n">resetInitialState</span><span class="p">()</span>
+<br/><br/></pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/project3_simulation_8_0.png" src="../_images/project3_simulation_8_0.png" />
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/project3_simulation_8_1.png" src="../_images/project3_simulation_8_1.png" />
 </div>
 </div>
 </section>
 <section id="Pendulum-simulation">
 <h2>Pendulum simulation<a class="headerlink" href="#Pendulum-simulation" title="Link to this heading"></a></h2>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[43]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">Forwardkinematics</span><span class="p">(</span><span class="n">q</span><span class="p">):</span>
@@ -285,7 +478,7 @@
 <section id="Controller-simulation">
 <h2>Controller simulation<a class="headerlink" href="#Controller-simulation" title="Link to this heading"></a></h2>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[44]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># LQR parameter</span>
@@ -318,7 +511,7 @@
 <section id="System-simulation">
 <h2>System simulation<a class="headerlink" href="#System-simulation" title="Link to this heading"></a></h2>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[45]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">RwipDynamics</span><span class="p">(</span><span class="n">q</span><span class="p">,</span> <span class="n">Tr</span><span class="p">,</span> <span class="n">Tp</span><span class="p">):</span>
@@ -333,13 +526,20 @@
 <section id="Set-up-the-simulator">
 <h2>Set up the simulator<a class="headerlink" href="#Set-up-the-simulator" title="Link to this heading"></a></h2>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[46]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">pygame</span>
+<br/></pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pygame</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">pygame.locals</span><span class="w"> </span><span class="kn">import</span> <span class="n">QUIT</span><span class="p">,</span> <span class="n">MOUSEBUTTONDOWN</span><span class="p">,</span> <span class="n">KEYDOWN</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">PyQt5.QtWidgets</span><span class="w"> </span><span class="kn">import</span> <span class="n">QApplication</span><span class="p">,</span> <span class="n">QMainWindow</span>
@@ -357,7 +557,7 @@
 <section id="Visualization">
 <h2>Visualization<a class="headerlink" href="#Visualization" title="Link to this heading"></a></h2>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[47]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">plot_figure</span><span class="p">(</span><span class="n">screen</span><span class="p">,</span> <span class="n">qp</span><span class="p">,</span> <span class="n">qp_d</span><span class="p">,</span> <span class="n">qr_d</span><span class="p">,</span> <span class="n">Tm</span><span class="p">,</span> <span class="n">Vin</span><span class="p">,</span> <span class="n">Tp</span><span class="p">,</span> <span class="n">setpoint</span><span class="p">):</span>
@@ -449,7 +649,7 @@
 </section>
 <section id="Sound-(optional)">
 <h2>Sound (optional)<a class="headerlink" href="#Sound-(optional)" title="Link to this heading"></a></h2>
-<div class="nbinput docutils container">
+<div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
@@ -482,20 +682,6 @@
 <br/></pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-<span class="ansi-red-intense-fg ansi-bold">The Kernel crashed while executing code in the current cell or a previous cell.
-
-</span><span class="ansi-red-intense-fg ansi-bold">Please review the code in the cell(s) to identify a possible cause of the failure.
-
-</span><span class="ansi-red-intense-fg ansi-bold">Click &lt;a href=&#39;https://aka.ms/vscodeJupyterKernelCrash&#39;&gt;here&lt;/a&gt; for more info.
-
-</span><span class="ansi-red-intense-fg ansi-bold">View Jupyter &lt;a href=&#39;command:jupyter.viewOutput&#39;&gt;log&lt;/a&gt; for further details.</span>
-</pre></div></div>
-</div>
 </section>
 <section id="Run-the-simulator">
 <h2>Run the simulator<a class="headerlink" href="#Run-the-simulator" title="Link to this heading"></a></h2>
@@ -525,6 +711,7 @@
 
 <span class="n">timedt</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="n">dt</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="mi">100</span>  <span class="c1"># frequency (Hz)</span>
+
 <span class="n">reqE</span> <span class="o">=</span> <span class="p">(</span><span class="n">m1</span> <span class="o">+</span> <span class="n">m2</span><span class="p">)</span> <span class="o">*</span> <span class="n">g</span> <span class="o">*</span> <span class="n">L2</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 
 <span class="n">setpoint</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1"># do not adjust</span>
@@ -756,265 +943,6 @@
 <span class="n">pygame</span><span class="o">.</span><span class="n">quit</span><span class="p">()</span>
 <span class="n">stop_thread</span> <span class="o">=</span> <span class="kc">True</span>
 <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">()</span>
-<br/></pre></div>
-</div>
-</div>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd"># ==========================================================================================</span>
-<span class="sd"># ======================================= MAIN LOGIC =======================================</span>
-<span class="sd"># ==========================================================================================</span>
-<span class="sd">qp = np.deg2rad(param.init_qp)</span>
-<span class="sd">qp_d = param.init_qp_d</span>
-
-<span class="sd">qr = param.init_qr  # Initial reaction wheel angle</span>
-<span class="sd">qr_d = param.init_qr_d  # Initial reaction wheel speed</span>
-
-<span class="sd">curr_prev = 0</span>
-<span class="sd">curr_d = 0</span>
-
-<span class="sd">Tm = param.init_Tm  # Initial reaction wheel torque</span>
-<span class="sd">Tp = param.init_Tp  # Initial disturbance torque</span>
-
-<span class="sd">controller_stat_flag = False</span>
-<span class="sd">controller_stat_flag_last = False</span>
-<span class="sd">controller_time = 0</span>
-<span class="sd">controller_energy = 0</span>
-
-<span class="sd">timedt = 0</span>
-<span class="sd">dt = 1 / 100  # frequency (Hz)</span>
-<span class="sd">reqE = (m1 + m2) * g * L2 * math.cos(0)</span>
-
-<span class="sd">setpoint = 0 # do not adjust</span>
-
-<span class="sd"># For LQR control</span>
-<span class="sd">K, S, E = control.lqr(A_matrix, B_Matrix, Q_LQR, R_LQR, N_LQR)</span>
-
-<span class="sd"># For PID control</span>
-<span class="sd">s = control.TransferFunction.s</span>
-<span class="sd">G = (s/(-J-m1*L1*L1))/((s**3 + ((B/I1) + (B + dp)/(m2*L2*L2))*s**2 - ((m1*L1 + m2*L2)*g/((J + m2*L2*L2)*I1) - (B + dp)/((J+m2*L2*L2)*I1))*s - (m1*L1 + m2*L2)*B*g/((J+m2*L2*L2)*I1)))</span>
-<span class="sd">C = 1/s</span>
-
-<span class="sd"># Plot the root locus</span>
-<span class="sd">if param.Stabilize_Controller == &quot;PID&quot; and param.plot_rootlocus:</span>
-<span class="sd">    print(&quot;PID Mode&quot;)</span>
-<span class="sd">    print(&quot;Waiting for root locus ...&quot;)</span>
-<span class="sd">    print(G)</span>
-<span class="sd">    control.rlocus(C*G)</span>
-<span class="sd">    print(&quot;Systemzero: &quot;, control.zero(G))</span>
-<span class="sd">    print(&quot;Systempoles: &quot;, control.pole(G))</span>
-<span class="sd">    plt.title(&#39;Root Locus Plot&#39;)</span>
-<span class="sd">    plt.xlabel(&#39;Re&#39;)</span>
-<span class="sd">    plt.ylabel(&#39;Im&#39;)</span>
-<span class="sd">    plt.grid(True)</span>
-<span class="sd">    plt.show()</span>
-<span class="sd">    print(&quot;Initialize simulation&quot;)</span>
-
-
-<span class="sd">d_flag = 0</span>
-
-<span class="sd">settled_flag = False</span>
-<span class="sd">wait_flag = False</span>
-
-<span class="sd">running = True</span>
-<span class="sd">input_flag = False</span>
-<span class="sd">input_string = &quot;&quot;</span>
-
-<span class="sd">pygame.init()</span>
-
-<span class="sd">width, height = 400, 560</span>
-<span class="sd">screen = pygame.display.set_mode((width, height))</span>
-<span class="sd">pygame.display.set_caption(&quot;Reaction Wheel Inverted Pendulum&quot;)</span>
-<span class="sd">pygame_windows = gw.getWindowsWithTitle(&quot;Reaction Wheel Inverted Pendulum&quot;)</span>
-
-<span class="sd">WHITE = (255, 255, 255)</span>
-<span class="sd">GREY = (100, 100, 100)</span>
-<span class="sd">RED = (255, 0, 0)</span>
-<span class="sd">BLACK = (0, 0, 0)</span>
-
-<span class="sd">font = pygame.font.Font(None, 36)</span>
-<span class="sd">clock = pygame.time.Clock()</span>
-
-<span class="sd">app = QApplication(sys.argv)</span>
-<span class="sd">win = QMainWindow()</span>
-<span class="sd">win.setWindowFlag(Qt.FramelessWindowHint)  # Remove the title bar</span>
-<span class="sd">fig = plt.figure(num=&quot;plot output&quot;, figsize=(5, 5))</span>
-<span class="sd">plt.text(0, 0.4, &quot;Click on the pendulum display to plot.\n\nDon&#39;t spam, it lags.&quot;, fontsize = 15)</span>
-<span class="sd">plt.axis(&#39;off&#39;)</span>
-<span class="sd">canvas = FigureCanvas(fig)</span>
-<span class="sd">win.setCentralWidget(canvas)</span>
-<span class="sd">win.show()</span>
-<span class="sd">plt.gcf().canvas.mpl_connect(&#39;button_press_event&#39;, on_click)</span>
-<span class="sd">timedt_data = []</span>
-<span class="sd">qp_data = []</span>
-<span class="sd">setpoint_data = []</span>
-<span class="sd">Tm_data = []</span>
-<span class="sd">qr_d_data = []</span>
-
-<span class="sd">while running:</span>
-<span class="sd">    for event in pygame.event.get():</span>
-<span class="sd">        if event.type == QUIT:</span>
-<span class="sd">            running = False</span>
-<span class="sd">        elif event.type == MOUSEBUTTONDOWN:</span>
-<span class="sd">            if 10 &lt; event.pos[0] &lt; 110 and 10 &lt; event.pos[1] &lt; 60:</span>
-<span class="sd">                input_flag = True</span>
-<span class="sd">            if 292 &lt; event.pos[0] &lt; 392 and 10 &lt; event.pos[1] &lt; 60:</span>
-<span class="sd">                qp = np.deg2rad(param.init_qp)</span>
-<span class="sd">                qp_d = param.init_qp_d</span>
-<span class="sd">                qr = param.init_qr</span>
-<span class="sd">                qr_d = param.init_qr_d</span>
-<span class="sd">                Tm = 0</span>
-<span class="sd">                Tp = 0</span>
-<span class="sd">                settled_flag = False</span>
-<span class="sd">                wait_flag = False</span>
-<span class="sd">                timedt = 0</span>
-<span class="sd">                timedt_data = []</span>
-<span class="sd">                qp_data = []</span>
-<span class="sd">                setpoint_data = []</span>
-<span class="sd">                Tm_data = []</span>
-<span class="sd">                qr_d_data = []</span>
-<span class="sd">                controller_time = 0</span>
-<span class="sd">                controller_energy = 0</span>
-<span class="sd">            if event.pos[1] &gt; 160:</span>
-<span class="sd">                plot_graph()</span>
-<span class="sd">        elif event.type == KEYDOWN:</span>
-<span class="sd">            if event.key == pygame.K_BACKSPACE:</span>
-<span class="sd">                input_string = input_string[:-1]</span>
-<span class="sd">            elif event.key == pygame.K_RETURN:</span>
-<span class="sd">                input_flag = True</span>
-<span class="sd">            else:</span>
-<span class="sd">                input_string += event.unicode</span>
-
-<span class="sd">    if input_flag == True:</span>
-<span class="sd">        try:</span>
-<span class="sd">            Tp = -float(input_string)</span>
-<span class="sd">        except:</span>
-<span class="sd">            Tp = 0</span>
-<span class="sd">            input_string = &quot;&quot;</span>
-<span class="sd">        input_flag = False</span>
-<span class="sd">    else:</span>
-<span class="sd">        Tp = 0</span>
-
-<span class="sd">    # ==========================================================================================</span>
-<span class="sd">    # ======================================= Controller =======================================</span>
-<span class="sd">    # ==========================================================================================</span>
-<span class="sd">    setpoint_offset = (qp - math.pi) / (2 * math.pi)</span>
-<span class="sd">    if setpoint_offset &lt; 0:</span>
-<span class="sd">        setpoint = (math.floor(setpoint_offset) + 1) * 2 * math.pi</span>
-<span class="sd">    elif setpoint_offset &gt; 0:</span>
-<span class="sd">        setpoint = math.ceil(setpoint_offset) * 2 * math.pi</span>
-
-<span class="sd">    E = PendulumEnergy(q=qp)</span>
-
-<span class="sd">    if wait_flag:</span>
-<span class="sd">        controller_mode = &quot;brake&quot;</span>
-<span class="sd">        if abs(E) &lt; 0.05:</span>
-<span class="sd">            wait_flag = False</span>
-<span class="sd">    elif abs(qp) % (2 * math.pi) &lt;= np.deg2rad(StabilizeBound) or abs(qp) % (2 * math.pi) &gt;= np.deg2rad(360 - StabilizeBound):</span>
-<span class="sd">        settled_flag = True</span>
-<span class="sd">        controller_mode = param.Stabilize_Controller</span>
-<span class="sd">        controller_stat_flag = True</span>
-<span class="sd">    else:</span>
-<span class="sd">        if settled_flag:</span>
-<span class="sd">            wait_flag = True</span>
-<span class="sd">            settled_flag = False</span>
-<span class="sd">        if not wait_flag:</span>
-<span class="sd">            controller_mode = &quot;Bang-bang&quot;</span>
-
-<span class="sd">    if controller_mode == &quot;LQR&quot;:</span>
-<span class="sd">        e = setpoint - qp</span>
-<span class="sd">        Vin = e * K[0, 0] + qp_d * -K[0, 1]</span>
-<span class="sd">    elif controller_mode == &quot;PID&quot;:</span>
-<span class="sd">        e = setpoint - qp</span>
-<span class="sd">        Vin = -e * param.Kp</span>
-<span class="sd">    elif controller_mode == &quot;Bang-bang&quot;:</span>
-<span class="sd">        if (qp_d &lt; 0 and E &lt; reqE) or (qp_d &gt;= 0 and E &gt;= reqE):</span>
-<span class="sd">            Vin = 12</span>
-<span class="sd">        elif (qp_d &gt;= 0 and E &lt; reqE) or (qp_d &lt; 0 and E &gt;= reqE):</span>
-<span class="sd">            Vin = -12</span>
-<span class="sd">        else:</span>
-<span class="sd">            Vin = 0</span>
-<span class="sd">    elif controller_mode == &quot;brake&quot;:</span>
-<span class="sd">        if qp_d &lt; 0:</span>
-<span class="sd">            Vin = -12</span>
-<span class="sd">        elif qp_d &gt;= 0:</span>
-<span class="sd">            Vin = 12</span>
-<span class="sd">    else:</span>
-<span class="sd">        Vin = 0</span>
-<span class="sd">    if param.MotorLimit:</span>
-<span class="sd">        # Actual Limit</span>
-<span class="sd">        if Vin &gt; 24:</span>
-<span class="sd">            Vin = 24</span>
-<span class="sd">        elif Vin &lt; -24:</span>
-<span class="sd">            Vin = -24</span>
-
-<span class="sd">    Tm = MotorDynamics(Vin, dt)</span>
-<span class="sd">    FREQUENCY = pow(abs(qr_d), 2)</span>
-<span class="sd">    qp_dd = RwipDynamics(qp, Tm, Tp)</span>
-<span class="sd">    qp_d = qp_d + (qp_dd * dt)</span>
-<span class="sd">    qp = qp + (qp_d * dt)</span>
-
-<span class="sd">    # Draw background</span>
-<span class="sd">    screen.fill(WHITE)</span>
-<span class="sd">    pygame.draw.rect(screen, (24, 24, 24), (0, 0, 401, 160))</span>
-
-<span class="sd">    # Draw grid</span>
-<span class="sd">    for i in range(0, 401, 50):</span>
-<span class="sd">        pygame.draw.line(screen, GREY, (i, 160), (i, 600), 1)</span>
-<span class="sd">    for i in range(160, 560, 50):</span>
-<span class="sd">        pygame.draw.line(screen, GREY, (0, i), (400, i), 1)</span>
-
-<span class="sd">    # Draw figure</span>
-<span class="sd">    plot_figure(screen, qp, qp_d, qr_d, Tm, Vin, Tp, setpoint)</span>
-<span class="sd">    timedt_data.append(timedt)</span>
-<span class="sd">    qp_data.append(qp)</span>
-<span class="sd">    setpoint_data.append(setpoint)</span>
-<span class="sd">    Tm_data.append(Tm)</span>
-<span class="sd">    qr_d_data.append(qr_d)</span>
-
-<span class="sd">    # move graph with pygame</span>
-<span class="sd">    win.move(pygame_windows[0].left + 420, pygame_windows[0].top + 50)</span>
-<span class="sd">    win.showNormal()</span>
-
-<span class="sd">    # Draw button</span>
-<span class="sd">    pygame.draw.rect(screen, GREY, (10, 10, 100, 50))</span>
-<span class="sd">    text = font.render(&quot;INJECT&quot;, True, WHITE)</span>
-<span class="sd">    screen.blit(text, (20, 23))</span>
-<span class="sd">    pygame.draw.rect(screen, RED, (292, 10, 100, 50))</span>
-<span class="sd">    text = font.render(&quot;RESET&quot;, True, (255, 255, 255))</span>
-<span class="sd">    screen.blit(text, (303, 23))</span>
-
-<span class="sd">    # Draw disturbance input field</span>
-<span class="sd">    pygame.draw.rect(screen, GREY, (110, 10, 130, 50))</span>
-<span class="sd">    pygame.draw.rect(screen, WHITE, (125, 20, 100, 30))</span>
-<span class="sd">    text = font.render(input_string, True, (0, 0, 0))</span>
-<span class="sd">    screen.blit(text, (130, 25))</span>
-
-<span class="sd">    # calculate FPS and draw</span>
-<span class="sd">    fps = clock.get_fps()</span>
-<span class="sd">    timedt += dt</span>
-<span class="sd">    if(abs(np.rad2deg(qp) - np.rad2deg(setpoint)) &lt; 0.1):</span>
-<span class="sd">        controller_stat_flag = False</span>
-<span class="sd">    elif(controller_stat_flag):</span>
-<span class="sd">        controller_time += dt</span>
-<span class="sd">        controller_energy += abs(qr_d * Tm) * dt</span>
-<span class="sd">    if(controller_mode != param.Stabilize_Controller or not controller_stat_flag_last and controller_stat_flag and (abs(np.rad2deg(qp) - np.rad2deg(setpoint)) &lt; 0.1)):</span>
-<span class="sd">        controller_time = 0</span>
-<span class="sd">        controller_energy = 0</span>
-<span class="sd">    controller_stat_flag_last = controller_stat_flag</span>
-<span class="sd">    if fps:</span>
-<span class="sd">        dt = 1 / fps</span>
-
-<span class="sd">    pygame.display.flip()</span>
-<span class="sd">    clock.tick(165)</span>
-
-<span class="sd">pygame.quit()</span>
-<span class="sd">stop_thread = True</span>
-<span class="sd">sys.exit()</span>
-<span class="sd"> &quot;&quot;&quot;</span>
 <br/></pre></div>
 </div>
 </div>
