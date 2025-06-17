@@ -128,7 +128,7 @@
 <section id="Parameters">
 <h2>Parameters<a class="headerlink" href="#Parameters" title="Link to this heading"></a></h2>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[51]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[62]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
@@ -237,7 +237,7 @@
 </pre></div></div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[63]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">resetInitialState</span><span class="p">():</span>
@@ -285,7 +285,7 @@
 <p>Mechanical Part</p>
 <p>  <span class="math notranslate nohighlight">\(T_{m} = b \frac{dθ}{dt} + J\frac{d^2θ}{dt^2}\)</span></p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[64]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">MotorDynamics</span><span class="p">(</span><span class="n">va</span><span class="p">,</span> <span class="n">dt</span><span class="p">):</span>
@@ -305,7 +305,7 @@
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[61]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[65]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Test</span>
@@ -451,7 +451,7 @@
 <section id="Pendulum-simulation">
 <h2>Pendulum simulation<a class="headerlink" href="#Pendulum-simulation" title="Link to this heading"></a></h2>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[66]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">Forwardkinematics</span><span class="p">(</span><span class="n">q</span><span class="p">):</span>
@@ -478,7 +478,7 @@
 <section id="Controller-simulation">
 <h2>Controller simulation<a class="headerlink" href="#Controller-simulation" title="Link to this heading"></a></h2>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[67]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># LQR parameter</span>
@@ -511,7 +511,7 @@
 <section id="System-simulation">
 <h2>System simulation<a class="headerlink" href="#System-simulation" title="Link to this heading"></a></h2>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[68]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">RwipDynamics</span><span class="p">(</span><span class="n">q</span><span class="p">,</span> <span class="n">Tr</span><span class="p">,</span> <span class="n">Tp</span><span class="p">):</span>
@@ -526,7 +526,7 @@
 <section id="Set-up-the-simulator">
 <h2>Set up the simulator<a class="headerlink" href="#Set-up-the-simulator" title="Link to this heading"></a></h2>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[69]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
@@ -535,8 +535,8 @@
 <br/></pre></div>
 </div>
 </div>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[70]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pygame</span>
@@ -553,11 +553,20 @@
 <br/></pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+pygame 2.6.1 (SDL 2.28.4, Python 3.13.3)
+Hello from the pygame community. https://www.pygame.org/contribute.html
+</pre></div></div>
+</div>
 </section>
 <section id="Visualization">
 <h2>Visualization<a class="headerlink" href="#Visualization" title="Link to this heading"></a></h2>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[71]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">plot_figure</span><span class="p">(</span><span class="n">screen</span><span class="p">,</span> <span class="n">qp</span><span class="p">,</span> <span class="n">qp_d</span><span class="p">,</span> <span class="n">qr_d</span><span class="p">,</span> <span class="n">Tm</span><span class="p">,</span> <span class="n">Vin</span><span class="p">,</span> <span class="n">Tp</span><span class="p">,</span> <span class="n">setpoint</span><span class="p">):</span>
@@ -650,7 +659,7 @@
 <section id="Sound-(optional)">
 <h2>Sound (optional)<a class="headerlink" href="#Sound-(optional)" title="Link to this heading"></a></h2>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[72]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p</span> <span class="o">=</span> <span class="n">pyaudio</span><span class="o">.</span><span class="n">PyAudio</span><span class="p">()</span>
@@ -685,8 +694,8 @@
 </section>
 <section id="Run-the-simulator">
 <h2>Run the simulator<a class="headerlink" href="#Run-the-simulator" title="Link to this heading"></a></h2>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[73]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><br/><span></span><span class="c1"># ==========================================================================================</span>
@@ -944,6 +953,39 @@
 <span class="n">stop_thread</span> <span class="o">=</span> <span class="kc">True</span>
 <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">()</span>
 <br/></pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">UnboundLocalError</span>                         Traceback (most recent call last)
+<span class="ansi-cyan-fg">Cell</span><span class="ansi-cyan-fg"> </span><span class="ansi-green-fg">In[73]</span><span class="ansi-green-fg">, line 192</span>
+<span class="ansi-green-fg">    189</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">elif</span> Vin &lt; -<span class="ansi-green-fg">24</span>:
+<span class="ansi-green-fg">    190</span>         Vin = -<span class="ansi-green-fg">24</span>
+<span class="ansi-green-fg">--&gt; </span><span class="ansi-green-fg">192</span> Tm = <span class="ansi-yellow-bg">MotorDynamics</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">Vin</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">dt</span><span class="ansi-yellow-bg">)</span>
+<span class="ansi-green-fg">    193</span> FREQUENCY = <span style="color: rgb(0,135,0)">pow</span>(<span style="color: rgb(0,135,0)">abs</span>(qr_d), <span class="ansi-green-fg">2</span>)
+<span class="ansi-green-fg">    194</span> qp_dd = RwipDynamics(qp, Tm, Tp)
+
+<span class="ansi-cyan-fg">Cell</span><span class="ansi-cyan-fg"> </span><span class="ansi-green-fg">In[64]</span><span class="ansi-green-fg">, line 6</span>, in <span class="ansi-cyan-fg">MotorDynamics</span><span class="ansi-blue-fg">(va, dt)</span>
+<span class="ansi-green-fg">      2</span> <span class="ansi-yellow-fg">&#39;&#39;&#39;</span>
+<span class="ansi-green-fg">      3</span> <span class="ansi-yellow-fg">updates dc motor torque based on input voltage and time step </span>
+<span class="ansi-green-fg">      4</span> <span class="ansi-yellow-fg">&#39;&#39;&#39;</span>
+<span class="ansi-green-fg">      5</span> <span style="color: rgb(95,135,135)">#global qr_d, qr, curr_prev, curr_d, curr</span>
+<span class="ansi-green-fg">----&gt; </span><span class="ansi-green-fg">6</span> curr = (va - <span class="ansi-yellow-bg">qr_d</span> * ke - L * curr_d) / R
+<span class="ansi-green-fg">      7</span> curr_d = (curr - curr_prev)/dt
+<span class="ansi-green-fg">      8</span> Tm = curr * kt
+
+<span class="ansi-red-fg">UnboundLocalError</span>: cannot access local variable &#39;qr_d&#39; where it is not associated with a value
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/project3_simulation_24_1.png" src="../_images/project3_simulation_24_1.png" />
 </div>
 </div>
 </section>
