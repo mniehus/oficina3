@@ -128,7 +128,7 @@
 <section id="Parameters">
 <h2>Parameters<a class="headerlink" href="#Parameters" title="Link to this heading"></a></h2>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[62]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
@@ -156,7 +156,6 @@
 <span class="c1">#max voltages</span>
 <span class="c1">#max rpm</span>
 <span class="n">ke</span> <span class="o">=</span> <span class="mf">3.69e-2</span>  <span class="c1"># Electrical constant of DC Motor (Vs/rad)</span>
-
 <span class="n">Ng</span> <span class="o">=</span> <span class="mf">0.83</span>  <span class="c1"># Transmission ratio of DC Motor</span>
 <span class="n">kt</span> <span class="o">=</span> <span class="n">ke</span> <span class="o">*</span> <span class="n">Ng</span>  <span class="c1"># Mechanical constant of DC Motor (Nm/A)</span>
 <span class="n">R</span> <span class="o">=</span> <span class="mf">2.85</span>  <span class="c1"># Resistor of DC Motor (Ohm)</span>
@@ -164,10 +163,8 @@
 <span class="n">J</span> <span class="o">=</span> <span class="mf">0.0027</span>  <span class="c1"># Inertia Motor (Kgm^2)</span>
 <span class="n">B</span> <span class="o">=</span> <span class="mf">3.85e-3</span>  <span class="c1"># Damping of DC Motor (Nn/v)</span>
 <span class="c1">#time constants</span>
-<span class="n">tau_el</span><span class="o">=</span><span class="n">L</span><span class="o">/</span><span class="n">R</span>
-<span class="n">tau_mech</span><span class="o">=</span><span class="n">J</span><span class="o">/</span><span class="n">B</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">tau_el</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">tau_mech</span><span class="p">)</span>
+<span class="n">tau_el</span><span class="o">=</span><span class="n">L</span><span class="o">/</span><span class="n">R</span>  <span class="c1">#electrical constant (order 0.1 ms)</span>
+<span class="n">tau_mech</span><span class="o">=</span><span class="n">J</span><span class="o">/</span><span class="n">B</span>  <span class="c1">#mechanical constant (order 100 ms)</span>
 <span class="c1"># Motor Limit</span>
 <span class="n">MotorLimit</span> <span class="o">=</span> <span class="kc">True</span> <span class="c1"># Set to False if you don&#39;t serious about hardware Limitation</span>
 <span class="c1"># internal encoder ?</span>
