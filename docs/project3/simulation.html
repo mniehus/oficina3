@@ -68,8 +68,14 @@
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Modelling and Simulation</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#Parameters">Parameters</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#Wheel-simulation">Wheel simulation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#DC-motor-simulation">DC motor simulation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#Static-transfer-curve---voltage-vs-speed">Static transfer curve - voltage vs speed</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#DC-motor-simulation">DC motor simulation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#DC-motor--Steady-state-analysis">DC motor -Steady-state analysis</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#Static-transfer-curve---voltage-vs-speed">Static transfer curve - voltage vs speed</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Transient-analysis---time-series-data">Transient analysis - time series data</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="#Simulation---time-series---voltage-step-function---short-time-scale-(ms)">Simulation - time series - voltage step function - short time scale (ms)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#Simulation---time-series---voltage-step-function---long-time-scale-(seconds)">Simulation - time series - voltage step function - long time scale (seconds)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#Simulation---time-series---voltage-On/Off---long-time-scale-(seconds)">Simulation - time series - voltage On/Off - long time scale (seconds)</a></li>
@@ -148,7 +154,7 @@
 <li><p>Simulation configuration</p></li>
 </ul>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
@@ -175,13 +181,16 @@
 <span class="n">I2</span> <span class="o">=</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">m2</span><span class="o">*</span><span class="n">wheelradius</span><span class="o">**</span><span class="mi">2</span>  <span class="c1"># Inertia moment of Wheel (Kg*m^2)</span>
 <span class="c1">#max voltages</span>
 <span class="c1">#max rpm</span>
-<span class="n">ke</span> <span class="o">=</span> <span class="mf">3.69e-2</span>  <span class="c1"># Electrical constant of DC Motor (Vs/rad)</span>
+<span class="n">ke</span> <span class="o">=</span> <span class="mf">3.69e-2</span>  <span class="c1"># Electrical constant of DC Motor (V/(rad/s))</span>
 <span class="n">Ng</span> <span class="o">=</span> <span class="mf">0.83</span>  <span class="c1"># Transmission ratio of DC Motor</span>
 <span class="n">kt</span> <span class="o">=</span> <span class="n">ke</span> <span class="o">*</span> <span class="n">Ng</span>  <span class="c1"># Mechanical constant of DC Motor (Nm/A)</span>
 <span class="n">R</span> <span class="o">=</span> <span class="mf">2.85</span>  <span class="c1"># Resistor of DC Motor (Ohm)</span>
 <span class="n">L</span> <span class="o">=</span> <span class="mf">3.73e-4</span>  <span class="c1"># Inductance of DC Motor (Henry)</span>
 <span class="n">J</span> <span class="o">=</span> <span class="mf">0.0027</span>  <span class="c1"># Inertia Motor (Kgm^2)</span>
-<span class="n">B</span> <span class="o">=</span> <span class="mf">3.85e-3</span>  <span class="c1"># Damping of DC Motor (Nn/v)</span>
+<span class="c1">#B = 3.85e-3  # Damping of DC Motor (Nm/(rad/s))</span>
+<span class="n">B</span> <span class="o">=</span> <span class="mf">3.85e-5</span>  <span class="c1"># Damping of DC Motor (Nm/(rad/s))</span>
+
+
 <span class="c1">#time constants</span>
 <span class="n">tau_el</span><span class="o">=</span><span class="n">L</span><span class="o">/</span><span class="n">R</span>  <span class="c1">#electrical constant (order 0.1 ms)</span>
 <span class="n">tau_mech</span><span class="o">=</span><span class="n">J</span><span class="o">/</span><span class="n">B</span>  <span class="c1">#mechanical constant (order 100 ms)</span>
@@ -245,7 +254,7 @@
 </div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">resetInitialState</span><span class="p">():</span>
@@ -291,18 +300,20 @@
 <p>  <span class="math notranslate nohighlight">\(va = R i + L \frac{di}{dt} + k_e \frac{dθ}{dt}\)</span></p>
 <p>Electromechanical Conversion</p>
 <p>  <span class="math notranslate nohighlight">\(T_{m} = k_t i\)</span></p>
-<p>Mechanical Part</p>
+<p>Mechanical Part (inertia plus load)</p>
 <p>  <span class="math notranslate nohighlight">\(T_{m} = b \frac{dθ}{dt} + J\frac{d^2θ}{dt^2}\)</span></p>
-<p>If required, mechanical part can also include static or aerodynamic friction</p>
+<p>If required, mechanical part can also include Coulomb (static) or Reynolds (aerodynamic) friction</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">MotorDynamics</span><span class="p">(</span><span class="n">va</span><span class="p">,</span> <span class="n">dt</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">    updates dc motor torque based on input voltage and time step</span>
+
+<span class="sd">    #global qr_d, qr, curr_prev, curr_d, curr</span>
+
 <span class="sd">    &#39;&#39;&#39;</span>
-    <span class="c1">#global qr_d, qr, curr_prev, curr_d, curr</span>
     <span class="n">curr</span> <span class="o">=</span> <span class="p">(</span><span class="n">va</span> <span class="o">-</span> <span class="n">qr_d</span> <span class="o">*</span> <span class="n">ke</span> <span class="o">-</span> <span class="n">L</span> <span class="o">*</span> <span class="n">curr_d</span><span class="p">)</span> <span class="o">/</span> <span class="n">R</span>
     <span class="n">curr_d</span> <span class="o">=</span> <span class="p">(</span><span class="n">curr</span> <span class="o">-</span> <span class="n">curr_prev</span><span class="p">)</span><span class="o">/</span><span class="n">dt</span>
     <span class="n">Tm</span> <span class="o">=</span> <span class="n">curr</span> <span class="o">*</span> <span class="n">kt</span>
@@ -314,21 +325,27 @@
 <br/></pre></div>
 </div>
 </div>
+<section id="DC-motor--Steady-state-analysis">
+<h3>DC motor -Steady-state analysis<a class="headerlink" href="#DC-motor--Steady-state-analysis" title="Link to this heading"></a></h3>
 <p><strong>Steady state model</strong></p>
-<p>zeroing time variations (dynamic derivatives):</p>
+<p>By zeroing the time variations (dynamic derivatives):</p>
 <p>  $ L :nbsphinx-math:<a href="#id1"><span class="problematic" id="id2">`</span></a>frac{di}{dt}`=0$</p>
 <p>  <span class="math notranslate nohighlight">\(J\frac{dω}{dt}=0\)</span></p>
-<p>Electrical part</p>
+<p>The electrical part becomes</p>
 <p>  $va = R i + k_e ω $</p>
-<p>Mechanical Part</p>
-<p>  <span class="math notranslate nohighlight">\(T_{m} = k_t i = b ω\)</span></p>
+<p>The mechanical part becomes</p>
+<p>  <span class="math notranslate nohighlight">\(T_{m} = k_t i\)</span></p>
+<p>A typical (minimal) load:</p>
+<p>  <span class="math notranslate nohighlight">\(T_{m} = b ω\)</span></p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">MotorSteadyState</span><span class="p">(</span><span class="n">va</span><span class="p">,</span> <span class="n">dt</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">    updates dc motor torque based on input voltage and time step</span>
+
+
 <span class="sd">    &#39;&#39;&#39;</span>
     <span class="c1">#global qr_d, qr, curr_prev, curr_d, curr</span>
     <span class="n">curr</span> <span class="o">=</span> <span class="p">(</span><span class="n">va</span> <span class="o">-</span> <span class="n">qr_d</span> <span class="o">*</span> <span class="n">ke</span><span class="p">)</span> <span class="o">/</span> <span class="n">R</span>
@@ -347,10 +364,10 @@
 <p>  <span class="math notranslate nohighlight">\(\Leftrightarrow\)</span> <span class="math notranslate nohighlight">\(ω = \frac{va}{k_e}-\frac{R}{k_e k_t}T_m\)</span></p>
 <p>This linear inverse correlation is called the <strong>load line</strong>.</p>
 <p><strong>Reference points</strong></p>
-<p>  $ω(T_m=0) = <span class="math">\frac{va}{k_e}</span> = ω_{max} $ (zero load, maximum speed)</p>
+<p>  $ω(T_m=0) = <span class="math">\frac{va}{k_e}</span> = ω_{max} $ (zero load, zero torque, maximum speed)</p>
 <p>  <span class="math notranslate nohighlight">\(T_m(ω=0) = \frac{k_t}{R} va = k_t I_{stall}= Tm_{max}\)</span> (full load, maximum torque, zero speed)</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
@@ -365,6 +382,9 @@
 <span class="c1"># Speed-torque curve</span>
 <span class="n">omega</span> <span class="o">=</span> <span class="n">va</span><span class="o">/</span><span class="n">ke</span> <span class="o">-</span> <span class="n">R</span> <span class="o">/</span> <span class="p">(</span><span class="n">ke</span> <span class="o">*</span> <span class="n">kt</span><span class="p">)</span> <span class="o">*</span> <span class="n">Tm</span>
 
+<span class="c1"># Current curve</span>
+<span class="n">Im</span><span class="o">=</span><span class="n">Tm</span><span class="o">/</span><span class="n">kt</span>
+
 <span class="c1"># Power curve</span>
 <span class="n">P</span> <span class="o">=</span> <span class="n">omega</span> <span class="o">*</span> <span class="n">Tm</span>
 
@@ -372,12 +392,13 @@
 <span class="n">x_min</span><span class="p">,</span> <span class="n">x_max</span> <span class="o">=</span> <span class="n">Tm</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">Tm</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
 <span class="n">y_min</span><span class="p">,</span> <span class="n">y_max</span> <span class="o">=</span> <span class="n">omega</span><span class="o">.</span><span class="n">min</span><span class="p">()</span><span class="o">*</span><span class="mi">60</span><span class="o">/</span><span class="mf">6.28</span><span class="p">,</span> <span class="n">omega</span><span class="o">.</span><span class="n">max</span><span class="p">()</span><span class="o">*</span><span class="mi">60</span><span class="o">/</span><span class="mf">6.28</span>
 <span class="n">p_min</span><span class="p">,</span> <span class="n">p_max</span> <span class="o">=</span> <span class="n">P</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">P</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+<span class="n">I_min</span><span class="p">,</span> <span class="n">I_max</span> <span class="o">=</span> <span class="n">Im</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">Im</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
 
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax1</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
 
 <span class="c1"># Main plot: Torque vs Speed</span>
-<span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">Tm</span><span class="p">,</span> <span class="n">omega</span><span class="o">*</span><span class="mi">60</span><span class="o">/</span><span class="mf">6.28</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Speed vs Torque&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">)</span>
-<span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">Tm</span><span class="p">,</span> <span class="n">Tm</span><span class="o">/</span><span class="n">B</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Current load&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">Tm</span><span class="p">,</span> <span class="n">omega</span><span class="o">*</span><span class="mi">60</span><span class="o">/</span><span class="mf">6.28</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Load line&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">Tm</span><span class="p">,</span> <span class="n">Tm</span><span class="o">/</span><span class="n">B</span><span class="o">*</span><span class="mi">60</span><span class="o">/</span><span class="mf">6.28</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Actual load&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
 <span class="n">ax1</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Speed $</span><span class="se">\\</span><span class="s1">omega$ (rpm)&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">)</span>
 <span class="n">ax1</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">labelcolor</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">)</span>
 <span class="n">ax1</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Torque $T_m$ (Nm)&#39;</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="s1">&#39;right&#39;</span><span class="p">)</span>
@@ -387,28 +408,30 @@
 <span class="n">ax1</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="n">x_min</span><span class="p">,</span> <span class="n">x_max</span><span class="p">)</span>
 <span class="n">ax1</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="n">y_min</span><span class="p">,</span> <span class="n">y_max</span><span class="p">)</span>
 
-<span class="c1"># Additional x-axis for Current (aligned with Tm, sharing origin)</span>
-<span class="n">ax2</span> <span class="o">=</span> <span class="n">ax1</span><span class="o">.</span><span class="n">twiny</span><span class="p">()</span>
-<span class="n">ax2</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="n">ax1</span><span class="o">.</span><span class="n">get_xlim</span><span class="p">())</span>
-<span class="n">tm_ticks</span> <span class="o">=</span> <span class="n">ax1</span><span class="o">.</span><span class="n">get_xticks</span><span class="p">()</span>
-<span class="n">ax2</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">(</span><span class="n">tm_ticks</span><span class="p">)</span>
-<span class="n">ax2</span><span class="o">.</span><span class="n">set_xticklabels</span><span class="p">([</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="p">(</span><span class="n">tick</span><span class="o">/</span><span class="n">kt</span><span class="p">)</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">&quot;</span> <span class="k">for</span> <span class="n">tick</span> <span class="ow">in</span> <span class="n">tm_ticks</span><span class="p">])</span>
-<span class="n">ax2</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_label_position</span><span class="p">(</span><span class="s1">&#39;bottom&#39;</span><span class="p">)</span>
-<span class="n">ax2</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_ticks_position</span><span class="p">(</span><span class="s1">&#39;bottom&#39;</span><span class="p">)</span>
-<span class="n">ax2</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s1">&#39;bottom&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_position</span><span class="p">((</span><span class="s1">&#39;outward&#39;</span><span class="p">,</span> <span class="mi">40</span><span class="p">))</span>
-<span class="n">ax2</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Current $I$ (A)&#39;</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="s1">&#39;right&#39;</span><span class="p">)</span>
+<span class="sd">&quot;&quot;&quot; # Additional x-axis for Current (aligned with Tm, sharing origin)</span>
+<span class="sd">ax2 = ax1.twiny()</span>
+<span class="sd">ax2.set_xlim(ax1.get_xlim())</span>
+<span class="sd">tm_ticks = ax1.get_xticks()</span>
+<span class="sd">ax2.set_xticks(tm_ticks)</span>
+<span class="sd">ax2.set_xticklabels([f&quot;{(tick/kt):.1f}&quot; for tick in tm_ticks])</span>
+<span class="sd">ax2.xaxis.set_label_position(&#39;bottom&#39;)</span>
+<span class="sd">ax2.xaxis.set_ticks_position(&#39;bottom&#39;)</span>
+<span class="sd">ax2.spines[&#39;bottom&#39;].set_position((&#39;outward&#39;, 40))</span>
+<span class="sd">ax2.set_xlabel(&#39;Current $I$ (A)&#39;, loc=&#39;right&#39;) &quot;&quot;&quot;</span>
 
-<span class="c1"># Additional y-axis for Voltage (aligned with omega, sharing origin, on left)</span>
+<span class="c1"># Additional y-axis for Current</span>
 <span class="n">ax3</span> <span class="o">=</span> <span class="n">ax1</span><span class="o">.</span><span class="n">twinx</span><span class="p">()</span>
-<span class="n">ax3</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s1">&#39;left&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_position</span><span class="p">((</span><span class="s1">&#39;outward&#39;</span><span class="p">,</span> <span class="mi">60</span><span class="p">))</span>
-<span class="n">ax3</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">set_label_position</span><span class="p">(</span><span class="s1">&#39;left&#39;</span><span class="p">)</span>
-<span class="n">ax3</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">set_ticks_position</span><span class="p">(</span><span class="s1">&#39;left&#39;</span><span class="p">)</span>
+<span class="n">ax3</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">Tm</span><span class="p">,</span> <span class="n">Im</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Current&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;g&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
+<span class="n">ax3</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s1">&#39;right&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_position</span><span class="p">((</span><span class="s1">&#39;outward&#39;</span><span class="p">,</span> <span class="mi">60</span><span class="p">))</span>
+<span class="n">ax3</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">set_label_position</span><span class="p">(</span><span class="s1">&#39;right&#39;</span><span class="p">)</span>
+<span class="n">ax3</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">set_ticks_position</span><span class="p">(</span><span class="s1">&#39;right&#39;</span><span class="p">)</span>
 <span class="n">ax3</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="n">ax1</span><span class="o">.</span><span class="n">get_ylim</span><span class="p">())</span>
-<span class="n">omega_ticks</span> <span class="o">=</span> <span class="n">ax1</span><span class="o">.</span><span class="n">get_yticks</span><span class="p">()</span>
-<span class="n">ax3</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">(</span><span class="n">omega_ticks</span><span class="p">)</span>
-<span class="n">ax3</span><span class="o">.</span><span class="n">set_yticklabels</span><span class="p">([</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="p">(</span><span class="n">ke</span><span class="o">*</span><span class="n">tick</span><span class="o">/</span><span class="p">(</span><span class="mi">60</span><span class="o">/</span><span class="mf">6.28</span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">&quot;</span> <span class="k">for</span> <span class="n">tick</span> <span class="ow">in</span> <span class="n">omega_ticks</span><span class="p">])</span>
-<span class="n">ax3</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Voltage $V$ (V)&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;g&#39;</span><span class="p">)</span>
+<span class="c1">#omega_ticks = ax1.get_yticks()</span>
+<span class="c1">#ax3.set_yticks(omega_ticks)</span>
+<span class="c1">#ax3.set_yticklabels([f&quot;{(ke*tick/(60/6.28) ):.1f}&quot; for tick in omega_ticks])</span>
+<span class="n">ax3</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Current $I$ (A)&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;g&#39;</span><span class="p">)</span>
 <span class="n">ax3</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">labelcolor</span><span class="o">=</span><span class="s1">&#39;g&#39;</span><span class="p">)</span>
+<span class="n">ax3</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="n">I_min</span><span class="p">,</span> <span class="n">I_max</span><span class="p">)</span>  <span class="c1"># restrict power axis to min/max</span>
 
 <span class="c1"># Additional y-axis for Power</span>
 <span class="n">ax4</span> <span class="o">=</span> <span class="n">ax1</span><span class="o">.</span><span class="n">twinx</span><span class="p">()</span>
@@ -434,6 +457,7 @@
 </div>
 </div>
 </section>
+</section>
 <section id="Static-transfer-curve---voltage-vs-speed">
 <h2>Static transfer curve - voltage vs speed<a class="headerlink" href="#Static-transfer-curve---voltage-vs-speed" title="Link to this heading"></a></h2>
 <p>Electrical part</p>
@@ -443,8 +467,10 @@
 <p>Transfer curve</p>
 <p>  $va = R <span class="math">\frac{b ω}{k_t}</span> + k_e ω = (1+:nbsphinx-math:<cite>frac{Rb}{k_e k_t}</cite>) k_e ω $</p>
 <p>  $ω = <span class="math">\frac{va}{(1+\frac{Rb}{k_e k_t}) k_e}</span> $</p>
+<section id="Transient-analysis---time-series-data">
+<h3>Transient analysis - time series data<a class="headerlink" href="#Transient-analysis---time-series-data" title="Link to this heading"></a></h3>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
@@ -471,7 +497,7 @@
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/project3_simulation_14_0.png" src="../_images/project3_simulation_14_0.png" />
+<img alt="../_images/project3_simulation_15_0.png" src="../_images/project3_simulation_15_0.png" />
 </div>
 </div>
 <div class="nbinput nblast docutils container">
@@ -561,6 +587,7 @@
 </div>
 </div>
 </section>
+</section>
 <section id="Simulation---time-series---voltage-step-function---short-time-scale-(ms)">
 <h2>Simulation - time series - voltage step function - short time scale (ms)<a class="headerlink" href="#Simulation---time-series---voltage-step-function---short-time-scale-(ms)" title="Link to this heading"></a></h2>
 <ul class="simple">
@@ -599,7 +626,7 @@
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/project3_simulation_17_0.png" src="../_images/project3_simulation_17_0.png" />
+<img alt="../_images/project3_simulation_18_0.png" src="../_images/project3_simulation_18_0.png" />
 </div>
 </div>
 </section>
@@ -643,7 +670,7 @@
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/project3_simulation_19_0.png" src="../_images/project3_simulation_19_0.png" />
+<img alt="../_images/project3_simulation_20_0.png" src="../_images/project3_simulation_20_0.png" />
 </div>
 </div>
 </section>
@@ -684,7 +711,7 @@
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/project3_simulation_21_0.png" src="../_images/project3_simulation_21_0.png" />
+<img alt="../_images/project3_simulation_22_0.png" src="../_images/project3_simulation_22_0.png" />
 </div>
 </div>
 </section>
@@ -725,7 +752,7 @@
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/project3_simulation_23_0.png" src="../_images/project3_simulation_23_0.png" />
+<img alt="../_images/project3_simulation_24_0.png" src="../_images/project3_simulation_24_0.png" />
 </div>
 </div>
 </section>
@@ -777,7 +804,7 @@
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/project3_simulation_25_0.png" src="../_images/project3_simulation_25_0.png" />
+<img alt="../_images/project3_simulation_26_0.png" src="../_images/project3_simulation_26_0.png" />
 </div>
 </div>
 </section>
@@ -826,7 +853,7 @@
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/project3_simulation_27_0.png" src="../_images/project3_simulation_27_0.png" />
+<img alt="../_images/project3_simulation_28_0.png" src="../_images/project3_simulation_28_0.png" />
 </div>
 </div>
 </section>
@@ -878,7 +905,7 @@
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/project3_simulation_29_0.png" src="../_images/project3_simulation_29_0.png" />
+<img alt="../_images/project3_simulation_30_0.png" src="../_images/project3_simulation_30_0.png" />
 </div>
 </div>
 </section>
@@ -1020,7 +1047,7 @@
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/project3_simulation_31_0.png" src="../_images/project3_simulation_31_0.png" />
+<img alt="../_images/project3_simulation_32_0.png" src="../_images/project3_simulation_32_0.png" />
 </div>
 </div>
 </section>
@@ -1576,7 +1603,7 @@ Hello from the pygame community. https://www.pygame.org/contribute.html
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/project3_simulation_50_1.png" src="../_images/project3_simulation_50_1.png" />
+<img alt="../_images/project3_simulation_51_1.png" src="../_images/project3_simulation_51_1.png" />
 </div>
 </div>
 <div class="nboutput nblast docutils container">
