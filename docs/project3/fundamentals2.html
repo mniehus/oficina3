@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Fundamentals &mdash; oficina3  documentation</title>
+  <title>Dynamics &mdash; oficina3  documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
 
@@ -62,7 +62,8 @@
 <li class="toctree-l1"><a class="reference internal" href="fundamentals.html">Fundamentals</a></li>
 <li class="toctree-l1"><a class="reference internal" href="stepZero.html">Step Zero</a></li>
 <li class="toctree-l1"><a class="reference internal" href="modelling.html">Modelling</a></li>
-<li class="toctree-l1"><a class="reference internal" href="simulation.html">Simulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="simulation.html">Modelling and Simulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="simulation.html#Controller-model">Controller model</a></li>
 <li class="toctree-l1"><a class="reference internal" href="design.html">Design</a></li>
 <li class="toctree-l1"><a class="reference internal" href="design.html#design-drivers">Design drivers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="design.html#design-1">Design 1</a></li>
@@ -90,9 +91,9 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">Fundamentals</li>
+      <li class="breadcrumb-item active">Dynamics</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="../_sources/project3/fundamentals2.md.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/project3/fundamentals2.ipynb.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -100,12 +101,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="fundamentals">
-<h1>Fundamentals<a class="headerlink" href="#fundamentals" title="Link to this heading"></a></h1>
-<p>This section introduces the fundamental concepts and equations behind the Reaction Wheel Inverted Pendulum. It combines physics, electromechanics, and control theory.</p>
-<hr class="docutils" />
-<section id="dynamics">
-<h2>Dynamics<a class="headerlink" href="#dynamics" title="Link to this heading"></a></h2>
+  <section id="Dynamics">
+<h1>Dynamics<a class="headerlink" href="#Dynamics" title="Link to this heading"></a></h1>
 <table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p>Quantity</p></th>
@@ -128,20 +125,17 @@
 </tr>
 </tbody>
 </table>
-<hr class="docutils" />
-<p><strong>Newton’s Laws for Linear Motion</strong>
-$<span class="math notranslate nohighlight">\( 
-F = m a
-\)</span>$</p>
+<p><strong>Newton’s Laws for Linear Motion</strong></p>
+<div class="math notranslate nohighlight">
+\[F = m a\]</div>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(F\)</span>: Force (N)</p></li>
 <li><p><span class="math notranslate nohighlight">\(m\)</span>: Mass (kg)</p></li>
 <li><p><span class="math notranslate nohighlight">\(a\)</span>: Acceleration (m/s²)</p></li>
 </ul>
-<p><strong>Newton’s Laws for Rotational Motion</strong>
-$<span class="math notranslate nohighlight">\( 
-\tau = I \alpha
-\)</span>$</p>
+<p><strong>Newton’s Laws for Rotational Motion</strong></p>
+<div class="math notranslate nohighlight">
+\[\tau = I \alpha\]</div>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(\tau\)</span>: Torque (Nm)</p></li>
 <li><p><span class="math notranslate nohighlight">\(I\)</span>: Moment of inertia (kg·m²)</p></li>
@@ -149,43 +143,29 @@ $<span class="math notranslate nohighlight">\(
 </ul>
 <p>To rotate a body with <strong>friction torque</strong> <span class="math notranslate nohighlight">\(\tau_f\)</span>:</p>
 <div class="math notranslate nohighlight">
-\[ 
-\tau_{\text{net}} = I \alpha + \tau_f
-\]</div>
+\[\tau_{\text{net}} = I \alpha + \tau_f\]</div>
 <p>A spinning disk induces a <strong>reaction torque</strong>:</p>
 <div class="math notranslate nohighlight">
-\[ 
-\tau_{\text{reaction}} = -I \alpha
-\]</div>
+\[\tau_{\text{reaction}} = -I \alpha\]</div>
 <p>Note the correspondence of linear vs angular motion parameters.</p>
 </section>
-<section id="moment-of-inertia">
-<h2>Moment of Inertia<a class="headerlink" href="#moment-of-inertia" title="Link to this heading"></a></h2>
+<section id="Moment-of-Inertia">
+<h1>Moment of Inertia<a class="headerlink" href="#Moment-of-Inertia" title="Link to this heading"></a></h1>
 <p>For a <strong>solid disk</strong> of mass <span class="math notranslate nohighlight">\(m\)</span> and radius <span class="math notranslate nohighlight">\(r\)</span>, rotating about its center:</p>
 <div class="math notranslate nohighlight">
-\[ 
-I = \frac{1}{2} m r^2
- \]</div>
+\[I = \frac{1}{2} m r^2\]</div>
 <p>For a <strong>solid wheel</strong> (annular disk) of mass <span class="math notranslate nohighlight">\(m\)</span>, inner radius <span class="math notranslate nohighlight">\(R_i\)</span> and outer radius <span class="math notranslate nohighlight">\(R_a\)</span>:</p>
 <div class="math notranslate nohighlight">
-\[ 
-I = \frac{1}{2} m (R_i^2 + R_a^2)
- \]</div>
+\[I = \frac{1}{2} m (R_i^2 + R_a^2)\]</div>
 <p>For a <strong>point mass</strong> <span class="math notranslate nohighlight">\(M\)</span> at a distance <span class="math notranslate nohighlight">\(L\)</span> from the axis of rotation (e.g., for a pendulum):</p>
 <div class="math notranslate nohighlight">
-\[ 
-I = M L^2
- \]</div>
+\[I = M L^2\]</div>
 <p>For a <strong>general rotationally symmetric object</strong> with radial mass density <span class="math notranslate nohighlight">\(\rho(r)\)</span> (in kg/m):</p>
 <div class="math notranslate nohighlight">
-\[ 
-I = \int_{R_i}^{R_a} \rho(r) \, r^2 \cdot 2\pi r \, dr = 2\pi \int_{R_i}^{R_a} \rho(r) \, r^3 \, dr
- \]</div>
+\[I = \int_{R_i}^{R_a} \rho(r) \, r^2 \cdot 2\pi r \, dr = 2\pi \int_{R_i}^{R_a} \rho(r) \, r^3 \, dr\]</div>
 <p>For a <strong>composite object</strong> made of multiple components with known moments of inertia <span class="math notranslate nohighlight">\(I_1, I_2, \dots, I_n\)</span>:</p>
 <div class="math notranslate nohighlight">
-\[ 
-I_{\text{total}} = I_1 + I_2 + \dots + I_n = \sum_{i=1}^n I_i
- \]</div>
+\[I_{\text{total}} = I_1 + I_2 + \dots + I_n = \sum_{i=1}^n I_i\]</div>
 <p>🔗 <a class="reference external" href="https://en.wikipedia.org/wiki/Moment_of_inertia">Wikipedia: Moment of Inertia</a></p>
 <p><strong>Measuring Moment of Inertia in the Lab</strong></p>
 <p>The <strong>moment of inertia</strong> of an object can be determined experimentally using various methods. One simple and effective method is the <strong>torsional pendulum</strong> or <strong>rotational acceleration method</strong>.</p>
@@ -196,9 +176,7 @@ I_{\text{total}} = I_1 + I_2 + \dots + I_n = \sum_{i=1}^n I_i
 <li><p><strong>Determine the torsion constant</strong> <span class="math notranslate nohighlight">\(k\)</span> of the wire or system by calibrating with a known inertia or using a reference object.</p></li>
 <li><p>Use the formula:</p></li>
 <li><div class="math notranslate nohighlight">
-\[ 
-   I = \frac{T^2 k}{4\pi^2}
-    \]</div>
+\[I = \frac{T^2 k}{4\pi^2}\]</div>
 <p>where:</p>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(I\)</span> is the moment of inertia,</p></li>
@@ -213,24 +191,20 @@ I_{\text{total}} = I_1 + I_2 + \dots + I_n = \sum_{i=1}^n I_i
 <li><p>Measure the resulting <strong>angular acceleration</strong> <span class="math notranslate nohighlight">\(\alpha\)</span> (using a rotary encoder or sensor).</p></li>
 <li><p>Use Newton’s second law for rotation:</p>
 <div class="math notranslate nohighlight">
-\[ 
-   I = \frac{\tau}{\alpha}
-    \]</div>
+\[I = \frac{\tau}{\alpha}\]</div>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(\tau = r F\)</span>, where <span class="math notranslate nohighlight">\(F\)</span> is the force applied at radius <span class="math notranslate nohighlight">\(r\)</span>.</p></li>
 </ul>
 </li>
 </ol>
-</section>
 <hr class="docutils" />
-<section id="power-conversion">
-<h2>Power conversion<a class="headerlink" href="#power-conversion" title="Link to this heading"></a></h2>
+</section>
+<section id="Power-conversion">
+<h1>Power conversion<a class="headerlink" href="#Power-conversion" title="Link to this heading"></a></h1>
 <p>In a rotating system, energy and power are governed by the following key relations.</p>
 <p>The <strong>rotational kinetic energy</strong> of a spinning body is:</p>
 <div class="math notranslate nohighlight">
-\[ 
-E_{\text{rot}} = \frac{1}{2} I \omega^2
- \]</div>
+\[E_{\text{rot}} = \frac{1}{2} I \omega^2\]</div>
 <p>where:</p>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(I\)</span> is the moment of inertia (in kg·m²),</p></li>
@@ -238,9 +212,7 @@ E_{\text{rot}} = \frac{1}{2} I \omega^2
 </ul>
 <p>The <strong>mechanical power</strong> delivered to or from a rotating body is:</p>
 <div class="math notranslate nohighlight">
-\[ 
-P_{\text{mech}} = \tau \cdot \omega
- \]</div>
+\[P_{\text{mech}} = \tau \cdot \omega\]</div>
 <p>where:</p>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(\tau\)</span> is the torque (in N·m),</p></li>
@@ -248,14 +220,10 @@ P_{\text{mech}} = \tau \cdot \omega
 </ul>
 <p>In electromechanical systems (e.g. DC motor + disk), the mechanical power must come from electrical input power. If <span class="math notranslate nohighlight">\(\eta\)</span> is the efficiency of conversion:</p>
 <div class="math notranslate nohighlight">
-\[ 
-P_{\text{elec}} = \frac{P_{\text{mech}}}{\eta}
-\]</div>
+\[P_{\text{elec}} = \frac{P_{\text{mech}}}{\eta}\]</div>
 <p>and</p>
 <div class="math notranslate nohighlight">
-\[ 
-P_{\text{elec}} = V \cdot I
-\]</div>
+\[P_{\text{elec}} = V \cdot I\]</div>
 <p>where:</p>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(V\)</span> is the supply voltage (in volts),</p></li>
@@ -275,58 +243,43 @@ P_{\text{elec}} = V \cdot I
 <li><p>Moment of Inertia of the Disk:</p></li>
 </ol>
 <div class="math notranslate nohighlight">
-\[ 
-I = \frac{1}{2} m r^2 = \frac{1}{2} \cdot 1 \cdot (0.05)^2 = 0.00125 \ kg·m^2
- \]</div>
+\[I = \frac{1}{2} m r^2 = \frac{1}{2} \cdot 1 \cdot (0.05)^2 = 0.00125 \ kg·m^2\]</div>
 <ol class="arabic simple" start="2">
 <li><p>Kinetic Energy of Rotation:</p></li>
 </ol>
 <div class="math notranslate nohighlight">
-\[ 
-E_{\text{rot}} = \frac{1}{2} I \omega^2 = \frac{1}{2} \cdot 0.00125 \cdot (2\pi)^2 \approx 0.049 \ \text{J}
- \]</div>
+\[E_{\text{rot}} = \frac{1}{2} I \omega^2 = \frac{1}{2} \cdot 0.00125 \cdot (2\pi)^2 \approx 0.049 \ \text{J}\]</div>
 <ol class="arabic simple" start="3">
-<li><p>Required Torque:
-Assuming angular acceleration <span class="math notranslate nohighlight">\(\alpha = 2\pi\)</span> rad/s²:</p></li>
+<li><p>Required Torque: Assuming angular acceleration <span class="math notranslate nohighlight">\(\alpha = 2\pi\)</span> rad/s²:</p></li>
 </ol>
 <div class="math notranslate nohighlight">
-\[ 
-\tau = I \cdot \alpha = 0.00125 \cdot 2\pi \approx 0.00785 \ N·m
- \]</div>
+\[\tau = I \cdot \alpha = 0.00125 \cdot 2\pi \approx 0.00785 \ N·m\]</div>
 <ol class="arabic simple" start="4">
 <li><p>Mechanical Power:</p></li>
 </ol>
 <div class="math notranslate nohighlight">
-\[ 
-P_{\text{mech}} = \tau \cdot \omega = 0.00785 \cdot 2\pi \approx 0.049 \ \text{W}
- \]</div>
+\[P_{\text{mech}} = \tau \cdot \omega = 0.00785 \cdot 2\pi \approx 0.049 \ \text{W}\]</div>
 <ol class="arabic simple" start="5">
-<li><p>Electrical Power Required:
-With 80% efficiency:</p></li>
+<li><p>Electrical Power Required: With 80% efficiency:</p></li>
 </ol>
 <div class="math notranslate nohighlight">
-\[ 
-P_{\text{elec}} = \frac{P_{\text{mech}}}{\eta} = \frac{0.049}{0.8} \approx 0.061 \ \text{W}
- \]</div>
-<blockquote>
-<div><p>This example highlights the relevance of inertia and torque in system design. Note also that the power levels required to drive mechanical motion are typically beyond what basic microcontrollers can provide, and as such it is required to use a transistor based driver circuit between the Arduino and the Dc motors.</p>
-</div></blockquote>
+\[ \begin{align}\begin{aligned}P_{\text{elec}} = \frac{P_{\text{mech}}}{\eta} = \frac{0.049}{0.8} \approx 0.061 \ \text{W}\\
+This example highlights the relevance of inertia and torque in system design. Note also that the power levels required to drive mechanical motion are typically beyond what basic microcontrollers can provide, and as such it is required to use a transistor based driver circuit between the Arduino and the Dc motors.\end{aligned}\end{align} \]</div>
 </section>
-<section id="dc-motor-basics">
-<h2>DC Motor Basics<a class="headerlink" href="#dc-motor-basics" title="Link to this heading"></a></h2>
+<section id="DC-Motor-Basics">
+<h1>DC Motor Basics<a class="headerlink" href="#DC-Motor-Basics" title="Link to this heading"></a></h1>
 <p>DC motors convert electrical energy into mechanical torque and rotational motion. The fundamental equations are:</p>
 <ul>
 <li><p>Torque generated:</p></li>
 <li><div class="math notranslate nohighlight">
-\[ 
-  \tau = k_t \cdot I
-   \]</div>
+\[\tau = k_t \cdot I\]</div>
 </li>
-<li><p>Voltage across the motor:</p></li>
+<li><div class="line-block">
+<div class="line">Voltage across the motor:</div>
+</div>
+</li>
 <li><div class="math notranslate nohighlight">
-\[ 
-  V = k_e \cdot \omega + I \cdot R
-   \]</div>
+\[V = k_e \cdot \omega + I \cdot R\]</div>
 </li>
 </ul>
 <p>Where:</p>
@@ -390,7 +343,7 @@ P_{\text{elec}} = \frac{P_{\text{mech}}}{\eta} = \frac{0.049}{0.8} \approx 0.061
 <hr class="docutils" />
 <p>Most of these values are provided in the motor’s datasheet:</p>
 <ul class="simple">
-<li><p><strong><span class="math notranslate nohighlight">\(k_t\)</span> and <span class="math notranslate nohighlight">\(k_e\)</span></strong>: Often given directly. For brushed motors, these are numerically equal (<span class="math notranslate nohighlight">\(k_t = k_e\)</span>) if using SI units.</p></li>
+<li><p><strong>:math:`k_t` and :math:`k_e`</strong>: Often given directly. For brushed motors, these are numerically equal (<span class="math notranslate nohighlight">\(k_t = k_e\)</span>) if using SI units.</p></li>
 <li><p><strong>Stall torque</strong> (<span class="math notranslate nohighlight">\(\tau_{\text{stall}}\)</span>): Maximum torque at zero speed.</p></li>
 <li><p><strong>No-load speed</strong> (<span class="math notranslate nohighlight">\(\omega_{\text{free}}\)</span>): Speed at zero torque.</p></li>
 <li><p><strong>Stall current</strong> (<span class="math notranslate nohighlight">\(I_{\text{stall}}\)</span>): Current at zero speed and maximum torque.</p></li>
@@ -416,24 +369,24 @@ P_{\text{elec}} = \frac{P_{\text{mech}}}{\eta} = \frac{0.049}{0.8} \approx 0.061
 <p>Gears can be used to <strong>adapt motor output</strong> to desired speed and torque levels.</p>
 <p><strong>Basic Gear Equations</strong></p>
 <ul>
-<li><p>Gear ratio:</p></li>
+<li><div class="line-block">
+<div class="line">Gear ratio:</div>
+</div>
+</li>
 <li><div class="math notranslate nohighlight">
-\[ 
-  R = \frac{N_{\text{out}}}{N_{\text{in}}}
-   \]</div>
+\[R = \frac{N_{\text{out}}}{N_{\text{in}}}\]</div>
 <p>where <span class="math notranslate nohighlight">\(N\)</span> is the number of teeth or diameter.</p>
 </li>
-<li><p>Output torque:</p></li>
+<li><div class="line-block">
+<div class="line">Output torque:</div>
+</div>
+</li>
 <li><div class="math notranslate nohighlight">
-\[ 
-  \tau_{\text{out}} = R \cdot \tau_{\text{in}}
-   \]</div>
+\[\tau_{\text{out}} = R \cdot \tau_{\text{in}}\]</div>
 </li>
 <li><p>Output speed:</p></li>
 <li><div class="math notranslate nohighlight">
-\[ 
-  \omega_{\text{out}} = \frac{\omega_{\text{in}}}{R}
-   \]</div>
+\[\omega_{\text{out}} = \frac{\omega_{\text{in}}}{R}\]</div>
 </li>
 </ul>
 <p><strong>Why Use Gears?</strong></p>
@@ -456,18 +409,14 @@ P_{\text{elec}} = \frac{P_{\text{mech}}}{\eta} = \frac{0.049}{0.8} \approx 0.061
 </ul>
 <p>Then use a gear ratio of:</p>
 <div class="math notranslate nohighlight">
-\[ 
-R = \frac{0.1}{0.02} = 5
- \]</div>
+\[R = \frac{0.1}{0.02} = 5\]</div>
 <p>This brings output torque up to <span class="math notranslate nohighlight">\(0.1\)</span> N·m, and reduces speed to:</p>
 <div class="math notranslate nohighlight">
-\[ 
-\omega_{\text{out}} = \frac{150}{5} = 30 \ \text{rad/s}
- \]</div>
-</section>
+\[\omega_{\text{out}} = \frac{150}{5} = 30 \ \text{rad/s}\]</div>
 <hr class="docutils" />
-<section id="sensor-basics">
-<h2>Sensor basics<a class="headerlink" href="#sensor-basics" title="Link to this heading"></a></h2>
+</section>
+<section id="Sensor-basics">
+<h1>Sensor basics<a class="headerlink" href="#Sensor-basics" title="Link to this heading"></a></h1>
 <p><strong>Magnetic Position Sensor (AS5600)</strong></p>
 <ul class="simple">
 <li><p>Contactless rotary sensor using a magnetic field.</p></li>
@@ -475,10 +424,10 @@ R = \frac{0.1}{0.02} = 5
 <li><p>Outputs via I2C or PWM.</p></li>
 </ul>
 <p><a class="reference external" href="https://ams.com/as5600">AS5600 Datasheet</a></p>
-</section>
 <hr class="docutils" />
-<section id="controller">
-<h2>Controller<a class="headerlink" href="#controller" title="Link to this heading"></a></h2>
+</section>
+<section id="Controller">
+<h1>Controller<a class="headerlink" href="#Controller" title="Link to this heading"></a></h1>
 <p>A control system aims to keep the pendulum balanced using feedback.</p>
 <p>Main Elements</p>
 <ul class="simple">
@@ -495,21 +444,17 @@ R = \frac{0.1}{0.02} = 5
 <li><p><strong>PID</strong>: Combines:</p></li>
 </ul>
 <div class="math notranslate nohighlight">
-\[ 
-  u(t) = K_p e(t) + K_i \int e(t) \, dt + K_d \frac{de(t)}{dt}
- \]</div>
+\[u(t) = K_p e(t) + K_i \int e(t) \, dt + K_d \frac{de(t)}{dt}\]</div>
 <ul>
 <li><p><strong>LQR</strong>: Uses optimal gains to minimize cost function:</p></li>
 <li><div class="math notranslate nohighlight">
-\[ 
-  u = -Kx
-   \]</div>
+\[u = -Kx\]</div>
 <p>where <span class="math notranslate nohighlight">\(x\)</span> is the system state and <span class="math notranslate nohighlight">\(K\)</span> is the gain matrix.</p>
 </li>
 </ul>
 </section>
-<section id="arduino-system-integration">
-<h2>Arduino System Integration<a class="headerlink" href="#arduino-system-integration" title="Link to this heading"></a></h2>
+<section id="Arduino-System-Integration">
+<h1>Arduino System Integration<a class="headerlink" href="#Arduino-System-Integration" title="Link to this heading"></a></h1>
 <p>Arduino microcontrollers are widely used for real-time control systems due to their simplicity, low cost, and large ecosystem of libraries and tutorials. In this project, the Arduino is responsible for:</p>
 <ul class="simple">
 <li><p>Reading sensor data (e.g., from the AS5600 magnetic rotary sensor)</p></li>
@@ -525,8 +470,8 @@ R = \frac{0.1}{0.02} = 5
 <li><p><strong>Other</strong>: Wires, resistors, capacitors, breadboards or PCBs</p></li>
 </ul>
 </section>
-<section id="programming">
-<h2>Programming<a class="headerlink" href="#programming" title="Link to this heading"></a></h2>
+<section id="Programming">
+<h1>Programming<a class="headerlink" href="#Programming" title="Link to this heading"></a></h1>
 <p>Migrating from Python Simulation to Arduino Deployment</p>
 <p>In your development process, you will first simulate the control system (e.g., pendulum dynamics and reaction wheel behavior) using Python. This allows you to:</p>
 <ul class="simple">
@@ -546,7 +491,6 @@ R = \frac{0.1}{0.02} = 5
 <div><p>Real hardware behaves differently than simulations — expect to tune your controller gains again!</p>
 </div></blockquote>
 <p>By mirroring your software architecture between simulation and deployment, you ensure a smoother transition and better reuse of your logic.</p>
-</section>
 </section>
 
 

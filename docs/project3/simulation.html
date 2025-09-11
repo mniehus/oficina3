@@ -89,8 +89,12 @@
 <li class="toctree-l2"><a class="reference internal" href="#Pendulum-simulation">Pendulum simulation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#Sensor-simulation">Sensor simulation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#Controller-simulation">Controller simulation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#System-simulation">System simulation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#Set-up-the-simulator">Set up the simulator</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#Controller-model">Controller model</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#Controllers">Controllers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#System-(Plant)-simulation">System (Plant) simulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Set-up-the-system-simulator">Set up the system simulator</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#Visualization">Visualization</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#Sound-(optional)">Sound (optional)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#Run-the-simulator">Run the simulator</a></li>
@@ -154,7 +158,7 @@
 <li><p>Simulation configuration</p></li>
 </ul>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
@@ -188,8 +192,8 @@
 <span class="n">L</span> <span class="o">=</span> <span class="mf">3.73e-4</span>  <span class="c1"># Inductance of DC Motor (Henry)</span>
 <span class="n">J</span> <span class="o">=</span> <span class="mf">0.0027</span>  <span class="c1"># Inertia Motor (Kgm^2)</span>
 <span class="c1">#B = 3.85e-3  # Damping of DC Motor (Nm/(rad/s))</span>
-<span class="n">B</span> <span class="o">=</span> <span class="mf">3.85e-5</span>  <span class="c1"># Damping of DC Motor (Nm/(rad/s))</span>
-
+<span class="c1">#B = 3.85e-5  # Damping of DC Motor (Nm/(rad/s))</span>
+<span class="n">B</span> <span class="o">=</span> <span class="mf">3.85e-7</span>  <span class="c1"># Damping of DC Motor (Nm/(rad/s))</span>
 
 <span class="c1">#time constants</span>
 <span class="n">tau_el</span><span class="o">=</span><span class="n">L</span><span class="o">/</span><span class="n">R</span>  <span class="c1">#electrical constant (order 0.1 ms)</span>
@@ -254,7 +258,7 @@
 </div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">resetInitialState</span><span class="p">():</span>
@@ -304,16 +308,15 @@
 <p>  <span class="math notranslate nohighlight">\(T_{m} = b \frac{dθ}{dt} + J\frac{d^2θ}{dt^2}\)</span></p>
 <p>If required, mechanical part can also include Coulomb (static) or Reynolds (aerodynamic) friction</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">MotorDynamics</span><span class="p">(</span><span class="n">va</span><span class="p">,</span> <span class="n">dt</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">    updates dc motor torque based on input voltage and time step</span>
-
-<span class="sd">    #global qr_d, qr, curr_prev, curr_d, curr</span>
-
 <span class="sd">    &#39;&#39;&#39;</span>
+    <span class="k">global</span> <span class="n">qr_d</span><span class="p">,</span> <span class="n">qr</span><span class="p">,</span> <span class="n">curr_prev</span><span class="p">,</span> <span class="n">curr_d</span><span class="p">,</span> <span class="n">curr</span>
+
     <span class="n">curr</span> <span class="o">=</span> <span class="p">(</span><span class="n">va</span> <span class="o">-</span> <span class="n">qr_d</span> <span class="o">*</span> <span class="n">ke</span> <span class="o">-</span> <span class="n">L</span> <span class="o">*</span> <span class="n">curr_d</span><span class="p">)</span> <span class="o">/</span> <span class="n">R</span>
     <span class="n">curr_d</span> <span class="o">=</span> <span class="p">(</span><span class="n">curr</span> <span class="o">-</span> <span class="n">curr_prev</span><span class="p">)</span><span class="o">/</span><span class="n">dt</span>
     <span class="n">Tm</span> <span class="o">=</span> <span class="n">curr</span> <span class="o">*</span> <span class="n">kt</span>
@@ -338,7 +341,7 @@
 <p>A typical (minimal) load:</p>
 <p>  <span class="math notranslate nohighlight">\(T_{m} = b ω\)</span></p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">MotorSteadyState</span><span class="p">(</span><span class="n">va</span><span class="p">,</span> <span class="n">dt</span><span class="p">):</span>
@@ -367,7 +370,7 @@
 <p>  $ω(T_m=0) = <span class="math">\frac{va}{k_e}</span> = ω_{max} $ (zero load, zero torque, maximum speed)</p>
 <p>  <span class="math notranslate nohighlight">\(T_m(ω=0) = \frac{k_t}{R} va = k_t I_{stall}= Tm_{max}\)</span> (full load, maximum torque, zero speed)</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
@@ -470,7 +473,7 @@
 <section id="Transient-analysis---time-series-data">
 <h3>Transient analysis - time series data<a class="headerlink" href="#Transient-analysis---time-series-data" title="Link to this heading"></a></h3>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
@@ -1095,6 +1098,43 @@
 </section>
 <section id="Controller-simulation">
 <h2>Controller simulation<a class="headerlink" href="#Controller-simulation" title="Link to this heading"></a></h2>
+</section>
+</section>
+<section id="Controller-model">
+<h1>Controller model<a class="headerlink" href="#Controller-model" title="Link to this heading"></a></h1>
+<section id="Controllers">
+<h2>Controllers<a class="headerlink" href="#Controllers" title="Link to this heading"></a></h2>
+<ul>
+<li><p><strong>LQR Controller</strong>: A linear quadratic regulator designed to stabilize the pendulum in the upright position.</p>
+<p>#### Linearization dynamics model ####</p>
+<ul>
+<li><p><strong>Part RWIP</strong></p>
+<p>when sinθp -&gt; 0 sinθp = θp</p>
+</li>
+</ul>
+<p>    <span class="math notranslate nohighlight">\(\ddot{\theta_p} = \frac{m_{1}gL_{1}\theta_{p}\ +\ m_{2}gL_{2}\theta_{p}\ -\ T_{m} +\ T_{d}}{m_{1}L_{1}^{2}+m_{2}L_{2}^{2}+I_{1}}\)</span></p>
+<p>    <span class="math notranslate nohighlight">\(\ddot{\theta_r} = \frac{T_{m}}{I_{2}}-\frac{m_{1}gL_{1}\ +\ m_{2}gL_{2}\ -\ T_{m} +\ T_{d}}{m_{1}L_{1}^{2}+m_{2}L_{2}^{2}+I_{1}}\)</span></p>
+<ul class="simple">
+<li><p><strong>Part Motor</strong></p></li>
+</ul>
+<p>   We can estimate that L &lt;&lt; R</p>
+<p>    <span class="math notranslate nohighlight">\(Vin = R i + k_e θ_r\)</span></p>
+<p>    <span class="math notranslate nohighlight">\(T_{m} = k_t i\)</span></p>
+</li>
+</ul>
+<p>#### State space ####</p>
+<p>The proceeding equations are valid around the operating point where θp = 0</p>
+<p>      <img alt="Matrix" src="https://latex.codecogs.com/svg.image?%5Cbegin%7Bbmatrix%7D%5Cdot%7B%5Ctheta_p%7D%5C%5C%5Cddot%7B%5Ctheta_p%7D%5C%5C%5Cdot%7B%5Ctheta_r%7D%5C%5C%5Cddot%7B%5Ctheta_r%7D%5Cend%7Bbmatrix%7D=%5Cbegin%7Bbmatrix%7D0&amp;1&amp;0&amp;0%5C%5C%5Cfrac%7B(m_1L_1+m_2L_2)g%7D%7Bm_1L_1%5E%7B2%7D+m_2L_2%5E%7B2%7D+J%7D&amp;0&amp;0&amp;%5Cfrac%7Bk_tk_e%7D%7B(m_1L_1%5E%7B2%7D+m_2L_2%5E%7B2%7D+J)R%7D%5C%5C0&amp;0&amp;0&amp;1%5C%5C-%5Cfrac%7B(m_1L_1+m_2L_2)g%7D%7Bm_1L_1%5E%7B2%7D+m_2L_2%5E%7B2%7D+J%7D&amp;0&amp;0&amp;-(%5Cfrac%7Bm_1L_1%5E%7B2%7D+m_2L_2%5E%7B2%7D+2J%7D%7B(m_1L_1%5E%7B2%7D+m_2L_2%5E%7B2%7D+J)J%7D)(%5Cfrac%7Bk_tk_e%7D%7BR%7D)%5C%5C%5Cend%7Bbmatrix%7D%5Cbegin%7Bbmatrix%7D%5Ctheta_p%5C%5C%5Cdot%7B%5Ctheta_p%7D%5C%5C%5Ctheta_r%5C%5C%5Cdot%7B%5Ctheta_r%7D%5Cend%7Bbmatrix%7D+%5Cbegin%7Bbmatrix%7D0%5C%5C%5Cfrac%7Bk_t%7D%7B(m_1L_1%5E%7B2%7D+m_2L_2%5E%7B2%7D+J)R%7D%5C%5C0%5C%5C(%5Cfrac%7Bm_1L_1%5E%7B2%7D+m_2L_2%5E%7B2%7D+2J%7D%7B(m_1L_1%5E%7B2%7D+m_2L_2%5E%7B2%7D+J)J%7D)(%5Cfrac%7Bkt%7D%7BR%7D)%5Cend%7Bbmatrix%7DV_%7Bin%7D" /></p>
+<ul>
+<li><p><strong>PID Controller</strong>: The stabilize controller to compare with LQR #### Transfer function ####</p>
+<p>    <span class="math notranslate nohighlight">\(\Large\frac{\theta_{p}(s)}{\tau_{m}(s)}=\frac{\frac{s}{-J-m_{2}L_{2}^{2}}}{s^{3}+\left(\frac{B}{I_{1}}+\frac{B+d_{p}}{J+m_{2}L_{2}^{2}}\right)s^{2}-\left(\frac{\left(m_{1}L_{1}+m_{2}L_{2}\right)g}{\left(J+m_{2}L_{2}^{2}\right)I_{1}}-\frac{B\cdot d_{p}}{\left(J+m_{2}L_{2}^{2}\right)I_{1}}\right)s-\frac{\left(m_{1}L_{1}+m_{2}L_{2}\right)Bg}{\left(J+m_{2}L_{2}^{2}\right)I_{1}}}\)</span></p>
+</li>
+<li><p><strong>Bang-bang Controller</strong>: The swing up control routine and the stabilizing control routine are switched between -25 to 25 degree</p></li>
+</ul>
+<p>   <img alt="44e6a391fa544ee18859f56c0b8bef0a" class="no-scaled-link" src="https://github.com/B-Paweekorn/Reaction-wheel-inverted-pendulum/assets/122732439/79e6d6d3-9ab2-49eb-a58b-3ad10a96a96b" style="width: 480px;" /></p>
+<ul class="simple">
+<li><p><strong>Brake Controller</strong>: Used as reduced energy of RWIP when RWIP have too much energy for stabilze</p></li>
+</ul>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
 </pre></div>
@@ -1126,8 +1166,11 @@
 </div>
 </div>
 </section>
-<section id="System-simulation">
-<h2>System simulation<a class="headerlink" href="#System-simulation" title="Link to this heading"></a></h2>
+<section id="System-(Plant)-simulation">
+<h2>System (Plant) simulation<a class="headerlink" href="#System-(Plant)-simulation" title="Link to this heading"></a></h2>
+<p>Mathematical model of RWIP:</p>
+<p><span class="math notranslate nohighlight">\(\ddot{\theta_p} = \frac{m_{1}gL_{1}\sin\left(\theta_{p}\right)\ +\ m_{2}gL_{2}\sin\left(\theta_{p}\right)\ -\ T_{m} +\ T_{d}}{m_{1}L_{1}^{2}+m_{2}L_{2}+I_{1}}\)</span></p>
+<p><span class="math notranslate nohighlight">\(\ddot{\theta_r} = \frac{T_{r}}{I_{2}}-\frac{m_{1}gL_{1}\ +\ m_{2}gL_{2}-T_{m} +\ T_{d}}{m_{1}L_{1}^{2}+m_{2}L_{2}+I_{1}}\)</span></p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
 </pre></div>
@@ -1141,8 +1184,8 @@
 </div>
 </div>
 </section>
-<section id="Set-up-the-simulator">
-<h2>Set up the simulator<a class="headerlink" href="#Set-up-the-simulator" title="Link to this heading"></a></h2>
+<section id="Set-up-the-system-simulator">
+<h2>Set up the system simulator<a class="headerlink" href="#Set-up-the-system-simulator" title="Link to this heading"></a></h2>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
 </pre></div>
@@ -1190,7 +1233,7 @@ Hello from the pygame community. https://www.pygame.org/contribute.html
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">plot_figure</span><span class="p">(</span><span class="n">screen</span><span class="p">,</span> <span class="n">qp</span><span class="p">,</span> <span class="n">qp_d</span><span class="p">,</span> <span class="n">qr_d</span><span class="p">,</span> <span class="n">Tm</span><span class="p">,</span> <span class="n">Vin</span><span class="p">,</span> <span class="n">Tp</span><span class="p">,</span> <span class="n">setpoint</span><span class="p">):</span>
     <span class="n">x_offset</span> <span class="o">=</span> <span class="mi">200</span>
     <span class="n">y_offset</span> <span class="o">=</span> <span class="mi">360</span>
-    <span class="n">multiplier</span> <span class="o">=</span> <span class="mi">800</span>
+    <span class="n">multiplier</span> <span class="o">=</span> <span class="mi">100</span>
 
     <span class="c1"># Draw RWIP</span>
     <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">Forwardkinematics</span><span class="p">(</span><span class="n">qp</span><span class="p">)</span>
@@ -1280,7 +1323,8 @@ Hello from the pygame community. https://www.pygame.org/contribute.html
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p</span> <span class="o">=</span> <span class="n">pyaudio</span><span class="o">.</span><span class="n">PyAudio</span><span class="p">()</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pyaudio</span>
+<span class="n">p</span> <span class="o">=</span> <span class="n">pyaudio</span><span class="o">.</span><span class="n">PyAudio</span><span class="p">()</span>
 <span class="n">BITRATE</span> <span class="o">=</span> <span class="mi">90000</span>  <span class="c1"># number of frames per second/frameset.</span>
 <span class="n">FREQUENCY</span> <span class="o">=</span> <span class="mi">2000</span>  <span class="c1"># Hz, waves per second, 261.63=C4-note.</span>
 <span class="n">BITRATE</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">BITRATE</span><span class="p">,</span> <span class="n">FREQUENCY</span> <span class="o">+</span> <span class="mi">100</span><span class="p">)</span>
@@ -1312,8 +1356,25 @@ Hello from the pygame community. https://www.pygame.org/contribute.html
 </section>
 <section id="Run-the-simulator">
 <h2>Run the simulator<a class="headerlink" href="#Run-the-simulator" title="Link to this heading"></a></h2>
-<div class="nbinput docutils container">
+<div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>    <span class="c1"># Initial state</span>
+
+    <span class="n">init_qp</span> <span class="o">=</span> <span class="mf">180.0</span>  <span class="c1"># Initial pendulum angle (degree)</span>
+    <span class="n">init_qp_d</span> <span class="o">=</span> <span class="mf">0.0</span>  <span class="c1"># Initial pendulum speed</span>
+
+    <span class="n">init_qr</span> <span class="o">=</span> <span class="mf">0.0</span>  <span class="c1"># Initial reaction wheel angle</span>
+    <span class="n">init_qr_d</span> <span class="o">=</span> <span class="mf">0.0</span>  <span class="c1"># Initial reaction wheel speed</span>
+
+    <span class="n">init_Tm</span> <span class="o">=</span> <span class="mf">0.0</span>  <span class="c1"># Initial reaction wheel torque</span>
+    <span class="n">init_Tp</span> <span class="o">=</span> <span class="mf">0.0</span>  <span class="c1"># Initial disturbance torque</span>
+<br/></pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><br/><span></span><span class="c1"># ==========================================================================================</span>
@@ -1375,6 +1436,19 @@ Hello from the pygame community. https://www.pygame.org/contribute.html
 <span class="n">running</span> <span class="o">=</span> <span class="kc">True</span>
 <span class="n">input_flag</span> <span class="o">=</span> <span class="kc">False</span>
 <span class="n">input_string</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+<br/></pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;wsim=[]</span>
+<span class="sd">tsim=[]</span>
+<span class="sd">    wsim.append(wsim)</span>
+<span class="sd">    tsim.append(tsim)</span>
+<span class="sd">wsim = np.array(wsim)</span>
+<span class="sd">tsim = np.array(tsim)&quot;&quot;&quot;</span>
 
 <span class="n">pygame</span><span class="o">.</span><span class="n">init</span><span class="p">()</span>
 
@@ -1488,24 +1562,24 @@ Hello from the pygame community. https://www.pygame.org/contribute.html
         <span class="n">Vin</span> <span class="o">=</span> <span class="o">-</span><span class="n">e</span> <span class="o">*</span> <span class="n">Kp</span>
     <span class="k">elif</span> <span class="n">controller_mode</span> <span class="o">==</span> <span class="s2">&quot;Bang-bang&quot;</span><span class="p">:</span>
         <span class="k">if</span> <span class="p">(</span><span class="n">qp_d</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">E</span> <span class="o">&lt;</span> <span class="n">reqE</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="n">qp_d</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">E</span> <span class="o">&gt;=</span> <span class="n">reqE</span><span class="p">):</span>
-            <span class="n">Vin</span> <span class="o">=</span> <span class="mi">12</span>
+            <span class="n">Vin</span> <span class="o">=</span> <span class="mi">9</span>
         <span class="k">elif</span> <span class="p">(</span><span class="n">qp_d</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">E</span> <span class="o">&lt;</span> <span class="n">reqE</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="n">qp_d</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">E</span> <span class="o">&gt;=</span> <span class="n">reqE</span><span class="p">):</span>
-            <span class="n">Vin</span> <span class="o">=</span> <span class="o">-</span><span class="mi">12</span>
+            <span class="n">Vin</span> <span class="o">=</span> <span class="o">-</span><span class="mi">9</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="n">Vin</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="k">elif</span> <span class="n">controller_mode</span> <span class="o">==</span> <span class="s2">&quot;brake&quot;</span><span class="p">:</span>
         <span class="k">if</span> <span class="n">qp_d</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
-            <span class="n">Vin</span> <span class="o">=</span> <span class="o">-</span><span class="mi">12</span>
+            <span class="n">Vin</span> <span class="o">=</span> <span class="o">-</span><span class="mi">9</span>
         <span class="k">elif</span> <span class="n">qp_d</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">:</span>
-            <span class="n">Vin</span> <span class="o">=</span> <span class="mi">12</span>
+            <span class="n">Vin</span> <span class="o">=</span> <span class="mi">9</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="n">Vin</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="k">if</span> <span class="n">MotorLimit</span><span class="p">:</span>
         <span class="c1"># Actual Limit</span>
-        <span class="k">if</span> <span class="n">Vin</span> <span class="o">&gt;</span> <span class="mi">24</span><span class="p">:</span>
-            <span class="n">Vin</span> <span class="o">=</span> <span class="mi">24</span>
-        <span class="k">elif</span> <span class="n">Vin</span> <span class="o">&lt;</span> <span class="o">-</span><span class="mi">24</span><span class="p">:</span>
-            <span class="n">Vin</span> <span class="o">=</span> <span class="o">-</span><span class="mi">24</span>
+        <span class="k">if</span> <span class="n">Vin</span> <span class="o">&gt;</span> <span class="mi">9</span><span class="p">:</span>
+            <span class="n">Vin</span> <span class="o">=</span> <span class="mi">9</span>
+        <span class="k">elif</span> <span class="n">Vin</span> <span class="o">&lt;</span> <span class="o">-</span><span class="mi">9</span><span class="p">:</span>
+            <span class="n">Vin</span> <span class="o">=</span> <span class="o">-</span><span class="mi">9</span>
 
     <span class="n">Tm</span> <span class="o">=</span> <span class="n">MotorDynamics</span><span class="p">(</span><span class="n">Vin</span><span class="p">,</span> <span class="n">dt</span><span class="p">)</span>
     <span class="n">FREQUENCY</span> <span class="o">=</span> <span class="nb">pow</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">qr_d</span><span class="p">),</span> <span class="mi">2</span><span class="p">)</span>
@@ -1578,32 +1652,216 @@ Hello from the pygame community. https://www.pygame.org/contribute.html
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">UnboundLocalError</span>                         Traceback (most recent call last)
-<span class="ansi-cyan-fg">Cell</span><span class="ansi-cyan-fg"> </span><span class="ansi-green-fg">In[24]</span><span class="ansi-green-fg">, line 192</span>
-<span class="ansi-green-fg">    189</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">elif</span> Vin &lt; -<span class="ansi-green-fg">24</span>:
-<span class="ansi-green-fg">    190</span>         Vin = -<span class="ansi-green-fg">24</span>
-<span class="ansi-green-fg">--&gt; </span><span class="ansi-green-fg">192</span> Tm = <span class="ansi-yellow-bg">MotorDynamics</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">Vin</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">dt</span><span class="ansi-yellow-bg">)</span>
-<span class="ansi-green-fg">    193</span> FREQUENCY = <span style="color: rgb(0,135,0)">pow</span>(<span style="color: rgb(0,135,0)">abs</span>(qr_d), <span class="ansi-green-fg">2</span>)
-<span class="ansi-green-fg">    194</span> qp_dd = RwipDynamics(qp, Tm, Tp)
+An exception has occurred, use %tb to see the full traceback.
 
-<span class="ansi-cyan-fg">Cell</span><span class="ansi-cyan-fg"> </span><span class="ansi-green-fg">In[3]</span><span class="ansi-green-fg">, line 6</span>, in <span class="ansi-cyan-fg">MotorDynamics</span><span class="ansi-blue-fg">(va, dt)</span>
-<span class="ansi-green-fg">      2</span> <span class="ansi-yellow-fg">&#39;&#39;&#39;</span>
-<span class="ansi-green-fg">      3</span> <span class="ansi-yellow-fg">updates dc motor torque based on input voltage and time step </span>
-<span class="ansi-green-fg">      4</span> <span class="ansi-yellow-fg">&#39;&#39;&#39;</span>
-<span class="ansi-green-fg">      5</span> <span style="color: rgb(95,135,135)">#global qr_d, qr, curr_prev, curr_d, curr</span>
-<span class="ansi-green-fg">----&gt; </span><span class="ansi-green-fg">6</span> curr = (va - <span class="ansi-yellow-bg">qr_d</span> * ke - L * curr_d) / R
-<span class="ansi-green-fg">      7</span> curr_d = (curr - curr_prev)/dt
-<span class="ansi-green-fg">      8</span> Tm = curr * kt
+<span class="ansi-red-fg">SystemExit</span>
 
-<span class="ansi-red-fg">UnboundLocalError</span>: cannot access local variable &#39;qr_d&#39; where it is not associated with a value
 </pre></div></div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+C:\Users\Utilizador\AppData\Roaming\Python\Python313\site-packages\IPython\core\interactiveshell.py:3678: UserWarning: To exit: use &#39;exit&#39;, &#39;quit&#39;, or Ctrl-D.
+  warn(&#34;To exit: use &#39;exit&#39;, &#39;quit&#39;, or Ctrl-D.&#34;, stacklevel=1)
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
 <div class="output_area docutils container">
-<img alt="../_images/project3_simulation_51_1.png" src="../_images/project3_simulation_51_1.png" />
+<img alt="../_images/project3_simulation_54_2.png" src="../_images/project3_simulation_54_2.png" />
+</div>
+</div>
+</section>
+<section id="Usage">
+<h2>Usage<a class="headerlink" href="#Usage" title="Link to this heading"></a></h2>
+<p><img alt="Image of the program" src="https://github.com/B-Paweekorn/Reaction-wheel-inverted-pendulum/assets/47713359/e2ff45d4-bfb2-4831-9ec9-334b88f8ff77" /></p>
+<p><strong>Inject</strong> - Type the amount of torque into the box and click <code class="docutils literal notranslate"><span class="pre">INJECT</span></code> or ENTER key to inject a disturbance to the system</p>
+<p><strong>Reset</strong> - Click <code class="docutils literal notranslate"><span class="pre">RESET</span></code> to reset the system</p>
+<p><strong>Plotting</strong> - Click on the pendulum plot or the plot window to plot the data</p>
+<p>Edit the parameters in <code class="docutils literal notranslate"><span class="pre">param.py</span></code> (or above)S</p>
+</section>
+<section id="Example-runs">
+<h2>Example runs<a class="headerlink" href="#Example-runs" title="Link to this heading"></a></h2>
+</section>
+<section id="Export-to-python-script?">
+<h2>Export to python script?<a class="headerlink" href="#Export-to-python-script?" title="Link to this heading"></a></h2>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="c1"># Physical constants and system parameters</span>
+<span class="n">g</span> <span class="o">=</span> <span class="mf">9.81</span>  <span class="c1"># gravity (m/s^2)</span>
+
+<span class="c1"># Pendulum parameters</span>
+<span class="n">m_p</span> <span class="o">=</span> <span class="mf">0.2</span>      <span class="c1"># pendulum mass (kg)</span>
+<span class="n">l_p</span> <span class="o">=</span> <span class="mf">0.3</span>      <span class="c1"># pendulum length to center of mass (m)</span>
+<span class="n">I_p</span> <span class="o">=</span> <span class="n">m_p</span> <span class="o">*</span> <span class="n">l_p</span><span class="o">**</span><span class="mi">2</span>  <span class="c1"># simple model of pendulum moment of inertia (kg·m²)</span>
+
+<span class="c1"># Reaction wheel parameters</span>
+<span class="n">m_w</span> <span class="o">=</span> <span class="mf">0.05</span>     <span class="c1"># reaction wheel mass (kg)</span>
+<span class="n">r_w</span> <span class="o">=</span> <span class="mf">0.05</span>     <span class="c1"># reaction wheel radius (m)</span>
+<span class="n">I_w</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">m_w</span> <span class="o">*</span> <span class="n">r_w</span><span class="o">**</span><span class="mi">2</span>  <span class="c1"># moment of inertia for solid disk (kg·m²)</span>
+
+<span class="c1"># Motor parameters</span>
+<span class="n">V_max</span> <span class="o">=</span> <span class="mi">12</span>       <span class="c1"># max voltage (V)</span>
+<span class="n">R</span> <span class="o">=</span> <span class="mf">4.0</span>          <span class="c1"># coil resistance (Ohm)</span>
+<span class="n">k_t</span> <span class="o">=</span> <span class="mf">0.05</span>       <span class="c1"># torque constant (Nm/A)</span>
+<span class="n">k_e</span> <span class="o">=</span> <span class="mf">0.05</span>       <span class="c1"># back-EMF constant (V·s/rad)</span>
+
+<span class="c1"># Target performance</span>
+<span class="n">omega_w_max</span> <span class="o">=</span> <span class="p">(</span><span class="n">V_max</span> <span class="o">/</span> <span class="n">k_e</span><span class="p">)</span>  <span class="c1"># max theoretical speed (rad/s)</span>
+<span class="n">E_wheel_max</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">I_w</span> <span class="o">*</span> <span class="n">omega_w_max</span><span class="o">**</span><span class="mi">2</span>  <span class="c1"># max energy storable in wheel</span>
+
+<span class="c1"># Energy needed to raise pendulum</span>
+<span class="n">E_pendulum</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">m_p</span> <span class="o">*</span> <span class="n">g</span> <span class="o">*</span> <span class="n">l_p</span>  <span class="c1"># from lowest to highest point</span>
+
+<span class="c1"># Max torque at stall (worst-case speed)</span>
+<span class="n">I_max</span> <span class="o">=</span> <span class="n">V_max</span> <span class="o">/</span> <span class="n">R</span>
+<span class="n">tau_max</span> <span class="o">=</span> <span class="n">k_t</span> <span class="o">*</span> <span class="n">I_max</span>
+
+<span class="c1"># Required angular acceleration</span>
+<span class="n">alpha_required</span> <span class="o">=</span> <span class="n">E_pendulum</span> <span class="o">/</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">I_p</span><span class="p">)</span>  <span class="c1"># rough estimate</span>
+
+<span class="c1"># Required torque to achieve that acceleration</span>
+<span class="n">tau_required</span> <span class="o">=</span> <span class="n">I_p</span> <span class="o">*</span> <span class="n">alpha_required</span>
+
+<span class="c1"># Result summary</span>
+<span class="p">{</span>
+    <span class="s2">&quot;Pendulum inertia I_p (kg·m²)&quot;</span><span class="p">:</span> <span class="n">I_p</span><span class="p">,</span>
+    <span class="s2">&quot;Required energy to raise pendulum (J)&quot;</span><span class="p">:</span> <span class="n">E_pendulum</span><span class="p">,</span>
+    <span class="s2">&quot;Max wheel energy (J)&quot;</span><span class="p">:</span> <span class="n">E_wheel_max</span><span class="p">,</span>
+    <span class="s2">&quot;Max motor torque (Nm)&quot;</span><span class="p">:</span> <span class="n">tau_max</span><span class="p">,</span>
+    <span class="s2">&quot;Required torque (Nm)&quot;</span><span class="p">:</span> <span class="n">tau_required</span><span class="p">,</span>
+    <span class="s2">&quot;Swing-up possible?&quot;</span><span class="p">:</span> <span class="n">E_wheel_max</span> <span class="o">&gt;=</span> <span class="n">E_pendulum</span> <span class="ow">and</span> <span class="n">tau_max</span> <span class="o">&gt;=</span> <span class="n">tau_required</span>
+<span class="p">}</span>
+<br/></pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+{&#39;Pendulum inertia I_p (kg·m²)&#39;: 0.018,
+ &#39;Required energy to raise pendulum (J)&#39;: 1.1772,
+ &#39;Max wheel energy (J)&#39;: 1.8000000000000005,
+ &#39;Max motor torque (Nm)&#39;: 0.15000000000000002,
+ &#39;Required torque (Nm)&#39;: 0.3747143980155584,
+ &#39;Swing-up possible?&#39;: False}
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+<span class="c1"># Constants (adjustable for analysis)</span>
+<span class="n">m_p</span> <span class="o">=</span> <span class="mf">0.3</span>     <span class="c1"># Pendulum mass (kg)</span>
+<span class="n">l_p</span> <span class="o">=</span> <span class="mf">0.3</span>     <span class="c1"># Pendulum length (m)</span>
+<span class="n">g</span> <span class="o">=</span> <span class="mf">9.81</span>      <span class="c1"># Gravitational acceleration (m/s²)</span>
+<span class="n">I_p</span> <span class="o">=</span> <span class="n">m_p</span> <span class="o">*</span> <span class="n">l_p</span><span class="o">**</span><span class="mi">2</span>  <span class="c1"># Approximate moment of inertia of pendulum (point mass)</span>
+<span class="n">theta_max</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span>   <span class="c1"># Upright position relative to down</span>
+
+<span class="c1"># Energy needed to lift pendulum from down to up</span>
+<span class="n">E_required</span> <span class="o">=</span> <span class="n">m_p</span> <span class="o">*</span> <span class="n">g</span> <span class="o">*</span> <span class="n">l_p</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">theta_max</span><span class="p">))</span>
+
+<span class="c1"># Parameter sweep</span>
+<span class="n">I_wheel_range</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">1e-4</span><span class="p">,</span> <span class="mf">2e-2</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>  <span class="c1"># Moment of inertia of wheel (kg·m²)</span>
+<span class="n">omega_max_range</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>   <span class="c1"># Max angular velocity of wheel (rad/s)</span>
+
+<span class="n">I_w</span><span class="p">,</span> <span class="n">omega_w</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">I_wheel_range</span><span class="p">,</span> <span class="n">omega_max_range</span><span class="p">)</span>
+
+<span class="c1"># Kinetic energy of the wheel: E = 1/2 * I * omega²</span>
+<span class="n">E_wheel</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">I_w</span> <span class="o">*</span> <span class="n">omega_w</span><span class="o">**</span><span class="mi">2</span>
+
+<span class="c1"># Feasibility mask</span>
+<span class="n">feasible</span> <span class="o">=</span> <span class="n">E_wheel</span> <span class="o">&gt;=</span> <span class="n">E_required</span>
+
+<span class="c1"># Plotting</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">cp</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="n">I_w</span><span class="p">,</span> <span class="n">omega_w</span><span class="p">,</span> <span class="n">feasible</span><span class="p">,</span> <span class="n">levels</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">colors</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;salmon&#39;</span><span class="p">,</span> <span class="s1">&#39;lightgreen&#39;</span><span class="p">],</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.8</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;Feasibility (1 = feasible)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">contour</span><span class="p">(</span><span class="n">I_w</span><span class="p">,</span> <span class="n">omega_w</span><span class="p">,</span> <span class="n">E_wheel</span><span class="p">,</span> <span class="n">levels</span><span class="o">=</span><span class="p">[</span><span class="n">E_required</span><span class="p">],</span> <span class="n">colors</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">linestyles</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Wheel Moment of Inertia $I_w$ (kg·m²)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Max Angular Velocity $</span><span class="se">\\</span><span class="s2">omega_</span><span class="si">{max}</span><span class="s2">$ (rad/s)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Feasibility of Reaction Wheel Energy for Pendulum Swing-Up&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<br/></pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/project3_simulation_61_0.png" src="../_images/project3_simulation_61_0.png" />
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+<span class="c1"># Constants</span>
+<span class="n">g</span> <span class="o">=</span> <span class="mf">9.81</span>  <span class="c1"># gravity [m/s^2]</span>
+
+<span class="c1"># Pendulum parameters (design variables)</span>
+<span class="n">m_p</span> <span class="o">=</span> <span class="mf">0.2</span>     <span class="c1"># pendulum mass [kg]</span>
+<span class="n">L_p</span> <span class="o">=</span> <span class="mf">0.25</span>    <span class="c1"># pendulum length (pivot to CoM) [m]</span>
+<span class="n">I_p</span> <span class="o">=</span> <span class="n">m_p</span> <span class="o">*</span> <span class="n">L_p</span><span class="o">**</span><span class="mi">2</span>  <span class="c1"># approximate moment of inertia for point mass at distance L</span>
+
+<span class="c1"># Required potential energy to reach upright position</span>
+<span class="n">E_required</span> <span class="o">=</span> <span class="n">m_p</span> <span class="o">*</span> <span class="n">g</span> <span class="o">*</span> <span class="n">L_p</span>  <span class="c1"># [J]</span>
+
+<span class="c1"># Reaction wheel parameters (design variables)</span>
+<span class="n">I_w_range</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">logspace</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>     <span class="c1"># wheel moment of inertia [kg·m²]</span>
+<span class="n">omega_max_range</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">500</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>  <span class="c1"># max angular velocity [rad/s]</span>
+<span class="n">I_w_grid</span><span class="p">,</span> <span class="n">omega_max_grid</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">I_w_range</span><span class="p">,</span> <span class="n">omega_max_range</span><span class="p">)</span>
+
+<span class="c1"># Wheel kinetic energy</span>
+<span class="n">E_kin_wheel</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">I_w_grid</span> <span class="o">*</span> <span class="n">omega_max_grid</span><span class="o">**</span><span class="mi">2</span>
+
+<span class="c1"># Damping and swing-up time effects (additional margin)</span>
+<span class="n">swing_up_time</span> <span class="o">=</span> <span class="mf">1.0</span>  <span class="c1"># [s] desired swing-up time</span>
+<span class="n">damping_coeff</span> <span class="o">=</span> <span class="mf">0.01</span>  <span class="c1"># [N·m·s] total viscous damping</span>
+
+<span class="c1"># Energy loss estimate during swing-up</span>
+<span class="n">E_loss_damping</span> <span class="o">=</span> <span class="n">damping_coeff</span> <span class="o">*</span> <span class="p">(</span><span class="n">omega_max_grid</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="n">swing_up_time</span>
+
+<span class="c1"># Feasibility condition: kinetic energy must exceed potential + losses</span>
+<span class="n">feasible</span> <span class="o">=</span> <span class="n">E_kin_wheel</span> <span class="o">&gt;</span> <span class="p">(</span><span class="n">E_required</span> <span class="o">+</span> <span class="n">E_loss_damping</span><span class="p">)</span>
+
+<span class="c1"># Plotting</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">cp</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="n">I_w_grid</span><span class="p">,</span> <span class="n">omega_max_grid</span><span class="p">,</span> <span class="n">feasible</span><span class="p">,</span> <span class="n">levels</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">colors</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="s1">&#39;green&#39;</span><span class="p">],</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">cp</span><span class="p">,</span> <span class="n">ticks</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Feasibility (0: No, 1: Yes)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">contour</span><span class="p">(</span><span class="n">I_w_grid</span><span class="p">,</span> <span class="n">omega_max_grid</span><span class="p">,</span> <span class="n">E_kin_wheel</span><span class="p">,</span> <span class="n">levels</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">colors</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">linewidths</span><span class="o">=</span><span class="mf">0.7</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xscale</span><span class="p">(</span><span class="s1">&#39;log&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Wheel Inertia $I_w$ [kg·m²]&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Max Wheel Speed $</span><span class="se">\\</span><span class="s2">omega_{</span><span class="se">\\</span><span class="s2">mathrm</span><span class="si">{max}</span><span class="s2">}$ [rad/s]&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Feasibility Region for Reaction Wheel Swing-Up&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s2">&quot;both&quot;</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<br/></pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/project3_simulation_62_0.png" src="../_images/project3_simulation_62_0.png" />
 </div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -1620,20 +1878,6 @@ Hello from the pygame community. https://www.pygame.org/contribute.html
 </span><span class="ansi-red-intense-fg ansi-bold">View Jupyter &lt;a href=&#39;command:jupyter.viewOutput&#39;&gt;log&lt;/a&gt; for further details.</span>
 </pre></div></div>
 </div>
-</section>
-<section id="Usage">
-<h2>Usage<a class="headerlink" href="#Usage" title="Link to this heading"></a></h2>
-<p><img alt="Image of the program" src="https://github.com/B-Paweekorn/Reaction-wheel-inverted-pendulum/assets/47713359/e2ff45d4-bfb2-4831-9ec9-334b88f8ff77" /></p>
-<p><strong>Inject</strong> - Type the amount of torque into the box and click <code class="docutils literal notranslate"><span class="pre">INJECT</span></code> or ENTER key to inject a disturbance to the system</p>
-<p><strong>Reset</strong> - Click <code class="docutils literal notranslate"><span class="pre">RESET</span></code> to reset the system</p>
-<p><strong>Plotting</strong> - Click on the pendulum plot or the plot window to plot the data</p>
-<p>Edit the parameters in <code class="docutils literal notranslate"><span class="pre">param.py</span></code> (or above)S</p>
-</section>
-<section id="Example-runs">
-<h2>Example runs<a class="headerlink" href="#Example-runs" title="Link to this heading"></a></h2>
-</section>
-<section id="Export-to-python-script?">
-<h2>Export to python script?<a class="headerlink" href="#Export-to-python-script?" title="Link to this heading"></a></h2>
 </section>
 </section>
 
