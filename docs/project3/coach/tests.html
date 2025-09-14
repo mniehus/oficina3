@@ -1,0 +1,250 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tests &mdash; oficina3  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            oficina3
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">oficina3</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../readme.html">LEFA Oficina 3 – Laboratório de Estimação e Controlo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../readme.html#lefa-oficina-3-estimation-and-control-lab">LEFA Oficina 3 – Estimation and Control Lab</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Projeto 1</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../project1/aeropendulum.html">Aeropendulum</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../project1/analogies.html">Analogias e estimativas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../project1/motorDC.html">Motor DC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../project1/liftForce.html">Helice - Força de impulsão</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../project1/drive.html">Motor DC (drive)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../project1/stateMachine.html">State machines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../project1/encoder.html">Sensors - encoders</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../project1/pendulum.html">Pendulum Dynamics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../project1/controller.html">Controller</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../project1/integration.html">Arduino System Integration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../project1/integration.html#Programming">Programming</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Projeto 2</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../project2/readme.html">Carro programável</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Project 3</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../readme.html">Inverted Pendulum</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">oficina3</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Tests</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/project3/coach/tests.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="tests">
+<h1>Tests<a class="headerlink" href="#tests" title="Link to this heading"></a></h1>
+<p>Tests that need to be realized</p>
+<p>Compare PID controller and LQR controller
+In this project, we explore and compare the performance of two different control strategies: PID (Proportional-Integral-Derivative) controller and LQR (Linear Quadratic Regulator) controller.
+<br>
+<img alt="image" src="https://github.com/B-Paweekorn/Reaction-wheel-inverted-pendulum/assets/122732439/714b7756-ad1f-469a-944b-afa281b2bc5b" /></p>
+<p><em><strong>Linear quadratic regulator</strong></em>
+<br></p>
+<p><img alt="CodeCogsEqn" src="https://github.com/B-Paweekorn/Reaction-wheel-inverted-pendulum/assets/122732439/8ce60949-f467-4ec1-8616-7e2be18518ba" /></p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Error (deg)</p></th>
+<th class="head"><p>settling time (s)</p></th>
+<th class="head"><p>Power (Watt)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>5</p></td>
+<td><p>0.66</p></td>
+<td><p>0.6</p></td>
+</tr>
+<tr class="row-odd"><td><p>6</p></td>
+<td><p>0.73</p></td>
+<td><p>1.01</p></td>
+</tr>
+<tr class="row-even"><td><p>7</p></td>
+<td><p>0.85</p></td>
+<td><p>1.75</p></td>
+</tr>
+<tr class="row-odd"><td><p>8</p></td>
+<td><p>1.07</p></td>
+<td><p>3.5</p></td>
+</tr>
+<tr class="row-even"><td><p>9</p></td>
+<td><p>can’t stabilize</p></td>
+<td><p>can’t stabilize</p></td>
+</tr>
+</tbody>
+</table>
+<p>Max Disturbance : <strong>9.32 Nm</strong></p>
+<p><em><strong>PID :</strong></em> Kp = 500 (choose form root locus)</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Error (deg)</p></th>
+<th class="head"><p>settling time (s)</p></th>
+<th class="head"><p>Power (Watt)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>5</p></td>
+<td><p>20.43</p></td>
+<td><p>10.06</p></td>
+</tr>
+<tr class="row-odd"><td><p>6</p></td>
+<td><p>21.02</p></td>
+<td><p>12.17</p></td>
+</tr>
+<tr class="row-even"><td><p>7</p></td>
+<td><p>21.37</p></td>
+<td><p>13.95</p></td>
+</tr>
+<tr class="row-odd"><td><p>8</p></td>
+<td><p>21.59</p></td>
+<td><p>15.96</p></td>
+</tr>
+<tr class="row-even"><td><p>9</p></td>
+<td><p>can’t stabilize</p></td>
+<td><p>can’t stabilize</p></td>
+</tr>
+</tbody>
+</table>
+<p>Max Disturbance : <strong>8.05 Nm</strong></p>
+<p><em><strong>PID :</strong></em> Kp = 215800 (choose form root locus)
+<img alt="image" src="https://github.com/B-Paweekorn/Reaction-wheel-inverted-pendulum/assets/122732439/2ecb7281-f6db-4a19-8914-fedf1de1eda6" />
+<em><strong>Notice</strong></em> that when choose unstable pole the system still stable because now it have <strong>hardware limit</strong> so the character of controller same like Fuzzy logic control to see unstable you need to unlock hardware limitation by set <code class="docutils literal notranslate"><span class="pre">MotorLimit</span></code> to <strong>False</strong> in <code class="docutils literal notranslate"><span class="pre">param.py</span></code></p>
+<p><strong>Conclusion</strong></p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p></p></th>
+<th class="head"><p>Stabilize boundary</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>LQR</strong></p></td>
+<td><p>Can stabilize in every position</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>PID</strong></p></td>
+<td><p>Can stabilize only in small boundary</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>PID Controller</strong>
+The PID controller is a widely used feedback control system that relies on three components: Proportional, Integral, and Derivative. Here’s a brief overview of each component:</p>
+<ul class="simple">
+<li><p>Proportional (P): Reacts to the current error.</p></li>
+<li><p>Integral (I): Reacts to the accumulation of past errors.</p></li>
+<li><p>Derivative (D): Predicts future errors based on the rate of change.</p></li>
+</ul>
+<p><strong>Advantages of PID:</strong></p>
+<ul class="simple">
+<li><p>Simplicity and ease of implementation.</p></li>
+<li><p>Effectiveness in a wide range of systems.</p></li>
+<li><p>Intuitive tuning parameters for performance optimization.</p></li>
+</ul>
+<p><strong>Considerations:</strong></p>
+<ul class="simple">
+<li><p>Tuning may be required for optimal performance in different systems.</p></li>
+<li><p>Limited capability to handle complex or nonlinear systems.
+<br></p></li>
+</ul>
+<p><strong>LQR Controller</strong>
+The LQR controller is designed based on the principles of optimal control theory. It minimizes a cost function that combines both state and control input, making it suitable for linear, time-invariant systems.</p>
+<p><strong>Advantages of LQR:</strong></p>
+<ul class="simple">
+<li><p>Optimal control solution for linear systems.</p></li>
+<li><p>Ability to handle systems with multiple inputs and outputs.</p></li>
+<li><p>Incorporates a mathematical model for optimal performance.</p></li>
+</ul>
+<p><strong>Considerations:</strong></p>
+<ul class="simple">
+<li><p>Requires a good understanding of the system dynamics for effective modeling.</p></li>
+<li><p>Limited applicability to strictly linear systems.</p></li>
+</ul>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, mniehus.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

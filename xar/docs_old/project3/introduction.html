@@ -1,0 +1,311 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Inverted Pendulum with Reaction Wheel &mdash; oficina3  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Fundamentals" href="fundamentals.html" />
+    <link rel="prev" title="Zumo-32U4" href="../project2/readme.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            oficina3
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">oficina3</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../readme.html">LEFA Oficina 3 – Laboratório de Estimação e Controlo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../readme.html#lefa-oficina-3-estimation-and-control-lab">LEFA Oficina 3 – Estimation and Control Lab</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Projeto 1</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../project1/readme.html">Aeropendulum</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Projeto 2</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../project2/readme.html">Zumo-32U4</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Inverted Pendulum with Reaction Wheel</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#introduction">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#tools">Tools</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="fundamentals.html">Fundamentals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stepZero.html">Step Zero</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Resources</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../resources/resources.html">Resources</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">oficina3</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Inverted Pendulum with Reaction Wheel</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/project3/introduction.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section class="tex2jax_ignore mathjax_ignore" id="inverted-pendulum-with-reaction-wheel">
+<h1>Inverted Pendulum with Reaction Wheel<a class="headerlink" href="#inverted-pendulum-with-reaction-wheel" title="Link to this heading"></a></h1>
+<p>This COIL project brings together students from Lisbon Polytechnical University (Portugal) and Amsterdam University of Applied Sciences (Netherlands) in a shared, hands-on learning experience rooted in applied physics and engineering.</p>
+<section id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Link to this heading"></a></h2>
+<p>Over a four-week period, mixed international student teams will collaborate to <strong>design, simulate, and implement a reaction-wheel inverted pendulum</strong> — a classic control systems challenge with applications in robotics and aerospace.</p>
+<p>The goal is to combine theoretical analysis, computational modeling, and practical design, all while engaging in international teamwork and intercultural exchange.</p>
+<p><strong>Learning Objectives</strong></p>
+<ul class="simple">
+<li><p>Apply principles of classical mechanics, control theory, and embedded systems.</p></li>
+<li><p>Simulate dynamic behavior of the pendulum system using Python.</p></li>
+<li><p>Collaborate across institutions and cultures using online tools.</p></li>
+<li><p>Develop technical, communication, and project management skills.</p></li>
+<li><p>Reflect on engineering practices in a global context.</p></li>
+</ul>
+<p><strong>What is a COIL?</strong></p>
+<p><strong>COIL</strong> stands for <strong>Collaborative Online International Learning</strong>. It’s a teaching method that connects courses from different countries through online, project-based collaboration. In a COIL module, two or more instructors co-design and co-teach a shared activity where students work in mixed international teams to complete authentic tasks and reflect on intercultural learning.</p>
+<p><a class="reference external" href="https://ureka.eu/how-to-coil-collaborative-online-international-learning-coil/">How to COIL (Collaborative Online International Learning)</a></p>
+<p><strong>What is a Reaction Wheel Inverted Pendulum?</strong></p>
+<p>A <strong>Reaction Wheel Inverted Pendulum</strong> is a complex mechanical system designed to balance an upright pendulum using a rotating disk (the <em>reaction wheel</em>, often being called a <strong>Fly-Wheel</strong>). The goal is to control the wheel’s angular momentum to stabilize the pendulum in an upright position.</p>
+<p>Thus, the pendulum can be brought upright and kept balanced using only the internal motion of the wheel.</p>
+<hr class="docutils" />
+<p><strong>Why is This Important?</strong></p>
+<p>This is more than a mechanical challenge — it’s a <strong>control engineering problem</strong>.</p>
+<ul class="simple">
+<li><p>The goal is not just to make it work, but to <strong>optimize</strong> it:</p>
+<ul>
+<li><p>Minimal energy use</p></li>
+<li><p>Fast stabilization</p></li>
+<li><p>High resilience to noise or disturbances</p></li>
+</ul>
+</li>
+<li><p>The system is <strong>nonlinear</strong>, <strong>coupled</strong>, and <strong>unstable by nature</strong></p></li>
+<li><p>It requires a well-designed controller:</p>
+<ul>
+<li><p>First a <strong>bang-bang controller</strong> to swing it up</p></li>
+<li><p>Then a <strong>PID</strong> or <strong>LQR</strong> controller to stabilize it upright</p>
+<ul>
+<li><p>LQR (Linear Quadratic Regulator) is expected to give the best results</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>As such, the project combines physics, mechanics, electronics, and software with real-world constraints — an ideal platform to learn:</p>
+<ul class="simple">
+<li><p>Dynamics and modeling of unstable systems</p></li>
+<li><p>Sensor and actuator integration</p></li>
+<li><p>Real-time control strategies</p></li>
+<li><p>Simulation vs implementation differences</p></li>
+<li><p>Performance analysis in real-world conditions</p></li>
+</ul>
+<p>It’s a hands-on way to understand <strong>how to design, simulate, build, and control</strong> a dynamic system — a core challenge in modern engineering.</p>
+</section>
+<hr class="docutils" />
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading"></a></h2>
+<p>A <strong>Reaction Wheel Inverted Pendulum</strong> is a complex mechanical system designed to balance an upright pendulum using a rotating disk (the <em>reaction wheel</em>, often being called a <strong>Fly-Wheel</strong>). The goal is to control the wheel’s angular momentum to stabilize the pendulum in an upright position.</p>
+<p>An <strong>inverted pendulum</strong> is a pendulum balanced in its unstable upright position — like trying to keep a stick standing vertically on your fingertip. It is a classical example of an unstable system that requires active <strong>control</strong> to maintain balance.</p>
+<p><strong>Examples of inverted pendulum</strong></p>
+<ul class="simple">
+<li><p>A <strong>Segway</strong> balancing on two wheels</p></li>
+<li><p>A <strong>rocket</strong> stabilizing itself during launch</p></li>
+<li><p>A <strong>human</strong> standing upright, continuously adjusting posture</p></li>
+</ul>
+<p>In our case, the pendulum starts hanging downward (its stable position) and must first <strong>swing up</strong>, then be <strong>stabilized upright</strong> — even when subjected to unknown disturbances (like small external pushes).</p>
+<p>The system uses a <strong>reaction wheel</strong> — a <strong>rotating rigid disk</strong> mounted on the system and driven by a motor. By accelerating or decelerating this wheel, the system generates a <strong>reaction torque</strong> in the opposite direction, based on Newton’s third law. This induced torque allows the system (e.g., an inverted pendulum) to control its own angular position or velocity <strong>without relying on external supports</strong>.</p>
+<p><strong>Examples of Reaction Wheels &amp; Flywheels</strong></p>
+<ul class="simple">
+<li><p><strong>Physics Toys</strong> – Gyroscopic tops and inertia wheels that demonstrate angular momentum conservation.</p></li>
+<li><p><strong>Gimbal Systems</strong> – Stabilize cameras or sensors by counteracting movement using inertial rotation.</p></li>
+<li><p><strong>Satellites</strong>:</p>
+<ul>
+<li><p><strong>Reaction Wheels</strong> are used for attitude control by modulating wheel speed.</p></li>
+<li><p><strong>Magnetorquers</strong> work alongside reaction wheels, interacting with Earth’s magnetic field to manage orientation.</p></li>
+</ul>
+</li>
+<li><p><strong>Flywheel Energy Storage</strong> – Used in power systems to store kinetic energy in high-mass, high-speed rotating wheels.</p></li>
+</ul>
+<p>A <strong>reaction wheel inverted pendulum</strong> combines the inverted pendulum and the reaction wheel:</p>
+<ul class="simple">
+<li><p>The wheel is attached to the pendulums arm, at a distance from the pivot.</p></li>
+<li><p>The axis of rotation of <strong>reaction wheel</strong> and <strong>pendulum</strong> are parallel (co-linear).</p></li>
+<li><p>The pendulums oscillation and the disk rotation occur in the same plane.</p></li>
+<li><p>The wheel is driven by a <strong>DC motor</strong> which is attached directly, or through a system of gears or pulley and belts.</p></li>
+<li><p>This is a coupled dynamical system, to the extent that the mass and shape/form and the position of the wheel (plus motor) contribute to the the mass and inercia of both the wheel as the pendulum.</p></li>
+<li><p>According to <strong>Newton’s laws of motion</strong>, a <strong>change</strong> in the wheel’s angular velocity creates a <strong>reaction torque</strong></p></li>
+<li><p>This torque can be used to adjust the angle of the pendulum</p></li>
+</ul>
+<p>Thus, the pendulum can be brought upright and kept balanced using only the internal motion of the wheel.</p>
+<p><img alt="Reaction Wheel Inverted Pendulum" src="../_images/system.png" /></p>
+<p><strong>Components</strong></p>
+<ul class="simple">
+<li><p><strong>Pendulum</strong>: A rigid arm that pivots at its base and must be balanced vertically.</p></li>
+<li><p><strong>Reaction Wheel</strong>: A rotating mass driven by a motor, mounted on the pendulum. It creates a counteracting torque to stabilize the system.</p></li>
+<li><p><strong>Controller</strong>: Software that measures the system’s state (e.g., angle and angular velocity) and determines how to drive the wheel to maintain balance.</p></li>
+</ul>
+</section>
+<section id="tools">
+<h2>Tools<a class="headerlink" href="#tools" title="Link to this heading"></a></h2>
+<p>This project combines software-based simulation with hands-on hardware implementation. Below is a list of the essential tools and components you’ll be working with, as well as the formats and documentation expected for your final report.</p>
+<p><strong>Hardware</strong></p>
+<ul class="simple">
+<li><p><strong>Mechanical workshop tools and materials</strong></p>
+<ul>
+<li><p>Use mechanical workshop tools (saw, drill, etc) and materials (wood, bars, tubes, etc.) to manufacture the overall support structure of the system, and to fix the system.</p></li>
+<li></li>
+</ul>
+</li>
+<li><p><strong>3D Printer and filaments</strong></p>
+<ul>
+<li><p>Use 3D printing for custom parts such as wheel mounts, pendulum arms, mechanical joints and gears.</p></li>
+</ul>
+</li>
+<li><p><strong>Rods, bearings and belts</strong></p>
+<ul>
+<li><p>Special components that are hard to manufacture to the required precision, like rods, bearings and belts, can be acquired in specialist shops, e.g. for 3d printers or UAVs or sports equipment, or similar.</p></li>
+</ul>
+</li>
+<li><p><strong>Cabling, Breadboarding, Wiring &amp; Soldering Equipment</strong></p>
+<ul>
+<li><p>Needed to build and connect the system reliably.</p></li>
+</ul>
+</li>
+<li><p><strong>DC Motor (Actuator)</strong></p>
+<ul>
+<li><p>Drives the reaction wheel. Choose components carefully based on ratings.</p></li>
+</ul>
+</li>
+<li><p><strong>DC Power supply</strong></p>
+<ul>
+<li><p>While batteries could do the job, it is highly recommended to use laboratory grade power supplies during development: the power requirements are typically high, and more importantly, a lab grade power supply provides a direct control over the maximum ratings.</p></li>
+</ul>
+</li>
+<li><p><strong>DC Motor Driver Circuit</strong></p>
+<ul>
+<li><p>Drives the reaction wheel. Choose components carefully based on ratings.</p></li>
+</ul>
+</li>
+<li><p><strong>(Sensor) AS5600 Magnetic Rotary Sensor</strong></p>
+<ul>
+<li><p>Precise angle measurement of the pendulum shaft.<br />
+https://www.ams.com/en/as5600</p></li>
+</ul>
+</li>
+<li><p><strong>Arduino (Microcontroller)</strong></p>
+<ul>
+<li><p>Arduino board that runs the real-time control logic. Any UNO grade microcontroller should do. We recommend to use</p></li>
+</ul>
+</li>
+<li><p><strong>Multimeter &amp; Osciloscope</strong></p>
+<ul>
+<li><p>Instruments to analyze and characterize the performance of components and the final system</p></li>
+</ul>
+</li>
+</ul>
+<p>You must know very well the behavior and limitations of your electrical components:</p>
+<ul class="simple">
+<li><p><strong>Key Specs to Review</strong>:</p>
+<ul>
+<li><p>Supply voltage range</p></li>
+<li><p>Max current and power</p></li>
+<li><p>Sensitivity and accuracy (e.g., of sensors)</p></li>
+</ul>
+</li>
+<li><p>Include this in your <strong>technical dossier</strong>.</p></li>
+</ul>
+<hr class="docutils" />
+<p><strong>Software</strong></p>
+<ul class="simple">
+<li><p><strong><a class="reference external" href="https://code.visualstudio.com/">Visual Studio Code (VS Code)</a></strong>  - Main environment for code editing, running Python/Jupyter, and managing Git projects, i.e. tools below can be accessed <strong>directly within VS Code</strong> using extensions.</p></li>
+<li><p><strong><a class="reference external" href="https://www.python.org/">Python</a></strong>  Used for modeling, simulation, and data analysis.</p></li>
+<li><p><strong><a class="reference external" href="https://jupyter.org/">Jupyter Notebooks</a></strong>  - Interactive Python environment combining code, plots, and documentation.</p></li>
+<li><p><strong><a class="reference external" href="https://github.com/">GitHub</a></strong>  - Version control and collaboration platform.</p></li>
+<li><p><strong><a class="reference external" href="https://www.arduino.cc/">Arduino (Microcontroller + IDE)</a></strong>  - The Arduino IDE is used to write and upload <code class="docutils literal notranslate"><span class="pre">.ino</span></code> files.</p></li>
+<li><p><strong><a class="reference external" href="https://www.onshape.com/">Onshape</a></strong> - Cloud-based CAD tool</p></li>
+<li><p><strong><a class="reference external" href="https://ultimaker.com/software/ultimaker-cura/">Ultimaker Cura</a></strong> - Recommended slicer software to prepare <code class="docutils literal notranslate"><span class="pre">.stl</span></code> files for</p></li>
+</ul>
+<hr class="docutils" />
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../project2/readme.html" class="btn btn-neutral float-left" title="Zumo-32U4" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="fundamentals.html" class="btn btn-neutral float-right" title="Fundamentals" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, mniehus.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,9 +1,6 @@
 /make.bat
 /Makefile
-/sa25
-/amsterdam
-/thailand
-/pololu
-/xar
+/hidden
 /source
-/coil
+/docs_old
+/content_old

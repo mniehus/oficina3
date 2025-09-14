@@ -61,9 +61,11 @@ Content is intended for educational use by students of the LEFA program at ISEL.
 
 Useful links
 -------------
-- `Course communication via Moodle <https://2425moodle.isel.pt/course/view.php?id=8793>`_ 
-- `Course documentation (this page) <https://mniehus.github.io/oficina3>`_ 
-- `Course repository (online) <https://github.com/mniehus/oficina3>`_
+- `Moodle page (just for students) <https://2526moodle.isel.pt/course/view.php?id=10040>`_ 
+- `Online documentation (this page) <https://mniehus.github.io/oficina3>`_ 
+- `Online repository  <https://github.com/mniehus/oficina3>`_
+- `Course page <https://www.isel.pt/curso/licenciatura/licenciatura-em-engenharia-fisica-aplicada>`_
+
 
 ===
 
@@ -79,7 +81,16 @@ Content
    :maxdepth: 1
    :caption: Projeto 1 
 
-   project1/readme.ipynb
+   project1/aeropendulum.ipynb
+   project1/analogies.ipynb
+   project1/motorDC.ipynb
+   project1/liftForce.ipynb
+   project1/drive.ipynb
+   project1/stateMachine.ipynb
+   project1/encoder.ipynb
+   project1/pendulum.ipynb
+   project1/controller.ipynb
+   project1/integration.ipynb
 
 .. toctree::
    :maxdepth: 1
@@ -91,17 +102,4 @@ Content
    :maxdepth: 1
    :caption: Project 3 
 
-   project3/introduction.md
-   project3/fundamentals.md
-   project3/stepZero.ipynb
-   project3/modelling.ipynb
-   project3/simulation.ipynb
-   project3/design.md
-   project3/implementation.md
-   project3/tests.md
-
-.. toctree::
-   :maxdepth: 1
-   :caption: Resources
-   
-   resources/resources.md
+   project3/readme.ipynb

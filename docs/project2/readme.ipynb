@@ -5,7 +5,7 @@
    "id": "df1ed26d",
    "metadata": {},
    "source": [
-    "# Zumo-32U4"
+    "# Carro programável "
    ]
   },
   {
@@ -20,14 +20,7 @@
    "cell_type": "markdown",
    "id": "9513ce09",
    "metadata": {},
-   "source": [
-    "  Topics:\n",
-    "- Estimation\n",
-    "- Kalman filter\n",
-    "- IMU\n",
-    "- Encoder\n",
-    "- Sensor fusion"
-   ]
+   "source": []
   },
   {
    "cell_type": "markdown",

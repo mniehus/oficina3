@@ -1,0 +1,105 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Mon Jul  3 14:33:49 2023
+
+@author: Rik
+"""
+
+import wis_2_2_utilities as util
+import wis_2_2_systems as systems
+
+
+timestep = 2e-3
+
+
+class controller_null():
+  def __init__(self, target=0):
+    pass
+    
+  def feedBack(self, observe):
+    u=[0.00]
+    return u
+  
+  
+
+class controller():
+  def __init__(self, target=0):
+    self.target = 2
+    self.state = 0
+
+    
+
+    
+  def feedBack(self, observe):
+    #update state
+
+    
+    #calculate feedback    
+    #u=-2.5445
+    u=-20*(observe[0]-self.target)*self.target**2
+
+    
+    return u
+
+
+
+class controller1():
+  def __init__(self, target=0):
+    self.target = target
+    self.state = 0
+    self.Integral_1 = 0.
+    self.Integral_2 = 0.
+    
+
+    
+  def feedBack(self, observe):
+    #update state
+    self.Integral_1 += observe[0]*timestep
+    self.Integral_2 += observe[2]*timestep
+    
+    #calculate feedback    
+    #u=-2.5445
+    u=800*observe[2]+200*self.Integral_2+80*observe[3]+\
+      240*observe[0]+5*self.Integral_1+80*observe[1]
+
+    
+    return u
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+def main():
+  model=systems.stacked_inverted_pendulum(num_pendulum=3)
+  control = controller_null()
+  simulation = util.simulation(model=model,timestep=timestep)
+  simulation.setCost(Q=1, Q_offset=0, R=1, R_offset=0, input_size = 1)
+
+  while simulation.vis.Run():
+      if simulation.time<simulation.max_duration:
+        simulation.step()
+        u = control.feedBack(simulation.observe())
+        simulation.control(u)
+        simulation.log()
+      else:
+        print('Ending visualisation...')
+        simulation.vis.GetDevice().closeDevice()
+        
+  util.createGIF(simulation.filename+'.gif', simulation.frame_duration)
+        
+  
+
+
+
+
+if __name__ == "__main__":
+  main()

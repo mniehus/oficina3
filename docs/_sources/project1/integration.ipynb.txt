@@ -1,0 +1,68 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "id": "777436b4",
+   "metadata": {},
+   "source": [
+    "### Arduino System Integration\n",
+    "\n",
+    "projeto geral\n",
+    "components\n",
+    "projeto mecanico\n",
+    "projeto eletrico\n",
+    "projeto de controlo\n",
+    "projeto de software\n",
+    "desenvolvimento\n",
+    "testes\n",
+    "documentação\n",
+    "\n",
+    "\n",
+    "\n",
+    "\n",
+    "Arduino microcontrollers are widely used for real-time control systems due to their simplicity, low cost, and large ecosystem of libraries and tutorials. In this project, the Arduino is responsible for:\n",
+    "\n",
+    "- Reading sensor data (e.g., from the AS5600 magnetic rotary sensor)\n",
+    "- Running the control algorithm (Bang-Bang, PID, or LQR)\n",
+    "- Sending the command to the motor driver to actuate the reaction wheel\n",
+    "\n",
+    "**Typical Setup Components**\n",
+    "\n",
+    "- **Microcontroller**: Arduino Uno / Nano / Mega  \n",
+    "- **Sensor**: AS5600 magnetic rotary position sensor (via I2C)  \n",
+    "- **Actuator**: Brushed DC motor + motor driver (e.g., L298N or TB6612FNG)  \n",
+    "- **Power supply**: Appropriate for motor and controller (check ratings!)  \n",
+    "- **Other**: Wires, resistors, capacitors, breadboards or PCBs  \n",
+    "\n",
+    "### Programming\n",
+    "\n",
+    "Migrating from Python Simulation to Arduino Deployment\n",
+    "\n",
+    "In your development process, you will first simulate the control system (e.g., pendulum dynamics and reaction wheel behavior) using Python. This allows you to:\n",
+    "\n",
+    "- Explore different parameters (e.g., control gains, system constants)\n",
+    "- Test various controllers (Bang-Bang, PID, LQR)\n",
+    "- Validate system stability in idealized and perturbed conditions\n",
+    "\n",
+    "Once the control strategy is selected and tuned in Python, **you will port the core control logic to C/C++ in the Arduino IDE**:\n",
+    "\n",
+    "1. **Isolate the control algorithm** from your Python code (e.g., a function that outputs control action given angle and velocity).\n",
+    "2. **Rewrite this logic in Arduino-compatible C++**, respecting memory and computation constraints.\n",
+    "3. Replace Python’s simulated sensor and motor interfaces with real-time reads from the AS5600 and motor driver control (e.g., `analogWrite()` or `digitalWrite()`).\n",
+    "4. Use Arduino’s `loop()` and `millis()` to structure periodic execution of your control loop (e.g., 100 Hz update rate).\n",
+    "5. Calibrate your sensors and actuators to reflect real-world behavior.\n",
+    "\n",
+    ">  Real hardware behaves differently than simulations — expect to tune your controller gains again!\n",
+    "\n",
+    "By mirroring your software architecture between simulation and deployment, you ensure a smoother transition and better reuse of your logic."
+   ]
+  }
+ ],
+ "metadata": {
+  "language_info": {
+   "name": "python"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}

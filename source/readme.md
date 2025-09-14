@@ -10,10 +10,10 @@ Esta unidade curricular introduz os alunos aos principais desafios da **engenhar
 
 Os projetos incluem atualmente:
 - **AeroPêndulo** – Um pêndulo com atuador de hélice  
-- **Carro Robótico** – Um robô programável com sensores de feedback  
+- **Carro Robótico** – Um robô programável   
 - **Pêndulo Invertido com Roda de Reação** – Um desafio de controlo não linear
 
-Cada sistema envolve modelação, simulação, implementação em hardware e validação experimental.
+Cada sistema envolve estudo dos componentes (controlo dos motores e aquisição de dados com sensores) e da dinâmica do sistema, desenvolvimento e integração de hardware e software e do sistema de controlo, implementação e testes experimentais, e, finalmente, validação através de uma simulação.
 
 Informações detalhadas, documentação e materiais do projeto estão disponíveis em:
  [https://mniehus.github.io/oficina3](https://mniehus.github.io/oficina3)

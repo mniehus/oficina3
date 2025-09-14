@@ -1,0 +1,214 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Iteration Zero &mdash; oficina3  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+      <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            oficina3
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">oficina3</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../readme.html">Reaction Wheel Inverted Pendulum</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Projeto 1</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../project1/readme.html">Aeropendulum</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Projeto 2</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../project2/readme.html">Zumo-32U4</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">oficina3</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Iteration Zero</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/content/project3/stepZero2.ipynb.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="Iteration-Zero">
+<h1>Iteration Zero<a class="headerlink" href="#Iteration-Zero" title="Link to this heading"></a></h1>
+<p>It is best practice to start with an informal scoping phase that focuses on understanding, probing the challenge, and sketching a preliminary solution, before entering structured development.</p>
+<p>It’s where creativity meets physics and feasibility.</p>
+<p><strong>1. Quick Conceptualization &amp; Brainstorming</strong></p>
+<ul class="simple">
+<li><p>Sketch rough ideas of the system configuration: where the pendulum is mounted, how the mechnical system is fixed, how the wheel is attached and rotates, where the motor and sensor go, where the wires go.</p></li>
+<li><p>Discuss what the main goal is: e.g., swing-up and stabilization.</p></li>
+<li><p>Look at reference examples.</p></li>
+</ul>
+<p><strong>2. Back-of-the-Envelope Calculations</strong></p>
+<ul class="simple">
+<li><p>Estimate:</p>
+<ul>
+<li><p>Mass and length of the pendulum (<span class="math notranslate nohighlight">\(m\)</span>, <span class="math notranslate nohighlight">\(l\)</span>)</p></li>
+<li><p>Moment of inertia of the reaction wheel (<span class="math notranslate nohighlight">\(I\)</span>)</p></li>
+<li><p>Required torque (<span class="math notranslate nohighlight">\(\tau = I \alpha\)</span>) during bang-bang swing-up, and during PID or LQR stabilization.</p></li>
+<li><p>Approximate rotational speed ranges (<span class="math notranslate nohighlight">\(\omega\)</span>)</p></li>
+</ul>
+</li>
+<li><p>Check if motor power, voltage, and gear ratio are within reach.</p></li>
+</ul>
+<p><strong>3. Quick and Dirty Prototype</strong></p>
+<ul class="simple">
+<li><p>Build a first rudimentary prototype using:</p>
+<ul>
+<li><p>Readily available parts (LEGO, wood, printed parts, scrap electronics)</p></li>
+<li><p>A simple DC motor and basic wheel (plastic or metal disk)</p></li>
+<li><p>Temporary mounts (tape, clamps, hot glue, cardboard)</p></li>
+</ul>
+</li>
+<li><p>Power the motor manually (e.g., via a lab supply or battery) and observe the dynamics.</p></li>
+</ul>
+<p><strong>4. Physics Scoping and Trade-offs</strong></p>
+<ul class="simple">
+<li><p>Identify key physical quantities to control: torque, angular position, friction.</p></li>
+<li><p>Recognize constraints:</p>
+<ul>
+<li><p>Voltage/current limits of motors</p></li>
+<li><p>Sensor resolution (e.g., AS5600 for angle)</p></li>
+<li><p>Microcontroller limitations (timing, ADC resolution)</p></li>
+</ul>
+</li>
+<li><p>Think about trade-offs:</p>
+<ul>
+<li><p>Larger wheel = more inertia, but heavier</p></li>
+<li><p>Faster motor = higher voltage/power needs</p></li>
+<li><p>Longer pendulum = slower dynamics but easier to observe</p></li>
+</ul>
+</li>
+</ul>
+<p><strong>5. Sketch System Configurations</strong></p>
+<ul class="simple">
+<li><p>Draw block diagrams:</p>
+<ul>
+<li><p>Mechanical layout</p></li>
+<li><p>Electrical layout</p></li>
+<li><p>Signal flow: Sensor → Controller → Motor → Wheel</p></li>
+<li><p>Controller layout</p></li>
+<li><p>Software layout</p></li>
+</ul>
+</li>
+<li><p>Identify knowns, unknowns, and to-be-measured parameters</p></li>
+</ul>
+<p><strong>6. Understand Project Scope and Complexity</strong></p>
+<ul class="simple">
+<li><p>Ask:</p>
+<ul>
+<li><p>How many components do we need to integrate?</p></li>
+<li><p>How difficult is swing-up vs. stabilization?</p></li>
+<li><p>What precision do we need?</p></li>
+</ul>
+</li>
+<li><p>List major work packages:</p>
+<ul>
+<li><p>Mechanics</p></li>
+<li><p>Electronics</p></li>
+<li><p>Control software</p></li>
+<li><p>Testing</p></li>
+<li><p>Documentation</p></li>
+</ul>
+</li>
+</ul>
+<p><strong>7. First Draft of System Requirements</strong> Write a lightweight, flexible document that includes:</p>
+<ul class="simple">
+<li><p>Objective: “Stabilize a pendulum using a reaction wheel”</p></li>
+<li><p>Constraints:</p>
+<ul>
+<li><p>Max motor power: 12 V, 2 A</p></li>
+<li><p>Sensor: AS5600, 12-bit resolution</p></li>
+</ul>
+</li>
+<li><p>Desired behavior:</p>
+<ul>
+<li><p>Swing up in less than 5 seconds</p></li>
+<li><p>Stabilize within ±5°</p></li>
+</ul>
+</li>
+<li><p>Materials allowed: 3D printing, wood, aluminum, plastic</p></li>
+<li><p>Tools: Arduino, basic soldering, power supply, oscilloscope</p></li>
+</ul>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, mniehus.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
