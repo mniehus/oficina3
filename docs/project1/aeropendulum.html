@@ -54,7 +54,7 @@
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Projeto 1: Desenvolvimento e Teste de um Aeropêndulo</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#Introdução">Introdução</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#Âmbito-do-Trabalho">Âmbito do Trabalho</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Trabalho-a-Desenvolver">Trabalho a Desenvolver</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#Descrição-do-Sistema">Descrição do Sistema</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#Componentes-principais-do-sistema">Componentes principais do sistema</a></li>
 </ul>
@@ -63,9 +63,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#Requisitos-Técnicos">Requisitos Técnicos</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#Seleção-do-Motor">Seleção do Motor</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#Características-Técnicas-do-Motor-+-Hélice">Características Técnicas do Motor + Hélice</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#Ensaios-de-caraterização-de-Motor-e-Hélice">Ensaios de caraterização de Motor e Hélice</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Ensaios-de-caraterização-de-Motor-e-Hélice">Ensaios de caraterização de Motor e Hélice</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#Curvas-de-Calibração">Curvas de Calibração</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#Curva-1-—-Velocidade-de-Rotação">Curva 1 — Velocidade de Rotação</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#Curva-2-—-Força-de-Impulsão">Curva 2 — Força de Impulsão</a></li>
@@ -80,11 +78,6 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#Sensor-(Encoder-para-Medição-de-Ângulo)">Sensor (Encoder para Medição de Ângulo)</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#Requisitos">Requisitos</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#sensor-encoder-para-medicao-de-angulo-1">Sensor (Encoder para Medição de Ângulo)</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#Requisitos-Técnicos-e-Não-Técnicos">Requisitos Técnicos e Não Técnicos</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#Opções-de-Encoders">Opções de Encoders</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#1.-Encoder-Mecânico-Analógico-(Potenciómetro-Rotativo)">1. Encoder Mecânico Analógico (Potenciómetro Rotativo)</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#2.-Encoder-Mecânico-Incremental-(Saída-Digital)">2. Encoder Mecânico Incremental (Saída Digital)</a></li>
@@ -92,20 +85,11 @@
 <li class="toctree-l4"><a class="reference internal" href="#4.-Encoder-Magnético-(Sensor-de-Campo)">4. Encoder Magnético (Sensor de Campo)</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#**-Seleção-sensor:-encoder-magnético-–-AS5600**">** Seleção sensor: encoder magnético – AS5600**</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Seleção-sensor:-encoder-magnético-–-AS5600"><strong>Seleção sensor: encoder magnético – AS5600</strong></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#Considerações-de-Teste">Considerações de Teste</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#Integração-do-Sistema">Integração do Sistema</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#Trabalho-a-Desenvolver">Trabalho a Desenvolver</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#1.-Estudo-Teórico-e-Modelação">1. Estudo Teórico e Modelação</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#2.-Testes-de-Hardware">2. Testes de Hardware</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#3.-Integração">3. Integração</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#4.-Implementação-de-Controlo">4. Implementação de Controlo</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#5.-Testes-Experimentais">5. Testes Experimentais</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#6.-Relatório-Final">6. Relatório Final</a></li>
-</ul>
-</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="analogies.html">Analogias e estimativas</a></li>
@@ -167,16 +151,22 @@
 <li><p>Validação experimental e comparação com simulação.</p></li>
 </ul>
 </section>
-<section id="Âmbito-do-Trabalho">
-<h2>Âmbito do Trabalho<a class="headerlink" href="#Âmbito-do-Trabalho" title="Link to this heading"></a></h2>
+<section id="Trabalho-a-Desenvolver">
+<h2>Trabalho a Desenvolver<a class="headerlink" href="#Trabalho-a-Desenvolver" title="Link to this heading"></a></h2>
 <p>O desenvolvimento do projeto deverá incluir:</p>
 <ol class="arabic simple">
 <li><p>Estudo dos <strong>componentes de hardware</strong> (motores, sensores, driver e estrutura mecânica);</p></li>
-<li><p>Estudo e implementação de <strong>aquisição e processamento de dados</strong>;</p></li>
-<li><p>Desenvolvimento de <strong>modelos matemáticos e simulações</strong>;</p></li>
+<li><p>Rever equações do movimento do aeropêndulo, simular a resposta</p></li>
+<li><p>Implementação de <strong>comunicação, aquisição e processamento de dados</strong> baseado num sistema arduino;</p></li>
 <li><p>Implementação de um <strong>sistema de controlo em malha fechada</strong>;</p></li>
-<li><p>Realização de <strong>testes experimentais no protótipo físico</strong>;</p></li>
-<li><p><strong>Validação</strong> do sistema através da comparação entre modelo, simulação e resultados experimentais.</p></li>
+<li><p>Realização de <strong>testes experimentais no protótipo físico</strong></p>
+<ul class="simple">
+<li><p>Observar resposta a degraus de referência.</p></li>
+<li><p>Analisar estabilidade e tempo de resposta.</p></li>
+</ul>
+</li>
+<li><p><strong>Validação</strong> do sistema através da comparação gráfica quantitativa entre simulação e resultados experimentais.</p></li>
+<li><p><strong>Relatório Final e apresentação</strong>, documentar o desenvolvimento, o sistema implementado, resultados e comparação entre teoria e prática.</p></li>
 </ol>
 </section>
 <section id="Descrição-do-Sistema">
@@ -234,9 +224,8 @@
 <li><p>Materiais: liga metálica leve</p></li>
 </ul>
 </section>
-</section>
 <section id="Ensaios-de-caraterização-de-Motor-e-Hélice">
-<h2>Ensaios de caraterização de Motor e Hélice<a class="headerlink" href="#Ensaios-de-caraterização-de-Motor-e-Hélice" title="Link to this heading"></a></h2>
+<h3>Ensaios de caraterização de Motor e Hélice<a class="headerlink" href="#Ensaios-de-caraterização-de-Motor-e-Hélice" title="Link to this heading"></a></h3>
 <p>Antes da integração no sistema completo do aeropêndulo, é preciso a realização de ensaios individuais ao motor e à hélice. Estes ensaios permitem caracterizar o comportamento elétrico e mecânico do atuador e obter curvas de calibração a usar no modelo e no controlo.</p>
 <ol class="arabic simple">
 <li><p><strong>Ensaio de Corrente em Vazio e com carga</strong></p>
@@ -268,6 +257,7 @@
 </ul>
 </li>
 </ol>
+</section>
 <section id="Curvas-de-Calibração">
 <h3>Curvas de Calibração<a class="headerlink" href="#Curvas-de-Calibração" title="Link to this heading"></a></h3>
 <p>Cada curva deve ser obtida de <strong>duas formas</strong>:</p>
@@ -386,33 +376,6 @@
 </section>
 <section id="Sensor-(Encoder-para-Medição-de-Ângulo)">
 <h2>Sensor (Encoder para Medição de Ângulo)<a class="headerlink" href="#Sensor-(Encoder-para-Medição-de-Ângulo)" title="Link to this heading"></a></h2>
-<section id="Requisitos">
-<h3>Requisitos<a class="headerlink" href="#Requisitos" title="Link to this heading"></a></h3>
-<p>A escolha do sensor deve considerar:</p>
-<ul class="simple">
-<li><p><strong>Requisitos técnicos</strong></p>
-<ul>
-<li><p>Capacidade de medir o ângulo de rotação com boa resolução (ideal ≥ 10 bits).</p></li>
-<li><p>Frequência de amostragem suficiente (para acompanhar a dinâmica do motor ou do aeropêndulo).</p></li>
-<li><p>Linearidade aceitável entre o ângulo real e o sinal de saída.</p></li>
-<li><p>Compatibilidade elétrica com microcontroladores comuns (Arduino, etc.).</p></li>
-</ul>
-</li>
-<li><p><strong>Requisitos não técnicos</strong></p>
-<ul>
-<li><p><strong>Baixo atrito:</strong> não deve introduzir torque adicional no eixo do pêndulo.</p></li>
-<li><p><strong>Facilidade de montagem:</strong> instalação simples e tolerante a pequenas imprecisões.</p></li>
-<li><p><strong>Robustez:</strong> adequado a uso repetido em ambiente laboratorial.</p></li>
-<li><p><strong>Disponibilidade e custo acessível.</strong></p></li>
-</ul>
-</li>
-</ul>
-</section>
-</section>
-<section id="sensor-encoder-para-medicao-de-angulo-1">
-<span id="id2"></span><h2>Sensor (Encoder para Medição de Ângulo)<a class="headerlink" href="#sensor-encoder-para-medicao-de-angulo-1" title="Link to this heading"></a></h2>
-<section id="Requisitos-Técnicos-e-Não-Técnicos">
-<h3>Requisitos Técnicos e Não Técnicos<a class="headerlink" href="#Requisitos-Técnicos-e-Não-Técnicos" title="Link to this heading"></a></h3>
 <p>A escolha do sensor deve considerar:</p>
 <ul class="simple">
 <li><p><strong>Requisitos técnicos</strong></p>
@@ -431,7 +394,6 @@
 </ul>
 </li>
 </ul>
-</section>
 <hr class="docutils" />
 <section id="Opções-de-Encoders">
 <h3>Opções de Encoders<a class="headerlink" href="#Opções-de-Encoders" title="Link to this heading"></a></h3>
@@ -541,11 +503,11 @@ Um íman diametralmente magnetizado no eixo é detetado por um sensor magnético
 <li><p><strong>Vantagens:</strong> não introduz atrito, montagem simples, robusto a poeira.</p></li>
 <li><p><strong>Limitações:</strong> resolução depende do chip (10–12 bits típicos), exige alinhamento básico íman-sensor.</p></li>
 </ul>
-</section>
-</section>
 <hr class="docutils" />
-<section id="**-Seleção-sensor:-encoder-magnético-–-AS5600**">
-<h3>** Seleção sensor: encoder magnético – AS5600**<a class="headerlink" href="#**-Seleção-sensor:-encoder-magnético-–-AS5600**" title="Link to this heading"></a></h3>
+</section>
+</section>
+<section id="Seleção-sensor:-encoder-magnético-–-AS5600">
+<h3><strong>Seleção sensor: encoder magnético – AS5600</strong><a class="headerlink" href="#Seleção-sensor:-encoder-magnético-–-AS5600" title="Link to this heading"></a></h3>
 <div class="line-block">
 <div class="line">Módulo codificador de elevada precisão, que mede o ângulo de um eixo através da deteção de campo magnético.</div>
 <div class="line">Requer um <strong>íman diametralmente magnetizado</strong> fixado ao eixo (por exemplo, colado), e o sensor deve ser montado logo acima (distância máxima ~2 mm).</div>
@@ -585,54 +547,6 @@ Um íman diametralmente magnetizado no eixo é detetado por um sensor magnético
 <li><p><strong>Ação de controlo:</strong> gerar sinal PWM para o motor em função do erro (posição desejada – posição medida).</p></li>
 <li><p><strong>Estratégias de controlo:</strong> iniciar com controlo proporcional (P), depois evoluir para PI ou PID.</p></li>
 </ol>
-</section>
-<section id="Trabalho-a-Desenvolver">
-<h2>Trabalho a Desenvolver<a class="headerlink" href="#Trabalho-a-Desenvolver" title="Link to this heading"></a></h2>
-<p>O trabalho pode ser dividido nas seguintes fases:</p>
-<section id="1.-Estudo-Teórico-e-Modelação">
-<h3>1. Estudo Teórico e Modelação<a class="headerlink" href="#1.-Estudo-Teórico-e-Modelação" title="Link to this heading"></a></h3>
-<ul class="simple">
-<li><p>Rever equações do movimento do aeropêndulo.</p></li>
-<li><p>Simular a resposta</p></li>
-</ul>
-</section>
-<section id="2.-Testes-de-Hardware">
-<h3>2. Testes de Hardware<a class="headerlink" href="#2.-Testes-de-Hardware" title="Link to this heading"></a></h3>
-<ul class="simple">
-<li><p>Testar motor, driver e sensor isoladamente.</p></li>
-<li><p>Registar medições de velocidade e ângulo.</p></li>
-</ul>
-</section>
-<section id="3.-Integração">
-<h3>3. Integração<a class="headerlink" href="#3.-Integração" title="Link to this heading"></a></h3>
-<ul class="simple">
-<li><p>Montar o sistema físico.</p></li>
-<li><p>Estabelecer comunicação entre todos os módulos.</p></li>
-</ul>
-</section>
-<section id="4.-Implementação-de-Controlo">
-<h3>4. Implementação de Controlo<a class="headerlink" href="#4.-Implementação-de-Controlo" title="Link to this heading"></a></h3>
-<ul class="simple">
-<li><p>Desenvolver código de controlo (Arduino/Python).</p></li>
-<li><p>Ajustar ganhos do controlador (P → PI → PID).</p></li>
-<li><p>Implementar malha fechada.</p></li>
-</ul>
-</section>
-<section id="5.-Testes-Experimentais">
-<h3>5. Testes Experimentais<a class="headerlink" href="#5.-Testes-Experimentais" title="Link to this heading"></a></h3>
-<ul class="simple">
-<li><p>Observar resposta a degraus de referência.</p></li>
-<li><p>Analisar estabilidade e tempo de resposta.</p></li>
-<li><p>Comparar resultados experimentais com simulação.</p></li>
-</ul>
-</section>
-<section id="6.-Relatório-Final">
-<h3>6. Relatório Final<a class="headerlink" href="#6.-Relatório-Final" title="Link to this heading"></a></h3>
-<ul class="simple">
-<li><p>Documentar a metodologia, resultados e comparação entre teoria e prática.</p></li>
-<li><p>Apresentar sugestões de melhorias.</p></li>
-</ul>
-</section>
 </section>
 </section>
 
