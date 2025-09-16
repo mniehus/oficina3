@@ -1,0 +1,324 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Programar o sistema do aeropêndulo &mdash; oficina3  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+      <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Controller" href="controller.html" />
+    <link rel="prev" title="Encoder" href="encoder.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            oficina3
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">oficina3</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../readme.html">LEFA Oficina 3 – Laboratório de Estimação e Controlo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../readme.html#lefa-oficina-3-estimation-and-control-lab">LEFA Oficina 3 – Estimation and Control Lab</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Projeto 1</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="aeropendulum.html">Projeto 1: Desenvolvimento e Teste de um Aeropêndulo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="analogies.html">Analogias</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pendulum-theory.html">Pendulum (theory)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="motorDC-theory.html">Motor DC (theory)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="motorDC-lab.html">Motor DC (drive)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="encoder.html">Encoder</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Programar o sistema do aeropêndulo</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#Arquitetura-Modular">Arquitetura Modular</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Introdução-a-Máquinas-de-Estado">Introdução a Máquinas de Estado</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Exemplo-1-—-Dois-LEDs-a-Piscar-em-Concorrência">Exemplo 1 — Dois LEDs a Piscar em Concorrência</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Exemplo-2-—-Máquina-de-Estado-Temporal-(Protocolo)">Exemplo 2 — Máquina de Estado Temporal (Protocolo)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Exemplo-3-—-FSM-baseada-em-Interação-do-Utilizador">Exemplo 3 — FSM baseada em Interação do Utilizador</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Esqueleto-para-o-Aeropêndulo">Esqueleto para o Aeropêndulo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Interrupções-no-Arduino">Interrupções no Arduino</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Exemplo:-Contagem-de-Pulsos-(Encoder-Simples)">Exemplo: Contagem de Pulsos (Encoder Simples)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="controller.html">Controller</a></li>
+<li class="toctree-l1"><a class="reference internal" href="integration.html">Integração do Sistema Arduino no Aeropêndulo</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Projeto 2</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../project2/readme.html">Carro programável</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Project 3</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../project3/readme.html">Inverted Pendulum</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">oficina3</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Programar o sistema do aeropêndulo</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/project1/coding.ipynb.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="Programar-o-sistema-do-aeropêndulo">
+<h1>Programar o sistema do aeropêndulo<a class="headerlink" href="#Programar-o-sistema-do-aeropêndulo" title="Link to this heading"></a></h1>
+<section id="Arquitetura-Modular">
+<h2>Arquitetura Modular<a class="headerlink" href="#Arquitetura-Modular" title="Link to this heading"></a></h2>
+<div class="line-block">
+<div class="line">Um sistema como o do <strong>aeropêndulo</strong> envolve vários componentes (sensor, atuador, driver, controlador, interface).</div>
+<div class="line">Se o código for escrito de forma monolítica, rapidamente se torna <strong>difícil de entender, testar e manter</strong>.</div>
+</div>
+<p>Uma <strong>arquitetura modular baseada em máquinas de estado</strong> permite:</p>
+<ul class="simple">
+<li><p>Que terceiros compreendam facilmente a lógica do programa e das suas partes.</p></li>
+<li><p>Testar cada módulo de forma independente.</p></li>
+<li><p>Garantir que diferentes tarefas (ex.: leitura de sensores, comando do motor, interface com utilizador) não se bloqueiam mutuamente.</p></li>
+<li><p>Evitar o uso de <code class="docutils literal notranslate"><span class="pre">delay()</span></code>, que pode ser fatal num sistema de controlo em tempo real.</p></li>
+<li><p>Usar de forma eficiente os recursos de hardware do Arduino, como o <strong>gerador PWM</strong> ou as <strong>interrupções</strong>, libertando o processador de tarefas críticas temporizadas.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="Introdução-a-Máquinas-de-Estado">
+<h2>Introdução a Máquinas de Estado<a class="headerlink" href="#Introdução-a-Máquinas-de-Estado" title="Link to this heading"></a></h2>
+<p>Uma <strong>máquina de estados finitos (FSM – Finite State Machine)</strong> é um modelo que organiza o comportamento de um sistema em <strong>estados</strong>, com <strong>transições</strong> entre eles, desencadeadas por <strong>eventos</strong>.</p>
+<p>Elementos principais:</p>
+<ul class="simple">
+<li><p><strong>Estados:</strong> configurações em que o sistema pode estar (ex.: “verde”, “amarelo”, “vermelho”).</p></li>
+<li><p><strong>Estado inicial:</strong> ponto de partida.</p></li>
+<li><p><strong>Transições:</strong> regras de mudança de estado.</p></li>
+<li><p><strong>Eventos:</strong> condições que causam a transição.</p></li>
+<li><p><strong>Estado final:</strong> opcional, marca o fim da execução.</p></li>
+</ul>
+<p><strong>Exemplo genérico:</strong> um semáforo alterna entre verde, amarelo e vermelho, com tempos definidos.</p>
+</section>
+<hr class="docutils" />
+<section id="Exemplo-1-—-Dois-LEDs-a-Piscar-em-Concorrência">
+<h2>Exemplo 1 — Dois LEDs a Piscar em Concorrência<a class="headerlink" href="#Exemplo-1-—-Dois-LEDs-a-Piscar-em-Concorrência" title="Link to this heading"></a></h2>
+<p>Um primeiro exercício útil é piscar <strong>dois LEDs com frequências diferentes</strong>. Cada LED é controlado por uma <strong>máquina de estado independente</strong>, mas ambas executam em concorrência dentro do <code class="docutils literal notranslate"><span class="pre">loop()</span></code>.</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#define LED1 2</span>
+<span class="cp">#define LED2 3</span>
+
+<span class="kt">float</span><span class="w"> </span><span class="n">f1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1.0</span><span class="p">;</span><span class="w">   </span><span class="c1">// Frequência LED1 [Hz]</span>
+<span class="kt">float</span><span class="w"> </span><span class="n">f2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">2.0</span><span class="p">;</span><span class="w">   </span><span class="c1">// Frequência LED2 [Hz]</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">duty</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">50</span><span class="p">;</span><span class="w">    </span><span class="c1">// Duty cycle (%)</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">setup</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">pinMode</span><span class="p">(</span><span class="n">LED1</span><span class="p">,</span><span class="w"> </span><span class="n">OUTPUT</span><span class="p">);</span>
+<span class="w">  </span><span class="n">pinMode</span><span class="p">(</span><span class="n">LED2</span><span class="p">,</span><span class="w"> </span><span class="n">OUTPUT</span><span class="p">);</span>
+<span class="w">  </span><span class="n">Serial</span><span class="p">.</span><span class="n">begin</span><span class="p">(</span><span class="mi">115200</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">loop</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">autoBlink</span><span class="p">(</span><span class="n">LED1</span><span class="p">,</span><span class="w"> </span><span class="n">f1</span><span class="p">,</span><span class="w"> </span><span class="n">duty</span><span class="p">);</span>
+<span class="w">  </span><span class="n">autoBlink</span><span class="p">(</span><span class="n">LED2</span><span class="p">,</span><span class="w"> </span><span class="n">f2</span><span class="p">,</span><span class="w"> </span><span class="n">duty</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">autoBlink</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">pin</span><span class="p">,</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">f</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">duty</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">APAGADO</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">ACESO</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="w">  </span><span class="k">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">state</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">APAGADO</span><span class="p">;</span>
+<span class="w">  </span><span class="k">static</span><span class="w"> </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">t0</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">millis</span><span class="p">();</span>
+
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1000</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">f</span><span class="p">;</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">TH</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">duty</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">100</span><span class="p">;</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">TL</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">TH</span><span class="p">;</span>
+
+<span class="w">  </span><span class="k">switch</span><span class="w"> </span><span class="p">(</span><span class="n">state</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="no">APAGADO</span><span class="p">:</span>
+<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">millis</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">t0</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">TL</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">digitalWrite</span><span class="p">(</span><span class="n">pin</span><span class="p">,</span><span class="w"> </span><span class="n">HIGH</span><span class="p">);</span>
+<span class="w">        </span><span class="n">t0</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">millis</span><span class="p">();</span>
+<span class="w">        </span><span class="n">state</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ACESO</span><span class="p">;</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="k">break</span><span class="p">;</span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="no">ACESO</span><span class="p">:</span>
+<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">millis</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">t0</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">TH</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">digitalWrite</span><span class="p">(</span><span class="n">pin</span><span class="p">,</span><span class="w"> </span><span class="n">LOW</span><span class="p">);</span>
+<span class="w">        </span><span class="n">t0</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">millis</span><span class="p">();</span>
+<span class="w">        </span><span class="n">state</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">APAGADO</span><span class="p">;</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="k">break</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="Exemplo-2-—-Máquina-de-Estado-Temporal-(Protocolo)">
+<h2>Exemplo 2 — Máquina de Estado Temporal (Protocolo)<a class="headerlink" href="#Exemplo-2-—-Máquina-de-Estado-Temporal-(Protocolo)" title="Link to this heading"></a></h2>
+<p>Além de FSMs que descrevem <strong>sequências de estados físicos</strong>, também podemos ter máquinas de estado que implementam <strong>protocolos temporais</strong>.</p>
+<p><strong>Exemplo:</strong> criar uma <strong>rampa de valores PWM</strong> para gerar uma forma de onda triangular (útil em ensaios de calibração de motores).</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#define MOTOR_PIN 5</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">pwmValue</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">step</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">loop</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">static</span><span class="w"> </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">t0</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">millis</span><span class="p">();</span>
+<span class="w">  </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">50</span><span class="p">;</span><span class="w"> </span><span class="c1">// passo de 50 ms</span>
+
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">millis</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">t0</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">T</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">pwmValue</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">step</span><span class="p">;</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">pwmValue</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">255</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">pwmValue</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="n">step</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="n">step</span><span class="p">;</span>
+<span class="w">    </span><span class="n">analogWrite</span><span class="p">(</span><span class="n">MOTOR_PIN</span><span class="p">,</span><span class="w"> </span><span class="n">pwmValue</span><span class="p">);</span>
+<span class="w">    </span><span class="n">t0</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">millis</span><span class="p">();</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Este tipo de FSM é útil para <strong>ensaios automáticos</strong> (ex.: rampa ou senoide) sem intervenção do utilizador.</p>
+</section>
+<hr class="docutils" />
+<section id="Exemplo-3-—-FSM-baseada-em-Interação-do-Utilizador">
+<h2>Exemplo 3 — FSM baseada em Interação do Utilizador<a class="headerlink" href="#Exemplo-3-—-FSM-baseada-em-Interação-do-Utilizador" title="Link to this heading"></a></h2>
+<p>Outra FSM típica responde a <strong>eventos externos</strong>, como o pressionar de um botão.</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#define BUTTON_PIN 7</span>
+<span class="cp">#define LED_PIN 8</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">setup</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">pinMode</span><span class="p">(</span><span class="n">BUTTON_PIN</span><span class="p">,</span><span class="w"> </span><span class="n">INPUT_PULLUP</span><span class="p">);</span>
+<span class="w">  </span><span class="n">pinMode</span><span class="p">(</span><span class="n">LED_PIN</span><span class="p">,</span><span class="w"> </span><span class="n">OUTPUT</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">loop</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">state</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">  </span><span class="k">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">lastButton</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">HIGH</span><span class="p">;</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">button</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">digitalRead</span><span class="p">(</span><span class="n">BUTTON_PIN</span><span class="p">);</span>
+
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">lastButton</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">HIGH</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">button</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">LOW</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="c1">// deteta transição</span>
+<span class="w">    </span><span class="n">state</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">!</span><span class="n">state</span><span class="p">;</span>
+<span class="w">    </span><span class="n">digitalWrite</span><span class="p">(</span><span class="n">LED_PIN</span><span class="p">,</span><span class="w"> </span><span class="n">state</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="n">lastButton</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">button</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Esta FSM mostra a diferença entre um <strong>protocolo temporal</strong> (exemplo anterior) e um <strong>protocolo baseado em eventos externos</strong>.</p>
+</section>
+<hr class="docutils" />
+<section id="Esqueleto-para-o-Aeropêndulo">
+<h2>Esqueleto para o Aeropêndulo<a class="headerlink" href="#Esqueleto-para-o-Aeropêndulo" title="Link to this heading"></a></h2>
+<p>Segue uma estrutura modular que poderá ser usada como ponto de partida:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">setup</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">initSensor</span><span class="p">();</span>
+<span class="w">  </span><span class="n">initMotor</span><span class="p">();</span>
+<span class="w">  </span><span class="n">initControl</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">loop</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">readSensor</span><span class="p">();</span>
+<span class="w">  </span><span class="n">computeControl</span><span class="p">();</span>
+<span class="w">  </span><span class="n">commandMotor</span><span class="p">();</span>
+<span class="w">  </span><span class="n">logData</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Cada função pode ser implementada como uma <strong>máquina de estado própria</strong>, permitindo testar e substituir módulos sem afetar os restantes.</p>
+</section>
+<hr class="docutils" />
+<section id="Interrupções-no-Arduino">
+<h2>Interrupções no Arduino<a class="headerlink" href="#Interrupções-no-Arduino" title="Link to this heading"></a></h2>
+<p>O Arduino permite associar funções a <strong>interrupções de hardware</strong>, que são executadas automaticamente quando ocorre um evento (ex.: transição num pino digital, overflow de um timer).</p>
+<section id="Exemplo:-Contagem-de-Pulsos-(Encoder-Simples)">
+<h3>Exemplo: Contagem de Pulsos (Encoder Simples)<a class="headerlink" href="#Exemplo:-Contagem-de-Pulsos-(Encoder-Simples)" title="Link to this heading"></a></h3>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#define ENCODER_PIN 2</span>
+<span class="k">volatile</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">counter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">ISR_encoder</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">counter</span><span class="o">++</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">setup</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">attachInterrupt</span><span class="p">(</span><span class="n">digitalPinToInterrupt</span><span class="p">(</span><span class="n">ENCODER_PIN</span><span class="p">),</span><span class="w"> </span><span class="n">ISR_encoder</span><span class="p">,</span><span class="w"> </span><span class="n">RISING</span><span class="p">);</span>
+<span class="w">  </span><span class="n">Serial</span><span class="p">.</span><span class="n">begin</span><span class="p">(</span><span class="mi">115200</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">loop</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">counter</span><span class="p">);</span>
+<span class="w">  </span><span class="n">delay</span><span class="p">(</span><span class="mi">500</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Para <strong>encoders em quadratura</strong>, usam-se duas interrupções (canais A e B), permitindo detetar também o sentido de rotação.</p>
+<hr class="docutils" />
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="encoder.html" class="btn btn-neutral float-left" title="Encoder" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="controller.html" class="btn btn-neutral float-right" title="Controller" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, mniehus.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

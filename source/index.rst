@@ -87,7 +87,7 @@ Content
    project1/motorDC-theory.ipynb
    project1/motorDC-lab.ipynb
    project1/encoder.ipynb
-   project1/stateMachine.ipynb
+   project1/coding.ipynb
    project1/controller.ipynb
    project1/integration.ipynb
 

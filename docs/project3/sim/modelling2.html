@@ -56,7 +56,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../project1/motorDC-theory.html">Motor DC (theory)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../project1/motorDC-lab.html">Motor DC (drive)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../project1/encoder.html">Encoder</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../project1/stateMachine.html">State machines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../project1/coding.html">Programar o sistema do aeropêndulo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../project1/controller.html">Controller</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../project1/integration.html">Integração do Sistema Arduino no Aeropêndulo</a></li>
 </ul>
@@ -97,7 +97,7 @@
 <h1>Modelling<a class="headerlink" href="#Modelling" title="Link to this heading"></a></h1>
 <p>The simulation involves modeling the dynamics of a Reaction Wheel Inverted Pendulum (RWIP) system. The key components include:</p>
 <p><strong>Reaction Wheel Inverted Pendulum Dynamics</strong></p>
-<p><img alt="4d4dcbce4f9d45508a3f00247d070ff7" class="no-scaled-link" src="https://github.com/B-Paweekorn/Reaction-wheel-inverted-pendulum/assets/122732439/6c59b7a7-6aa7-4a73-b353-9e242e6aae1c" style="width: 480px;" /></p>
+<p><img alt="4bef0cab64af43b4ba6aab0da15ba22b" class="no-scaled-link" src="https://github.com/B-Paweekorn/Reaction-wheel-inverted-pendulum/assets/122732439/6c59b7a7-6aa7-4a73-b353-9e242e6aae1c" style="width: 480px;" /></p>
 <p>RWIP Parameter</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">L1</span></code> - Pendulum length from orgin to center of mass</p></li>
@@ -126,7 +126,7 @@
 <p>  <span class="math notranslate nohighlight">\(\ddot{\theta_p} = \frac{m_{1}gL_{1}\sin\left(\theta_{p}\right)\ +\ m_{2}gL_{2}\sin\left(\theta_{p}\right)\ -\ T_{m} +\ T_{d}}{m_{1}L_{1}^{2}+m_{2}L_{2}+I_{1}}\)</span></p>
 <p>  <span class="math notranslate nohighlight">\(\ddot{\theta_r} = \frac{T_{r}}{I_{2}}\-\frac{m_{1}gL_{1}\ +\ m_{2}gL_{2}\ -\ T_{m} +\ T_{d}}{m_{1}L_{1}^{2}+m_{2}L_{2}+I_{1}}\)</span></p>
 <p><strong>DC Motor Dynamics</strong></p>
-<p><img alt="b9ff3772906e407388c9e58791acb99e" class="no-scaled-link" src="https://github.com/B-Paweekorn/Reaction-wheel-inverted-pendulum/assets/122732439/482f83f0-a4d7-4a70-b65e-006408f06a36" style="width: 480px;" /></p>
+<p><img alt="219134b6d5cf4e4daf0000ab1bdeb459" class="no-scaled-link" src="https://github.com/B-Paweekorn/Reaction-wheel-inverted-pendulum/assets/122732439/482f83f0-a4d7-4a70-b65e-006408f06a36" style="width: 480px;" /></p>
 <p>Brushed DC Motor Parameter</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">Vin</span></code> - Input Voltage</p></li>
@@ -180,7 +180,7 @@
 </li>
 <li><p><strong>Bang-bang Controller</strong>: The swing up control routine and the stabilizing control routine are switched between -25 to 25 degree</p></li>
 </ul>
-<p>   <img alt="85e6a32af02a4b6c8098cbae9b70a5c4" class="no-scaled-link" src="https://github.com/B-Paweekorn/Reaction-wheel-inverted-pendulum/assets/122732439/79e6d6d3-9ab2-49eb-a58b-3ad10a96a96b" style="width: 480px;" /></p>
+<p>   <img alt="35cf821adb1c40758a644ab7a405f008" class="no-scaled-link" src="https://github.com/B-Paweekorn/Reaction-wheel-inverted-pendulum/assets/122732439/79e6d6d3-9ab2-49eb-a58b-3ad10a96a96b" style="width: 480px;" /></p>
 <ul class="simple">
 <li><p><strong>Brake Controller</strong>: Used as reduced energy of RWIP when RWIP have too much energy for stabilze</p></li>
 </ul>
