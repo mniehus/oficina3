@@ -9,7 +9,6 @@
   <title>State machines &mdash; oficina3  documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
-      <link rel="stylesheet" type="text/css" href="../_static/nbsphinx-code-cells.css?v=2aa19091" />
 
   
       <script src="../_static/jquery.js?v=5d32c60e"></script>
@@ -23,7 +22,7 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Sensors - encoders" href="encoder.html" />
+    <link rel="next" title="Encoder" href="encoder.html" />
     <link rel="prev" title="Motor DC (drive)" href="drive.html" /> 
 </head>
 
@@ -53,13 +52,16 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Projeto 1</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="aeropendulum.html">Aeropendulum</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aeropendulum.html">Projeto 1: Desenvolvimento e Teste de um Aeropêndulo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="analogies.html">Analogias e estimativas</a></li>
 <li class="toctree-l1"><a class="reference internal" href="motorDC.html">Motor DC</a></li>
 <li class="toctree-l1"><a class="reference internal" href="liftForce.html">Helice - Força de impulsão</a></li>
 <li class="toctree-l1"><a class="reference internal" href="drive.html">Motor DC (drive)</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">State machines</a></li>
-<li class="toctree-l1"><a class="reference internal" href="encoder.html">Sensors - encoders</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">State machines</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#máquinas-de-estado">máquinas de estado</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="encoder.html">Encoder</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pendulum.html">Pendulum Dynamics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="controller.html">Controller</a></li>
 <li class="toctree-l1"><a class="reference internal" href="integration.html">Arduino System Integration</a></li>
@@ -101,28 +103,75 @@
   <section id="State-machines">
 <h1>State machines<a class="headerlink" href="#State-machines" title="Link to this heading"></a></h1>
 <p>(em breve)</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<p>explicar o principio de uma máquina de estado</p>
+<p>para testar algum componente frequentemente usamos um c´digo de exemplo do fabricante, ou de algum sitio da internet. para testar um componente especifico, isto costuma ser uma boa prática.</p>
+<p>no entanto, para integrar vários componentes</p>
+<p>é que: pode haver delays() em algum código que podem ter um efeito fatal na execução de outro código. adicionalmente, pode haver alguma parte que precisa de ter, ou até algumas partes que tem que ser tratados com mais prioridade ou com mais frequência.</p>
+<p>existem algumas funções</p>
+<p>interrupções</p>
+<p>caso dos motores:</p>
+<p>analogWrite()</p>
+<p>regime pseudo-estacionário</p>
+<section id="máquinas-de-estado">
+<h2>máquinas de estado<a class="headerlink" href="#máquinas-de-estado" title="Link to this heading"></a></h2>
+<p>sampling</p>
+<p>Exemplo 1 waveform generator and analogRead and aliasing</p>
+<p>Exemplo 2 signal modulated by waveform generator</p>
+<p>Exemplo 3 encoder</p>
+<p>````C++ /// ISEL-LEFA-OEF3, 14/09/2025 //Codigo exemplo // maquina de estados - sistema multitarefa //Manfred Niehus, <a class="reference external" href="mailto:manfred&#46;niehus&#37;&#52;&#48;isel&#46;pt">manfred<span>&#46;</span>niehus<span>&#64;</span>isel<span>&#46;</span>pt</a></p>
+<p>#define LED1 2 #define LED2 3 float f1=1.0; //f1 freqencia LED1 float f2=2.0; //f2 freqencia LED2 int dutycycle=50; //duty cycle (%)</p>
+<p>void setup(){ Serial.begin(115200); pinMode(LED1,OUTPUT); pinMode(LED2,OUTPUT); }</p>
+<p>void loop(){ autoBlinkLed1(LED1,f1,dutycycle); autoBlinkLed2(LED2,f2,dutycycle); }</p>
+<p>// state machine 1 void autoBlinkLed1(int pin,float f, int duty){ // pisca um LED no pin com frequencia f // Input parameters: // int pin - numero pin do arduino - entre [2-13] // float f - frequencia em Hz - entre [0.1-50], default: 1.0 Hz // int duty - duty cycle em % - entre [0-100], default: 50 % // Output parameter: none</p>
+<p>//parameter check if(pin&lt;2||pin&gt;13){ Serial.println(“Valor do pin errado”); return; } if(f&lt;0.1||f&gt;50){ Serial.println(“Erro: Frequencia fora do intervalo [0.1-50]”); Serial.println(“Valor novo: f=1 Hz”); f=1; } if(duty&lt;0||duty&gt;100){ Serial.println(“Erro: Duty cycle fora do intervalo [0-100]”); Serial.println(“Valor novo: duty=50%”); duty=50; }</p>
+<p>//parametros de temporizacao int T =1000/f; //periodo em milisegundos int TH=T/100*duty, TL=T-TH; //Serial.println(duty);</p>
+<p>//parametros da maquina de estado const int APAGADO=0, ACESO=1; static int state=APAGADO; static unsigned long t0=millis();</p>
+<p>//estrutura máquina de estado</p>
+<p>switch(state){</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>case APAGADO:
+  if(millis()-t0&gt;TL){
+    digitalWrite(pin,HIGH);
+    t0=millis();
+    state=ACESO;
+  }
+break;
+
+case ACESO:
+  if(millis()-t0&gt;TH){
+    digitalWrite(pin,LOW);
+    t0=millis();
+    state=APAGADO;
+  }
+break;
 </pre></div>
 </div>
-<div class="input_area highlight-python notranslate"><div class="highlight"><pre><span></span>
+<p>} } // end state machine 1</p>
+<p>// state machine 2 void autoBlinkLed2(int pin,float f, int duty){ // pisca um LED no pin com frequencia f // Input parameters: // int pin - numero pin do arduino - entre [2-13] // float f - frequencia em Hz - entre [0.1-50], default: 1.0 Hz // int duty - duty cycle em % - entre [0-100], default: 50 % // Output parameter: none</p>
+<p>//parameter check if(pin&lt;2||pin&gt;13){ Serial.println(“Valor do pin errado”); return; } if(f&lt;0.1||f&gt;50){ Serial.println(“Erro: Frequencia fora do intervalo [0.1-50]”); Serial.println(“Valor novo: f=1 Hz”); f=1; } if(duty&lt;0||duty&gt;100){ Serial.println(“Erro: Duty cycle fora do intervalo [0-100]”); Serial.println(“Valor novo: duty=50%”); duty=50; }</p>
+<p>//parametros de temporizacao int T =1000/f; //periodo em milisegundos int TH=T/100*duty, TL=T-TH; //Serial.println(duty);</p>
+<p>//parametros da maquina de estado const int APAGADO=0, ACESO=1; static int state=APAGADO; static unsigned long t0=millis();</p>
+<p>//estrutura máquina de estado</p>
+<p>switch(state){</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>case APAGADO:
+  if(millis()&gt;t0+TL){
+    digitalWrite(pin,HIGH);
+    t0=millis();
+    state=ACESO;
+  }
+break;
+
+case ACESO:
+  if(millis()&gt;t0+TH){
+    digitalWrite(pin,LOW);
+    t0=millis();
+    state=APAGADO;
+  }
+break;
 </pre></div>
 </div>
-</div>
-<p>Topics:</p>
-<ul class="simple">
-<li><p>Control</p></li>
-<li><p>PID Control</p></li>
-<li><p>Modelling a pendulum</p></li>
-<li><p>Simulating a pendulum</p></li>
-<li><p>Modelling a motor</p></li>
-<li><p>Simulating a motor</p></li>
-<li><p>Modelling an aeropendulum</p></li>
-<li><p>Simulating an aeropendulum</p></li>
-<li><p>Driving a motor</p></li>
-<li><p>Reading a sensor</p></li>
-<li><p>Creating an aeropendulum</p></li>
-</ul>
+<p>}</p>
+<p>} // end state machine 2 ```</p>
+</section>
 </section>
 
 
@@ -130,7 +179,7 @@
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="drive.html" class="btn btn-neutral float-left" title="Motor DC (drive)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="encoder.html" class="btn btn-neutral float-right" title="Sensors - encoders" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="encoder.html" class="btn btn-neutral float-right" title="Encoder" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

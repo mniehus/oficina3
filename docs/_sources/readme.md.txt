@@ -42,7 +42,7 @@ The projects currently include:
 - **Robotic Car** – A programmable wheeled robot with sensor feedback  
 - **Inverted Pendulum on Reaction Wheel** – A nonlinear control challenge
 
-Each system involves modeling, simulation, hardware implementation, and experimental validation.
+Each system involves studying the components (motor control and data acquisition with sensors) and system dynamics, developing and integrating hardware, software and the control system, implementation and experimental testing, and finally validation through simulation.
 
 Detailed information, documentation, and project materials are available at:
 [https://mniehus.github.io/oficina3](https://mniehus.github.io/oficina3)

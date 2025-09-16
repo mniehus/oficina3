@@ -6,10 +6,9 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Aeropendulum &mdash; oficina3  documentation</title>
+  <title>Projeto 1: Desenvolvimento e Teste de um Aeropêndulo &mdash; oficina3  documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
-      <link rel="stylesheet" type="text/css" href="../_static/nbsphinx-code-cells.css?v=2aa19091" />
 
   
       <script src="../_static/jquery.js?v=5d32c60e"></script>
@@ -53,13 +52,68 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Projeto 1</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Aeropendulum</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Projeto 1: Desenvolvimento e Teste de um Aeropêndulo</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#Introdução">Introdução</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Âmbito-do-Trabalho">Âmbito do Trabalho</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Descrição-do-Sistema">Descrição do Sistema</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Componentes-principais-do-sistema">Componentes principais do sistema</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#Motor-e-Hélice">Motor e Hélice</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Requisitos-Técnicos">Requisitos Técnicos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Seleção-do-Motor">Seleção do Motor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Características-Técnicas-do-Motor-+-Hélice">Características Técnicas do Motor + Hélice</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#Ensaios-de-caraterização-de-Motor-e-Hélice">Ensaios de caraterização de Motor e Hélice</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Curvas-de-Calibração">Curvas de Calibração</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Curva-1-—-Velocidade-de-Rotação">Curva 1 — Velocidade de Rotação</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Curva-2-—-Força-de-Impulsão">Curva 2 — Força de Impulsão</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#Placa-de-Controlo-do-Motor-(Driver)">Placa de Controlo do Motor (Driver)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">Requisitos Técnicos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Seleção">Seleção</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Características-Técnicas">Características Técnicas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Ligações-e-Pinos-Principais">Ligações e Pinos Principais</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Instruções-de-Uso">Instruções de Uso</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#Sensor-(Encoder-para-Medição-de-Ângulo)">Sensor (Encoder para Medição de Ângulo)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Requisitos">Requisitos</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#sensor-encoder-para-medicao-de-angulo-1">Sensor (Encoder para Medição de Ângulo)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Requisitos-Técnicos-e-Não-Técnicos">Requisitos Técnicos e Não Técnicos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Opções-de-Encoders">Opções de Encoders</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#1.-Encoder-Mecânico-Analógico-(Potenciómetro-Rotativo)">1. Encoder Mecânico Analógico (Potenciómetro Rotativo)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#2.-Encoder-Mecânico-Incremental-(Saída-Digital)">2. Encoder Mecânico Incremental (Saída Digital)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#3.-Encoder-Ótico-(Optical-Slot-Sensor)">3. Encoder Ótico (Optical Slot Sensor)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#4.-Encoder-Magnético-(Sensor-de-Campo)">4. Encoder Magnético (Sensor de Campo)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#**-Seleção-sensor:-encoder-magnético-–-AS5600**">** Seleção sensor: encoder magnético – AS5600**</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Considerações-de-Teste">Considerações de Teste</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#Integração-do-Sistema">Integração do Sistema</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Trabalho-a-Desenvolver">Trabalho a Desenvolver</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#1.-Estudo-Teórico-e-Modelação">1. Estudo Teórico e Modelação</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#2.-Testes-de-Hardware">2. Testes de Hardware</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#3.-Integração">3. Integração</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#4.-Implementação-de-Controlo">4. Implementação de Controlo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#5.-Testes-Experimentais">5. Testes Experimentais</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#6.-Relatório-Final">6. Relatório Final</a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="analogies.html">Analogias e estimativas</a></li>
 <li class="toctree-l1"><a class="reference internal" href="motorDC.html">Motor DC</a></li>
 <li class="toctree-l1"><a class="reference internal" href="liftForce.html">Helice - Força de impulsão</a></li>
 <li class="toctree-l1"><a class="reference internal" href="drive.html">Motor DC (drive)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="stateMachine.html">State machines</a></li>
-<li class="toctree-l1"><a class="reference internal" href="encoder.html">Sensors - encoders</a></li>
+<li class="toctree-l1"><a class="reference internal" href="encoder.html">Encoder</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pendulum.html">Pendulum Dynamics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="controller.html">Controller</a></li>
 <li class="toctree-l1"><a class="reference internal" href="integration.html">Arduino System Integration</a></li>
@@ -88,7 +142,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">Aeropendulum</li>
+      <li class="breadcrumb-item active">Projeto 1: Desenvolvimento e Teste de um Aeropêndulo</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/project1/aeropendulum.ipynb.txt" rel="nofollow"> View page source</a>
       </li>
@@ -98,31 +152,488 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="Aeropendulum">
-<h1>Aeropendulum<a class="headerlink" href="#Aeropendulum" title="Link to this heading"></a></h1>
-<p>(em breve)</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
-</pre></div>
-</div>
-<div class="input_area highlight-python notranslate"><div class="highlight"><pre><span></span>
-</pre></div>
-</div>
-</div>
-<p>Topics:</p>
+  <section id="Projeto-1:-Desenvolvimento-e-Teste-de-um-Aeropêndulo">
+<h1>Projeto 1: Desenvolvimento e Teste de um Aeropêndulo<a class="headerlink" href="#Projeto-1:-Desenvolvimento-e-Teste-de-um-Aeropêndulo" title="Link to this heading"></a></h1>
+<section id="Introdução">
+<h2>Introdução<a class="headerlink" href="#Introdução" title="Link to this heading"></a></h2>
+<p>O objetivo deste trabalho de projeto é <strong>desenvolver, modelar e testar um Aeropêndulo</strong>. Este sistema é amplamente utilizado para o estudo da dinâmica de sistemas de controlo <strong>não lineares</strong>.</p>
+<p>O projeto permitirá que os alunos adquiram competências em:</p>
 <ul class="simple">
-<li><p>Control</p></li>
-<li><p>PID Control</p></li>
-<li><p>Modelling a pendulum</p></li>
-<li><p>Simulating a pendulum</p></li>
-<li><p>Modelling a motor</p></li>
-<li><p>Simulating a motor</p></li>
-<li><p>Modelling an aeropendulum</p></li>
-<li><p>Simulating an aeropendulum</p></li>
-<li><p>Driving a motor</p></li>
-<li><p>Reading a sensor</p></li>
-<li><p>Creating an aeropendulum</p></li>
+<li><p>Modelação de sistemas físicos;</p></li>
+<li><p>Simulação de comportamento dinâmico;</p></li>
+<li><p>Implementação de estratégias de controlo;</p></li>
+<li><p>Integração de hardware e software;</p></li>
+<li><p>Realização de testes experimentais;</p></li>
+<li><p>Validação experimental e comparação com simulação.</p></li>
 </ul>
+</section>
+<section id="Âmbito-do-Trabalho">
+<h2>Âmbito do Trabalho<a class="headerlink" href="#Âmbito-do-Trabalho" title="Link to this heading"></a></h2>
+<p>O desenvolvimento do projeto deverá incluir:</p>
+<ol class="arabic simple">
+<li><p>Estudo dos <strong>componentes de hardware</strong> (motores, sensores, driver e estrutura mecânica);</p></li>
+<li><p>Estudo e implementação de <strong>aquisição e processamento de dados</strong>;</p></li>
+<li><p>Desenvolvimento de <strong>modelos matemáticos e simulações</strong>;</p></li>
+<li><p>Implementação de um <strong>sistema de controlo em malha fechada</strong>;</p></li>
+<li><p>Realização de <strong>testes experimentais no protótipo físico</strong>;</p></li>
+<li><p><strong>Validação</strong> do sistema através da comparação entre modelo, simulação e resultados experimentais.</p></li>
+</ol>
+</section>
+<section id="Descrição-do-Sistema">
+<h2>Descrição do Sistema<a class="headerlink" href="#Descrição-do-Sistema" title="Link to this heading"></a></h2>
+<p>O <strong>Aeropêndulo</strong> consiste num braço rígido fixo a uma base rotacional, com uma hélice instalada numa das extremidades. A rotação da hélice gera uma força propulsora que influencia o movimento do pêndulo.</p>
+<p>O objetivo principal é <strong>controlar a posição angular do pêndulo</strong>, atingindo um equilíbrio numa posição desejada.</p>
+<p>O sistema é <strong>inerentemente instável</strong>, tornando a sua estabilização um desafio relevante para estudo e implementação prática.</p>
+<p><img alt="Aeropendulum" src="../_images/aeropendulum.png" /></p>
+<section id="Componentes-principais-do-sistema">
+<h3>Componentes principais do sistema<a class="headerlink" href="#Componentes-principais-do-sistema" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><strong>Pêndulo:</strong> Braço rotacional fixado a um eixo, com uma hélice na extremidade.</p></li>
+<li><p><strong>Hélice:</strong> Gera a força propulsora que controla o movimento do pêndulo.</p></li>
+<li><p><strong>Sensor de Ângulo:</strong> Mede continuamente o ângulo de inclinação do pêndulo.</p></li>
+<li><p><strong>Controlador:</strong> Algoritmo responsável por ajustar a velocidade da hélice de forma a estabilizar o pêndulo.</p></li>
+</ul>
+<p><img alt="Aeropendulum Partes" src="../_images/aeropendulum-partes.png" /></p>
+<p>📂 <a class="reference external" href="https://cad.onshape.com/documents/2ea83de1cff4e51b1cdad8b9/w/f720edbb3287e1858f6d8d69/e/7d14ad2308a118c0482dca7f">Link to OnShape CAD file</a></p>
+</section>
+</section>
+<section id="Motor-e-Hélice">
+<h2>Motor e Hélice<a class="headerlink" href="#Motor-e-Hélice" title="Link to this heading"></a></h2>
+<section id="Requisitos-Técnicos">
+<h3>Requisitos Técnicos<a class="headerlink" href="#Requisitos-Técnicos" title="Link to this heading"></a></h3>
+<p>A seleção do motor e da hélice deve obedecer aos seguintes critérios:</p>
+<ul class="simple">
+<li><p><strong>Peso reduzido</strong>: para minimizar o momento de inércia do pêndulo.</p></li>
+<li><p><strong>Tamanho compacto</strong>: para facilitar a montagem e integração no braço do aeropêndulo.</p></li>
+<li><p><strong>Preço acessível</strong>: dado tratar-se de um protótipo experimental de baixo custo.</p></li>
+<li><p><strong>Elevada força de impulsão</strong>: suficiente para contrariar a gravidade e permitir o controlo ativo do pêndulo.</p></li>
+<li><p><strong>Compatibilidade elétrica</strong>: deve poder ser alimentado por uma fonte de tensão de laboratório e ser controlado por placas driver acessíveis e comuns no mercado académico (ex.: L298N, MOSFET drivers simples).</p></li>
+<li><p><strong>Disponibilidade comercial</strong>: motor de fácil aquisição, com substituição rápida em caso de falha.</p></li>
+</ul>
+</section>
+<section id="Seleção-do-Motor">
+<h3>Seleção do Motor<a class="headerlink" href="#Seleção-do-Motor" title="Link to this heading"></a></h3>
+<p>Atendendo a estes requisitos, foi escolhido um <strong>motor coreless de drone (Micro FPV Quadcopter)</strong>, com hélice de pequenas dimensões.</p>
+<p>Este tipo de motor apresenta baixo peso, rotação muito elevada, resposta rápida e boa disponibilidade no mercado a preços acessíveis.</p>
+<p><img alt="Motor" src="../_images/drone-motor.png" /></p>
+</section>
+<section id="Características-Técnicas-do-Motor-+-Hélice">
+<h3>Características Técnicas do Motor + Hélice<a class="headerlink" href="#Características-Técnicas-do-Motor-+-Hélice" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Tipo: Coreless DC Motor (Micro FPV Quadcopter)</p></li>
+<li><p>Dimensões: 7x16 mm</p></li>
+<li><p>Peso: ~2 g (sem hélice)</p></li>
+<li><p>Hélice: 4x55 mm</p></li>
+<li><p>Tensão nominal: 3.7 V (até 4.2 V)</p></li>
+<li><p>Velocidade: ~50 000 RPM</p></li>
+<li><p>Corrente sem carga: 0.08 – 0.1 A</p></li>
+<li><p>Corrente em bloqueio: 1.8 – 2.0 A</p></li>
+<li><p>Saída do eixo: 0.8 mm</p></li>
+<li><p>Comprimento do eixo: 7 mm</p></li>
+<li><p>Comprimento dos cabos: ~46 mm</p></li>
+<li><p>Materiais: liga metálica leve</p></li>
+</ul>
+</section>
+</section>
+<section id="Ensaios-de-caraterização-de-Motor-e-Hélice">
+<h2>Ensaios de caraterização de Motor e Hélice<a class="headerlink" href="#Ensaios-de-caraterização-de-Motor-e-Hélice" title="Link to this heading"></a></h2>
+<p>Antes da integração no sistema completo do aeropêndulo, é preciso a realização de ensaios individuais ao motor e à hélice. Estes ensaios permitem caracterizar o comportamento elétrico e mecânico do atuador e obter curvas de calibração a usar no modelo e no controlo.</p>
+<ol class="arabic simple">
+<li><p><strong>Ensaio de Corrente em Vazio e com carga</strong></p>
+<ul class="simple">
+<li><p>Ligar o motor sem hélice a uma fonte de tensão regulada-</p></li>
+<li><p>Medir a corrente consumida em vazio (sem carga).</p></li>
+<li><p>Verificar se os valores estão próximos da especificação</p></li>
+<li><p>Durante tempos curtos (!), medir a corrente consumida com carga, e a tensão associada, e verifica se os valores estão próximos da especificação</p></li>
+</ul>
+</li>
+<li><p><strong>Ensaio de Consumo com Hélice</strong></p>
+<ul class="simple">
+<li><p>Repetir a medição de corrente com a hélice montada.</p></li>
+<li><p>Avaliar o aumento de consumo devido à carga aerodinâmica.</p></li>
+<li><p>Confirmar que o driver e a fonte conseguem fornecer a corrente necessária.</p></li>
+</ul>
+</li>
+<li><p><strong>Ensaio de Aquecimento</strong></p>
+<ul class="simple">
+<li><p>Fazer funcionar o motor de forma contínua em diferentes regimes.</p></li>
+<li><p>Verificar a temperatura do motor e do driver após alguns minutos.</p></li>
+<li><p>Avaliar limites operacionais para evitar sobreaquecimento.</p></li>
+</ul>
+</li>
+<li><p><strong>Ensaio de Resposta ao PWM</strong></p>
+<ul class="simple">
+<li><p>Controlar o motor via sinal PWM através da placa driver.</p></li>
+<li><p>Repetir os ensaios anteriores para diferentes ciclos de trabalho (duty cycle).</p></li>
+</ul>
+</li>
+</ol>
+<section id="Curvas-de-Calibração">
+<h3>Curvas de Calibração<a class="headerlink" href="#Curvas-de-Calibração" title="Link to this heading"></a></h3>
+<p>Cada curva deve ser obtida de <strong>duas formas</strong>:</p>
+<ul class="simple">
+<li><p><strong>Manual:</strong> controlo manual da tensão usando fontes DC de laboratório.</p></li>
+<li><p><strong>Automatizada:</strong> controlo em modo AC através de uma rampa de sinal PWM gerada por um gerador de funções do laboratório, ou o Arduino, a comandar a placa driver .</p></li>
+</ul>
+</section>
+<section id="Curva-1-—-Velocidade-de-Rotação">
+<h3>Curva 1 — Velocidade de Rotação<a class="headerlink" href="#Curva-1-—-Velocidade-de-Rotação" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><strong>Objetivo:</strong> validar e calibrar a velocidade de rotação do motor em função do comando aplicado.</p></li>
+<li><p><strong>Medição:</strong> sensor ótico ou magnético (encoder).</p></li>
+<li><p><strong>Resultado:</strong> curva de transferência que relaciona a tensão (ou o duty cycle do PWM) com a velocidade angular do motor.</p></li>
+</ul>
+</section>
+<section id="Curva-2-—-Força-de-Impulsão">
+<h3>Curva 2 — Força de Impulsão<a class="headerlink" href="#Curva-2-—-Força-de-Impulsão" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><strong>Objetivo:</strong> medir a força de impulsão produzida pelo motor e hélice.</p></li>
+<li><p><strong>Medição:</strong> motor fixado a uma estrutura rígida apoiada numa balança digital, observando a redução (ou aumento) do valor aprente de massa em função da força produzida.</p></li>
+<li><p><strong>Resultado:</strong> curva de transferência que relaciona a tensão (ou o duty cycle do PWM) com a força de impulsão gerada.</p></li>
+</ul>
+</section>
+</section>
+<section id="Placa-de-Controlo-do-Motor-(Driver)">
+<h2>Placa de Controlo do Motor (Driver)<a class="headerlink" href="#Placa-de-Controlo-do-Motor-(Driver)" title="Link to this heading"></a></h2>
+<section id="id1">
+<h3>Requisitos Técnicos<a class="headerlink" href="#id1" title="Link to this heading"></a></h3>
+<p>A placa de controlo (driver) deve cumprir os seguintes requisitos para integração no aeropêndulo:</p>
+<ul class="simple">
+<li><p><strong>Compatibilidade elétrica</strong> com os motores DC escolhidos (tensão de 3–5 V, correntes até 2 A).</p></li>
+<li><p><strong>Capacidade de comando via PWM</strong>, permitindo variar a velocidade de rotação do motor.</p></li>
+<li><p><strong>Disponibilidade e preço acessível</strong>, sendo facilmente encontrada em kits educativos.</p></li>
+<li><p><strong>Facilidade de utilização em laboratório</strong>, com pinos claramente identificados e compatíveis com microcontroladores como o Arduino.</p></li>
+<li><p><strong>Robustez</strong>, capaz de suportar picos de corrente sem falhas.</p></li>
+</ul>
+</section>
+<section id="Seleção">
+<h3>Seleção<a class="headerlink" href="#Seleção" title="Link to this heading"></a></h3>
+<p>Foi selecionado o <strong>módulo L298N (H-Bridge)</strong>, amplamente usado no ensino e em prototipagem de sistemas de controlo de motores.</p>
+<p>Permite comandar dois motores DC independentes ou um motor passo-a-passo bipolar, o que garante flexibilidade para projetos futuros.</p>
+<p><img alt="Motor driver board" src="../_images/driver-board.png" /></p>
+</section>
+<section id="Características-Técnicas">
+<h3>Características Técnicas<a class="headerlink" href="#Características-Técnicas" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Controlador: L298N (ponte H dupla)</p></li>
+<li><p>Número de motores suportados: 2 DC (ou 1 passo-a-passo)</p></li>
+<li><p>Corrente contínua máxima: 1.2 A por motor</p></li>
+<li><p>Corrente de pico: 3 A</p></li>
+<li><p>Tensão de alimentação do motor: até 15 V</p></li>
+<li><p>Tensão de alimentação lógica: 2.7 – 5.5 V</p></li>
+<li><p>Dimensões: 43 x 43 x 27 mm</p></li>
+</ul>
+</section>
+<section id="Ligações-e-Pinos-Principais">
+<h3>Ligações e Pinos Principais<a class="headerlink" href="#Ligações-e-Pinos-Principais" title="Link to this heading"></a></h3>
+<p>O módulo L298N possui pinos de controlo digital e pinos de potência:</p>
+<ul class="simple">
+<li><p><strong>Alimentação</strong></p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">VCC</span></code> (5 V) – alimentação do circuito lógico</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GND</span></code> – massa comum (obrigatório ligar à massa do Arduino).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">+Vmotor</span></code> – alimentação do motor</p></li>
+</ul>
+</li>
+<li><p><strong>Controlo do Motor A</strong></p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">ENA</span></code> – pino de ativação (‘enable’) do motor A (se ligado a PWM, controla a velocidade).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">IN1</span></code>, <code class="docutils literal notranslate"><span class="pre">IN2</span></code> – definem o sentido de rotação.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">OUT1</span></code>, <code class="docutils literal notranslate"><span class="pre">OUT2</span></code> – saídas para o motor.</p></li>
+</ul>
+</li>
+<li><p><strong>Controlo do Motor B</strong> (disponível para expansão).</p></li>
+</ul>
+</section>
+<section id="Instruções-de-Uso">
+<h3>Instruções de Uso<a class="headerlink" href="#Instruções-de-Uso" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p><strong>Alimentação inicial</strong></p>
+<ul class="simple">
+<li><p>Ligar <code class="docutils literal notranslate"><span class="pre">VCC</span></code> (5 V) e <code class="docutils literal notranslate"><span class="pre">+Vmotor</span></code> (3–5 V) a uma fonte de laboratório.</p></li>
+<li><p>Confirmar o correto estabelecimento da massa comum.</p></li>
+</ul>
+</li>
+<li><p><strong>Teste de ativação</strong></p>
+<ul class="simple">
+<li><p>Colocar <code class="docutils literal notranslate"><span class="pre">ENA</span></code> em nível lógico alto (5 V).</p></li>
+<li><p>Aplicar sinais digitais a <code class="docutils literal notranslate"><span class="pre">IN1</span></code> e <code class="docutils literal notranslate"><span class="pre">IN2</span></code>:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">IN1=HIGH</span></code>, <code class="docutils literal notranslate"><span class="pre">IN2=LOW</span></code> → motor gira num sentido.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">IN1=LOW</span></code>, <code class="docutils literal notranslate"><span class="pre">IN2=HIGH</span></code> → motor gira no sentido contrário.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">IN1=LOW</span></code>, <code class="docutils literal notranslate"><span class="pre">IN2=LOW</span></code> ou <code class="docutils literal notranslate"><span class="pre">IN1=HIGH</span></code>, <code class="docutils literal notranslate"><span class="pre">IN2=HIGH</span></code> → motor parado.</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>Teste com PWM</strong></p>
+<ul class="simple">
+<li><p>Ligar <code class="docutils literal notranslate"><span class="pre">ENA</span></code> a um pino PWM do Arduino.</p></li>
+<li><p>Enviar uma rampa de valores (duty cycle crescente).</p></li>
+<li><p>Observar a variação da velocidade de rotação do motor.</p></li>
+</ul>
+</li>
+<li><p><strong>Verificação antes dos ensaios</strong></p>
+<ul class="simple">
+<li><p>Testar o driver <strong>sem motor ligado</strong> (para garantir que o sinal comuta corretamente, observando a saída com multímetro ou osciloscópio).</p></li>
+<li><p>Confirmar se não há aquecimento excessivo na placa em vazio.</p></li>
+<li><p>Só depois ligar o motor com hélice e realizar os ensaios experimentais.</p></li>
+</ul>
+</li>
+</ol>
+<p>Esta sequência de testes garante que a placa de controlo está a funcionar corretamente antes de ser usada nos ensaios de caracterização do motor e da hélice, e posteriormente na integração com o sistema completo do aeropêndulo.</p>
+</section>
+</section>
+<section id="Sensor-(Encoder-para-Medição-de-Ângulo)">
+<h2>Sensor (Encoder para Medição de Ângulo)<a class="headerlink" href="#Sensor-(Encoder-para-Medição-de-Ângulo)" title="Link to this heading"></a></h2>
+<section id="Requisitos">
+<h3>Requisitos<a class="headerlink" href="#Requisitos" title="Link to this heading"></a></h3>
+<p>A escolha do sensor deve considerar:</p>
+<ul class="simple">
+<li><p><strong>Requisitos técnicos</strong></p>
+<ul>
+<li><p>Capacidade de medir o ângulo de rotação com boa resolução (ideal ≥ 10 bits).</p></li>
+<li><p>Frequência de amostragem suficiente (para acompanhar a dinâmica do motor ou do aeropêndulo).</p></li>
+<li><p>Linearidade aceitável entre o ângulo real e o sinal de saída.</p></li>
+<li><p>Compatibilidade elétrica com microcontroladores comuns (Arduino, etc.).</p></li>
+</ul>
+</li>
+<li><p><strong>Requisitos não técnicos</strong></p>
+<ul>
+<li><p><strong>Baixo atrito:</strong> não deve introduzir torque adicional no eixo do pêndulo.</p></li>
+<li><p><strong>Facilidade de montagem:</strong> instalação simples e tolerante a pequenas imprecisões.</p></li>
+<li><p><strong>Robustez:</strong> adequado a uso repetido em ambiente laboratorial.</p></li>
+<li><p><strong>Disponibilidade e custo acessível.</strong></p></li>
+</ul>
+</li>
+</ul>
+</section>
+</section>
+<section id="sensor-encoder-para-medicao-de-angulo-1">
+<span id="id2"></span><h2>Sensor (Encoder para Medição de Ângulo)<a class="headerlink" href="#sensor-encoder-para-medicao-de-angulo-1" title="Link to this heading"></a></h2>
+<section id="Requisitos-Técnicos-e-Não-Técnicos">
+<h3>Requisitos Técnicos e Não Técnicos<a class="headerlink" href="#Requisitos-Técnicos-e-Não-Técnicos" title="Link to this heading"></a></h3>
+<p>A escolha do sensor deve considerar:</p>
+<ul class="simple">
+<li><p><strong>Requisitos técnicos</strong></p>
+<ul>
+<li><p>Capacidade de medir o ângulo de rotação com resolução adequada (ideal ≥ 10 bits ou centenas de impulsos/rotação).</p></li>
+<li><p>Frequência de amostragem suficiente para acompanhar a dinâmica do aeropêndulo.</p></li>
+<li><p>Compatibilidade elétrica com microcontroladores comuns (Arduino, etc.).</p></li>
+</ul>
+</li>
+<li><p><strong>Requisitos não técnicos</strong></p>
+<ul>
+<li><p><strong>Baixo atrito:</strong> não deve introduzir torque adicional significativo no eixo do pêndulo.</p></li>
+<li><p><strong>Facilidade de montagem:</strong> instalação simples e tolerante a pequenas imprecisões.</p></li>
+<li><p><strong>Robustez e durabilidade:</strong> adequado a uso repetido em ambiente laboratorial.</p></li>
+<li><p><strong>Custo e disponibilidade:</strong> componentes acessíveis e de fácil substituição.</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="Opções-de-Encoders">
+<h3>Opções de Encoders<a class="headerlink" href="#Opções-de-Encoders" title="Link to this heading"></a></h3>
+<section id="1.-Encoder-Mecânico-Analógico-(Potenciómetro-Rotativo)">
+<h4>1. Encoder Mecânico Analógico (Potenciómetro Rotativo)<a class="headerlink" href="#1.-Encoder-Mecânico-Analógico-(Potenciómetro-Rotativo)" title="Link to this heading"></a></h4>
+<ul class="simple">
+<li><p><strong>Descrição:</strong>
+Dispositivo resistivo que fornece uma <strong>tensão analógica proporcional ao ângulo</strong> de rotação.</p></li>
+<li><p><strong>Sinais e pinos:</strong></p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">Vcc</span></code> → alimentação (3.3–5 V).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GND</span></code> → massa comum.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">OUT</span></code> → tensão analógica proporcional ao ângulo.</p></li>
+</ul>
+</li>
+<li><p><strong>Uso:</strong> ligar <code class="docutils literal notranslate"><span class="pre">OUT</span></code> a uma entrada analógica (ADC) do microcontrolador.</p></li>
+<li><p><strong>Teste antes da integração:</strong> rodar manualmente o eixo e verificar se a tensão varia linearmente entre 0 V e Vcc.</p></li>
+<li><p><strong>Limitações:</strong> introduz atrito no eixo, desgaste com o tempo, resolução limitada (~8–10 bits).</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="2.-Encoder-Mecânico-Incremental-(Saída-Digital)">
+<h4>2. Encoder Mecânico Incremental (Saída Digital)<a class="headerlink" href="#2.-Encoder-Mecânico-Incremental-(Saída-Digital)" title="Link to this heading"></a></h4>
+<ul class="simple">
+<li><p><strong>Descrição:</strong>
+Botão rotativo com contactos internos que produzem impulsos digitais a cada passo angular.
+Pode ser de <strong>um canal (incremental simples)</strong> ou de <strong>dois canais (quadratura)</strong>.</p></li>
+<li><p><strong>Sinais e pinos típicos:</strong></p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">Vcc</span></code> → alimentação (opcional, nem todos precisam).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GND</span></code> → massa.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">OUT</span> <span class="pre">A</span></code> → impulsos digitais (incremental simples).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">OUT</span> <span class="pre">A</span></code> e <code class="docutils literal notranslate"><span class="pre">OUT</span> <span class="pre">B</span></code> → impulsos defasados (quadratura).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SW</span></code> → botão integrado (opcional).</p></li>
+</ul>
+</li>
+<li><p><strong>Uso:</strong></p>
+<ul>
+<li><p>Incremental simples: contar impulsos para medir deslocamento relativo (não fornece ângulo absoluto).</p></li>
+<li><p>Quadratura: permite detetar o <strong>sentido de rotação</strong> ao comparar a ordem dos impulsos em <code class="docutils literal notranslate"><span class="pre">A</span></code> e <code class="docutils literal notranslate"><span class="pre">B</span></code>.</p></li>
+</ul>
+</li>
+<li><p><strong>Teste antes da integração:</strong> rodar manualmente e observar os impulsos no Arduino (via monitor série ou LED).</p></li>
+<li><p><strong>Limitações:</strong> não fornece ângulo absoluto, apenas posição relativa; exige inicialização num ponto de referência.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="3.-Encoder-Ótico-(Optical-Slot-Sensor)">
+<h4>3. Encoder Ótico (Optical Slot Sensor)<a class="headerlink" href="#3.-Encoder-Ótico-(Optical-Slot-Sensor)" title="Link to this heading"></a></h4>
+<ul>
+<li><div class="line-block">
+<div class="line"><strong>Descrição:</strong></div>
+<div class="line">Baseado num LED infravermelho e num fototransístor montados frente a frente, separados por uma ranhura (“slot”).</div>
+<div class="line">Um disco perfurado ou uma pá interrompe o feixe de luz, gerando impulsos digitais sempre que o feixe é bloqueado/libertado.</div>
+<div class="line">É usado como <strong>encoder incremental simples</strong> (não fornece posição absoluta nem sentido de rotação).</div>
+</div>
+</li>
+<li><p><strong>Sinais e pinos típicos:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Vcc</span></code> → alimentação do LED infravermelho (poderá necessitar uma resistência em série de limitação de corrente, por ex. 150–330 Ω).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GND</span></code> → massa comum.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">OUT</span></code> → saída digital do fototransístor (alto/baixo consoante a passagem do feixe).</p></li>
+</ul>
+</li>
+<li><div class="line-block">
+<div class="line"><strong>Uso:</strong></div>
+<div class="line">Ligar <code class="docutils literal notranslate"><span class="pre">OUT</span></code> a uma entrada digital do microcontrolador.</div>
+<div class="line">Contar impulsos ao longo do tempo para obter velocidade de rotação ou deslocamento angular relativo.</div>
+<div class="line">Não fornece ângulo absoluto nem direção de rotação (apenas número de interrupções).</div>
+</div>
+</li>
+<li><div class="line-block">
+<div class="line"><strong>Teste antes da integração:</strong></div>
+<div class="line">Mover manualmente o disco ou pá que atravessa o sensor.</div>
+<div class="line">Verificar a geração de impulsos digitais no Arduino (via LED indicador ou monitor série).</div>
+</div>
+</li>
+<li><div class="line-block">
+<div class="line"><strong>Vantagens:</strong></div>
+<div class="line">Elevada resolução possível (dependente do disco ou pá usados).</div>
+<div class="line">Simples e barato.</div>
+</div>
+</li>
+<li><p><strong>Limitações:</strong></p>
+<ul class="simple">
+<li><p>Requer alinhamento preciso entre disco/pá e sensor.</p></li>
+<li><p>Não mede direção de rotação (apenas incrementos).</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="4.-Encoder-Magnético-(Sensor-de-Campo)">
+<h4>4. Encoder Magnético (Sensor de Campo)<a class="headerlink" href="#4.-Encoder-Magnético-(Sensor-de-Campo)" title="Link to this heading"></a></h4>
+<ul class="simple">
+<li><p><strong>Descrição:</strong>
+Um íman diametralmente magnetizado no eixo é detetado por um sensor magnético (Hall ou magnetorresistivo). Fornece saída analógica (tensão ∝ ângulo), digital incremental ou dados digitais via I²C.</p></li>
+<li><p><strong>Sinais e pinos típicos (variam consoante modelo):</strong></p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">Vcc</span></code>, <code class="docutils literal notranslate"><span class="pre">GND</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDA</span></code>, <code class="docutils literal notranslate"><span class="pre">SCL</span></code> (I²C).</p></li>
+<li><p>ou <code class="docutils literal notranslate"><span class="pre">OUT</span> <span class="pre">PWM</span></code>, ou <code class="docutils literal notranslate"><span class="pre">OUT</span> <span class="pre">analógico</span></code>.</p></li>
+</ul>
+</li>
+<li><p><strong>Uso:</strong> medir diretamente ângulo absoluto sem atrito e sem linha de vista.</p></li>
+<li><p><strong>Teste:</strong> ler valores via I²C/PWM enquanto roda manualmente o eixo.</p></li>
+<li><p><strong>Vantagens:</strong> não introduz atrito, montagem simples, robusto a poeira.</p></li>
+<li><p><strong>Limitações:</strong> resolução depende do chip (10–12 bits típicos), exige alinhamento básico íman-sensor.</p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="**-Seleção-sensor:-encoder-magnético-–-AS5600**">
+<h3>** Seleção sensor: encoder magnético – AS5600**<a class="headerlink" href="#**-Seleção-sensor:-encoder-magnético-–-AS5600**" title="Link to this heading"></a></h3>
+<div class="line-block">
+<div class="line">Módulo codificador de elevada precisão, que mede o ângulo de um eixo através da deteção de campo magnético.</div>
+<div class="line">Requer um <strong>íman diametralmente magnetizado</strong> fixado ao eixo (por exemplo, colado), e o sensor deve ser montado logo acima (distância máxima ~2 mm).</div>
+</div>
+<div class="line-block">
+<div class="line"><img alt="Sensor magnético" src="../_images/sensor-magnetico.png" /></div>
+<div class="line"><img alt="Sensor signal" src="../_images/sensor-signal.png" /></div>
+</div>
+<p><strong>Especificações:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">AS5600</span></code> – Codificador Magnético de Alta Precisão</p></li>
+<li><p>Alimentação: 3.3 V (obrigatório)</p></li>
+<li><p>Resolução: 12 bits</p></li>
+<li><p>Modos de saída: I²C, PWM, Tensão analógica</p></li>
+<li><p>Biblioteca Arduino: <code class="docutils literal notranslate"><span class="pre">AS5600</span></code> (disponível via Arduino IDE)</p></li>
+<li><p>Repositório: <a class="reference external" href="https://github.com/RobTillaart/AS5600">github.com/RobTillaart/AS5600</a></p></li>
+</ul>
+</section>
+<section id="Considerações-de-Teste">
+<h3>Considerações de Teste<a class="headerlink" href="#Considerações-de-Teste" title="Link to this heading"></a></h3>
+<p>Antes da integração no aeropêndulo, recomenda-se:</p>
+<ol class="arabic simple">
+<li><p><strong>Verificação elétrica:</strong> confirmar tensões de alimentação e ligações ao microcontrolador.</p></li>
+<li><p><strong>Testes individuais:</strong> rodar manualmente o eixo e registar leituras (tensão, impulsos, ou dados digitais).</p></li>
+<li><p><strong>Validação da resolução:</strong> confirmar que o sensor distingue pequenas variações de ângulo.</p></li>
+<li><p><strong>Teste de repetibilidade:</strong> rodar o pêndulo em várias voltas e verificar consistência da medição.</p></li>
+</ol>
+</section>
+</section>
+<section id="Integração-do-Sistema">
+<h2>Integração do Sistema<a class="headerlink" href="#Integração-do-Sistema" title="Link to this heading"></a></h2>
+<p>Após a validação individual de cada componente, deverá ser realizada a integração:</p>
+<ol class="arabic simple">
+<li><p><strong>Montagem mecânica:</strong> fixar o motor, hélice e sensor ao braço do pêndulo.</p></li>
+<li><p><strong>Integração elétrica:</strong> ligar motor ao driver e este ao microcontrolador; sensor ligado ao mesmo microcontrolador.</p></li>
+<li><p><strong>Aquisição de dados:</strong> programar a leitura contínua do ângulo via I²C.</p></li>
+<li><p><strong>Ação de controlo:</strong> gerar sinal PWM para o motor em função do erro (posição desejada – posição medida).</p></li>
+<li><p><strong>Estratégias de controlo:</strong> iniciar com controlo proporcional (P), depois evoluir para PI ou PID.</p></li>
+</ol>
+</section>
+<section id="Trabalho-a-Desenvolver">
+<h2>Trabalho a Desenvolver<a class="headerlink" href="#Trabalho-a-Desenvolver" title="Link to this heading"></a></h2>
+<p>O trabalho pode ser dividido nas seguintes fases:</p>
+<section id="1.-Estudo-Teórico-e-Modelação">
+<h3>1. Estudo Teórico e Modelação<a class="headerlink" href="#1.-Estudo-Teórico-e-Modelação" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Rever equações do movimento do aeropêndulo.</p></li>
+<li><p>Simular a resposta</p></li>
+</ul>
+</section>
+<section id="2.-Testes-de-Hardware">
+<h3>2. Testes de Hardware<a class="headerlink" href="#2.-Testes-de-Hardware" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Testar motor, driver e sensor isoladamente.</p></li>
+<li><p>Registar medições de velocidade e ângulo.</p></li>
+</ul>
+</section>
+<section id="3.-Integração">
+<h3>3. Integração<a class="headerlink" href="#3.-Integração" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Montar o sistema físico.</p></li>
+<li><p>Estabelecer comunicação entre todos os módulos.</p></li>
+</ul>
+</section>
+<section id="4.-Implementação-de-Controlo">
+<h3>4. Implementação de Controlo<a class="headerlink" href="#4.-Implementação-de-Controlo" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Desenvolver código de controlo (Arduino/Python).</p></li>
+<li><p>Ajustar ganhos do controlador (P → PI → PID).</p></li>
+<li><p>Implementar malha fechada.</p></li>
+</ul>
+</section>
+<section id="5.-Testes-Experimentais">
+<h3>5. Testes Experimentais<a class="headerlink" href="#5.-Testes-Experimentais" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Observar resposta a degraus de referência.</p></li>
+<li><p>Analisar estabilidade e tempo de resposta.</p></li>
+<li><p>Comparar resultados experimentais com simulação.</p></li>
+</ul>
+</section>
+<section id="6.-Relatório-Final">
+<h3>6. Relatório Final<a class="headerlink" href="#6.-Relatório-Final" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Documentar a metodologia, resultados e comparação entre teoria e prática.</p></li>
+<li><p>Apresentar sugestões de melhorias.</p></li>
+</ul>
+</section>
+</section>
 </section>
 
 
