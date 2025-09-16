@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Analogias e estimativas &mdash; oficina3  documentation</title>
+  <title>Analogias &mdash; oficina3  documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
 
@@ -22,7 +22,7 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Motor DC" href="motorDC.html" />
+    <link rel="next" title="Pendulum (theory)" href="pendulum-theory.html" />
     <link rel="prev" title="Projeto 1: Desenvolvimento e Teste de um Aeropêndulo" href="aeropendulum.html" /> 
 </head>
 
@@ -53,16 +53,19 @@
 <p class="caption" role="heading"><span class="caption-text">Projeto 1</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="aeropendulum.html">Projeto 1: Desenvolvimento e Teste de um Aeropêndulo</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Analogias e estimativas</a></li>
-<li class="toctree-l1"><a class="reference internal" href="motorDC.html">Motor DC</a></li>
-<li class="toctree-l1"><a class="reference internal" href="liftForce.html">Helice - Força de impulsão</a></li>
-<li class="toctree-l1"><a class="reference internal" href="drive.html">Motor DC (drive)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="stateMachine.html">State machines</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Analogias</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#Analogia-Linear–Rotacional">Analogia Linear–Rotacional</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Analogia-Mecânica–Elétrica">Analogia Mecânica–Elétrica</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Exemplo-Numérico-Rápido">Exemplo Numérico Rápido</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pendulum-theory.html">Pendulum (theory)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="motorDC-theory.html">Motor DC (theory)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="motorDC-lab.html">Motor DC (drive)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="encoder.html">Encoder</a></li>
-<li class="toctree-l1"><a class="reference internal" href="pendulum.html">Pendulum Dynamics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stateMachine.html">State machines</a></li>
 <li class="toctree-l1"><a class="reference internal" href="controller.html">Controller</a></li>
-<li class="toctree-l1"><a class="reference internal" href="integration.html">Arduino System Integration</a></li>
-<li class="toctree-l1"><a class="reference internal" href="integration.html#Programming">Programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="integration.html">Integração do Sistema Arduino no Aeropêndulo</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Projeto 2</span></p>
 <ul>
@@ -87,7 +90,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">Analogias e estimativas</li>
+      <li class="breadcrumb-item active">Analogias</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/project1/analogies.ipynb.txt" rel="nofollow"> View page source</a>
       </li>
@@ -97,120 +100,138 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="Analogias-e-estimativas">
-<h1>Analogias e estimativas<a class="headerlink" href="#Analogias-e-estimativas" title="Link to this heading"></a></h1>
-<p><strong>Analogia linear-rotacional</strong></p>
+  <section id="Analogias">
+<h1>Analogias<a class="headerlink" href="#Analogias" title="Link to this heading"></a></h1>
+<div class="line-block">
+<div class="line">Um dos recursos mais poderosos em engenharia é o uso de <strong>analogias</strong>: compreender um sistema novo fazendo paralelos com algo que já conhecemos bem.</div>
+<div class="line">No projeto do aeropêndulo, vamos explorar duas analogias fundamentais:</div>
+</div>
+<ol class="arabic simple">
+<li><p><strong>Movimento linear ↔ movimento rotacional</strong></p></li>
+<li><p><strong>Domínio mecânico ↔ domínio elétrico</strong></p></li>
+</ol>
+<p>Estas correspondências não só ajudam a compreender novos conceitos, como permitem começar a <strong>quantificar</strong> os fenómenos com ordens de grandeza realistas.</p>
+<hr class="docutils" />
+<section id="Analogia-Linear–Rotacional">
+<h2>Analogia Linear–Rotacional<a class="headerlink" href="#Analogia-Linear–Rotacional" title="Link to this heading"></a></h2>
+<div class="line-block">
+<div class="line">Assim como uma partícula se move em linha reta com posição, velocidade e aceleração, também um corpo rígido pode girar em torno de um eixo.</div>
+<div class="line">As grandezas correspondentes são:</div>
+</div>
 <table class="docutils align-default">
 <thead>
-<tr class="row-odd"><th class="head"><p>Quantity</p></th>
+<tr class="row-odd"><th class="head"><p>Grandeza</p></th>
 <th class="head"><p>Linear</p></th>
-<th class="head"><p>Angular</p></th>
+<th class="head"><p>Rotacional</p></th>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p>Position</p></td>
+<tr class="row-even"><td><p>Posição</p></td>
 <td><p><span class="math notranslate nohighlight">\(x\)</span></p></td>
 <td><p><span class="math notranslate nohighlight">\(\theta\)</span></p></td>
 </tr>
-<tr class="row-odd"><td><p>Velocity</p></td>
+<tr class="row-odd"><td><p>Velocidade</p></td>
 <td><p><span class="math notranslate nohighlight">\(v = \frac{dx}{dt}\)</span></p></td>
 <td><p><span class="math notranslate nohighlight">\(\omega = \frac{d\theta}{dt}\)</span></p></td>
 </tr>
-<tr class="row-even"><td><p>Acceleration</p></td>
+<tr class="row-even"><td><p>Aceleração</p></td>
 <td><p><span class="math notranslate nohighlight">\(a = \frac{dv}{dt}\)</span></p></td>
 <td><p><span class="math notranslate nohighlight">\(\alpha = \frac{d\omega}{dt}\)</span></p></td>
 </tr>
 </tbody>
 </table>
-<p><strong>Newton’s Laws for Linear Motion</strong></p>
-<div class="math notranslate nohighlight">
+<p>As leis de Newton aplicam-se de forma análoga:</p>
+<ul>
+<li><div class="line-block">
+<div class="line">Movimento linear:</div>
+<div class="line"><br /></div>
+</div>
+<blockquote>
+<div><div class="math notranslate nohighlight">
 \[F = m a\]</div>
-<ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(F\)</span>: Force (N)</p></li>
-<li><p><span class="math notranslate nohighlight">\(m\)</span>: Mass (kg)</p></li>
-<li><p><span class="math notranslate nohighlight">\(a\)</span>: Acceleration (m/s²)</p></li>
-</ul>
-<p><strong>Newton’s Laws for Rotational Motion</strong></p>
-<div class="math notranslate nohighlight">
+</div></blockquote>
+</li>
+<li><div class="line-block">
+<div class="line">Movimento rotacional:</div>
+<div class="line"><br /></div>
+</div>
+<blockquote>
+<div><div class="math notranslate nohighlight">
 \[\tau = I \alpha\]</div>
-<ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(\tau\)</span>: Torque (Nm)</p></li>
-<li><p><span class="math notranslate nohighlight">\(I\)</span>: Moment of inertia (kg·m²)</p></li>
-<li><p><span class="math notranslate nohighlight">\(\alpha\)</span>: Angular acceleration (rad/s²)</p></li>
+</div></blockquote>
+</li>
 </ul>
-<p>To rotate a body with <strong>friction torque</strong> <span class="math notranslate nohighlight">\(\tau_f\)</span>:</p>
-<div class="math notranslate nohighlight">
-\[\tau_{\text{net}} = I \alpha + \tau_f\]</div>
-<p>A spinning disk induces a <strong>reaction torque</strong>:</p>
-<div class="math notranslate nohighlight">
-\[\tau_{\text{reaction}} = -I \alpha\]</div>
-<p>Note the correspondence of linear vs angular motion parameters.</p>
-<p><strong>Analogia mecânica-elétrica</strong></p>
-<p>Power conversion</p>
-<p>In a rotating system, energy and power are governed by the following key relations.</p>
-<p>The <strong>rotational kinetic energy</strong> of a spinning body is:</p>
-<div class="math notranslate nohighlight">
-\[E_{\text{rot}} = \frac{1}{2} I \omega^2\]</div>
-<p>where:</p>
-<ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(I\)</span> is the moment of inertia (in kg·m²),</p></li>
-<li><p><span class="math notranslate nohighlight">\(\omega\)</span> is the angular velocity (in rad/s).</p></li>
+<p>onde <span class="math notranslate nohighlight">\(F\)</span> é a força, <span class="math notranslate nohighlight">\(m\)</span> a massa, <span class="math notranslate nohighlight">\(\tau\)</span> o binário (torque), <span class="math notranslate nohighlight">\(I\)</span> o momento de inércia e <span class="math notranslate nohighlight">\(\alpha\)</span> a aceleração angular.</p>
+</section>
+<hr class="docutils" />
+<section id="Analogia-Mecânica–Elétrica">
+<h2>Analogia Mecânica–Elétrica<a class="headerlink" href="#Analogia-Mecânica–Elétrica" title="Link to this heading"></a></h2>
+<p>Da mesma forma, existem paralelos entre o domínio mecânico e o elétrico:</p>
+<ul>
+<li><div class="line-block">
+<div class="line"><strong>Energia cinética rotacional</strong></div>
+<div class="line"><br /></div>
+</div>
+<blockquote>
+<div><div class="math notranslate nohighlight">
+\[E_{\text{rot}} = \tfrac{1}{2} I \omega^2\]</div>
+</div></blockquote>
+</li>
+<li><div class="line-block">
+<div class="line"><strong>Potência mecânica instantânea</strong></div>
+<div class="line"><br /></div>
+</div>
+<blockquote>
+<div><div class="math notranslate nohighlight">
+\[P_{\text{mec}} = \tau \cdot \omega\]</div>
+</div></blockquote>
+</li>
+<li><div class="line-block">
+<div class="line"><strong>Potência elétrica fornecida ao motor</strong></div>
+<div class="line"><br /></div>
+</div>
+<blockquote>
+<div><div class="math notranslate nohighlight">
+\[P_{\text{elec}} = I \cdot V\]</div>
+</div></blockquote>
+</li>
 </ul>
-<p>The <strong>mechanical power</strong> delivered to or from a rotating body is:</p>
-<div class="math notranslate nohighlight">
-\[P_{\text{mech}} = \tau \cdot \omega\]</div>
-<p>where:</p>
+<p>A corrente elétrica medida no motor está diretamente relacionada com o binário aplicado no eixo.</p>
+</section>
+<hr class="docutils" />
+<section id="Exemplo-Numérico-Rápido">
+<h2>Exemplo Numérico Rápido<a class="headerlink" href="#Exemplo-Numérico-Rápido" title="Link to this heading"></a></h2>
+<p>Considere-se um braço do aeropêndulo com:</p>
 <ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(\tau\)</span> is the torque (in N·m),</p></li>
-<li><p><span class="math notranslate nohighlight">\(\omega\)</span> is the angular velocity (in rad/s).</p></li>
+<li><p>massa equivalente <span class="math notranslate nohighlight">\(m = 0.05\)</span> kg (50 g na extremidade),</p></li>
+<li><p>comprimento <span class="math notranslate nohighlight">\(r = 0.10\)</span> m,</p></li>
+<li><p>velocidade angular <span class="math notranslate nohighlight">\(\omega = 2\pi\)</span> rad/s (1 volta por segundo),</p></li>
+<li><p>aceleração angular <span class="math notranslate nohighlight">\(\alpha = 2\pi\)</span> rad/s².</p></li>
 </ul>
-<p>In electromechanical systems (e.g. DC motor + disk), the mechanical power must come from electrical input power. If <span class="math notranslate nohighlight">\(\eta\)</span> is the efficiency of conversion:</p>
+<ol class="arabic">
+<li><p><strong>Momento de inércia (massa concentrada na extremidade):</strong></p>
 <div class="math notranslate nohighlight">
-\[P_{\text{elec}} = \frac{P_{\text{mech}}}{\eta}\]</div>
-<p>and</p>
+\[I = m r^2 = 0.05 x  0.10^2 = 5.0 \times 10^{-4}\ (kg·m)^2\]</div>
+</li>
+<li><p><strong>Energia cinética rotacional:</strong></p>
 <div class="math notranslate nohighlight">
-\[P_{\text{elec}} = V \cdot I\]</div>
-<p>where:</p>
-<ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(V\)</span> is the supply voltage (in volts),</p></li>
-<li><p><span class="math notranslate nohighlight">\(I\)</span> is the current (in amperes),</p></li>
-<li><p><span class="math notranslate nohighlight">\(\eta\)</span> is the efficiency (e.g. 0.8 for 80%).</p></li>
-</ul>
-<p><strong>Numerical Example</strong></p>
-<p>Let’s consider a <strong>solid disk</strong> with:</p>
-<ul class="simple">
-<li><p>mass <span class="math notranslate nohighlight">\(m = 1\)</span> kg,</p></li>
-<li><p>radius <span class="math notranslate nohighlight">\(r = 0.05\)</span> m (10 cm diameter),</p></li>
-<li><p>angular velocity <span class="math notranslate nohighlight">\(\omega = 2\pi\)</span> rad/s (i.e., 1 turn/s),</p></li>
-<li><p>angular acceleration <span class="math notranslate nohighlight">\(\alpha = 2\pi\)</span> rad/s²,</p></li>
-<li><p>efficiency <span class="math notranslate nohighlight">\(\eta = 0.8\)</span>.</p></li>
-</ul>
-<ol class="arabic simple">
-<li><p>Moment of Inertia of the Disk:</p></li>
+\[E_{{rot}} = \tfrac{1}{2} I \omega^2 = \tfrac{1}{2} \cdot 5.0 \times 10^{-4} x  (2\pi)^2 \approx 0.010\ J\]</div>
+</li>
+<li><p><strong>Binário necessário para a aceleração dada:</strong></p>
+<div class="math notranslate nohighlight">
+\[\tau = I \alpha = 5.0 \times 10^{-4} \cdot  2\pi \approx 0.0031\ N·m\]</div>
+</li>
+<li><p><strong>Potência mecânica correspondente:</strong></p>
+<div class="math notranslate nohighlight">
+\[P_{{mec}} = \tau   \omega = 0.0031 \cdot 2\pi \approx 0.019\ W\]</div>
+</li>
+<li><p><strong>Potência elétrica necessária (assumindo 70% eficiência):</strong></p>
+<div class="math notranslate nohighlight">
+\[P_{elec} = \frac{P_{mec}}{0.7} \approx 0.027\ W\]</div>
+</li>
 </ol>
-<div class="math notranslate nohighlight">
-\[I = \frac{1}{2} m r^2 = \frac{1}{2} \cdot 1 \cdot (0.05)^2 = 0.00125 \ kg·m^2\]</div>
-<ol class="arabic simple" start="2">
-<li><p>Kinetic Energy of Rotation:</p></li>
-</ol>
-<div class="math notranslate nohighlight">
-\[E_{\text{rot}} = \frac{1}{2} I \omega^2 = \frac{1}{2} \cdot 0.00125 \cdot (2\pi)^2 \approx 0.049 \ \text{J}\]</div>
-<ol class="arabic simple" start="3">
-<li><p>Required Torque: Assuming angular acceleration <span class="math notranslate nohighlight">\(\alpha = 2\pi\)</span> rad/s²:</p></li>
-</ol>
-<div class="math notranslate nohighlight">
-\[\tau = I \cdot \alpha = 0.00125 \cdot 2\pi \approx 0.00785 \ N·m\]</div>
-<ol class="arabic simple" start="4">
-<li><p>Mechanical Power:</p></li>
-</ol>
-<div class="math notranslate nohighlight">
-\[P_{\text{mech}} = \tau \cdot \omega = 0.00785 \cdot 2\pi \approx 0.049 \ \text{W}\]</div>
-<ol class="arabic simple" start="5">
-<li><p>Electrical Power Required: With 80% efficiency:</p></li>
-</ol>
-<div class="math notranslate nohighlight">
-\[P_{\text{elec}} = \frac{P_{\text{mech}}}{\eta} = \frac{0.049}{0.8} \approx 0.061 \ \text{W}\]</div>
-<p>This example highlights the relevance of inertia and torque in system design. Note also that the power levels required to drive mechanical motion are typically beyond what basic microcontrollers can provide, and as such it is required to use a transistor based driver circuit between the Arduino and the Dc motors.</p>
+<p>Estes valores mostram que, apesar da energia envolvida ser pequena em termos absolutos (da ordem dos <strong>miliwatts a watts</strong>), é suficiente para exigir o uso de um <strong>driver de potência</strong> entre o microcontrolador (Arduino) e o motor, pois o microcontrolador não fornece correntes da ordem das centenas de miliamperes ou amperes.</p>
+</section>
 </section>
 
 
@@ -218,7 +239,7 @@
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="aeropendulum.html" class="btn btn-neutral float-left" title="Projeto 1: Desenvolvimento e Teste de um Aeropêndulo" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="motorDC.html" class="btn btn-neutral float-right" title="Motor DC" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="pendulum-theory.html" class="btn btn-neutral float-right" title="Pendulum (theory)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

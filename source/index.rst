@@ -83,12 +83,11 @@ Content
 
    project1/aeropendulum.ipynb
    project1/analogies.ipynb
-   project1/motorDC.ipynb
-   project1/liftForce.ipynb
-   project1/drive.ipynb
-   project1/stateMachine.ipynb
+   project1/pendulum-theory.ipynb
+   project1/motorDC-theory.ipynb
+   project1/motorDC-lab.ipynb
    project1/encoder.ipynb
-   project1/pendulum.ipynb
+   project1/stateMachine.ipynb
    project1/controller.ipynb
    project1/integration.ipynb
 

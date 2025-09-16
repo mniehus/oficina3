@@ -51,16 +51,14 @@
 <p class="caption" role="heading"><span class="caption-text">Projeto 1</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../aeropendulum.html">Projeto 1: Desenvolvimento e Teste de um Aeropêndulo</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../analogies.html">Analogias e estimativas</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../motorDC.html">Motor DC</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../liftForce.html">Helice - Força de impulsão</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../drive.html">Motor DC (drive)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../stateMachine.html">State machines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../analogies.html">Analogias</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pendulum-theory.html">Pendulum (theory)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../motorDC-theory.html">Motor DC (theory)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../motorDC-lab.html">Motor DC (drive)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../encoder.html">Encoder</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../pendulum.html">Pendulum Dynamics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../stateMachine.html">State machines</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../controller.html">Controller</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../integration.html">Arduino System Integration</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../integration.html#Programming">Programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../integration.html">Integração do Sistema Arduino no Aeropêndulo</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Projeto 2</span></p>
 <ul>
@@ -99,7 +97,7 @@
 <h1>Modelling<a class="headerlink" href="#Modelling" title="Link to this heading"></a></h1>
 <p>The simulation involves modeling the dynamics of a Reaction Wheel Inverted Pendulum (RWIP) system. The key components include:</p>
 <p><strong>Reaction Wheel Inverted Pendulum Dynamics</strong></p>
-<p><img alt="2bbd127fc20049fc81c8a5dc6fd3f5cd" class="no-scaled-link" src="https://github.com/B-Paweekorn/Reaction-wheel-inverted-pendulum/assets/122732439/6c59b7a7-6aa7-4a73-b353-9e242e6aae1c" style="width: 480px;" /></p>
+<p><img alt="fd214fb7625d4e2c95220c03aabe518b" class="no-scaled-link" src="https://github.com/B-Paweekorn/Reaction-wheel-inverted-pendulum/assets/122732439/6c59b7a7-6aa7-4a73-b353-9e242e6aae1c" style="width: 480px;" /></p>
 <p>RWIP Parameter</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">L1</span></code> - Pendulum length from orgin to center of mass</p></li>
@@ -128,7 +126,7 @@
 <p>  <span class="math notranslate nohighlight">\(\ddot{\theta_p} = \frac{m_{1}gL_{1}\sin\left(\theta_{p}\right)\ +\ m_{2}gL_{2}\sin\left(\theta_{p}\right)\ -\ T_{m} +\ T_{d}}{m_{1}L_{1}^{2}+m_{2}L_{2}+I_{1}}\)</span></p>
 <p>  <span class="math notranslate nohighlight">\(\ddot{\theta_r} = \frac{T_{r}}{I_{2}}\-\frac{m_{1}gL_{1}\ +\ m_{2}gL_{2}\ -\ T_{m} +\ T_{d}}{m_{1}L_{1}^{2}+m_{2}L_{2}+I_{1}}\)</span></p>
 <p><strong>DC Motor Dynamics</strong></p>
-<p><img alt="f62917a86dce4cbdacaba98a394b7482" class="no-scaled-link" src="https://github.com/B-Paweekorn/Reaction-wheel-inverted-pendulum/assets/122732439/482f83f0-a4d7-4a70-b65e-006408f06a36" style="width: 480px;" /></p>
+<p><img alt="36cf515fa4ff44b88a8143bc79b78c66" class="no-scaled-link" src="https://github.com/B-Paweekorn/Reaction-wheel-inverted-pendulum/assets/122732439/482f83f0-a4d7-4a70-b65e-006408f06a36" style="width: 480px;" /></p>
 <p>Brushed DC Motor Parameter</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">Vin</span></code> - Input Voltage</p></li>
@@ -182,7 +180,7 @@
 </li>
 <li><p><strong>Bang-bang Controller</strong>: The swing up control routine and the stabilizing control routine are switched between -25 to 25 degree</p></li>
 </ul>
-<p>   <img alt="c17786684d934b5e9481fd76f21dd295" class="no-scaled-link" src="https://github.com/B-Paweekorn/Reaction-wheel-inverted-pendulum/assets/122732439/79e6d6d3-9ab2-49eb-a58b-3ad10a96a96b" style="width: 480px;" /></p>
+<p>   <img alt="a175a60fab0c4eccb4e52a6e1d8d387a" class="no-scaled-link" src="https://github.com/B-Paweekorn/Reaction-wheel-inverted-pendulum/assets/122732439/79e6d6d3-9ab2-49eb-a58b-3ad10a96a96b" style="width: 480px;" /></p>
 <ul class="simple">
 <li><p><strong>Brake Controller</strong>: Used as reduced energy of RWIP when RWIP have too much energy for stabilze</p></li>
 </ul>
