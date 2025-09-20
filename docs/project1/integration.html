@@ -6,9 +6,11 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Integração do Sistema Arduino no Aeropêndulo &mdash; oficina3  documentation</title>
+  <title>Integração do Sistema &mdash; oficina3  documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
 
   
       <script src="../_static/jquery.js?v=5d32c60e"></script>
@@ -16,6 +18,9 @@
       <script src="../_static/documentation_options.js?v=5929fcd5"></script>
       <script src="../_static/doctools.js?v=9bcbadda"></script>
       <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../_static/copybutton.js?v=f281be69"></script>
+      <script src="../_static/design-tabs.js?v=f930bc37"></script>
       <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
       <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
       <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -23,7 +28,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Carro programável" href="../project2/readme.html" />
-    <link rel="prev" title="Controller" href="controller.html" /> 
+    <link rel="prev" title="PID Controller" href="controller.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -54,13 +59,14 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="aeropendulum.html">Projeto 1: Desenvolvimento e Teste de um Aeropêndulo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="analogies.html">Analogias</a></li>
-<li class="toctree-l1"><a class="reference internal" href="pendulum-theory.html">Pendulum (theory)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pendulum-theory.html">Aeropendulum (theory)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="motorDC-theory.html">Motor DC (theory)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="motorDC-lab.html">Motor DC (drive)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="encoder.html">Encoder</a></li>
-<li class="toctree-l1"><a class="reference internal" href="coding.html">Programar o sistema do aeropêndulo</a></li>
-<li class="toctree-l1"><a class="reference internal" href="controller.html">Controller</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Integração do Sistema Arduino no Aeropêndulo</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="coding.html">Programar</a></li>
+<li class="toctree-l1"><a class="reference internal" href="motorCalib-EN.html">State-Machines applied to automated DC Motor Calibration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="controller.html">PID Controller</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Integração do Sistema</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#Requisitos-Gerais">Requisitos Gerais</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#Componentes-Típicos">Componentes Típicos</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#Passos-de-Integração">Passos de Integração</a></li>
@@ -92,7 +98,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">Integração do Sistema Arduino no Aeropêndulo</li>
+      <li class="breadcrumb-item active">Integração do Sistema</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/project1/integration.ipynb.txt" rel="nofollow"> View page source</a>
       </li>
@@ -102,8 +108,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="Integração-do-Sistema-Arduino-no-Aeropêndulo">
-<h1>Integração do Sistema Arduino no Aeropêndulo<a class="headerlink" href="#Integração-do-Sistema-Arduino-no-Aeropêndulo" title="Link to this heading"></a></h1>
+  <section id="Integração-do-Sistema">
+<h1>Integração do Sistema<a class="headerlink" href="#Integração-do-Sistema" title="Link to this heading"></a></h1>
 <section id="Requisitos-Gerais">
 <h2>Requisitos Gerais<a class="headerlink" href="#Requisitos-Gerais" title="Link to this heading"></a></h2>
 <p>O sistema de controlo do aeropêndulo deve integrar, de forma coerente e segura, os seguintes elementos:</p>
@@ -199,7 +205,7 @@
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="controller.html" class="btn btn-neutral float-left" title="Controller" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="controller.html" class="btn btn-neutral float-left" title="PID Controller" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="../project2/readme.html" class="btn btn-neutral float-right" title="Carro programável" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 

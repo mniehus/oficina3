@@ -5,7 +5,7 @@
    "id": "777436b4",
    "metadata": {},
    "source": [
-    "## Integração do Sistema Arduino no Aeropêndulo\n",
+    "## Integração do Sistema\n",
     "\n",
     "### Requisitos Gerais\n",
     "\n",

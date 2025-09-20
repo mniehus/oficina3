@@ -16,12 +16,26 @@ author = 'mniehus'
 extensions = [
     'nbsphinx',  # or 'myst_nb'
     'myst_parser', # for markdown
+    "sphinxcontrib.mermaid",  # for Mermaid diagrams (optional but handy)
+    "sphinx_design",          # for dropdowns/cards (optional)
+    "sphinx_copybutton",  # little "copy" icon on code blocks
     'sphinx.ext.autodoc', #for python api docs
     'sphinx.ext.mathjax',  # Recommended for HTML output
     # or 'sphinx.ext.imgmath' for image-based math
 ]
 
-myst_enable_extensions = ["dollarmath"]
+myst_enable_extensions = [
+    "dollarmath",
+    "colon_fence",
+    "deflist",
+    #"attrs"
+    ]
+
+myst_fence_as_directive = ["mermaid"]
+
+# Syntax highlighting (Pygments)
+#highlight_language = "cpp"   # Arduino is C++
+#pygments_style = "friendly"  # or leave default
 
 templates_path = ['_templates']
 exclude_patterns = []

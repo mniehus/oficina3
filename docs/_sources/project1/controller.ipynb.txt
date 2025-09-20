@@ -5,7 +5,7 @@
    "id": "b545d08a",
    "metadata": {},
    "source": [
-    "### Controller\n",
+    "### PID Controller\n",
     "\n",
     "A control system aims to keep the pendulum balanced using feedback.\n",
     "\n",

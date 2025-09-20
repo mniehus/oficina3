@@ -9,6 +9,8 @@
   <title>Modelling and Simulation &mdash; oficina3  documentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
       <link rel="stylesheet" type="text/css" href="../../_static/nbsphinx-code-cells.css?v=2aa19091" />
 
   
@@ -17,6 +19,9 @@
       <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
       <script src="../../_static/doctools.js?v=9bcbadda"></script>
       <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../_static/copybutton.js?v=f281be69"></script>
+      <script src="../../_static/design-tabs.js?v=f930bc37"></script>
       <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
       <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
       <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -53,13 +58,14 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../project1/aeropendulum.html">Projeto 1: Desenvolvimento e Teste de um Aeropêndulo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../project1/analogies.html">Analogias</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../project1/pendulum-theory.html">Pendulum (theory)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../project1/pendulum-theory.html">Aeropendulum (theory)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../project1/motorDC-theory.html">Motor DC (theory)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../project1/motorDC-lab.html">Motor DC (drive)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../project1/encoder.html">Encoder</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../project1/coding.html">Programar o sistema do aeropêndulo</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../project1/controller.html">Controller</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../project1/integration.html">Integração do Sistema Arduino no Aeropêndulo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../project1/coding.html">Programar</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../project1/motorCalib-EN.html">State-Machines applied to automated DC Motor Calibration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../project1/controller.html">PID Controller</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../project1/integration.html">Integração do Sistema</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Projeto 2</span></p>
 <ul>
@@ -1085,7 +1091,7 @@
 </li>
 <li><p><strong>Bang-bang Controller</strong>: The swing up control routine and the stabilizing control routine are switched between -25 to 25 degree</p></li>
 </ul>
-<p>   <img alt="842a207d69134ead8df85a3b05f93740" class="no-scaled-link" src="https://github.com/B-Paweekorn/Reaction-wheel-inverted-pendulum/assets/122732439/79e6d6d3-9ab2-49eb-a58b-3ad10a96a96b" style="width: 480px;" /></p>
+<p>   <img alt="3dfbaddb3d194416b6ee0b853876b700" class="no-scaled-link" src="https://github.com/B-Paweekorn/Reaction-wheel-inverted-pendulum/assets/122732439/79e6d6d3-9ab2-49eb-a58b-3ad10a96a96b" style="width: 480px;" /></p>
 <ul class="simple">
 <li><p><strong>Brake Controller</strong>: Used as reduced energy of RWIP when RWIP have too much energy for stabilze</p></li>
 </ul>

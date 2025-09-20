@@ -5,7 +5,7 @@
    "id": "9fe12a0c",
    "metadata": {},
    "source": [
-    "# Pendulum (theory)\n",
+    "# Aeropendulum (theory)\n",
     "\n",
     "Analysis of a **damped driven pendulum** with a **step torque input** starting at $t = 0$, including:\n",
     "\n",
