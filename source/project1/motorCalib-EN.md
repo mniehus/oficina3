@@ -1,4 +1,4 @@
-# State-Machines applied to automated DC Motor Calibration 
+# State-Machines applied to DC Motor Calibration 
 
 This document is an **intro + guide** to the project of the DC Motor Calibration Automated Test Setup. It is organized into six small, independent **state machines (FSMs)**. It’s meant to help students see why we use FSMs, how the code stays tidy as the system grows, and how each module interacts via a tiny set of shared globals.
 
