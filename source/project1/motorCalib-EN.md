@@ -1,6 +1,28 @@
 # State-Machines applied to DC Motor Calibration 
 
-This document is an **intro + guide** to the project of the DC Motor Calibration Automated Test Setup. It is organized into six small, independent **state machines (FSMs)**. It’s meant to help students see why we use FSMs, how the code stays tidy as the system grows, and how each module interacts via a tiny set of shared globals.
+This document is an **intro + guide** to the project of the DC Motor Calibration Automated Test Setup. 
+
+The project automates a **speed–voltage calibration** for a small DC propulsion unit. An Arduino generates a configurable **PWM (=pulse width modulation) ramp TTL signal** that drives an H-bridge motor driver, which powers a **3.7 V drone DC motor** with a **two-blade propeller**. The motor sits in a simple rig with an **optical slot sensor** acting as an incremental encoder: each blade crossing produces a pulse used to infer **rotational speed RPM (=rotations per minute)**. Test parameters—ramp maximum, duration, step/cadence—are set in software so the same bench hardware can run many repeatable sweeps.
+
+During a run, the PWM ramp and the RPM measurements are **synchronized**: PWM updates define clean timing windows over which pulses are counted and converted to RPM (or, alternatively, a fixed sampling period can be used). After each measurement, the system streams **tab-separated values (TSV)** over the USB serial link—time, commanded waveform value, applied PWM, and RPM—so the user can copy-paste straight into Excel (or any spreadsheet) for plotting and further analysis.
+
+The **hardware part** is simple. A **PC** connects over **USB** to an **Arduino board** (e.g., Arduino Uno). One **PWM-capable digital pin** on the Arduino feeds the **H-bridge DC motor driver’s enable/PWM input**. 
+
+The H-bridge board is powered by a **bench DC supply** (set to the motor’s rated voltage/current) and drives a **3.7 V mini drone DC motor** fitted with a **two-blade propeller**. Verify that voltage–current operating points during the calibration ramp are not limited by the DC supply (current limit/sag), especially at high speed/high load. 
+
+An **optical slot sensor** (IR LED + phototransistor) is mounted in a small mechanical setup so each blade interrupts the beam once per revolution half-turn, producing two clean pulses per revolution. Use the slot sensor board’s LED indicators to align the blades for a clean RPM signal, and prefer the sensor’s digital output over the analog output. The sensor output connects to an **Arduino interrupt pin** (e.g., D2) for accurate pulse counting. 
+
+Logic grounds are commoned: Arduino GND ↔ driver logic GND ↔ sensor GND. The motor power supply is separated from the logic power supply, which stays tied at the driver. Power the motor from the bench supply and the Arduino from USB to reduce coupling; the H-bridge’s internal diodes handle flyback.
+
+For real time observation, use two scope test points: the **PWM signal** (Arduino → driver enable) and the **RPM pulse signal** (sensor → Arduino interrupt). View duty and pulse timing on an oscilloscope while the Arduino simultaneously uses them (drive and measure). 
+
+For user input, a **pushbutton**, a **potentiometer (knob)**, and the **USB serial interface** can be considered for future use. Also, for user output, **three RGB LEDs** for visual feedback and a **piezo buzzer** for acoustic signalling/sound feedback can be used. These are included for completeness here; however, their use in the current project is optional, but they can be handy to implement simple user interfaces here or in other projects.
+
+The **software part** is organized into six small independent tasks, through modules that are coded as  **finite state machines (FSMs)**. 
+
+This system is an **experimental test ground for academic training**. While the automated DC motor calibration could be implemented more simply, the goal is to introduce and consolidate a **reusable, modular FSM framework** that is scalable and easy to adapt to future projects.
+
+It’s meant to teach students how FSMs work, how to implement and test them, to understand why we use FSMs, and show that the code is reusable and scalablable, that it stays clear and tidy as the system grows (no spaghetti!), and how the modules are integrated into a system, and how they can interact via a small set of shared globals.
 
 ---
 
@@ -47,20 +69,16 @@ UserOutput_FSM.ino              // UserOutput_FSM_update()
 * **User Output FSM**: Drives RGB LEDs and a piezo via `tone()` (continuous or timed) or digital toggling; consumes `sig_led_*` and `sig_buzzer_*`.
 
 
-**How do modules interact?**
+**How do the parts come together?**
 
 1. **Waveform → PWM:** The Waveform FSM produces a **desired duty** (`sig_waveform_value`).
 2. **PWM applies (with safety):** PWM FSM clamps, optionally lifts small values, and **slew-limits** before writing the pin. It also increments `sig_pwm_update_counter` on each update.
 3. **RPM sampling:** RPM FSM measures pulses either on a fixed period or **in sync with PWM windows** (edge-to-edge), then writes `sig_rpm`.
 4. **Logging:** Data Logger prints TSV lines either periodically or per PWM window, with selectable columns for **time / waveform / PWM / RPM**.
 5. **User input/output:** The User Input FSM updates `sig_input_*` from the **button, pot, and serial**. `sig_led_*` and the buzzer signals are also globally declared, and are driven by User Output FSM. Any state machine can access them. 
-
-
-**How it comes together**
-
-* `MotorCalib.ino` is the “composer”: it declares the **shared global variables**, configures and attaches the **encoder ISR**, leaves `setup()` empty (FSMs self-init on first call), and in `loop()` calls the FSMs in order, e.g.
+6. `MotorCalib.ino` is the “composer”: it declares the **shared global variables**, configures and attaches the **encoder ISR**, leaves `setup()` empty (FSMs self-init on first call), and in `loop()` calls the FSMs in order, e.g.
   `Waveform → PWM Output → RPM → Datalogger → User Input → User Output`.
-* Each FSM is **non-blocking** and advances via timers and `switch(state)`; they read/write only the documented globals, so files remain independent and reusable across projects.
+  7. Each FSM is **non-blocking** and advances via timers and `switch(state)`; they read/write only the documented globals, so files remain independent and reusable across projects.
 
 
 ## Tips for Labs & Testing
@@ -72,9 +90,10 @@ UserOutput_FSM.ino              // UserOutput_FSM_update()
 
 ---
 
-## Annex 1: Controller and global signals
+## Annex 1: Full reference code base
+The full reference code base is available for download for course participants on the courses moodle platform, pls check.
 
-### Calibration Controller
+## Annex 2: Calibration Controller
 
 The **calibration controller**  Arduino file `motorCalib.ino` is the project’s orchestration point. It **owns the shared signals** (simple global variables), **defines the encoder ISR**, and **runs all finite-state machines (FSMs) once per loop** in a fixed, non-blocking order. Each FSM keeps its own local configuration and internal timing; the controller only wires them together through a few globals.
 
@@ -100,7 +119,8 @@ The **calibration controller**  Arduino file `motorCalib.ino` is the project’s
 **Code:**   [motorCalib.ino](code/motorCalib/motorCalib.ino)
 
 
-### Global signals
+## Annex 3: Global signals
+
 These are the only cross-module variables. Each FSM **reads** and/or **writes** them.
 
 | Signal                        | Type                     | Producer(s)  | Consumer(s)        | Meaning                                        |
@@ -124,7 +144,7 @@ These are the only cross-module variables. Each FSM **reads** and/or **writes** 
 
 ---
 
-## Annex 2: FSM modules
+## Annex 4: FSM modules explained
 
 Below a concise UML chart for each FSM (states, transitions, key events/activities). These match the code structure.
 
