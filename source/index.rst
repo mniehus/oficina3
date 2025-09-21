@@ -88,6 +88,7 @@ Content
    project1/motorDC-lab.ipynb
    project1/encoder.ipynb
    project1/coding.ipynb
+   project1/motorCalib-PT.md
    project1/motorCalib-EN.md
    project1/controller.ipynb
    project1/integration.ipynb

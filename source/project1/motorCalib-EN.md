@@ -1,4 +1,4 @@
-# State-Machines applied to DC Motor Calibration 
+# \[EN] State-Machines applied to DC Motor Calibration 
 
 This document is an **intro + guide** to the project of the DC Motor Calibration Automated Test Setup. 
 

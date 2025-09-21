@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>State-Machines applied to DC Motor Calibration &mdash; oficina3  documentation</title>
+  <title>[EN] State-Machines applied to DC Motor Calibration &mdash; oficina3  documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
@@ -34,7 +34,7 @@ window.addEventListener("load", () => mermaid.run());
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="PID Controller" href="controller.html" />
-    <link rel="prev" title="Programar" href="coding.html" /> 
+    <link rel="prev" title="[PT] Máquinas de Estados aplicadas à Calibração de Motor DC" href="motorCalib-PT.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -70,7 +70,8 @@ window.addEventListener("load", () => mermaid.run());
 <li class="toctree-l1"><a class="reference internal" href="motorDC-lab.html">Motor DC (drive)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="encoder.html">Encoder</a></li>
 <li class="toctree-l1"><a class="reference internal" href="coding.html">Programar</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">State-Machines applied to DC Motor Calibration</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="motorCalib-PT.html">[PT] Máquinas de Estados aplicadas à Calibração de Motor DC</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">[EN] State-Machines applied to DC Motor Calibration</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#why-state-machines">Why State Machines?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#software-layout">Software layout</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#tips-for-labs-testing">Tips for Labs &amp; Testing</a></li>
@@ -114,7 +115,7 @@ window.addEventListener("load", () => mermaid.run());
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">State-Machines applied to DC Motor Calibration</li>
+      <li class="breadcrumb-item active">[EN] State-Machines applied to DC Motor Calibration</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/project1/motorCalib-EN.md.txt" rel="nofollow"> View page source</a>
       </li>
@@ -124,8 +125,8 @@ window.addEventListener("load", () => mermaid.run());
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section class="tex2jax_ignore mathjax_ignore" id="state-machines-applied-to-dc-motor-calibration">
-<h1>State-Machines applied to DC Motor Calibration<a class="headerlink" href="#state-machines-applied-to-dc-motor-calibration" title="Link to this heading"></a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="en-state-machines-applied-to-dc-motor-calibration">
+<h1>[EN] State-Machines applied to DC Motor Calibration<a class="headerlink" href="#en-state-machines-applied-to-dc-motor-calibration" title="Link to this heading"></a></h1>
 <p>This document is an <strong>intro + guide</strong> to the project of the DC Motor Calibration Automated Test Setup.</p>
 <p>The project automates a <strong>speed–voltage calibration</strong> for a small DC propulsion unit. An Arduino generates a configurable <strong>PWM (=pulse width modulation) ramp TTL signal</strong> that drives an H-bridge motor driver, which powers a <strong>3.7 V drone DC motor</strong> with a <strong>two-blade propeller</strong>. The motor sits in a simple rig with an <strong>optical slot sensor</strong> acting as an incremental encoder: each blade crossing produces a pulse used to infer <strong>rotational speed RPM (=rotations per minute)</strong>. Test parameters—ramp maximum, duration, step/cadence—are set in software so the same bench hardware can run many repeatable sweeps.</p>
 <p>During a run, the PWM ramp and the RPM measurements are <strong>synchronized</strong>: PWM updates define clean timing windows over which pulses are counted and converted to RPM (or, alternatively, a fixed sampling period can be used). After each measurement, the system streams <strong>tab-separated values (TSV)</strong> over the USB serial link—time, commanded waveform value, applied PWM, and RPM—so the user can copy-paste straight into Excel (or any spreadsheet) for plotting and further analysis.</p>
@@ -456,7 +457,7 @@ This ordering ensures:</p>
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="coding.html" class="btn btn-neutral float-left" title="Programar" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="motorCalib-PT.html" class="btn btn-neutral float-left" title="[PT] Máquinas de Estados aplicadas à Calibração de Motor DC" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="controller.html" class="btn btn-neutral float-right" title="PID Controller" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
