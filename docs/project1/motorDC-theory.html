@@ -242,7 +242,8 @@
 <div class="math notranslate nohighlight">
 \[T_{m} = b ω\]</div>
 <p><strong>Speed-voltage transfer curve</strong></p>
-<p>$va = R <span class="math">\frac{b ω}{k_t}</span> + k_e ω = (1+:nbsphinx-math:<cite>frac{Rb}{k_e k_t}</cite>) k_e ω $</p>
+<div class="math notranslate nohighlight">
+\[va = R \frac{b ω}{k_t} + k_e ω = (1+\frac{Rb}{k_e k_t}) k_e ω\]</div>
 <div class="math notranslate nohighlight">
 \[\boxed{ ω = \frac{va}{(1+\frac{Rb}{k_e k_t}) k_e}}\]</div>
 <p>This linear correlation between speed <span class="math notranslate nohighlight">\(\omega\)</span> and applied Voltage <span class="math notranslate nohighlight">\(va\)</span> is called the <strong>speed-voltage transfer curve</strong>.</p>
@@ -250,7 +251,7 @@
 <div class="math notranslate nohighlight">
 \[\frac{1}{(1+\frac{R b}{k_e k_t})k_e}\]</div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
@@ -259,8 +260,16 @@
 <span class="c1"># Voltage range</span>
 <span class="n">va</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
 
+<span class="c1"># Electrical &amp; mechanical parameters (typical/representative)</span>
+<span class="n">R</span>  <span class="o">=</span> <span class="mf">2.7e0</span>      <span class="c1"># Armature resistance [ohm]</span>
+<span class="n">B</span>  <span class="o">=</span> <span class="mf">3.0e-8</span>     <span class="c1"># Viscous damping coeff. [N·m·s/rad]</span>
+<span class="n">ke</span> <span class="o">=</span> <span class="mf">7.5e-4</span>     <span class="c1"># Back-EMF constant [V·s/rad]  (== V/(rad/s))</span>
+<span class="n">kt</span> <span class="o">=</span> <span class="mf">7.5e-4</span>     <span class="c1"># Torque constant [N·m/A]      (≈ ke in SI)</span>
+
 <span class="c1"># Speed-voltage static transfer curve</span>
-<span class="n">omega</span> <span class="o">=</span>  <span class="n">va</span> <span class="o">/</span> <span class="p">((</span><span class="mi">1</span> <span class="o">+</span> <span class="p">(</span><span class="n">R</span> <span class="o">*</span> <span class="n">B</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">ke</span> <span class="o">*</span> <span class="n">kt</span><span class="p">))</span> <span class="o">*</span> <span class="n">ke</span><span class="p">)</span>
+<span class="n">propconst</span><span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="p">((</span><span class="mi">1</span> <span class="o">+</span> <span class="p">(</span><span class="n">R</span> <span class="o">*</span> <span class="n">B</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">ke</span> <span class="o">*</span> <span class="n">kt</span><span class="p">))</span> <span class="o">*</span> <span class="n">ke</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;propconst)</span>
+<span class="n">omega</span> <span class="o">=</span>  <span class="n">propconst</span><span class="o">*</span><span class="n">va</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">va</span><span class="p">,</span> <span class="n">omega</span><span class="o">*</span><span class="mi">60</span><span class="o">/</span><span class="mf">6.28</span><span class="p">)</span>
@@ -273,22 +282,20 @@
 <br/></pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
+<div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
-<span class="ansi-cyan-fg">Cell</span><span class="ansi-cyan-fg"> </span><span class="ansi-green-fg">In[2]</span><span class="ansi-green-fg">, line 8</span>
-<span class="ansi-green-fg">      5</span> va = np.linspace(<span class="ansi-green-fg">0</span>, <span class="ansi-green-fg">5</span>, <span class="ansi-green-fg">100</span>)
-<span class="ansi-green-fg">      7</span> <span style="color: rgb(95,135,135)"># Speed-voltage static transfer curve</span>
-<span class="ansi-green-fg">----&gt; </span><span class="ansi-green-fg">8</span> omega =  va / ((<span class="ansi-green-fg">1</span> + (<span class="ansi-yellow-bg">R</span> * B) / (ke * kt)) * ke)
-<span class="ansi-green-fg">     10</span> plt.figure(figsize=(<span class="ansi-green-fg">7</span>, <span class="ansi-green-fg">5</span>))
-<span class="ansi-green-fg">     11</span> plt.plot(va, omega*<span class="ansi-green-fg">60</span>/<span class="ansi-green-fg">6.28</span>)
-
-<span class="ansi-red-fg">NameError</span>: name &#39;R&#39; is not defined
+1165.5011655011656
 </pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/project1_motorDC-theory_6_1.png" src="../_images/project1_motorDC-theory_6_1.png" />
+</div>
 </div>
 <p><strong>Speed-Torque Curve (load line)</strong></p>
 <div class="math notranslate nohighlight">
@@ -312,7 +319,7 @@
 <div class="math notranslate nohighlight">
 \[P_{max} = \frac{ω_{max}} {2} \frac{Tm_{max}} {2}\]</div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
@@ -323,6 +330,12 @@
 
 <span class="c1"># Torque range</span>
 <span class="n">Tm</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">kt</span><span class="o">*</span><span class="n">va</span><span class="o">/</span><span class="n">R</span> <span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+
+<span class="c1"># Electrical &amp; mechanical parameters (typical/representative)</span>
+<span class="n">R</span>  <span class="o">=</span> <span class="mf">2.7e0</span>      <span class="c1"># Armature resistance [ohm]</span>
+<span class="n">B</span>  <span class="o">=</span> <span class="mf">3.0e-8</span>     <span class="c1"># Viscous damping coeff. [N·m·s/rad]</span>
+<span class="n">ke</span> <span class="o">=</span> <span class="mf">7.5e-4</span>     <span class="c1"># Back-EMF constant [V·s/rad]  (== V/(rad/s))</span>
+<span class="n">kt</span> <span class="o">=</span> <span class="mf">7.5e-4</span>     <span class="c1"># Torque constant [N·m/A]      (≈ ke in SI)</span>
 
 <span class="c1"># Speed-torque curve</span>
 <span class="n">omega</span> <span class="o">=</span> <span class="n">va</span><span class="o">/</span><span class="n">ke</span> <span class="o">-</span> <span class="n">R</span> <span class="o">/</span> <span class="p">(</span><span class="n">ke</span> <span class="o">*</span> <span class="n">kt</span><span class="p">)</span> <span class="o">*</span> <span class="n">Tm</span>
