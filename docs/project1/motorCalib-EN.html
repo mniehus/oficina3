@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>State-Machines applied to automated DC Motor Calibration &mdash; oficina3  documentation</title>
+  <title>State-Machines applied to DC Motor Calibration &mdash; oficina3  documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
@@ -70,16 +70,14 @@ window.addEventListener("load", () => mermaid.run());
 <li class="toctree-l1"><a class="reference internal" href="motorDC-lab.html">Motor DC (drive)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="encoder.html">Encoder</a></li>
 <li class="toctree-l1"><a class="reference internal" href="coding.html">Programar</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">State-Machines applied to automated DC Motor Calibration</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">State-Machines applied to DC Motor Calibration</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#why-state-machines">Why State Machines?</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#project-layout">Project layout</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#software-layout">Software layout</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#tips-for-labs-testing">Tips for Labs &amp; Testing</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#annex-1-controller-and-global-signals">Annex 1: Controller and global signals</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#calibration-controller">Calibration Controller</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#global-signals">Global signals</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#annex-2-fsm-modules">Annex 2: FSM modules</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#annex-1-full-reference-code-base">Annex 1: Full reference code base</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#annex-2-calibration-controller">Annex 2: Calibration Controller</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#annex-3-global-signals">Annex 3: Global signals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#annex-4-fsm-modules-explained">Annex 4: FSM modules explained</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#waveform-generator-fsm">Waveform Generator FSM</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#pwm-output-fsm">PWM Output FSM</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#rpm-fsm">RPM FSM</a></li>
@@ -116,7 +114,7 @@ window.addEventListener("load", () => mermaid.run());
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">State-Machines applied to automated DC Motor Calibration</li>
+      <li class="breadcrumb-item active">State-Machines applied to DC Motor Calibration</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/project1/motorCalib-EN.md.txt" rel="nofollow"> View page source</a>
       </li>
@@ -126,9 +124,20 @@ window.addEventListener("load", () => mermaid.run());
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section class="tex2jax_ignore mathjax_ignore" id="state-machines-applied-to-automated-dc-motor-calibration">
-<h1>State-Machines applied to automated DC Motor Calibration<a class="headerlink" href="#state-machines-applied-to-automated-dc-motor-calibration" title="Link to this heading"></a></h1>
-<p>This document is an <strong>intro + guide</strong> to the project of the DC Motor Calibration Automated Test Setup. It is organized into six small, independent <strong>state machines (FSMs)</strong>. It’s meant to help students see why we use FSMs, how the code stays tidy as the system grows, and how each module interacts via a tiny set of shared globals.</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="state-machines-applied-to-dc-motor-calibration">
+<h1>State-Machines applied to DC Motor Calibration<a class="headerlink" href="#state-machines-applied-to-dc-motor-calibration" title="Link to this heading"></a></h1>
+<p>This document is an <strong>intro + guide</strong> to the project of the DC Motor Calibration Automated Test Setup.</p>
+<p>The project automates a <strong>speed–voltage calibration</strong> for a small DC propulsion unit. An Arduino generates a configurable <strong>PWM (=pulse width modulation) ramp TTL signal</strong> that drives an H-bridge motor driver, which powers a <strong>3.7 V drone DC motor</strong> with a <strong>two-blade propeller</strong>. The motor sits in a simple rig with an <strong>optical slot sensor</strong> acting as an incremental encoder: each blade crossing produces a pulse used to infer <strong>rotational speed RPM (=rotations per minute)</strong>. Test parameters—ramp maximum, duration, step/cadence—are set in software so the same bench hardware can run many repeatable sweeps.</p>
+<p>During a run, the PWM ramp and the RPM measurements are <strong>synchronized</strong>: PWM updates define clean timing windows over which pulses are counted and converted to RPM (or, alternatively, a fixed sampling period can be used). After each measurement, the system streams <strong>tab-separated values (TSV)</strong> over the USB serial link—time, commanded waveform value, applied PWM, and RPM—so the user can copy-paste straight into Excel (or any spreadsheet) for plotting and further analysis.</p>
+<p>The <strong>hardware part</strong> is simple. A <strong>PC</strong> connects over <strong>USB</strong> to an <strong>Arduino board</strong> (e.g., Arduino Uno). One <strong>PWM-capable digital pin</strong> on the Arduino feeds the <strong>H-bridge DC motor driver’s enable/PWM input</strong>.</p>
+<p>The H-bridge board is powered by a <strong>bench DC supply</strong> (set to the motor’s rated voltage/current) and drives a <strong>3.7 V mini drone DC motor</strong> fitted with a <strong>two-blade propeller</strong>. Verify that voltage–current operating points during the calibration ramp are not limited by the DC supply (current limit/sag), especially at high speed/high load.</p>
+<p>An <strong>optical slot sensor</strong> (IR LED + phototransistor) is mounted in a small mechanical setup so each blade interrupts the beam once per revolution half-turn, producing two clean pulses per revolution. Use the slot sensor board’s LED indicators to align the blades for a clean RPM signal, and prefer the sensor’s digital output over the analog output. The sensor output connects to an <strong>Arduino interrupt pin</strong> (e.g., D2) for accurate pulse counting.</p>
+<p>Logic grounds are commoned: Arduino GND ↔ driver logic GND ↔ sensor GND. The motor power supply is separated from the logic power supply, which stays tied at the driver. Power the motor from the bench supply and the Arduino from USB to reduce coupling; the H-bridge’s internal diodes handle flyback.</p>
+<p>For real time observation, use two scope test points: the <strong>PWM signal</strong> (Arduino → driver enable) and the <strong>RPM pulse signal</strong> (sensor → Arduino interrupt). View duty and pulse timing on an oscilloscope while the Arduino simultaneously uses them (drive and measure).</p>
+<p>For user input, a <strong>pushbutton</strong>, a <strong>potentiometer (knob)</strong>, and the <strong>USB serial interface</strong> can be considered for future use. Also, for user output, <strong>three RGB LEDs</strong> for visual feedback and a <strong>piezo buzzer</strong> for acoustic signalling/sound feedback can be used. These are included for completeness here; however, their use in the current project is optional, but they can be handy to implement simple user interfaces here or in other projects.</p>
+<p>The <strong>software part</strong> is organized into six small independent tasks, through modules that are coded as  <strong>finite state machines (FSMs)</strong>.</p>
+<p>This system is an <strong>experimental test ground for academic training</strong>. While the automated DC motor calibration could be implemented more simply, the goal is to introduce and consolidate a <strong>reusable, modular FSM framework</strong> that is scalable and easy to adapt to future projects.</p>
+<p>It’s meant to teach students how FSMs work, how to implement and test them, to understand why we use FSMs, and show that the code is reusable and scalablable, that it stays clear and tidy as the system grows (no spaghetti!), and how the modules are integrated into a system, and how they can interact via a small set of shared globals.</p>
 <hr class="docutils" />
 <section id="why-state-machines">
 <h2>Why State Machines?<a class="headerlink" href="#why-state-machines" title="Link to this heading"></a></h2>
@@ -144,9 +153,9 @@ window.addEventListener("load", () => mermaid.run());
 </ul>
 </section>
 <hr class="docutils" />
-<section id="project-layout">
-<h2>Project layout<a class="headerlink" href="#project-layout" title="Link to this heading"></a></h2>
-<p>This project follows a <strong>modular state-machine architecture</strong>: every essential task runs <strong>non-blocking</strong> in its own finite state machine (FSM), coded in a <strong>separate, reusable file</strong>. Each FSM keeps its own local configuration (as <code class="docutils literal notranslate"><span class="pre">const</span></code> inside the function), uses internal state to handle timing (no <code class="docutils literal notranslate"><span class="pre">delay()</span></code>), and communicates only through a few shared global signals. The <strong>Arduino controller file</strong> in the same folder configures the interrupt(s), declares the shared globals, and assembles the system by calling all FSMs in <code class="docutils literal notranslate"><span class="pre">loop()</span></code>.</p>
+<section id="software-layout">
+<h2>Software layout<a class="headerlink" href="#software-layout" title="Link to this heading"></a></h2>
+<p>The software layout follows a <strong>modular state-machine architecture</strong>: every essential task runs <strong>non-blocking</strong> in its own finite state machine (FSM), coded in a <strong>separate, reusable file</strong>. Each FSM keeps its own local configuration (as <code class="docutils literal notranslate"><span class="pre">const</span></code> inside the function), uses internal state to handle timing (no <code class="docutils literal notranslate"><span class="pre">delay()</span></code>), and communicates only through a few shared global signals. The <strong>Arduino controller file</strong> in the same folder configures the interrupt(s), declares the shared globals, and assembles the system by calling all FSMs in <code class="docutils literal notranslate"><span class="pre">loop()</span></code>.</p>
 <p><strong>Controller file</strong></p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">MotorCalib</span><span class="p">.</span><span class="n">ino</span><span class="w">                  </span><span class="c1">// controller, globals, interrupt config, empty setup(), loop() calling all FSMs</span>
 </pre></div>
@@ -168,20 +177,17 @@ window.addEventListener("load", () => mermaid.run());
 <li><p><strong>User Input FSM</strong>: Debounces a pushbutton, samples a potentiometer, and parses simple serial <strong>key=value</strong> commands; writes <code class="docutils literal notranslate"><span class="pre">sig_input_*</span></code>.</p></li>
 <li><p><strong>User Output FSM</strong>: Drives RGB LEDs and a piezo via <code class="docutils literal notranslate"><span class="pre">tone()</span></code> (continuous or timed) or digital toggling; consumes <code class="docutils literal notranslate"><span class="pre">sig_led_*</span></code> and <code class="docutils literal notranslate"><span class="pre">sig_buzzer_*</span></code>.</p></li>
 </ul>
-<p><strong>How do modules interact?</strong></p>
+<p><strong>How do the parts come together?</strong></p>
 <ol class="arabic simple">
 <li><p><strong>Waveform → PWM:</strong> The Waveform FSM produces a <strong>desired duty</strong> (<code class="docutils literal notranslate"><span class="pre">sig_waveform_value</span></code>).</p></li>
 <li><p><strong>PWM applies (with safety):</strong> PWM FSM clamps, optionally lifts small values, and <strong>slew-limits</strong> before writing the pin. It also increments <code class="docutils literal notranslate"><span class="pre">sig_pwm_update_counter</span></code> on each update.</p></li>
 <li><p><strong>RPM sampling:</strong> RPM FSM measures pulses either on a fixed period or <strong>in sync with PWM windows</strong> (edge-to-edge), then writes <code class="docutils literal notranslate"><span class="pre">sig_rpm</span></code>.</p></li>
 <li><p><strong>Logging:</strong> Data Logger prints TSV lines either periodically or per PWM window, with selectable columns for <strong>time / waveform / PWM / RPM</strong>.</p></li>
 <li><p><strong>User input/output:</strong> The User Input FSM updates <code class="docutils literal notranslate"><span class="pre">sig_input_*</span></code> from the <strong>button, pot, and serial</strong>. <code class="docutils literal notranslate"><span class="pre">sig_led_*</span></code> and the buzzer signals are also globally declared, and are driven by User Output FSM. Any state machine can access them.</p></li>
-</ol>
-<p><strong>How it comes together</strong></p>
-<ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">MotorCalib.ino</span></code> is the “composer”: it declares the <strong>shared global variables</strong>, configures and attaches the <strong>encoder ISR</strong>, leaves <code class="docutils literal notranslate"><span class="pre">setup()</span></code> empty (FSMs self-init on first call), and in <code class="docutils literal notranslate"><span class="pre">loop()</span></code> calls the FSMs in order, e.g.
 <code class="docutils literal notranslate"><span class="pre">Waveform</span> <span class="pre">→</span> <span class="pre">PWM</span> <span class="pre">Output</span> <span class="pre">→</span> <span class="pre">RPM</span> <span class="pre">→</span> <span class="pre">Datalogger</span> <span class="pre">→</span> <span class="pre">User</span> <span class="pre">Input</span> <span class="pre">→</span> <span class="pre">User</span> <span class="pre">Output</span></code>.</p></li>
 <li><p>Each FSM is <strong>non-blocking</strong> and advances via timers and <code class="docutils literal notranslate"><span class="pre">switch(state)</span></code>; they read/write only the documented globals, so files remain independent and reusable across projects.</p></li>
-</ul>
+</ol>
 </section>
 <section id="tips-for-labs-testing">
 <h2>Tips for Labs &amp; Testing<a class="headerlink" href="#tips-for-labs-testing" title="Link to this heading"></a></h2>
@@ -192,10 +198,12 @@ window.addEventListener("load", () => mermaid.run());
 </ul>
 </section>
 <hr class="docutils" />
-<section id="annex-1-controller-and-global-signals">
-<h2>Annex 1: Controller and global signals<a class="headerlink" href="#annex-1-controller-and-global-signals" title="Link to this heading"></a></h2>
-<section id="calibration-controller">
-<h3>Calibration Controller<a class="headerlink" href="#calibration-controller" title="Link to this heading"></a></h3>
+<section id="annex-1-full-reference-code-base">
+<h2>Annex 1: Full reference code base<a class="headerlink" href="#annex-1-full-reference-code-base" title="Link to this heading"></a></h2>
+<p>The full reference code base is available for download for course participants on the courses moodle platform, pls check.</p>
+</section>
+<section id="annex-2-calibration-controller">
+<h2>Annex 2: Calibration Controller<a class="headerlink" href="#annex-2-calibration-controller" title="Link to this heading"></a></h2>
 <p>The <strong>calibration controller</strong>  Arduino file <code class="docutils literal notranslate"><span class="pre">motorCalib.ino</span></code> is the project’s orchestration point. It <strong>owns the shared signals</strong> (simple global variables), <strong>defines the encoder ISR</strong>, and <strong>runs all finite-state machines (FSMs) once per loop</strong> in a fixed, non-blocking order. Each FSM keeps its own local configuration and internal timing; the controller only wires them together through a few globals.</p>
 <p><strong>Tasks</strong></p>
 <ul class="simple">
@@ -220,8 +228,8 @@ This ordering ensures:</p>
 </ul>
 <p><strong>Code:</strong>   <a class="reference download internal" download="" href="../_downloads/526e5112078a99e1d8169c9ab9470d84/motorCalib.ino"><span class="xref download myst">motorCalib.ino</span></a></p>
 </section>
-<section id="global-signals">
-<h3>Global signals<a class="headerlink" href="#global-signals" title="Link to this heading"></a></h3>
+<section id="annex-3-global-signals">
+<h2>Annex 3: Global signals<a class="headerlink" href="#annex-3-global-signals" title="Link to this heading"></a></h2>
 <p>These are the only cross-module variables. Each FSM <strong>reads</strong> and/or <strong>writes</strong> them.</p>
 <table class="docutils align-default">
 <thead>
@@ -332,10 +340,9 @@ This ordering ensures:</p>
 </tbody>
 </table>
 </section>
-</section>
 <hr class="docutils" />
-<section id="annex-2-fsm-modules">
-<h2>Annex 2: FSM modules<a class="headerlink" href="#annex-2-fsm-modules" title="Link to this heading"></a></h2>
+<section id="annex-4-fsm-modules-explained">
+<h2>Annex 4: FSM modules explained<a class="headerlink" href="#annex-4-fsm-modules-explained" title="Link to this heading"></a></h2>
 <p>Below a concise UML chart for each FSM (states, transitions, key events/activities). These match the code structure.</p>
 <section id="waveform-generator-fsm">
 <h3>Waveform Generator FSM<a class="headerlink" href="#waveform-generator-fsm" title="Link to this heading"></a></h3>

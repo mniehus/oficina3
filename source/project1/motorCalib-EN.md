@@ -41,9 +41,9 @@ It’s meant to teach students how FSMs work, how to implement and test them, to
 
 ---
 
-## Project layout 
+## Software layout 
 
-This project follows a **modular state-machine architecture**: every essential task runs **non-blocking** in its own finite state machine (FSM), coded in a **separate, reusable file**. Each FSM keeps its own local configuration (as `const` inside the function), uses internal state to handle timing (no `delay()`), and communicates only through a few shared global signals. The **Arduino controller file** in the same folder configures the interrupt(s), declares the shared globals, and assembles the system by calling all FSMs in `loop()`.
+The software layout follows a **modular state-machine architecture**: every essential task runs **non-blocking** in its own finite state machine (FSM), coded in a **separate, reusable file**. Each FSM keeps its own local configuration (as `const` inside the function), uses internal state to handle timing (no `delay()`), and communicates only through a few shared global signals. The **Arduino controller file** in the same folder configures the interrupt(s), declares the shared globals, and assembles the system by calling all FSMs in `loop()`.
 
 
 **Controller file**
