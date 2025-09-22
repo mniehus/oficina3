@@ -146,7 +146,118 @@ These are the only cross-module variables. Each FSM **reads** and/or **writes** 
 
 ## Annex 4: FSM modules explained
 
-Below a concise UML chart for each FSM (states, transitions, key events/activities). These match the code structure.
+Below is a UML (unified model language) diagram by FSM (states and transitions).
+Note the strict correspondence between the diagram and the code.
+
+The list is started with a generic, educative example of a reference FSM, and then followed by the detailed description of the FSMs used.
+
+### Reference FSM (generic example)
+
+**Task:** este exemplo **genérico** de máquina de estados com três estados — `INIT`, `STATE1`, `STATE2` — ilustra um ciclo típico: inicializar, operar num primeiro modo, alternar para um segundo modo mediante um evento/condição, e regressar.
+
+```{mermaid}
+stateDiagram-v2
+  [*] --> INIT
+  INIT --> STATE1 : event/condition_1 (p.ex., "inicialização concluída")
+  STATE1 --> STATE2 : event/condition_2 (p.ex., "temporizador1 expirou" OU "botão premido")
+  STATE1 --> STATE1 : else (permanece até ocorrer event/condition_2)
+  STATE2 --> STATE1 : event/condition_3 (p.ex., "temporizador2 expirou" OU "valor abaixo do limiar")
+  STATE2 --> STATE2 : else (permanece até ocorrer event/condition_3)
+```
+
+**Events/transition conditions:**
+* event/condition\_1: sistema pronto (ex.: configuração feita).
+* event/condition\_2: condição para mudar de `STATE1` para `STATE2` (ex.: temporizador1, entrada externa, limiar atingido).
+* event/condition\_3: condição para regressar de `STATE2` para `STATE1` (ex.: temporizador2, entrada externa, limiar desfeito).
+
+**Activities:**
+
+* INIT: preparar variáveis/recursos; marcar sistema como pronto.
+* STATE1: executar atividade A (ex.: atualizar saída/monitorizar entrada com período T1).
+* STATE2: executar atividade B (ex.: outra estratégia/saída com período T2).
+
+**Code** (Arduino/C++; não bloqueante, educativo)
+
+```cpp
+// ---------------- Optional shared signal for demos ----------------
+byte sig_ref_state = 0;  // 0=INIT, 1=STATE1, 2=STATE2
+
+// ---------------- Three-state reference FSM ----------------------
+void ReferenceFSM_update() {
+  // -------- Local configuration constants (tunable) --------------
+  const unsigned int  PERIOD_STATE1_MS = 250;   // drives event/condition_2 (example)
+  const unsigned int  PERIOD_STATE2_MS = 500;   // drives event/condition_3 (example)
+
+  // -------- Local state constants (UPPERCASE) --------------------
+  const byte INIT   = 0;
+  const byte STATE1 = 1;
+  const byte STATE2 = 2;
+
+  // -------- Local static variables -------------------------------
+  static byte          state = INIT;
+  static unsigned long t1_ms = 0;   // timer for STATE1
+  static unsigned long t2_ms = 0;   // timer for STATE2
+  static bool          ready = false; // models event/condition_1
+
+  // -------- Time base --------------------------------------------
+  unsigned long now = millis();
+
+  // -------- FSM ---------------------------------------------------
+  switch (state) {
+
+    case INIT: {
+      // Activities: initialize resources/vars
+      ready = true;                  // event/condition_1 satisfied
+      sig_ref_state = 0;
+
+      // Transition: INIT -> STATE1 on event/condition_1
+      if (ready) {
+        t1_ms = now;                 // reset STATE1 timer
+        state = STATE1;
+      }
+      break;
+    }
+
+    case STATE1: {
+      // Activities: do-A (periodic action at PERIOD_STATE1_MS)
+      sig_ref_state = 1;
+
+      // Example periodic activity (replace with your own):
+      if ((unsigned long)(now - t1_ms) >= PERIOD_STATE1_MS) {
+        // --- event/condition_2 occurs here (e.g., timer1 expired) ---
+        t2_ms = now;                 // prepare STATE2 timer
+        state = STATE2;              // Transition: STATE1 -> STATE2
+      }
+      // else: remain in STATE1
+      break;
+    }
+
+    case STATE2: {
+      // Activities: do-B (periodic action at PERIOD_STATE2_MS)
+      sig_ref_state = 2;
+
+      // Example periodic activity (replace with your own):
+      if ((unsigned long)(now - t2_ms) >= PERIOD_STATE2_MS) {
+        // --- event/condition_3 occurs here (e.g., timer2 expired) ---
+        t1_ms = now;                 // prepare STATE1 timer
+        state = STATE1;              // Transition: STATE2 -> STATE1
+      }
+      // else: remain in STATE2
+      break;
+    }
+
+    default: {
+      // Safety net
+      state = INIT;
+      break;
+    }
+  } // switch
+}
+```
+
+**Uso:** chame `ReferenceFSM_update()` em cada iteração de `loop()`.
+**Adaptação:** substitua os temporizadores por entradas reais (botões/sensores) para materializar `event/condition_2` e `event/condition_3`.
+
 
 ### Waveform Generator FSM 
 

@@ -78,6 +78,7 @@ window.addEventListener("load", () => mermaid.run());
 <li class="toctree-l2"><a class="reference internal" href="#anexo-2-controlador-de-calibracao">Anexo 2: Controlador de Calibração</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#anexo-3-sinais-globais">Anexo 3: Sinais globais</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#anexo-4-modulos-fsm-diagramas">Anexo 4: Módulos FSM — diagramas</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#reference-fsm-generic-example">Reference FSM (generic example)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#waveform-generator-fsm">Waveform Generator FSM</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#pwm-output-fsm">PWM Output FSM</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#rpm-fsm">RPM FSM</a></li>
@@ -344,10 +345,115 @@ Garante que:</p>
 <hr class="docutils" />
 <section id="anexo-4-modulos-fsm-diagramas">
 <h2>Anexo 4: Módulos FSM — diagramas<a class="headerlink" href="#anexo-4-modulos-fsm-diagramas" title="Link to this heading"></a></h2>
-<p>Abaixo, um diagrama UML conciso por FSM (estados e transições). Correspondem ao código.</p>
+<p>Abaixo, um diagrama UML (unified model language) por FSM (estados e transições).
+Note a correspondência estrita entre diagrama e código.</p>
+<p>A lista começa com um exemplo genérico e educativo de um FSM de referência, seguido pela descrição detalhada dos FSMs utilizados.</p>
+<section id="reference-fsm-generic-example">
+<h3>Reference FSM (generic example)<a class="headerlink" href="#reference-fsm-generic-example" title="Link to this heading"></a></h3>
+<p><strong>Task:</strong> este exemplo <strong>genérico</strong> de máquina de estados com três estados — <code class="docutils literal notranslate"><span class="pre">INIT</span></code>, <code class="docutils literal notranslate"><span class="pre">STATE1</span></code>, <code class="docutils literal notranslate"><span class="pre">STATE2</span></code> — ilustra um ciclo típico: inicializar, operar num primeiro modo, alternar para um segundo modo mediante um evento/condição, e regressar.</p>
+<pre  class="mermaid">
+        stateDiagram-v2
+  [*] --&gt; INIT
+  INIT --&gt; STATE1 : event/condition_1 (p.ex., &quot;inicialização concluída&quot;)
+  STATE1 --&gt; STATE2 : event/condition_2 (p.ex., &quot;temporizador1 expirou&quot; OU &quot;botão premido&quot;)
+  STATE1 --&gt; STATE1 : else (permanece até ocorrer event/condition_2)
+  STATE2 --&gt; STATE1 : event/condition_3 (p.ex., &quot;temporizador2 expirou&quot; OU &quot;valor abaixo do limiar&quot;)
+  STATE2 --&gt; STATE2 : else (permanece até ocorrer event/condition_3)
+    </pre><p><strong>Events/transition conditions:</strong></p>
+<ul class="simple">
+<li><p>event/condition_1: sistema pronto (ex.: configuração feita).</p></li>
+<li><p>event/condition_2: condição para mudar de <code class="docutils literal notranslate"><span class="pre">STATE1</span></code> para <code class="docutils literal notranslate"><span class="pre">STATE2</span></code> (ex.: temporizador1, entrada externa, limiar atingido).</p></li>
+<li><p>event/condition_3: condição para regressar de <code class="docutils literal notranslate"><span class="pre">STATE2</span></code> para <code class="docutils literal notranslate"><span class="pre">STATE1</span></code> (ex.: temporizador2, entrada externa, limiar desfeito).</p></li>
+</ul>
+<p><strong>Activities:</strong></p>
+<ul class="simple">
+<li><p>INIT: preparar variáveis/recursos; marcar sistema como pronto.</p></li>
+<li><p>STATE1: executar atividade A (ex.: atualizar saída/monitorizar entrada com período T1).</p></li>
+<li><p>STATE2: executar atividade B (ex.: outra estratégia/saída com período T2).</p></li>
+</ul>
+<p><strong>Code</strong> (Arduino/C++; não bloqueante, educativo)</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">// ---------------- Optional shared signal for demos ----------------</span>
+<span class="n">byte</span><span class="w"> </span><span class="n">sig_ref_state</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w">  </span><span class="c1">// 0=INIT, 1=STATE1, 2=STATE2</span>
+
+<span class="c1">// ---------------- Three-state reference FSM ----------------------</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">ReferenceFSM_update</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// -------- Local configuration constants (tunable) --------------</span>
+<span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w">  </span><span class="n">PERIOD_STATE1_MS</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">250</span><span class="p">;</span><span class="w">   </span><span class="c1">// drives event/condition_2 (example)</span>
+<span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w">  </span><span class="n">PERIOD_STATE2_MS</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">500</span><span class="p">;</span><span class="w">   </span><span class="c1">// drives event/condition_3 (example)</span>
+
+<span class="w">  </span><span class="c1">// -------- Local state constants (UPPERCASE) --------------------</span>
+<span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">byte</span><span class="w"> </span><span class="n">INIT</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">byte</span><span class="w"> </span><span class="n">STATE1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">byte</span><span class="w"> </span><span class="n">STATE2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
+
+<span class="w">  </span><span class="c1">// -------- Local static variables -------------------------------</span>
+<span class="w">  </span><span class="k">static</span><span class="w"> </span><span class="n">byte</span><span class="w">          </span><span class="n">state</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">INIT</span><span class="p">;</span>
+<span class="w">  </span><span class="k">static</span><span class="w"> </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">t1_ms</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w">   </span><span class="c1">// timer for STATE1</span>
+<span class="w">  </span><span class="k">static</span><span class="w"> </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">t2_ms</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w">   </span><span class="c1">// timer for STATE2</span>
+<span class="w">  </span><span class="k">static</span><span class="w"> </span><span class="kt">bool</span><span class="w">          </span><span class="n">ready</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span><span class="w"> </span><span class="c1">// models event/condition_1</span>
+
+<span class="w">  </span><span class="c1">// -------- Time base --------------------------------------------</span>
+<span class="w">  </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">now</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">millis</span><span class="p">();</span>
+
+<span class="w">  </span><span class="c1">// -------- FSM ---------------------------------------------------</span>
+<span class="w">  </span><span class="k">switch</span><span class="w"> </span><span class="p">(</span><span class="n">state</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="no">INIT</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="c1">// Activities: initialize resources/vars</span>
+<span class="w">      </span><span class="n">ready</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span><span class="w">                  </span><span class="c1">// event/condition_1 satisfied</span>
+<span class="w">      </span><span class="n">sig_ref_state</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+
+<span class="w">      </span><span class="c1">// Transition: INIT -&gt; STATE1 on event/condition_1</span>
+<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">ready</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">t1_ms</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">now</span><span class="p">;</span><span class="w">                 </span><span class="c1">// reset STATE1 timer</span>
+<span class="w">        </span><span class="n">state</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">STATE1</span><span class="p">;</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">      </span><span class="k">break</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="no">STATE1</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="c1">// Activities: do-A (periodic action at PERIOD_STATE1_MS)</span>
+<span class="w">      </span><span class="n">sig_ref_state</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+
+<span class="w">      </span><span class="c1">// Example periodic activity (replace with your own):</span>
+<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">((</span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">long</span><span class="p">)(</span><span class="n">now</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">t1_ms</span><span class="p">)</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="n">PERIOD_STATE1_MS</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// --- event/condition_2 occurs here (e.g., timer1 expired) ---</span>
+<span class="w">        </span><span class="n">t2_ms</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">now</span><span class="p">;</span><span class="w">                 </span><span class="c1">// prepare STATE2 timer</span>
+<span class="w">        </span><span class="n">state</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">STATE2</span><span class="p">;</span><span class="w">              </span><span class="c1">// Transition: STATE1 -&gt; STATE2</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">      </span><span class="c1">// else: remain in STATE1</span>
+<span class="w">      </span><span class="k">break</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="no">STATE2</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="c1">// Activities: do-B (periodic action at PERIOD_STATE2_MS)</span>
+<span class="w">      </span><span class="n">sig_ref_state</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
+
+<span class="w">      </span><span class="c1">// Example periodic activity (replace with your own):</span>
+<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">((</span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">long</span><span class="p">)(</span><span class="n">now</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">t2_ms</span><span class="p">)</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="n">PERIOD_STATE2_MS</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// --- event/condition_3 occurs here (e.g., timer2 expired) ---</span>
+<span class="w">        </span><span class="n">t1_ms</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">now</span><span class="p">;</span><span class="w">                 </span><span class="c1">// prepare STATE1 timer</span>
+<span class="w">        </span><span class="n">state</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">STATE1</span><span class="p">;</span><span class="w">              </span><span class="c1">// Transition: STATE2 -&gt; STATE1</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">      </span><span class="c1">// else: remain in STATE2</span>
+<span class="w">      </span><span class="k">break</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">default</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="c1">// Safety net</span>
+<span class="w">      </span><span class="n">state</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">INIT</span><span class="p">;</span>
+<span class="w">      </span><span class="k">break</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="c1">// switch</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Uso:</strong> chame <code class="docutils literal notranslate"><span class="pre">ReferenceFSM_update()</span></code> em cada iteração de <code class="docutils literal notranslate"><span class="pre">loop()</span></code>.
+<strong>Adaptação:</strong> substitua os temporizadores por entradas reais (botões/sensores) para materializar <code class="docutils literal notranslate"><span class="pre">event/condition_2</span></code> e <code class="docutils literal notranslate"><span class="pre">event/condition_3</span></code>.</p>
+</section>
 <section id="waveform-generator-fsm">
 <h3>Waveform Generator FSM<a class="headerlink" href="#waveform-generator-fsm" title="Link to this heading"></a></h3>
-<p><strong>Tarefa:</strong> “Tictar a um ritmo estável e calcular o ponto seguinte da onda escolhida.”</p>
+<p><strong>Tarefa:</strong> “Avançar a um ritmo estável e calcular o ponto seguinte da onda escolhida.”</p>
 <pre  class="mermaid">
         stateDiagram-v2
   [*] --&gt; INIT

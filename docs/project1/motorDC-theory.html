@@ -251,7 +251,7 @@
 <div class="math notranslate nohighlight">
 \[\frac{1}{(1+\frac{R b}{k_e k_t})k_e}\]</div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
@@ -282,20 +282,17 @@
 <br/></pre></div>
 </div>
 </div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-1165.5011655011656
-</pre></div></div>
-</div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/project1_motorDC-theory_6_1.png" src="../_images/project1_motorDC-theory_6_1.png" />
-</div>
+<div class="highlight"><pre>
+  <span class="ansi-cyan-fg">Cell</span><span class="ansi-cyan-fg"> </span><span class="ansi-green-fg">In[2]</span><span class="ansi-green-fg">, line 15</span>
+<span class="ansi-red-fg">    </span><span class="ansi-red-fg">print(&#39;propconst)</span>
+          ^
+<span class="ansi-red-fg">SyntaxError</span><span class="ansi-red-fg">:</span> unterminated string literal (detected at line 15)
+
+</pre></div></div>
 </div>
 <p><strong>Speed-Torque Curve (load line)</strong></p>
 <div class="math notranslate nohighlight">
@@ -319,7 +316,7 @@
 <div class="math notranslate nohighlight">
 \[P_{max} = \frac{ω_{max}} {2} \frac{Tm_{max}} {2}\]</div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
@@ -446,6 +443,79 @@
 <p>This brings output torque up to <span class="math notranslate nohighlight">\(0.1\)</span> N·m, and reduces speed to:</p>
 <div class="math notranslate nohighlight">
 \[\omega_{\text{out}} = \frac{150}{5} = 30 \ \text{rad/s}\]</div>
+<p><strong>Typical values</strong></p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Typical small 3.7 V brushed coreless drone motor (e.g., 8.5×20 mm “8520”)</span>
+<span class="c1"># SI units throughout.</span>
+
+<span class="c1"># Electrical &amp; mechanical parameters (typical/representative)</span>
+<span class="n">R</span>  <span class="o">=</span> <span class="mf">2.7e0</span>      <span class="c1"># Armature resistance [ohm]</span>
+<span class="n">B</span>  <span class="o">=</span> <span class="mf">3.0e-8</span>     <span class="c1"># Viscous damping coeff. [N·m·s/rad]</span>
+<span class="n">ke</span> <span class="o">=</span> <span class="mf">7.5e-4</span>     <span class="c1"># Back-EMF constant [V·s/rad]  (== V/(rad/s))</span>
+<span class="n">kt</span> <span class="o">=</span> <span class="mf">7.5e-4</span>     <span class="c1"># Torque constant [N·m/A]      (≈ ke in SI)</span>
+
+<span class="c1"># Convenience</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
+<span class="n">V_nom</span> <span class="o">=</span> <span class="mf">3.7</span>  <span class="c1"># nominal test voltage [V]</span>
+
+<span class="c1"># Proportionality from DC voltage to angular speed at no external load:</span>
+<span class="c1"># Steady-state with viscous friction only:</span>
+<span class="c1">#   V = I*R + ke*ω,   kt*I = B*ω  → I = (B/kt)*ω</span>
+<span class="c1">#   ⇒ V = (R*B/kt + ke) * ω  ⇒  ω/V = 1 / (ke + R*B/kt)</span>
+<span class="n">omega_per_volt</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="p">(</span><span class="n">ke</span> <span class="o">+</span> <span class="n">R</span><span class="o">*</span><span class="n">B</span><span class="o">/</span><span class="n">kt</span><span class="p">)</span>          <span class="c1"># [rad/s per V]</span>
+<span class="n">rpm_per_volt</span>   <span class="o">=</span> <span class="n">omega_per_volt</span> <span class="o">*</span> <span class="mf">60.0</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span>  <span class="c1"># [RPM per V]</span>
+
+<span class="c1"># Nominal no-load speed at V_nom</span>
+<span class="n">omega_0</span> <span class="o">=</span> <span class="n">omega_per_volt</span> <span class="o">*</span> <span class="n">V_nom</span>
+<span class="n">rpm_0</span>   <span class="o">=</span> <span class="n">rpm_per_volt</span> <span class="o">*</span> <span class="n">V_nom</span>
+
+<span class="c1"># Some sanity checks</span>
+<span class="n">I_stall</span>   <span class="o">=</span> <span class="n">V_nom</span> <span class="o">/</span> <span class="n">R</span>                 <span class="c1"># [A]</span>
+<span class="n">T_stall</span>   <span class="o">=</span> <span class="n">kt</span> <span class="o">*</span> <span class="n">I_stall</span>              <span class="c1"># [N·m]</span>
+<span class="c1"># At no-load, I ≈ (B/kt)*ω</span>
+<span class="n">I_noload</span>  <span class="o">=</span> <span class="p">(</span><span class="n">B</span><span class="o">/</span><span class="n">kt</span><span class="p">)</span> <span class="o">*</span> <span class="n">omega_0</span>          <span class="c1"># [A]</span>
+<span class="n">T_friction</span><span class="o">=</span> <span class="n">kt</span> <span class="o">*</span> <span class="n">I_noload</span>             <span class="c1"># [N·m]  (equals B*ω0)</span>
+
+<span class="n">vals</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;R_ohm&quot;</span><span class="p">:</span> <span class="n">R</span><span class="p">,</span>
+    <span class="s2">&quot;B_Nm_s_per_rad&quot;</span><span class="p">:</span> <span class="n">B</span><span class="p">,</span>
+    <span class="s2">&quot;ke_Vs_per_rad&quot;</span><span class="p">:</span> <span class="n">ke</span><span class="p">,</span>
+    <span class="s2">&quot;kt_Nm_per_A&quot;</span><span class="p">:</span> <span class="n">kt</span><span class="p">,</span>
+    <span class="s2">&quot;omega_per_volt_rad_s_per_V&quot;</span><span class="p">:</span> <span class="n">omega_per_volt</span><span class="p">,</span>
+    <span class="s2">&quot;rpm_per_volt_RPM_per_V&quot;</span><span class="p">:</span> <span class="n">rpm_per_volt</span><span class="p">,</span>
+    <span class="s2">&quot;no_load_speed_rpm_at_3p7V&quot;</span><span class="p">:</span> <span class="n">rpm_0</span><span class="p">,</span>
+    <span class="s2">&quot;stall_current_A_at_3p7V&quot;</span><span class="p">:</span> <span class="n">I_stall</span><span class="p">,</span>
+    <span class="s2">&quot;stall_torque_Nm_at_3p7V&quot;</span><span class="p">:</span> <span class="n">T_stall</span><span class="p">,</span>
+    <span class="s2">&quot;no_load_current_A_est&quot;</span><span class="p">:</span> <span class="n">I_noload</span><span class="p">,</span>
+    <span class="s2">&quot;friction_torque_Nm_est&quot;</span><span class="p">:</span> <span class="n">T_friction</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">vals</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">k</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">v</span><span class="si">:</span><span class="s2">.6g</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<br/></pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+R_ohm: 2.7
+B_Nm_s_per_rad: 3e-08
+ke_Vs_per_rad: 0.00075
+kt_Nm_per_A: 0.00075
+omega_per_volt_rad_s_per_V: 1165.5
+rpm_per_volt_RPM_per_V: 11129.7
+no_load_speed_rpm_at_3p7V: 41180
+stall_current_A_at_3p7V: 1.37037
+stall_torque_Nm_at_3p7V: 0.00102778
+no_load_current_A_est: 0.172494
+friction_torque_Nm_est: 0.000129371
+</pre></div></div>
+</div>
 </section>
 
 
