@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Controlador PID no arduino &mdash; oficina3  documentation</title>
+  <title>Controlador PID &mdash; oficina3  documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
@@ -27,7 +27,7 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Código de referência para aeropendulum" href="controlo-ref-code-aeropendulo.html" />
+    <link rel="next" title="Código exemplo para aeropendulum simulado" href="controlo-ref-code-aeropendulo.html" />
     <link rel="prev" title="PID Controller" href="controller.html" /> 
 </head>
 
@@ -66,25 +66,14 @@
 <li class="toctree-l1"><a class="reference internal" href="coding.html">Programar</a></li>
 <li class="toctree-l1"><a class="reference internal" href="motorCalib-PT.html">[PT] Máquinas de Estados aplicadas à Calibração de Motor DC</a></li>
 <li class="toctree-l1"><a class="reference internal" href="motorCalib-EN.html">[EN] State-Machines applied to DC Motor Calibration</a></li>
-<li class="toctree-l1"><a class="reference internal" href="controlo-intro.html">Sistema / Processo / ‘Plant’</a></li>
-<li class="toctree-l1"><a class="reference internal" href="controlo-intro.html#Controlador">Controlador</a></li>
-<li class="toctree-l1"><a class="reference internal" href="controlo-intro.html#Requisitos-do-sistema:-que-caraterísticas-para-a-saída?">Requisitos do sistema: que caraterísticas para a saída?</a></li>
-<li class="toctree-l1"><a class="reference internal" href="controlo-intro.html#Controlador-em-malha-fechada">Controlador em malha fechada</a></li>
-<li class="toctree-l1"><a class="reference internal" href="controlo-intro.html#Controlo-de-limiar-('bang-bang'-ou-'on/off')-com-Arduino">Controlo de limiar (‘bang-bang’ ou ‘on/off’) com Arduino</a></li>
-<li class="toctree-l1"><a class="reference internal" href="controlo-intro.html#Referência">Referência</a></li>
+<li class="toctree-l1"><a class="reference internal" href="controlo-intro.html">Controlador</a></li>
 <li class="toctree-l1"><a class="reference internal" href="controller.html">PID Controller</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Controlador PID no arduino</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#Afinar-os-coeficientes-PID-(PID-tuning)">Afinar os coeficientes PID (PID tuning)</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#Saida-do-controlador-PID-a-responder-ao-salto-do-setpoint,-para-três-valores-de-Kp-(Ki-e-Kd-mantidos-constantes)">Saida do controlador PID a responder ao salto do setpoint, para três valores de Kp (Ki e Kd mantidos constantes)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#Saida-do-controlador-PID-a-responder-ao-salto-do-setpoint,-para-três-valores-de-Ki-(Kp-e-Kd-mantidos-constantes)">Saida do controlador PID a responder ao salto do setpoint, para três valores de Ki (Kp e Kd mantidos constantes)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#Saida-do-controlador-PID-a-responder-ao-salto-do-setpoint,-para-três-valores-de-Kd-(Kp-e-Ki-mantidos-constantes">Saida do controlador PID a responder ao salto do setpoint, para três valores de Kd (Kp e Ki mantidos constantes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#Impacto-na-variação-de-vários-parâmetros-PID-(Kp,-Ki,-Kd)-na-resposta-de-um-sistema">Impacto na variação de vários parâmetros PID (Kp, Ki, Kd) na resposta de um sistema</a></li>
-</ul>
-</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Controlador PID</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#Afinar-os-coeficientes-PID-('PID-tuning')">Afinar os coeficientes PID (‘PID tuning’)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="#Procedimento-/-Metodologia-para-ajuste-manual">Procedimento / Metodologia para ajuste manual</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#Exemplo-de-implementação-de-controlador-PID-em-Arduino">Exemplo de implementação de controlador PID em Arduino</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#Código-de-controlador-PID-para-arduino-(com-biblioteca)">Código de controlador PID para arduino (com biblioteca)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="controlo-ref-code-aeropendulo.html">Código de referência para aeropendulum</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#PID-no-arduino-(exemplo-1)">PID no arduino (exemplo 1)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#PID-no-arduino-(exemplo-2)">PID no arduino (exemplo 2)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="controlo-ref-code-aeropendulo.html">Código exemplo para aeropendulum simulado</a></li>
 <li class="toctree-l1"><a class="reference internal" href="integration.html">Integração do Sistema</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Projeto 2</span></p>
@@ -110,7 +99,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">Controlador PID no arduino</li>
+      <li class="breadcrumb-item active">Controlador PID</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/project1/controlo-PID-arduino.ipynb.txt" rel="nofollow"> View page source</a>
       </li>
@@ -120,8 +109,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="Controlador-PID-no-arduino">
-<h1>Controlador PID no arduino<a class="headerlink" href="#Controlador-PID-no-arduino" title="Link to this heading"></a></h1>
+  <section id="Controlador-PID">
+<h1>Controlador PID<a class="headerlink" href="#Controlador-PID" title="Link to this heading"></a></h1>
 <p>O controlador PID é um dos mais utilizados na indústria para controlar sistemas de feedback. Pontos fortes são a simplicidade e a capacidade de alcançar um bom desempenho em uma ampla variedade de situações sem a necessidade de conhecer em detalhe o processo a ser controlado.</p>
 <p>O controlador PID foi introduzido em 1911, a primeira análise teórica é de 1922. Nesses tempos, o controle PID era exclusivamente analógico. No entanto, é fácil implementar um PID digital na programação e os cálculos necessários são simples e eficientes.</p>
 <p>Apesar da (quase)omnipresença e popularidade, o PID não é o melhor controlador disponível. No entanto, na maioria dos casos, serve muito bem. E muitos controladores “modernos” são versões melhoradas de um PID, como por exemplo PIDs com parâmetros adaptativos.</p>
@@ -159,24 +148,13 @@ externas.</p>
 <div class="math notranslate nohighlight">
 \[u(t_k)=K_P \cdot e(t_k)+K_i \sum_{0}^{k}e(t_k) \cdot + K_d \frac{e(t)-e(t_{k-1})}{t_k-t_{k-1}}\]</div>
 </section>
-<section id="Afinar-os-coeficientes-PID-(PID-tuning)">
-<h1>Afinar os coeficientes PID (PID tuning)<a class="headerlink" href="#Afinar-os-coeficientes-PID-(PID-tuning)" title="Link to this heading"></a></h1>
-<section id="Saida-do-controlador-PID-a-responder-ao-salto-do-setpoint,-para-três-valores-de-Kp-(Ki-e-Kd-mantidos-constantes)">
-<h2>Saida do controlador PID a responder ao salto do setpoint, para três valores de Kp (Ki e Kd mantidos constantes)<a class="headerlink" href="#Saida-do-controlador-PID-a-responder-ao-salto-do-setpoint,-para-três-valores-de-Kp-(Ki-e-Kd-mantidos-constantes)" title="Link to this heading"></a></h2>
+<section id="Afinar-os-coeficientes-PID-('PID-tuning')">
+<h1>Afinar os coeficientes PID (‘PID tuning’)<a class="headerlink" href="#Afinar-os-coeficientes-PID-('PID-tuning')" title="Link to this heading"></a></h1>
+<p>Saida do controlador PID a responder ao salto do setpoint, para três valores de Kp (Ki e Kd mantidos constantes)</p>
 <p><img alt="Saida do controlador PID a responder ao salto do setpoint, para três valores de Kp (Ki e Kd mantidos constantes) (da wikipedia)" src="https://upload.wikimedia.org/wikipedia/commons/a/a3/PID_varyingP.jpg" /></p>
-</section>
-<section id="Saida-do-controlador-PID-a-responder-ao-salto-do-setpoint,-para-três-valores-de-Ki-(Kp-e-Kd-mantidos-constantes)">
-<h2>Saida do controlador PID a responder ao salto do setpoint, para três valores de Ki (Kp e Kd mantidos constantes)<a class="headerlink" href="#Saida-do-controlador-PID-a-responder-ao-salto-do-setpoint,-para-três-valores-de-Ki-(Kp-e-Kd-mantidos-constantes)" title="Link to this heading"></a></h2>
-<p><img alt="Saida do controlador PID a responder ao salto do setpoint, para três valores de Ki (Kp e Kd mantidos constantes) (da wikipedia)" src="https://upload.wikimedia.org/wikipedia/commons/c/c0/Change_with_Ki.png" /></p>
-</section>
-<section id="Saida-do-controlador-PID-a-responder-ao-salto-do-setpoint,-para-três-valores-de-Kd-(Kp-e-Ki-mantidos-constantes">
-<h2>Saida do controlador PID a responder ao salto do setpoint, para três valores de Kd (Kp e Ki mantidos constantes<a class="headerlink" href="#Saida-do-controlador-PID-a-responder-ao-salto-do-setpoint,-para-três-valores-de-Kd-(Kp-e-Ki-mantidos-constantes" title="Link to this heading"></a></h2>
-<p><img alt="Saida do controlador PID a responder ao salto do setpoint, para três valores de Kd (Kp e Ki mantidos constantes) (da wikipedia)" src="https://upload.wikimedia.org/wikipedia/commons/c/c7/Change_with_Kd.png" /></p>
-</section>
-<section id="Impacto-na-variação-de-vários-parâmetros-PID-(Kp,-Ki,-Kd)-na-resposta-de-um-sistema">
-<h2>Impacto na variação de vários parâmetros PID (Kp, Ki, Kd) na resposta de um sistema<a class="headerlink" href="#Impacto-na-variação-de-vários-parâmetros-PID-(Kp,-Ki,-Kd)-na-resposta-de-um-sistema" title="Link to this heading"></a></h2>
-<p><img alt="Animação: Impacto na variação de vários parâmetros PID (Kp, Ki, Kd) na resposta de um sistema) (da wikipedia)" src="https://upload.wikimedia.org/wikipedia/commons/3/33/PID_Compensation_Animated.gif" /></p>
-</section>
+<p>Saida do controlador PID a responder ao salto do setpoint, para três valores de Ki (Kp e Kd mantidos constantes) <img alt="Saida do controlador PID a responder ao salto do setpoint, para três valores de Ki (Kp e Kd mantidos constantes) (da wikipedia)" src="https://upload.wikimedia.org/wikipedia/commons/c/c0/Change_with_Ki.png" /></p>
+<p>Saida do controlador PID a responder ao salto do setpoint, para três valores de Kd (Kp e Ki mantidos constantes <img alt="Saida do controlador PID a responder ao salto do setpoint, para três valores de Kd (Kp e Ki mantidos constantes) (da wikipedia)" src="https://upload.wikimedia.org/wikipedia/commons/c/c7/Change_with_Kd.png" /></p>
+<p>Impacto na variação de vários parâmetros PID (Kp, Ki, Kd) na resposta de um sistema <img alt="Animação: Impacto na variação de vários parâmetros PID (Kp, Ki, Kd) na resposta de um sistema) (da wikipedia)" src="https://upload.wikimedia.org/wikipedia/commons/3/33/PID_Compensation_Animated.gif" /></p>
 </section>
 <section id="Procedimento-/-Metodologia-para-ajuste-manual">
 <h1>Procedimento / Metodologia para ajuste manual<a class="headerlink" href="#Procedimento-/-Metodologia-para-ajuste-manual" title="Link to this heading"></a></h1>
@@ -188,8 +166,9 @@ externas.</p>
 </ul>
 <p>Descrição de exemplo detalhado <a class="reference external" href="https://tlk-energy.de/blog-en/practical-pid-tuning-guide">aqui</a>.</p>
 </section>
-<section id="Exemplo-de-implementação-de-controlador-PID-em-Arduino">
-<h1>Exemplo de implementação de controlador PID em Arduino<a class="headerlink" href="#Exemplo-de-implementação-de-controlador-PID-em-Arduino" title="Link to this heading"></a></h1>
+<section id="PID-no-arduino-(exemplo-1)">
+<h1>PID no arduino (exemplo 1)<a class="headerlink" href="#PID-no-arduino-(exemplo-1)" title="Link to this heading"></a></h1>
+<p>Exemplo de implementação de controlador PID em Arduino (sem biblioteca)</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">//define pins</span>
 <span class="cp">#define POT A0 </span><span class="c1">//analog input for testing</span>
 <span class="c1">//#define RPM 2</span>
@@ -261,8 +240,9 @@ externas.</p>
 </pre></div>
 </div>
 </section>
-<section id="Código-de-controlador-PID-para-arduino-(com-biblioteca)">
-<h1>Código de controlador PID para arduino (com biblioteca)<a class="headerlink" href="#Código-de-controlador-PID-para-arduino-(com-biblioteca)" title="Link to this heading"></a></h1>
+<section id="PID-no-arduino-(exemplo-2)">
+<h1>PID no arduino (exemplo 2)<a class="headerlink" href="#PID-no-arduino-(exemplo-2)" title="Link to this heading"></a></h1>
+<p>Código de controlador PID para arduino (com biblioteca)</p>
 <p>A implementação de um controlador PID no arduino com um código simples muitas vezes resulta bem. No entanto, para ter uma solução mais robusta como em controladores industriais, é conveniente usar uma das bibliotecas disponiveis do arduino que implementam controladores PID. Uma das (primeiras) bibliotecas foi a <code class="docutils literal notranslate"><span class="pre">PID</span></code> <a class="reference external" href="http://brettbeauregard.com/blog/2011/04/improving-the-beginners-pid-introduction/">(informação detalhada cf. blog do autor)</a>. Quando instalada, ficam disponiveis na
 <code class="docutils literal notranslate"><span class="pre">IDE</span> <span class="pre">Arduino</span> <span class="pre">-&gt;</span> <span class="pre">File</span> <span class="pre">-&gt;</span> <span class="pre">Examples</span> <span class="pre">-&gt;</span> <span class="pre">PID</span></code>varios programas exemplo, como o <code class="docutils literal notranslate"><span class="pre">PID_Basic.ino</span></code> transcrito em baixo. Referência técnica sobre a biblioteca disponivel na página do <a class="reference external" href="https://playground.arduino.cc/Code/PIDLibrary/">(Arduino Playground)</a> (click “Libraries” on the left panel. The link to the documentation is listed as “PIDLibrary - Provides basic feedback control”.).</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cm">/********************************************************</span>
@@ -307,7 +287,7 @@ externas.</p>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="controller.html" class="btn btn-neutral float-left" title="PID Controller" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="controlo-ref-code-aeropendulo.html" class="btn btn-neutral float-right" title="Código de referência para aeropendulum" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="controlo-ref-code-aeropendulo.html" class="btn btn-neutral float-right" title="Código exemplo para aeropendulum simulado" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
