@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Código de referência para aeropendulum &mdash; oficina3  documentation</title>
+  <title>Código exemplo para aeropendulum simulado &mdash; oficina3  documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
@@ -67,19 +67,14 @@
 <li class="toctree-l1"><a class="reference internal" href="coding.html">Programar</a></li>
 <li class="toctree-l1"><a class="reference internal" href="motorCalib-PT.html">[PT] Máquinas de Estados aplicadas à Calibração de Motor DC</a></li>
 <li class="toctree-l1"><a class="reference internal" href="motorCalib-EN.html">[EN] State-Machines applied to DC Motor Calibration</a></li>
-<li class="toctree-l1"><a class="reference internal" href="controlo-intro.html">Sistema / Processo / ‘Plant’</a></li>
-<li class="toctree-l1"><a class="reference internal" href="controlo-intro.html#Controlador">Controlador</a></li>
-<li class="toctree-l1"><a class="reference internal" href="controlo-intro.html#Requisitos-do-sistema:-que-caraterísticas-para-a-saída?">Requisitos do sistema: que caraterísticas para a saída?</a></li>
-<li class="toctree-l1"><a class="reference internal" href="controlo-intro.html#Controlador-em-malha-fechada">Controlador em malha fechada</a></li>
-<li class="toctree-l1"><a class="reference internal" href="controlo-intro.html#Controlo-de-limiar-('bang-bang'-ou-'on/off')-com-Arduino">Controlo de limiar (‘bang-bang’ ou ‘on/off’) com Arduino</a></li>
-<li class="toctree-l1"><a class="reference internal" href="controlo-intro.html#Referência">Referência</a></li>
+<li class="toctree-l1"><a class="reference internal" href="controlo-intro.html">Intro controlador</a></li>
 <li class="toctree-l1"><a class="reference internal" href="controller.html">PID Controller</a></li>
 <li class="toctree-l1"><a class="reference internal" href="controlo-PID-arduino.html">Controlador PID no arduino</a></li>
 <li class="toctree-l1"><a class="reference internal" href="controlo-PID-arduino.html#Afinar-os-coeficientes-PID-(PID-tuning)">Afinar os coeficientes PID (PID tuning)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="controlo-PID-arduino.html#Procedimento-/-Metodologia-para-ajuste-manual">Procedimento / Metodologia para ajuste manual</a></li>
 <li class="toctree-l1"><a class="reference internal" href="controlo-PID-arduino.html#Exemplo-de-implementação-de-controlador-PID-em-Arduino">Exemplo de implementação de controlador PID em Arduino</a></li>
 <li class="toctree-l1"><a class="reference internal" href="controlo-PID-arduino.html#Código-de-controlador-PID-para-arduino-(com-biblioteca)">Código de controlador PID para arduino (com biblioteca)</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Código de referência para aeropendulum</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Código exemplo para aeropendulum simulado</a></li>
 <li class="toctree-l1"><a class="reference internal" href="integration.html">Integração do Sistema</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Projeto 2</span></p>
@@ -105,7 +100,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">Código de referência para aeropendulum</li>
+      <li class="breadcrumb-item active">Código exemplo para aeropendulum simulado</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/project1/controlo-ref-code-aeropendulo.ipynb.txt" rel="nofollow"> View page source</a>
       </li>
@@ -115,8 +110,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="Código-de-referência-para-aeropendulum">
-<h1>Código de referência para aeropendulum<a class="headerlink" href="#Código-de-referência-para-aeropendulum" title="Link to this heading"></a></h1>
+  <section id="Código-exemplo-para-aeropendulum-simulado">
+<h1>Código exemplo para aeropendulum simulado<a class="headerlink" href="#Código-exemplo-para-aeropendulum-simulado" title="Link to this heading"></a></h1>
 <p>Para implementar um código de referência para o aeropendulo foi utilizada a biblioteca <code class="docutils literal notranslate"><span class="pre">PID_RT</span></code>de <a class="reference external" href="https://github.com/RobTillaart/PID_RT">Rob Tillaart</a>, também disponivel via biblioteca Arduino. O código está disponivel <a class="reference external" href="https://wokwi.com/projects/412312875773779969">neste simulador online</a> (adaptado de <a class="reference external" href="https://wokwi.com/projects/356437164264235009">aqui</a> e <a class="reference external" href="https://wokwi.com/projects/357374218559137793">aqui</a> ).</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">//</span>
 <span class="c1">//    FILE: PID_simulation</span>
@@ -261,7 +256,7 @@
 </div>
 <p>O código encontra disponivel no seguinte simulador online:</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">IPython.display</span><span class="w"> </span><span class="kn">import</span> <span class="n">IFrame</span>
@@ -270,7 +265,8 @@
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
 <iframe
