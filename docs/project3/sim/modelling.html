@@ -64,7 +64,19 @@
 <li class="toctree-l1"><a class="reference internal" href="../../project1/coding.html">Programar</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../project1/motorCalib-PT.html">[PT] Máquinas de Estados aplicadas à Calibração de Motor DC</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../project1/motorCalib-EN.html">[EN] State-Machines applied to DC Motor Calibration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../project1/controlo-intro.html">Sistema / Processo / ‘Plant’</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../project1/controlo-intro.html#Controlador">Controlador</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../project1/controlo-intro.html#Requisitos-do-sistema:-que-caraterísticas-para-a-saída?">Requisitos do sistema: que caraterísticas para a saída?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../project1/controlo-intro.html#Controlador-em-malha-fechada">Controlador em malha fechada</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../project1/controlo-intro.html#Controlo-de-limiar-('bang-bang'-ou-'on/off')-com-Arduino">Controlo de limiar (‘bang-bang’ ou ‘on/off’) com Arduino</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../project1/controlo-intro.html#Referência">Referência</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../project1/controller.html">PID Controller</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../project1/controlo-PID-arduino.html">Controlador PID no arduino</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../project1/controlo-PID-arduino.html#Afinar-os-coeficientes-PID-(PID-tuning)">Afinar os coeficientes PID (PID tuning)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../project1/controlo-PID-arduino.html#Procedimento-/-Metodologia-para-ajuste-manual">Procedimento / Metodologia para ajuste manual</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../project1/controlo-PID-arduino.html#Exemplo-de-implementação-de-controlador-PID-em-Arduino">Exemplo de implementação de controlador PID em Arduino</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../project1/controlo-PID-arduino.html#Código-de-controlador-PID-para-arduino-(com-biblioteca)">Código de controlador PID para arduino (com biblioteca)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../project1/controlo-ref-code-aeropendulo.html">Código de referência para aeropendulum</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../project1/integration.html">Integração do Sistema</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Projeto 2</span></p>
@@ -104,7 +116,7 @@
 <h1>Modelling<a class="headerlink" href="#Modelling" title="Link to this heading"></a></h1>
 <p>The simulation involves modeling the dynamics of a Reaction Wheel Inverted Pendulum (RWIP) system. The key components include:</p>
 <p><strong>Reaction Wheel Inverted Pendulum Dynamics</strong></p>
-<p><img alt="fb19f117506640569b02c835996a73a9" class="no-scaled-link" src="https://github.com/B-Paweekorn/Reaction-wheel-inverted-pendulum/assets/122732439/6c59b7a7-6aa7-4a73-b353-9e242e6aae1c" style="width: 480px;" /></p>
+<p><img alt="85ead6c8b73546e6aa916c258082a86d" class="no-scaled-link" src="https://github.com/B-Paweekorn/Reaction-wheel-inverted-pendulum/assets/122732439/6c59b7a7-6aa7-4a73-b353-9e242e6aae1c" style="width: 480px;" /></p>
 <section id="Parameters">
 <h2>Parameters<a class="headerlink" href="#Parameters" title="Link to this heading"></a></h2>
 <ul class="simple">
@@ -151,7 +163,7 @@ Root Locus of the system by default parameter set. It has one zero (s = 0), and 
 <ul class="simple">
 <li><p><strong>Bang-bang Controller</strong>: The swing up control routine and the stabilizing control routine are switched between -25 to 25 degree</p></li>
 </ul>
-<p>   <img alt="90c52627f8a34876a3c9937c3f76c100" class="no-scaled-link" src="https://github.com/B-Paweekorn/Reaction-wheel-inverted-pendulum/assets/122732439/79e6d6d3-9ab2-49eb-a58b-3ad10a96a96b" style="width: 480px;" /></p>
+<p>   <img alt="46c8fa24e6b248cd8b97d43b61384418" class="no-scaled-link" src="https://github.com/B-Paweekorn/Reaction-wheel-inverted-pendulum/assets/122732439/79e6d6d3-9ab2-49eb-a58b-3ad10a96a96b" style="width: 480px;" /></p>
 <ul class="simple">
 <li><p><strong>Brake Controller</strong>: Used as reduced energy of RWIP when RWIP have too much energy for stabilze</p></li>
 </ul>

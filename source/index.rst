@@ -90,7 +90,10 @@ Content
    project1/coding.ipynb
    project1/motorCalib-PT.md
    project1/motorCalib-EN.md
+   project1/controlo-intro.ipynb
    project1/controller.ipynb
+   project1/controlo-PID-arduino.ipynb
+   project1/controlo-ref-code-aeropendulo.ipynb
    project1/integration.ipynb
 
 .. toctree::
