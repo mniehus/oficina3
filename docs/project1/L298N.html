@@ -1,0 +1,273 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Módulo L298N &mdash; oficina3  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../_static/copybutton.js?v=f281be69"></script>
+      <script src="../_static/design-tabs.js?v=f930bc37"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            oficina3
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">oficina3</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../readme.html">LEFA Oficina 3 – Laboratório de Estimação e Controlo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../readme.html#lefa-oficina-3-estimation-and-control-lab">LEFA Oficina 3 – Estimation and Control Lab</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Projeto 1</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="aeropendulum.html">Projeto 1: Desenvolvimento e Teste de um Aeropêndulo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="analogies.html">Analogias</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pendulum-theory.html">Aeropendulum (theory)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="motorDC-theory.html">Motor DC (theory)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="motorDC-lab.html">Motor DC (drive)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="encoder.html">Encoder</a></li>
+<li class="toctree-l1"><a class="reference internal" href="coding.html">Programar</a></li>
+<li class="toctree-l1"><a class="reference internal" href="motorCalib-PT.html">[PT] Máquinas de Estados aplicadas à Calibração de Motor DC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="motorCalib-EN.html">[EN] State-Machines applied to DC Motor Calibration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="as5600.html">Sensor angular magnético AS5600</a></li>
+<li class="toctree-l1"><a class="reference internal" href="controlo-intro.html">Controlador</a></li>
+<li class="toctree-l1"><a class="reference internal" href="controller.html">PID Controller</a></li>
+<li class="toctree-l1"><a class="reference internal" href="controlo-PID-arduino.html">Controlador PID</a></li>
+<li class="toctree-l1"><a class="reference internal" href="controlo-PID-arduino.html#Afinar-os-coeficientes-PID-('PID-tuning')">Afinar os coeficientes PID (‘PID tuning’)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="controlo-PID-arduino.html#Procedimento-/-Metodologia-para-ajuste-manual">Procedimento / Metodologia para ajuste manual</a></li>
+<li class="toctree-l1"><a class="reference internal" href="controlo-PID-arduino.html#PID-no-arduino-(exemplo-1)">PID no arduino (exemplo 1)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="controlo-PID-arduino.html#PID-no-arduino-(exemplo-2)">PID no arduino (exemplo 2)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="controlo-ref-code-aeropendulo.html">PID código exemplo para aeropendulum <em>simulado</em></a></li>
+<li class="toctree-l1"><a class="reference internal" href="integration.html">Integração do Sistema</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Projeto 2</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../project2/readme.html">Carro programável</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Project 3</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../project3/readme.html">Inverted Pendulum</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">oficina3</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Módulo L298N</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/project1/L298N.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section class="tex2jax_ignore mathjax_ignore" id="modulo-l298n">
+<h1>Módulo L298N<a class="headerlink" href="#modulo-l298n" title="Link to this heading"></a></h1>
+<p><strong>Controlando a direção com uma ponte H</strong></p>
+<p>Uma ponte H é um circuito especial com quatro interruptores eletrónicos dispostos em forma de «H», com o motor no meio.</p>
+<p>Ao ligar e desligar esses interruptores numa ordem específica, pode fazer com que a eletricidade flua através do motor numa direção ou na direção oposta. Este truque inteligente permite controlar a direção em que o motor gira sem ter de inverter fisicamente os fios.</p>
+<p><img alt="alt text" src="../_images/H-Bridge-Working-Motor-Direction-Control-Animation.gif" /></p>
+<p><strong>Controlando a velocidade com PWM</strong></p>
+<p>Quando uma tensão fixa é aplicada a um motor DC, ele gira a uma velocidade fixa. Se quiser alterar a velocidade, é necessário ajustar a tensão. Uma tensão mais alta faz o motor girar mais rápido, enquanto uma tensão mais baixa o torna mais lento.</p>
+<p>No entanto, alterar fisicamente a tensão o tempo todo não é muito prático. É aí que entra o PWM, ou modulação por largura de impulso.</p>
+<p>O PWM é uma forma inteligente de controlar a quantidade média de energia enviada ao motor. Em vez de enviar uma tensão fixa, o PWM liga e desliga rapidamente a tensão em impulsos muito rápidos.</p>
+<p>A «largura» de cada impulso ligado, também chamada de ciclo de trabalho, determina por quanto tempo a tensão fica «ligada» durante cada ciclo.</p>
+<p><img alt="alt text" src="../_images/Pulse-Width-Modulation-PWM-Technique-with-Duty-Cycles.png" /></p>
+<p><strong>Chip controlador de motor L298N</strong></p>
+<p>No centro do módulo encontra-se um grande chip preto com um dissipador de calor robusto – o L298N.</p>
+<p>Trata-se de um controlador de ponte H dupla de alta tensão e alta corrente, projetado principalmente para controlar cargas indutivas, como motores DC, motores de passo, relés e solenóides. Ele funciona como um amplificador de corrente, o que significa que recebe os sinais de controle de baixa corrente do arduino e os aumenta para os níveis mais altos de corrente e tensão necessários para o funcionamento dos motores.
+Módulo controlador de motor L298N IC</p>
+<p>Na sua essência, o L298N tem dois circuitos de ponte H separados.</p>
+<p><strong>Potência</strong></p>
+<p>O L298N é bastante flexível quando se trata de alimentação. Ele pode funcionar com uma ampla gama de tensões, de 5 V a 46 V, e pode fornecer até 2 A de corrente contínua por canal, o que significa que pode lidar com tudo, desde pequenos motores para hobby até motores maiores e mais potentes.</p>
+<p><strong>Proteção térmica</strong></p>
+<p>O L298N também inclui proteção térmica integrada. Isto significa que, se o chip ficar muito quente — talvez porque um motor está a consumir muita corrente ou o chip não está a ser bem arrefecido —, o L298N desligará automaticamente as suas saídas temporariamente para evitar danos. Assim que o chip arrefecer até uma temperatura segura, ele volta a funcionar automaticamente.</p>
+<p><img alt="alt text" src="../_images/L298N-Motor-Driver-Module-Pinout.png" /></p>
+<p><strong>O módulo L298N tem 11 pinos no total.</strong></p>
+<p><strong>Pinos de alimentação</strong></p>
+<p>Existem dois pinos de entrada de alimentação no módulo L298N: VS e VSS.</p>
+<p>VS é a entrada de alimentação principal para os motores. Em muitos módulos, este pino está identificado como +12V, mas na verdade pode suportar uma ampla gama de tensões DC, de 5V a 46V. No entanto, é importante compreender que a tensão que os motores recebem será um pouco inferior à que é fornecida ao pino VS. Isto porque os transístores internos da ponte H dentro do L298N causam uma queda de tensão de cerca de 2V.</p>
+<p>VSS é a entrada de alimentação para o circuito lógico interno do chip. Este circuito lógico precisa de 5 V estáveis para funcionar. Pode fornecer estes 5 V de duas maneiras. Uma opção é ligar uma fonte de alimentação externa de 5 V diretamente ao pino VSS. A outra opção é usar o regulador de tensão de 5 V integrado, que recebe energia da alimentação do motor (VS) e fornece automaticamente 5 V aos circuitos lógicos. Quando utiliza o regulador integrado, não precisa de ligar nada ao pino VSS.</p>
+<p>O pino GND é a ligação de terra comum para o módulo. Tanto a fonte de alimentação do motor como o Arduino devem partilhar uma terra comum através deste pino.</p>
+<p><strong>Pinos de saída do motor</strong></p>
+<p>Estes são os pinos onde você realmente conecta os seus motores DC.</p>
+<p>Os pinos OUT1 e OUT2 conectam-se ao seu primeiro motor (motor A), enquanto os pinos OUT3 e OUT4 conectam-se ao seu segundo motor (motor B). Pode ligar qualquer motor DC que funcione entre 5 e 46 volts a estes pinos.</p>
+<p><strong>Pinos de controlo de direção</strong></p>
+<p>Estes pinos controlam a direção de rotação dos motores, ligando e desligando os interruptores internos da ponte H.</p>
+<p>O chip tem dois pinos de controlo de direção para cada motor. Os pinos IN1 e IN2 controlam a direção de rotação do motor A, enquanto os pinos IN3 e IN4 controlam a direção de rotação do motor B.</p>
+<p>Ao definir diferentes combinações de sinais HIGH ou LOW nestes pinos, pode fazer com que os motores girem para a frente, para trás ou parem. O gráfico abaixo mostra exatamente como isso funciona:</p>
+<p>Input1	Input2	Spinning Direction
+Low(0)	Low(0)	Motor OFF
+High(1)	Low(0)	Forward
+Low(0)	High(1)	Backward
+High(1)	High(1)	Motor OFF</p>
+<p><strong>Pinos de controlo de velocidade</strong></p>
+<p>Os pinos ENA e ENB controlam a velocidade de rotação dos motores.</p>
+<p>Na verdade, estes pinos podem funcionar como simples interruptores liga/desliga. Quando se coloca um deles em HIGH, o motor correspondente é ativado e gira a toda a velocidade. Quando se coloca em LOW, o motor é completamente desativado e não gira.</p>
+<p>Mas esses pinos podem fazer mais do que apenas ligar ou desligar os motores. Ao enviar um sinal PWM (modulação por largura de impulso) para ENA ou ENB, você pode realmente controlar a velocidade de cada motor.</p>
+<p>O PWM funciona ligando e desligando o motor muito rapidamente — muitas vezes por segundo. A velocidade depende de quanto tempo o motor permanece ligado durante cada ciclo (<code class="docutils literal notranslate"><span class="pre">duty</span> <span class="pre">cycle</span></code>). Se o sinal permanecer ligado na maior parte do tempo, o motor gira mais rápido. Se ficar ligado por pouco tempo, o motor gira mais devagar.</p>
+<p>O módulo L298N geralmente vem com jumpers colocados nos pinos ENA e ENB, que os conectam diretamente a 5V. Isso faz com que os motores girem em velocidade máxima por padrão. Se quiser controlar a velocidade dos seus motores através do Arduino, precisará remover esses jumpers e conectar os pinos ENA e ENB aos pinos habilitados para PWM do Arduino.</p>
+<p><strong>Queda de tensão do L298N</strong></p>
+<p>Talvez saiba que quando um transístor é ligado ou fica num estado «saturado», permitindo que a corrente flua através dele, há sempre uma pequena quantidade de tensão que se perde ao longo dele. O L298N usa transístores de junção bipolar (BJTs) dentro do seu circuito H-Bridge, que são conhecidos por terem uma queda de tensão perceptível.</p>
+<p><img alt="alt text" src="../_images/L298N-Voltage-Drop-Datasheet-Reference.png" /></p>
+<p><img alt="alt text" src="../_images/L298N-Motor-Driver-Module-Internal-Voltage-Drop.png" /></p>
+<p>De acordo com a ficha técnica, a queda de tensão no L298N pode variar entre cerca de 1,8 V e 3,2 V quando a corrente é de cerca de 1 ampere, e pode chegar a quase 5 V quando a corrente atinge 2 amperes.
+Referência da ficha técnica da queda de tensão do L298N</p>
+<p>Portanto, como regra geral, pode-se assumir uma queda de tensão de cerca de 2 V em uso típico.</p>
+<p>O que esta queda de tensão significa para os seus motores é que, se fornecer 12 V à entrada de alimentação do motor (VS), os seus motores receberão apenas aproximadamente 10 V de potência. É por isso que os seus motores de 12 V CC podem não funcionar à velocidade máxima quando alimentados através do L298N com exatamente 12 V.</p>
+<p>Para garantir que o seu motor funcione à velocidade máxima, deve fornecer uma tensão à fonte de alimentação do motor que seja cerca de 2 V superior à tensão real de que o seu motor necessita. Por exemplo, se estiver a utilizar um motor de 5 V, terá de fornecer cerca de 7 V ao terminal de alimentação do motor. Da mesma forma, se tiver motores de 12 V, a tensão de alimentação do motor deve ser de cerca de 14 V para ajudá-los a atingir a velocidade máxima.</p>
+<p><strong>Regulador de 5 V integrado e jumper</strong></p>
+<p>O módulo controlador de motor L298N vem com um regulador de tensão 78M05 integrado. O objetivo deste regulador é obter energia da entrada de alimentação do motor (conectada ao pino VS) e convertê-la em 5 V estáveis. Esses 5 V são então usados para alimentar o circuito lógico interno do chip L298N, o que significa que não é necessário conectar uma fonte de alimentação de 5 V separada ao pino VSS.</p>
+<p>Há um pequeno jumper no módulo que permite ativar ou desativar este regulador.</p>
+<p>Quando o jumper está no lugar, o regulador de 5V é ativado. Neste modo, o regulador de 5V alimenta automaticamente o circuito lógico interno do chip usando a entrada de alimentação do motor, e o pino VSS torna-se uma saída de 5V. Esta saída pode fornecer até 0,5 amperes de corrente, o que geralmente é suficiente para alimentar um ESP32 ou outros pequenos componentes eletrónicos.</p>
+<p>No entanto, é importante observar que o regulador de 5 V integrado não foi projetado para lidar com tensões de entrada superiores a 12 V. Portanto, você só deve usar esse recurso se a alimentação do motor for inferior a 12 V. Se a alimentação do motor for superior a 12 V, você deve remover o jumper para evitar danos ao regulador de 5 V integrado.</p>
+<p>Codigo de teste</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">// Motor A connections</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">enA</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span><span class="w">  </span><span class="c1">// ENA pin, pwm capable pin</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">in1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">6</span><span class="p">;</span><span class="w">  </span><span class="c1">// IN1 pin, any digital pin</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">in2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">7</span><span class="p">;</span><span class="w">  </span><span class="c1">// IN2 pin, any digital pin</span>
+
+<span class="c1">// PWM properties</span>
+<span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">freq</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1000</span><span class="p">;</span><span class="w">        </span><span class="c1">// PWM frequency</span>
+<span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">pwmChannelA</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w">    </span><span class="c1">// PWM channel for motor A</span>
+<span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">resolution</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">8</span><span class="p">;</span><span class="w">     </span><span class="c1">// 8-bit resolution (0-255)</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">setup</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// Set all the motor control pins to outputs</span>
+<span class="w">  </span><span class="n">pinMode</span><span class="p">(</span><span class="n">in1</span><span class="p">,</span><span class="w"> </span><span class="n">OUTPUT</span><span class="p">);</span>
+<span class="w">  </span><span class="n">pinMode</span><span class="p">(</span><span class="n">in2</span><span class="p">,</span><span class="w"> </span><span class="n">OUTPUT</span><span class="p">);</span>
+<span class="w">  </span>
+<span class="w">  </span><span class="c1">// Turn off motors - Initial state</span>
+<span class="w">  </span><span class="n">digitalWrite</span><span class="p">(</span><span class="n">in1</span><span class="p">,</span><span class="w"> </span><span class="n">LOW</span><span class="p">);</span>
+<span class="w">  </span><span class="n">digitalWrite</span><span class="p">(</span><span class="n">in2</span><span class="p">,</span><span class="w"> </span><span class="n">LOW</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">loop</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">directionControl</span><span class="p">();</span>
+<span class="w">  </span><span class="n">delay</span><span class="p">(</span><span class="mi">1000</span><span class="p">);</span>
+<span class="w">  </span><span class="n">speedControl</span><span class="p">();</span>
+<span class="w">  </span><span class="n">delay</span><span class="p">(</span><span class="mi">1000</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="c1">// This function lets you control spinning direction of motors</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">directionControl</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// Set motors to maximum speed</span>
+<span class="w">  </span><span class="n">analogWrite</span><span class="p">(</span><span class="n">enA</span><span class="p">,</span><span class="w"> </span><span class="mi">255</span><span class="p">);</span>
+<span class="w">  </span>
+<span class="w">  </span><span class="c1">// Turn on motor A  (forward direction)</span>
+<span class="w">  </span><span class="n">digitalWrite</span><span class="p">(</span><span class="n">in1</span><span class="p">,</span><span class="w"> </span><span class="n">HIGH</span><span class="p">);</span>
+<span class="w">  </span><span class="n">digitalWrite</span><span class="p">(</span><span class="n">in2</span><span class="p">,</span><span class="w"> </span><span class="n">LOW</span><span class="p">);</span>
+<span class="w">  </span><span class="n">delay</span><span class="p">(</span><span class="mi">2000</span><span class="p">);</span>
+<span class="w">  </span>
+<span class="w">  </span><span class="c1">// Now change motor directions (reverse direction)</span>
+<span class="w">  </span><span class="n">digitalWrite</span><span class="p">(</span><span class="n">in1</span><span class="p">,</span><span class="w"> </span><span class="n">LOW</span><span class="p">);</span>
+<span class="w">  </span><span class="n">digitalWrite</span><span class="p">(</span><span class="n">in2</span><span class="p">,</span><span class="w"> </span><span class="n">HIGH</span><span class="p">);</span>
+<span class="w">  </span><span class="n">delay</span><span class="p">(</span><span class="mi">2000</span><span class="p">);</span>
+<span class="w">  </span>
+<span class="w">  </span><span class="c1">// Turn off motors</span>
+<span class="w">  </span><span class="n">digitalWrite</span><span class="p">(</span><span class="n">in1</span><span class="p">,</span><span class="w"> </span><span class="n">LOW</span><span class="p">);</span>
+<span class="w">  </span><span class="n">digitalWrite</span><span class="p">(</span><span class="n">in2</span><span class="p">,</span><span class="w"> </span><span class="n">LOW</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="c1">// This function lets you control speed of the motors</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">speedControl</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// Turn on motors (reverse direction)</span>
+<span class="w">  </span><span class="n">digitalWrite</span><span class="p">(</span><span class="n">in1</span><span class="p">,</span><span class="w"> </span><span class="n">LOW</span><span class="p">);</span>
+<span class="w">  </span><span class="n">digitalWrite</span><span class="p">(</span><span class="n">in2</span><span class="p">,</span><span class="w"> </span><span class="n">HIGH</span><span class="p">);</span>
+<span class="w">  </span>
+<span class="w">  </span><span class="c1">// Accelerate from zero to maximum speed</span>
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">256</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">ledcWrite</span><span class="p">(</span><span class="n">enA</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">);</span>
+<span class="w">    </span><span class="n">delay</span><span class="p">(</span><span class="mi">20</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span>
+<span class="w">  </span><span class="c1">// Decelerate from maximum speed to zero</span>
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">255</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="o">--</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">ledcWrite</span><span class="p">(</span><span class="n">enA</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">);</span>
+<span class="w">    </span><span class="n">delay</span><span class="p">(</span><span class="mi">20</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span>
+<span class="w">  </span><span class="c1">// Now turn off motors</span>
+<span class="w">  </span><span class="n">digitalWrite</span><span class="p">(</span><span class="n">in1</span><span class="p">,</span><span class="w"> </span><span class="n">LOW</span><span class="p">);</span>
+<span class="w">  </span><span class="n">digitalWrite</span><span class="p">(</span><span class="n">in2</span><span class="p">,</span><span class="w"> </span><span class="n">LOW</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Reference
+https://lastminuteengineers.com/esp32-l298n-dc-motor-control-tutorial/</p>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, mniehus.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

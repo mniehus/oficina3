@@ -5,7 +5,7 @@
    "id": "4cd10d68-6e12-4803-819c-368461a728b1",
    "metadata": {},
    "source": [
-    "## Código exemplo para aeropendulum simulado\n",
+    "## PID código exemplo para aeropendulum *simulado*\n",
     "Para implementar um código de referência para o aeropendulo foi utilizada a biblioteca `PID_RT`de __[Rob Tillaart](https://github.com/RobTillaart/PID_RT)__, também disponivel via biblioteca Arduino. O código está disponivel  __[neste simulador online](https://wokwi.com/projects/412312875773779969)__ (adaptado de __[aqui](https://wokwi.com/projects/356437164264235009)__ e __[aqui](https://wokwi.com/projects/357374218559137793)__ ). \n",
     "\n",
     "\n",

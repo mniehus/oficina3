@@ -24,7 +24,9 @@
       <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
-    <link rel="search" title="Search" href="../search.html" /> 
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Controlador" href="controlo-intro.html" />
+    <link rel="prev" title="[EN] State-Machines applied to DC Motor Calibration" href="motorCalib-EN.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -52,7 +54,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../readme.html#lefa-oficina-3-estimation-and-control-lab">LEFA Oficina 3 – Estimation and Control Lab</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Projeto 1</span></p>
-<ul>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="aeropendulum.html">Projeto 1: Desenvolvimento e Teste de um Aeropêndulo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="analogies.html">Analogias</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pendulum-theory.html">Aeropendulum (theory)</a></li>
@@ -62,6 +64,7 @@
 <li class="toctree-l1"><a class="reference internal" href="coding.html">Programar</a></li>
 <li class="toctree-l1"><a class="reference internal" href="motorCalib-PT.html">[PT] Máquinas de Estados aplicadas à Calibração de Motor DC</a></li>
 <li class="toctree-l1"><a class="reference internal" href="motorCalib-EN.html">[EN] State-Machines applied to DC Motor Calibration</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Sensor angular magnético AS5600</a></li>
 <li class="toctree-l1"><a class="reference internal" href="controlo-intro.html">Controlador</a></li>
 <li class="toctree-l1"><a class="reference internal" href="controller.html">PID Controller</a></li>
 <li class="toctree-l1"><a class="reference internal" href="controlo-PID-arduino.html">Controlador PID</a></li>
@@ -69,7 +72,7 @@
 <li class="toctree-l1"><a class="reference internal" href="controlo-PID-arduino.html#Procedimento-/-Metodologia-para-ajuste-manual">Procedimento / Metodologia para ajuste manual</a></li>
 <li class="toctree-l1"><a class="reference internal" href="controlo-PID-arduino.html#PID-no-arduino-(exemplo-1)">PID no arduino (exemplo 1)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="controlo-PID-arduino.html#PID-no-arduino-(exemplo-2)">PID no arduino (exemplo 2)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="controlo-ref-code-aeropendulo.html">Código exemplo para aeropendulum simulado</a></li>
+<li class="toctree-l1"><a class="reference internal" href="controlo-ref-code-aeropendulo.html">PID código exemplo para aeropendulum <em>simulado</em></a></li>
 <li class="toctree-l1"><a class="reference internal" href="integration.html">Integração do Sistema</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Projeto 2</span></p>
@@ -105,7 +108,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="sensor-angular-magnetico-as5600">
+  <section class="tex2jax_ignore mathjax_ignore" id="sensor-angular-magnetico-as5600">
 <h1>Sensor angular magnético AS5600<a class="headerlink" href="#sensor-angular-magnetico-as5600" title="Link to this heading"></a></h1>
 <p><strong>I2C</strong></p>
 <p>I²C (pronuncia-se “I-squared-C” ou “I-two-C”) é um barramento de comunicação serial que permite que dispositivos mestres enviem e recebam dados de dispositivos escravos. No nosso caso de uso, o mestre seria a placa Arduino e o dispositivo escravo seria um sensor.</p>
@@ -174,7 +177,10 @@ https://38-3d.co.uk/blogs/blog/how-to-use-the-as5600-magnetic-rotary-encoder-wit
 
            </div>
           </div>
-          <footer>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="motorCalib-EN.html" class="btn btn-neutral float-left" title="[EN] State-Machines applied to DC Motor Calibration" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="controlo-intro.html" class="btn btn-neutral float-right" title="Controlador" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
 
   <hr/>
 

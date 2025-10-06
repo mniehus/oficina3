@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Código exemplo para aeropendulum simulado &mdash; oficina3  documentation</title>
+  <title>PID código exemplo para aeropendulum simulado &mdash; oficina3  documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
@@ -67,6 +67,7 @@
 <li class="toctree-l1"><a class="reference internal" href="coding.html">Programar</a></li>
 <li class="toctree-l1"><a class="reference internal" href="motorCalib-PT.html">[PT] Máquinas de Estados aplicadas à Calibração de Motor DC</a></li>
 <li class="toctree-l1"><a class="reference internal" href="motorCalib-EN.html">[EN] State-Machines applied to DC Motor Calibration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="as5600.html">Sensor angular magnético AS5600</a></li>
 <li class="toctree-l1"><a class="reference internal" href="controlo-intro.html">Controlador</a></li>
 <li class="toctree-l1"><a class="reference internal" href="controller.html">PID Controller</a></li>
 <li class="toctree-l1"><a class="reference internal" href="controlo-PID-arduino.html">Controlador PID</a></li>
@@ -74,7 +75,7 @@
 <li class="toctree-l1"><a class="reference internal" href="controlo-PID-arduino.html#Procedimento-/-Metodologia-para-ajuste-manual">Procedimento / Metodologia para ajuste manual</a></li>
 <li class="toctree-l1"><a class="reference internal" href="controlo-PID-arduino.html#PID-no-arduino-(exemplo-1)">PID no arduino (exemplo 1)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="controlo-PID-arduino.html#PID-no-arduino-(exemplo-2)">PID no arduino (exemplo 2)</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Código exemplo para aeropendulum simulado</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">PID código exemplo para aeropendulum <em>simulado</em></a></li>
 <li class="toctree-l1"><a class="reference internal" href="integration.html">Integração do Sistema</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Projeto 2</span></p>
@@ -100,7 +101,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">Código exemplo para aeropendulum simulado</li>
+      <li class="breadcrumb-item active">PID código exemplo para aeropendulum <em>simulado</em></li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/project1/controlo-ref-code-aeropendulo.ipynb.txt" rel="nofollow"> View page source</a>
       </li>
@@ -110,8 +111,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="Código-exemplo-para-aeropendulum-simulado">
-<h1>Código exemplo para aeropendulum simulado<a class="headerlink" href="#Código-exemplo-para-aeropendulum-simulado" title="Link to this heading"></a></h1>
+  <section id="PID-código-exemplo-para-aeropendulum-simulado">
+<h1>PID código exemplo para aeropendulum <em>simulado</em><a class="headerlink" href="#PID-código-exemplo-para-aeropendulum-simulado" title="Link to this heading"></a></h1>
 <p>Para implementar um código de referência para o aeropendulo foi utilizada a biblioteca <code class="docutils literal notranslate"><span class="pre">PID_RT</span></code>de <a class="reference external" href="https://github.com/RobTillaart/PID_RT">Rob Tillaart</a>, também disponivel via biblioteca Arduino. O código está disponivel <a class="reference external" href="https://wokwi.com/projects/412312875773779969">neste simulador online</a> (adaptado de <a class="reference external" href="https://wokwi.com/projects/356437164264235009">aqui</a> e <a class="reference external" href="https://wokwi.com/projects/357374218559137793">aqui</a> ).</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">//</span>
 <span class="c1">//    FILE: PID_simulation</span>
