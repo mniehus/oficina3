@@ -90,6 +90,8 @@ Content
    project1/coding.ipynb
    project1/motorCalib-PT.md
    project1/motorCalib-EN.md
+   project1/L298_module.md
+   project1/AS5600.md
    project1/controlo-intro.ipynb
    project1/controller.ipynb
    project1/controlo-PID-arduino.ipynb
