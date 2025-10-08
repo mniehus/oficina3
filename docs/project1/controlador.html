@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sistema / Processo / Planta &mdash; oficina3  documentation</title>
+  <title>Controlador &mdash; oficina3  documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
@@ -36,7 +36,7 @@ window.addEventListener("load", () => mermaid.run());
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Controlador PID" href="controlo-PID-arduino.html" />
-    <link rel="prev" title="Sensor angular magnético AS5600" href="as5600.html" /> 
+    <link rel="prev" title="Sensor AS5600" href="as5600.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -66,20 +66,22 @@ window.addEventListener("load", () => mermaid.run());
 <p class="caption" role="heading"><span class="caption-text">Projeto 1</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="aeropendulum.html">Projeto 1: Aeropêndulo</a></li>
-<li class="toctree-l1"><a class="reference internal" href="analogies.html">Analogias</a></li>
+<li class="toctree-l1"><a class="reference internal" href="analogies.html">Analogias &amp; números</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pendulum-theory.html">Aeropendulum (theory)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="motorDC-theory.html">Motor DC (theory)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="coding.html">Máquinas de Estado</a></li>
 <li class="toctree-l1"><a class="reference internal" href="interrupts.html">Interrupções</a></li>
-<li class="toctree-l1"><a class="reference internal" href="motorCalib-PT.html">Aplicar FSMs na calibração</a></li>
-<li class="toctree-l1"><a class="reference internal" href="as5600.html">Sensor angular magnético AS5600</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Sistema / Processo / <em>Planta</em></a></li>
-<li class="toctree-l1"><a class="reference internal" href="#id1"></a></li>
-<li class="toctree-l1"><a class="reference internal" href="#controlador">Controlador</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#controlo-em-malha-aberta">Controlo em malha aberta</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#controlo-em-malha-fechada">Controlo em malha fechada</a></li>
+<li class="toctree-l1"><a class="reference internal" href="L298N.html">Modulo L298N</a></li>
+<li class="toctree-l1"><a class="reference internal" href="motorCalib-PT.html">Calibração &amp; software</a></li>
+<li class="toctree-l1"><a class="reference internal" href="as5600.html">Sensor AS5600</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Controlador</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#processo-planta">Processo / <em>Planta</em></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#controlo-em-malha-aberta">Controlo em malha aberta</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#controlo-em-malha-fechada">Controlo em malha fechada</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="controlo-PID-arduino.html">Controlador PID</a></li>
-<li class="toctree-l1"><a class="reference internal" href="controlo-ref-code-aeropendulo.html">Exemplo aeropendulum <em>simulado</em></a></li>
+<li class="toctree-l1"><a class="reference internal" href="aeropendulo-sim.html">Aeropendulum <em>simulado</em></a></li>
 <li class="toctree-l1"><a class="reference internal" href="integration.html">Integração</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Projeto 2</span></p>
@@ -105,7 +107,7 @@ window.addEventListener("load", () => mermaid.run());
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">Sistema / Processo / <em>Planta</em></li>
+      <li class="breadcrumb-item active">Controlador</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/project1/controlador.md.txt" rel="nofollow"> View page source</a>
       </li>
@@ -115,21 +117,17 @@ window.addEventListener("load", () => mermaid.run());
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="sistema-processo-planta">
-<h1>Sistema / Processo / <em>Planta</em><a class="headerlink" href="#sistema-processo-planta" title="Link to this heading"></a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="controlador">
+<h1>Controlador<a class="headerlink" href="#controlador" title="Link to this heading"></a></h1>
+<p>Em Engenharia de Controlo, um <strong>controlador</strong> é o bloco que transforma objetivos de desempenho (referência (r)) em uma <strong>ação de controlo</strong> (u) aplicada à <strong>planta</strong> para obter a <strong>saída</strong> (y) desejada. O controlador pode ser analógico ou digital e é especificado a partir de requisitos como estabilidade, precisão, tempo de resposta e robustez.</p>
+<p><img alt="alt text" src="../_images/Untitled.png" /></p>
+<section id="processo-planta">
+<h2>Processo / <em>Planta</em><a class="headerlink" href="#processo-planta" title="Link to this heading"></a></h2>
 <p>Em Engenharia de Controlo, um <strong>sistema</strong> é uma abstração de uma porção da realidade física que permite análise e projeto. A essa entidade física controlada chama-se <strong>processo</strong> ou <strong>planta</strong> (<em>plant</em>). A planta possui <strong>entradas manipuladas</strong> (sinais que podem ser aplicados, p. ex., tensão num motor ou força num carrinho) e <strong>saídas medidas</strong> (grandezas observáveis, p. ex., velocidade do motor/carrinho ou ângulo num aeropêndulo/pêndulo invertido). A relação dinâmica entre entradas e saídas pode apresentar inércia, atrasos, saturações e não linearidades, e é frequentemente modelada por <strong>funções de transferência</strong> ou <strong>modelos em espaço de estados</strong>, representáveis por equações, diagramas de blocos e respostas temporal/frequencial.</p>
 <p>A planta pode estar sujeita a <strong>perturbações</strong> externas (variação de carga, inclinação da pista, correntes de ar, atrito variável), que alteram a saída sem atuação direta. Em síntese, a planta é o objeto físico com <strong>entrada (u)</strong> e <strong>saída (y)</strong> cuja dinâmica se pretende compreender e controlar.</p>
 </section>
-<section id="id1">
-<h1><img alt="alt text" src="../_images/Untitled.png" /><a class="headerlink" href="#id1" title="Link to this heading"></a></h1>
-</section>
-<section id="controlador">
-<h1>Controlador<a class="headerlink" href="#controlador" title="Link to this heading"></a></h1>
-<p>Em Engenharia de Controlo, um <strong>controlador</strong> é o bloco que transforma objetivos de desempenho (referência (r)) em uma <strong>ação de controlo</strong> (u) aplicada à <strong>planta</strong> para obter a <strong>saída</strong> (y) desejada. O controlador pode ser analógico ou digital e é especificado a partir de requisitos como estabilidade, precisão, tempo de resposta e robustez.</p>
-<hr class="docutils" />
-</section>
 <section id="controlo-em-malha-aberta">
-<h1>Controlo em malha aberta<a class="headerlink" href="#controlo-em-malha-aberta" title="Link to this heading"></a></h1>
+<h2>Controlo em malha aberta<a class="headerlink" href="#controlo-em-malha-aberta" title="Link to this heading"></a></h2>
 <p>No <strong>controlo em malha aberta</strong> não existe realimentação da saída durante a operação. A ação (u) é calculada a partir da referência (r) usando um modelo/curva de calibração do sistema. Em termos simples, utiliza-se a <strong>função de transferência inversa</strong> (ou a <strong>calibração inversa</strong> estática) para mapear (<span class="math notranslate nohighlight">\(r \mapsto u\)</span>), assumindo que a planta se comporta como previsto:
 $<span class="math notranslate nohighlight">\(u \approx P^{-1}(r) \quad \Rightarrow \quad y \approx r\)</span>$
 Funciona bem quando a relação entrada-saída é previsível e estável, as perturbações são pequenas e as variações de parâmetros são negligenciáveis.</p>
@@ -151,10 +149,9 @@ Funciona bem quando a relação entrada-saída é previsível e estável, as per
   R([r]) --&gt; C[[&quot;Controller ~ approx P^-1&quot;]]
   C --&gt;|u| P[[&quot;Plant P(s)&quot;]]
   P --&gt;|y| Y([y])
-    </pre><hr class="docutils" />
-</section>
+    </pre></section>
 <section id="controlo-em-malha-fechada">
-<h1>Controlo em malha fechada<a class="headerlink" href="#controlo-em-malha-fechada" title="Link to this heading"></a></h1>
+<h2>Controlo em malha fechada<a class="headerlink" href="#controlo-em-malha-fechada" title="Link to this heading"></a></h2>
 <p>No <strong>controlo em malha fechada</strong> existe <strong>realimentação</strong>: mede-se (y) em tempo real, forma-se o <strong>erro</strong> (e=r-y) e o controlador ajusta (u) continuamente para reduzir esse erro e rejeitar perturbações. O projeto pode ser feito no domínio do tempo (PID, controlo por estados) ou da frequência, tendo em conta estabilidade, margens e desempenho.</p>
 <p><strong>Vantagens (malha fechada)</strong></p>
 <ul class="simple">
@@ -177,12 +174,13 @@ Funciona bem quando a relação entrada-saída é previsível e estável, as per
   C --&gt;|u| P[[&quot;Plant P(s)&quot;]]
   P --&gt;|y| Y
     </pre></section>
+</section>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="as5600.html" class="btn btn-neutral float-left" title="Sensor angular magnético AS5600" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="as5600.html" class="btn btn-neutral float-left" title="Sensor AS5600" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="controlo-PID-arduino.html" class="btn btn-neutral float-right" title="Controlador PID" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 

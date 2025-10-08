@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Analogias &mdash; oficina3  documentation</title>
+  <title>Analogias &amp; números &mdash; oficina3  documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
@@ -58,25 +58,17 @@
 <p class="caption" role="heading"><span class="caption-text">Projeto 1</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="aeropendulum.html">Projeto 1: Aeropêndulo</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Analogias</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#Analogia-Linear–Rotacional">Analogia Linear–Rotacional</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#Analogia-Mecânica–Elétrica">Analogia Mecânica–Elétrica</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#Exemplo-Numérico-Rápido">Exemplo Numérico Rápido</a></li>
-</ul>
-</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Analogias &amp; números</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pendulum-theory.html">Aeropendulum (theory)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="motorDC-theory.html">Motor DC (theory)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="coding.html">Máquinas de Estado</a></li>
 <li class="toctree-l1"><a class="reference internal" href="interrupts.html">Interrupções</a></li>
-<li class="toctree-l1"><a class="reference internal" href="motorCalib-PT.html">Aplicar FSMs na calibração</a></li>
-<li class="toctree-l1"><a class="reference internal" href="as5600.html">Sensor angular magnético AS5600</a></li>
-<li class="toctree-l1"><a class="reference internal" href="controlador.html">Sistema / Processo / <em>Planta</em></a></li>
-<li class="toctree-l1"><a class="reference internal" href="controlador.html#id1"></a></li>
-<li class="toctree-l1"><a class="reference internal" href="controlador.html#controlador">Controlador</a></li>
-<li class="toctree-l1"><a class="reference internal" href="controlador.html#controlo-em-malha-aberta">Controlo em malha aberta</a></li>
-<li class="toctree-l1"><a class="reference internal" href="controlador.html#controlo-em-malha-fechada">Controlo em malha fechada</a></li>
+<li class="toctree-l1"><a class="reference internal" href="L298N.html">Modulo L298N</a></li>
+<li class="toctree-l1"><a class="reference internal" href="motorCalib-PT.html">Calibração &amp; software</a></li>
+<li class="toctree-l1"><a class="reference internal" href="as5600.html">Sensor AS5600</a></li>
+<li class="toctree-l1"><a class="reference internal" href="controlador.html">Controlador</a></li>
 <li class="toctree-l1"><a class="reference internal" href="controlo-PID-arduino.html">Controlador PID</a></li>
-<li class="toctree-l1"><a class="reference internal" href="controlo-ref-code-aeropendulo.html">Exemplo aeropendulum <em>simulado</em></a></li>
+<li class="toctree-l1"><a class="reference internal" href="aeropendulo-sim.html">Aeropendulum <em>simulado</em></a></li>
 <li class="toctree-l1"><a class="reference internal" href="integration.html">Integração</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Projeto 2</span></p>
@@ -102,7 +94,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">Analogias</li>
+      <li class="breadcrumb-item active">Analogias &amp; números</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/project1/analogies.ipynb.txt" rel="nofollow"> View page source</a>
       </li>
@@ -112,10 +104,10 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="Analogias">
-<h1>Analogias<a class="headerlink" href="#Analogias" title="Link to this heading"></a></h1>
+  <section id="Analogias-&amp;-números">
+<h1>Analogias &amp; números<a class="headerlink" href="#Analogias-&-números" title="Link to this heading"></a></h1>
 <div class="line-block">
-<div class="line">Um dos recursos mais poderosos em engenharia é o uso de <strong>analogias</strong>: compreender um sistema novo fazendo paralelos com algo que já conhecemos bem.</div>
+<div class="line">Um recurso poderoso é o uso de <strong>analogias</strong>: compreender um sistema novo fazendo paralelos com algo que já conhecemos bem.</div>
 <div class="line">No projeto do aeropêndulo, vamos explorar duas analogias fundamentais:</div>
 </div>
 <ol class="arabic simple">
@@ -124,8 +116,7 @@
 </ol>
 <p>Estas correspondências não só ajudam a compreender novos conceitos, como permitem começar a <strong>quantificar</strong> os fenómenos com ordens de grandeza realistas.</p>
 <hr class="docutils" />
-<section id="Analogia-Linear–Rotacional">
-<h2>Analogia Linear–Rotacional<a class="headerlink" href="#Analogia-Linear–Rotacional" title="Link to this heading"></a></h2>
+<p><strong>Analogia Linear–Rotacional</strong></p>
 <div class="line-block">
 <div class="line">Assim como uma partícula se move em linha reta com posição, velocidade e aceleração, também um corpo rígido pode girar em torno de um eixo.</div>
 <div class="line">As grandezas correspondentes são:</div>
@@ -174,10 +165,8 @@
 </li>
 </ul>
 <p>onde <span class="math notranslate nohighlight">\(F\)</span> é a força, <span class="math notranslate nohighlight">\(m\)</span> a massa, <span class="math notranslate nohighlight">\(\tau\)</span> o binário (torque), <span class="math notranslate nohighlight">\(I\)</span> o momento de inércia e <span class="math notranslate nohighlight">\(\alpha\)</span> a aceleração angular.</p>
-</section>
 <hr class="docutils" />
-<section id="Analogia-Mecânica–Elétrica">
-<h2>Analogia Mecânica–Elétrica<a class="headerlink" href="#Analogia-Mecânica–Elétrica" title="Link to this heading"></a></h2>
+<p><strong>Analogia Mecânica–Elétrica</strong></p>
 <p>Da mesma forma, existem paralelos entre o domínio mecânico e o elétrico:</p>
 <ul>
 <li><div class="line-block">
@@ -209,10 +198,8 @@
 </li>
 </ul>
 <p>A corrente elétrica medida no motor está diretamente relacionada com o binário aplicado no eixo.</p>
-</section>
 <hr class="docutils" />
-<section id="Exemplo-Numérico-Rápido">
-<h2>Exemplo Numérico Rápido<a class="headerlink" href="#Exemplo-Numérico-Rápido" title="Link to this heading"></a></h2>
+<p><strong>Estimativa numérica</strong></p>
 <p>Considere-se um braço do aeropêndulo com:</p>
 <ul class="simple">
 <li><p>massa equivalente <span class="math notranslate nohighlight">\(m = 0.05\)</span> kg (50 g na extremidade),</p></li>
@@ -243,7 +230,6 @@
 </li>
 </ol>
 <p>Estes valores mostram que, apesar da energia envolvida ser pequena em termos absolutos (da ordem dos <strong>miliwatts a watts</strong>), é suficiente para exigir o uso de um <strong>driver de potência</strong> entre o microcontrolador (Arduino) e o motor, pois o microcontrolador não fornece correntes da ordem das centenas de miliamperes ou amperes.</p>
-</section>
 </section>
 
 

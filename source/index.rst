@@ -87,12 +87,12 @@ Content
    project1/motorDC-theory.ipynb
    project1/coding.ipynb
    project1/interrupts.ipynb
-   project1/L298.md
+   project1/L298N.md
    project1/motorCalib-PT.md
    project1/as5600.md
    project1/controlador.md
    project1/controlo-PID-arduino.ipynb
-   project1/controlo-ref-code-aeropendulo.ipynb
+   project1/aeropendulo-sim.ipynb
    project1/integration.ipynb
 
 .. toctree::

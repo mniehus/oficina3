@@ -1,4 +1,4 @@
-# Sensor angular magnético AS5600
+# Sensor AS5600
 
 **I2C**
 

@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Módulo L298N &mdash; oficina3  documentation</title>
+  <title>Modulo L298N &mdash; oficina3  documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
@@ -24,7 +24,9 @@
       <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
-    <link rel="search" title="Search" href="../search.html" /> 
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Calibração &amp; software" href="motorCalib-PT.html" />
+    <link rel="prev" title="Interrupções" href="interrupts.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -52,22 +54,19 @@
 <li class="toctree-l1"><a class="reference internal" href="../readme.html#lefa-oficina-3-estimation-and-control-lab">LEFA Oficina 3 – Estimation and Control Lab</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Projeto 1</span></p>
-<ul>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="aeropendulum.html">Projeto 1: Aeropêndulo</a></li>
-<li class="toctree-l1"><a class="reference internal" href="analogies.html">Analogias</a></li>
+<li class="toctree-l1"><a class="reference internal" href="analogies.html">Analogias &amp; números</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pendulum-theory.html">Aeropendulum (theory)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="motorDC-theory.html">Motor DC (theory)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="coding.html">Máquinas de Estado</a></li>
 <li class="toctree-l1"><a class="reference internal" href="interrupts.html">Interrupções</a></li>
-<li class="toctree-l1"><a class="reference internal" href="motorCalib-PT.html">Aplicar FSMs na calibração</a></li>
-<li class="toctree-l1"><a class="reference internal" href="as5600.html">Sensor angular magnético AS5600</a></li>
-<li class="toctree-l1"><a class="reference internal" href="controlador.html">Sistema / Processo / <em>Planta</em></a></li>
-<li class="toctree-l1"><a class="reference internal" href="controlador.html#id1"></a></li>
-<li class="toctree-l1"><a class="reference internal" href="controlador.html#controlador">Controlador</a></li>
-<li class="toctree-l1"><a class="reference internal" href="controlador.html#controlo-em-malha-aberta">Controlo em malha aberta</a></li>
-<li class="toctree-l1"><a class="reference internal" href="controlador.html#controlo-em-malha-fechada">Controlo em malha fechada</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Modulo L298N</a></li>
+<li class="toctree-l1"><a class="reference internal" href="motorCalib-PT.html">Calibração &amp; software</a></li>
+<li class="toctree-l1"><a class="reference internal" href="as5600.html">Sensor AS5600</a></li>
+<li class="toctree-l1"><a class="reference internal" href="controlador.html">Controlador</a></li>
 <li class="toctree-l1"><a class="reference internal" href="controlo-PID-arduino.html">Controlador PID</a></li>
-<li class="toctree-l1"><a class="reference internal" href="controlo-ref-code-aeropendulo.html">Exemplo aeropendulum <em>simulado</em></a></li>
+<li class="toctree-l1"><a class="reference internal" href="aeropendulo-sim.html">Aeropendulum <em>simulado</em></a></li>
 <li class="toctree-l1"><a class="reference internal" href="integration.html">Integração</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Projeto 2</span></p>
@@ -93,7 +92,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">Módulo L298N</li>
+      <li class="breadcrumb-item active">Modulo L298N</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/project1/L298N.md.txt" rel="nofollow"> View page source</a>
       </li>
@@ -104,7 +103,7 @@
            <div itemprop="articleBody">
              
   <section class="tex2jax_ignore mathjax_ignore" id="modulo-l298n">
-<h1>Módulo L298N<a class="headerlink" href="#modulo-l298n" title="Link to this heading"></a></h1>
+<h1>Modulo L298N<a class="headerlink" href="#modulo-l298n" title="Link to this heading"></a></h1>
 <p><strong>Controlando a direção com uma ponte H</strong></p>
 <p>Uma ponte H é um circuito especial com quatro interruptores eletrónicos dispostos em forma de «H», com o motor no meio.</p>
 <p>Ao ligar e desligar esses interruptores numa ordem específica, pode fazer com que a eletricidade flua através do motor numa direção ou na direção oposta. Este truque inteligente permite controlar a direção em que o motor gira sem ter de inverter fisicamente os fios.</p>
@@ -242,7 +241,10 @@ https://lastminuteengineers.com/esp32-l298n-dc-motor-control-tutorial/</p>
 
            </div>
           </div>
-          <footer>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="interrupts.html" class="btn btn-neutral float-left" title="Interrupções" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="motorCalib-PT.html" class="btn btn-neutral float-right" title="Calibração &amp; software" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
 
   <hr/>
 

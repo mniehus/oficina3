@@ -56,20 +56,17 @@
 <p class="caption" role="heading"><span class="caption-text">Projeto 1</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../project1/aeropendulum.html">Projeto 1: Aeropêndulo</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../project1/analogies.html">Analogias</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../project1/analogies.html">Analogias &amp; números</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../project1/pendulum-theory.html">Aeropendulum (theory)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../project1/motorDC-theory.html">Motor DC (theory)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../project1/coding.html">Máquinas de Estado</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../project1/interrupts.html">Interrupções</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../project1/motorCalib-PT.html">Aplicar FSMs na calibração</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../project1/as5600.html">Sensor angular magnético AS5600</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../project1/controlador.html">Sistema / Processo / <em>Planta</em></a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../project1/controlador.html#id1"></a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../project1/controlador.html#controlador">Controlador</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../project1/controlador.html#controlo-em-malha-aberta">Controlo em malha aberta</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../project1/controlador.html#controlo-em-malha-fechada">Controlo em malha fechada</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../project1/L298N.html">Modulo L298N</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../project1/motorCalib-PT.html">Calibração &amp; software</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../project1/as5600.html">Sensor AS5600</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../project1/controlador.html">Controlador</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../project1/controlo-PID-arduino.html">Controlador PID</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../project1/controlo-ref-code-aeropendulo.html">Exemplo aeropendulum <em>simulado</em></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../project1/aeropendulo-sim.html">Aeropendulum <em>simulado</em></a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../project1/integration.html">Integração</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Projeto 2</span></p>
@@ -109,7 +106,7 @@
 <h1>Modelling<a class="headerlink" href="#Modelling" title="Link to this heading"></a></h1>
 <p>The simulation involves modeling the dynamics of a Reaction Wheel Inverted Pendulum (RWIP) system. The key components include:</p>
 <p><strong>Reaction Wheel Inverted Pendulum Dynamics</strong></p>
-<p><img alt="5ba5798d931f4d5b835d83f5d06ebe93" class="no-scaled-link" src="https://github.com/B-Paweekorn/Reaction-wheel-inverted-pendulum/assets/122732439/6c59b7a7-6aa7-4a73-b353-9e242e6aae1c" style="width: 480px;" /></p>
+<p><img alt="373dba463a32406a9b8904f9c51a2419" class="no-scaled-link" src="https://github.com/B-Paweekorn/Reaction-wheel-inverted-pendulum/assets/122732439/6c59b7a7-6aa7-4a73-b353-9e242e6aae1c" style="width: 480px;" /></p>
 <section id="Parameters">
 <h2>Parameters<a class="headerlink" href="#Parameters" title="Link to this heading"></a></h2>
 <ul class="simple">
@@ -156,7 +153,7 @@ Root Locus of the system by default parameter set. It has one zero (s = 0), and 
 <ul class="simple">
 <li><p><strong>Bang-bang Controller</strong>: The swing up control routine and the stabilizing control routine are switched between -25 to 25 degree</p></li>
 </ul>
-<p>   <img alt="9c63c84de6bf4d2ebfeb8c71fe796d45" class="no-scaled-link" src="https://github.com/B-Paweekorn/Reaction-wheel-inverted-pendulum/assets/122732439/79e6d6d3-9ab2-49eb-a58b-3ad10a96a96b" style="width: 480px;" /></p>
+<p>   <img alt="a6cea988439a4a63b6016a4b0fd58512" class="no-scaled-link" src="https://github.com/B-Paweekorn/Reaction-wheel-inverted-pendulum/assets/122732439/79e6d6d3-9ab2-49eb-a58b-3ad10a96a96b" style="width: 480px;" /></p>
 <ul class="simple">
 <li><p><strong>Brake Controller</strong>: Used as reduced energy of RWIP when RWIP have too much energy for stabilze</p></li>
 </ul>

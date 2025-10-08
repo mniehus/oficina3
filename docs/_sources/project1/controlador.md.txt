@@ -1,18 +1,15 @@
-## Sistema / Processo / *Planta*
+
+# Controlador 
+
+Em Engenharia de Controlo, um **controlador** é o bloco que transforma objetivos de desempenho (referência (r)) em uma **ação de controlo** (u) aplicada à **planta** para obter a **saída** (y) desejada. O controlador pode ser analógico ou digital e é especificado a partir de requisitos como estabilidade, precisão, tempo de resposta e robustez.
+
+![alt text](Untitled.png)
+
+## Processo / *Planta*
 
 Em Engenharia de Controlo, um **sistema** é uma abstração de uma porção da realidade física que permite análise e projeto. A essa entidade física controlada chama-se **processo** ou **planta** (*plant*). A planta possui **entradas manipuladas** (sinais que podem ser aplicados, p. ex., tensão num motor ou força num carrinho) e **saídas medidas** (grandezas observáveis, p. ex., velocidade do motor/carrinho ou ângulo num aeropêndulo/pêndulo invertido). A relação dinâmica entre entradas e saídas pode apresentar inércia, atrasos, saturações e não linearidades, e é frequentemente modelada por **funções de transferência** ou **modelos em espaço de estados**, representáveis por equações, diagramas de blocos e respostas temporal/frequencial.
 
 A planta pode estar sujeita a **perturbações** externas (variação de carga, inclinação da pista, correntes de ar, atrito variável), que alteram a saída sem atuação direta. Em síntese, a planta é o objeto físico com **entrada (u)** e **saída (y)** cuja dinâmica se pretende compreender e controlar.
-
-
-![alt text](Untitled.png)
----
-
-## Controlador 
-
-Em Engenharia de Controlo, um **controlador** é o bloco que transforma objetivos de desempenho (referência (r)) em uma **ação de controlo** (u) aplicada à **planta** para obter a **saída** (y) desejada. O controlador pode ser analógico ou digital e é especificado a partir de requisitos como estabilidade, precisão, tempo de resposta e robustez.
-
----
 
 ## Controlo em malha aberta
 
@@ -40,8 +37,6 @@ flowchart LR
   C -->|u| P[["Plant P(s)"]]
   P -->|y| Y([y])
 ```
-
----
 
 ## Controlo em malha fechada
 

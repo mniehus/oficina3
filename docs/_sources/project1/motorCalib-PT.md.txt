@@ -1,4 +1,4 @@
-# Aplicar FSMs na calibração
+# Calibração & software
 
 Este documento é uma **introdução + guia** ao projeto do Sistema Automático de Calibração de Motor DC.
 

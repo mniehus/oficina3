@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sensor angular magnético AS5600 &mdash; oficina3  documentation</title>
+  <title>Sensor AS5600 &mdash; oficina3  documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
@@ -25,8 +25,8 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Sistema / Processo / Planta" href="controlador.html" />
-    <link rel="prev" title="Aplicar FSMs na calibração" href="motorCalib-PT.html" /> 
+    <link rel="next" title="Controlador" href="controlador.html" />
+    <link rel="prev" title="Calibração &amp; software" href="motorCalib-PT.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -56,20 +56,17 @@
 <p class="caption" role="heading"><span class="caption-text">Projeto 1</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="aeropendulum.html">Projeto 1: Aeropêndulo</a></li>
-<li class="toctree-l1"><a class="reference internal" href="analogies.html">Analogias</a></li>
+<li class="toctree-l1"><a class="reference internal" href="analogies.html">Analogias &amp; números</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pendulum-theory.html">Aeropendulum (theory)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="motorDC-theory.html">Motor DC (theory)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="coding.html">Máquinas de Estado</a></li>
 <li class="toctree-l1"><a class="reference internal" href="interrupts.html">Interrupções</a></li>
-<li class="toctree-l1"><a class="reference internal" href="motorCalib-PT.html">Aplicar FSMs na calibração</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Sensor angular magnético AS5600</a></li>
-<li class="toctree-l1"><a class="reference internal" href="controlador.html">Sistema / Processo / <em>Planta</em></a></li>
-<li class="toctree-l1"><a class="reference internal" href="controlador.html#id1"></a></li>
-<li class="toctree-l1"><a class="reference internal" href="controlador.html#controlador">Controlador</a></li>
-<li class="toctree-l1"><a class="reference internal" href="controlador.html#controlo-em-malha-aberta">Controlo em malha aberta</a></li>
-<li class="toctree-l1"><a class="reference internal" href="controlador.html#controlo-em-malha-fechada">Controlo em malha fechada</a></li>
+<li class="toctree-l1"><a class="reference internal" href="L298N.html">Modulo L298N</a></li>
+<li class="toctree-l1"><a class="reference internal" href="motorCalib-PT.html">Calibração &amp; software</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Sensor AS5600</a></li>
+<li class="toctree-l1"><a class="reference internal" href="controlador.html">Controlador</a></li>
 <li class="toctree-l1"><a class="reference internal" href="controlo-PID-arduino.html">Controlador PID</a></li>
-<li class="toctree-l1"><a class="reference internal" href="controlo-ref-code-aeropendulo.html">Exemplo aeropendulum <em>simulado</em></a></li>
+<li class="toctree-l1"><a class="reference internal" href="aeropendulo-sim.html">Aeropendulum <em>simulado</em></a></li>
 <li class="toctree-l1"><a class="reference internal" href="integration.html">Integração</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Projeto 2</span></p>
@@ -95,7 +92,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">Sensor angular magnético AS5600</li>
+      <li class="breadcrumb-item active">Sensor AS5600</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/project1/as5600.md.txt" rel="nofollow"> View page source</a>
       </li>
@@ -105,8 +102,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section class="tex2jax_ignore mathjax_ignore" id="sensor-angular-magnetico-as5600">
-<h1>Sensor angular magnético AS5600<a class="headerlink" href="#sensor-angular-magnetico-as5600" title="Link to this heading"></a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="sensor-as5600">
+<h1>Sensor AS5600<a class="headerlink" href="#sensor-as5600" title="Link to this heading"></a></h1>
 <p><strong>I2C</strong></p>
 <p>I²C (pronuncia-se “I-squared-C” ou “I-two-C”) é um barramento de comunicação serial que permite que dispositivos mestres enviem e recebam dados de dispositivos escravos. No nosso caso de uso, o mestre seria a placa Arduino e o dispositivo escravo seria um sensor.</p>
 <p><img alt="alt text" src="../_images/%28Arduino_Tutorials%29_I2C.jpg" /></p>
@@ -174,8 +171,8 @@ https://38-3d.co.uk/blogs/blog/how-to-use-the-as5600-magnetic-rotary-encoder-wit
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="motorCalib-PT.html" class="btn btn-neutral float-left" title="Aplicar FSMs na calibração" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="controlador.html" class="btn btn-neutral float-right" title="Sistema / Processo / Planta" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="motorCalib-PT.html" class="btn btn-neutral float-left" title="Calibração &amp; software" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="controlador.html" class="btn btn-neutral float-right" title="Controlador" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
