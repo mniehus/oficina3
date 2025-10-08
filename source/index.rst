@@ -85,15 +85,12 @@ Content
    project1/analogies.ipynb
    project1/pendulum-theory.ipynb
    project1/motorDC-theory.ipynb
-   project1/motorDC-lab.ipynb
-   project1/encoder.ipynb
    project1/coding.ipynb
-   project1/motorCalib-PT.md
-   project1/motorCalib-EN.md
+   project1/interrupts.ipynb
    project1/L298.md
+   project1/motorCalib-PT.md
    project1/as5600.md
-   project1/controlo-intro.ipynb
-   project1/controller.ipynb
+   project1/controlador.md
    project1/controlo-PID-arduino.ipynb
    project1/controlo-ref-code-aeropendulo.ipynb
    project1/integration.ipynb

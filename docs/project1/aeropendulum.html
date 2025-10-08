@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Projeto 1: Desenvolvimento e Teste de um Aeropêndulo &mdash; oficina3  documentation</title>
+  <title>Projeto 1: Aeropêndulo &mdash; oficina3  documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
@@ -57,13 +57,10 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Projeto 1</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Projeto 1: Desenvolvimento e Teste de um Aeropêndulo</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Projeto 1: Aeropêndulo</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#Introdução">Introdução</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#Trabalho-a-Desenvolver">Trabalho a Desenvolver</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#Descrição-do-Sistema">Descrição do Sistema</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#Componentes-principais-do-sistema">Componentes principais do sistema</a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="#Descrição-do-Sistema">Descrição do Sistema</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#Motor-e-Hélice">Motor e Hélice</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#Requisitos-Técnicos">Requisitos Técnicos</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#Seleção-do-Motor">Seleção do Motor</a></li>
@@ -100,20 +97,18 @@
 <li class="toctree-l1"><a class="reference internal" href="analogies.html">Analogias</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pendulum-theory.html">Aeropendulum (theory)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="motorDC-theory.html">Motor DC (theory)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="motorDC-lab.html">Motor DC (drive)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="encoder.html">Encoder</a></li>
-<li class="toctree-l1"><a class="reference internal" href="coding.html">Programar</a></li>
-<li class="toctree-l1"><a class="reference internal" href="motorCalib-PT.html">[PT] Máquinas de Estados aplicadas à Calibração de Motor DC</a></li>
-<li class="toctree-l1"><a class="reference internal" href="motorCalib-EN.html">[EN] State-Machines applied to DC Motor Calibration</a></li>
-<li class="toctree-l1"><a class="reference internal" href="controlo-intro.html">Controlador</a></li>
-<li class="toctree-l1"><a class="reference internal" href="controller.html">PID Controller</a></li>
+<li class="toctree-l1"><a class="reference internal" href="coding.html">Máquinas de Estado</a></li>
+<li class="toctree-l1"><a class="reference internal" href="interrupts.html">Interrupções</a></li>
+<li class="toctree-l1"><a class="reference internal" href="motorCalib-PT.html">Aplicar FSMs na calibração</a></li>
+<li class="toctree-l1"><a class="reference internal" href="as5600.html">Sensor angular magnético AS5600</a></li>
+<li class="toctree-l1"><a class="reference internal" href="controlador.html">Sistema / Processo / <em>Planta</em></a></li>
+<li class="toctree-l1"><a class="reference internal" href="controlador.html#id1"></a></li>
+<li class="toctree-l1"><a class="reference internal" href="controlador.html#controlador">Controlador</a></li>
+<li class="toctree-l1"><a class="reference internal" href="controlador.html#controlo-em-malha-aberta">Controlo em malha aberta</a></li>
+<li class="toctree-l1"><a class="reference internal" href="controlador.html#controlo-em-malha-fechada">Controlo em malha fechada</a></li>
 <li class="toctree-l1"><a class="reference internal" href="controlo-PID-arduino.html">Controlador PID</a></li>
-<li class="toctree-l1"><a class="reference internal" href="controlo-PID-arduino.html#Afinar-os-coeficientes-PID-('PID-tuning')">Afinar os coeficientes PID (‘PID tuning’)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="controlo-PID-arduino.html#Procedimento-/-Metodologia-para-ajuste-manual">Procedimento / Metodologia para ajuste manual</a></li>
-<li class="toctree-l1"><a class="reference internal" href="controlo-PID-arduino.html#PID-no-arduino-(exemplo-1)">PID no arduino (exemplo 1)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="controlo-PID-arduino.html#PID-no-arduino-(exemplo-2)">PID no arduino (exemplo 2)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="controlo-ref-code-aeropendulo.html">Código exemplo para aeropendulum simulado</a></li>
-<li class="toctree-l1"><a class="reference internal" href="integration.html">Integração do Sistema</a></li>
+<li class="toctree-l1"><a class="reference internal" href="controlo-ref-code-aeropendulo.html">Exemplo aeropendulum <em>simulado</em></a></li>
+<li class="toctree-l1"><a class="reference internal" href="integration.html">Integração</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Projeto 2</span></p>
 <ul>
@@ -138,7 +133,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">Projeto 1: Desenvolvimento e Teste de um Aeropêndulo</li>
+      <li class="breadcrumb-item active">Projeto 1: Aeropêndulo</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/project1/aeropendulum.ipynb.txt" rel="nofollow"> View page source</a>
       </li>
@@ -148,8 +143,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="Projeto-1:-Desenvolvimento-e-Teste-de-um-Aeropêndulo">
-<h1>Projeto 1: Desenvolvimento e Teste de um Aeropêndulo<a class="headerlink" href="#Projeto-1:-Desenvolvimento-e-Teste-de-um-Aeropêndulo" title="Link to this heading"></a></h1>
+  <section id="Projeto-1:-Aeropêndulo">
+<h1>Projeto 1: Aeropêndulo<a class="headerlink" href="#Projeto-1:-Aeropêndulo" title="Link to this heading"></a></h1>
 <section id="Introdução">
 <h2>Introdução<a class="headerlink" href="#Introdução" title="Link to this heading"></a></h2>
 <p>O objetivo deste trabalho de projeto é <strong>desenvolver, modelar e testar um Aeropêndulo</strong>. Este sistema é amplamente utilizado para o estudo da dinâmica de sistemas de controlo <strong>não lineares</strong>.</p>
@@ -187,8 +182,7 @@
 <p>O objetivo principal é <strong>controlar a posição angular do pêndulo</strong>, atingindo um equilíbrio numa posição desejada.</p>
 <p>O sistema é <strong>inerentemente instável</strong>, tornando a sua estabilização um desafio relevante para estudo e implementação prática.</p>
 <p><img alt="Aeropendulum" src="../_images/aeropendulum.png" /></p>
-<section id="Componentes-principais-do-sistema">
-<h3>Componentes principais do sistema<a class="headerlink" href="#Componentes-principais-do-sistema" title="Link to this heading"></a></h3>
+<p><strong>Componentes principais do sistema</strong></p>
 <ul class="simple">
 <li><p><strong>Pêndulo:</strong> Braço rotacional fixado a um eixo, com uma hélice na extremidade.</p></li>
 <li><p><strong>Hélice:</strong> Gera a força propulsora que controla o movimento do pêndulo.</p></li>
@@ -197,7 +191,6 @@
 </ul>
 <p><img alt="Aeropendulum Partes" src="../_images/aeropendulum-partes.png" /></p>
 <p>📂 <a class="reference external" href="https://cad.onshape.com/documents/2ea83de1cff4e51b1cdad8b9/w/f720edbb3287e1858f6d8d69/e/7d14ad2308a118c0482dca7f">Link to OnShape CAD file</a></p>
-</section>
 </section>
 <section id="Motor-e-Hélice">
 <h2>Motor e Hélice<a class="headerlink" href="#Motor-e-Hélice" title="Link to this heading"></a></h2>

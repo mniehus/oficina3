@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>PID código exemplo para aeropendulum simulado &mdash; oficina3  documentation</title>
+  <title>Exemplo aeropendulum simulado &mdash; oficina3  documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
@@ -28,7 +28,7 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Integração do Sistema" href="integration.html" />
+    <link rel="next" title="Integração" href="integration.html" />
     <link rel="prev" title="Controlador PID" href="controlo-PID-arduino.html" /> 
 </head>
 
@@ -58,25 +58,22 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Projeto 1</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="aeropendulum.html">Projeto 1: Desenvolvimento e Teste de um Aeropêndulo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aeropendulum.html">Projeto 1: Aeropêndulo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="analogies.html">Analogias</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pendulum-theory.html">Aeropendulum (theory)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="motorDC-theory.html">Motor DC (theory)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="motorDC-lab.html">Motor DC (drive)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="encoder.html">Encoder</a></li>
-<li class="toctree-l1"><a class="reference internal" href="coding.html">Programar</a></li>
-<li class="toctree-l1"><a class="reference internal" href="motorCalib-PT.html">[PT] Máquinas de Estados aplicadas à Calibração de Motor DC</a></li>
-<li class="toctree-l1"><a class="reference internal" href="motorCalib-EN.html">[EN] State-Machines applied to DC Motor Calibration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="coding.html">Máquinas de Estado</a></li>
+<li class="toctree-l1"><a class="reference internal" href="interrupts.html">Interrupções</a></li>
+<li class="toctree-l1"><a class="reference internal" href="motorCalib-PT.html">Aplicar FSMs na calibração</a></li>
 <li class="toctree-l1"><a class="reference internal" href="as5600.html">Sensor angular magnético AS5600</a></li>
-<li class="toctree-l1"><a class="reference internal" href="controlo-intro.html">Controlador</a></li>
-<li class="toctree-l1"><a class="reference internal" href="controller.html">PID Controller</a></li>
+<li class="toctree-l1"><a class="reference internal" href="controlador.html">Sistema / Processo / <em>Planta</em></a></li>
+<li class="toctree-l1"><a class="reference internal" href="controlador.html#id1"></a></li>
+<li class="toctree-l1"><a class="reference internal" href="controlador.html#controlador">Controlador</a></li>
+<li class="toctree-l1"><a class="reference internal" href="controlador.html#controlo-em-malha-aberta">Controlo em malha aberta</a></li>
+<li class="toctree-l1"><a class="reference internal" href="controlador.html#controlo-em-malha-fechada">Controlo em malha fechada</a></li>
 <li class="toctree-l1"><a class="reference internal" href="controlo-PID-arduino.html">Controlador PID</a></li>
-<li class="toctree-l1"><a class="reference internal" href="controlo-PID-arduino.html#Afinar-os-coeficientes-PID-('PID-tuning')">Afinar os coeficientes PID (‘PID tuning’)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="controlo-PID-arduino.html#Procedimento-/-Metodologia-para-ajuste-manual">Procedimento / Metodologia para ajuste manual</a></li>
-<li class="toctree-l1"><a class="reference internal" href="controlo-PID-arduino.html#PID-no-arduino-(exemplo-1)">PID no arduino (exemplo 1)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="controlo-PID-arduino.html#PID-no-arduino-(exemplo-2)">PID no arduino (exemplo 2)</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">PID código exemplo para aeropendulum <em>simulado</em></a></li>
-<li class="toctree-l1"><a class="reference internal" href="integration.html">Integração do Sistema</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Exemplo aeropendulum <em>simulado</em></a></li>
+<li class="toctree-l1"><a class="reference internal" href="integration.html">Integração</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Projeto 2</span></p>
 <ul>
@@ -101,7 +98,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">PID código exemplo para aeropendulum <em>simulado</em></li>
+      <li class="breadcrumb-item active">Exemplo aeropendulum <em>simulado</em></li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/project1/controlo-ref-code-aeropendulo.ipynb.txt" rel="nofollow"> View page source</a>
       </li>
@@ -111,9 +108,9 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="PID-código-exemplo-para-aeropendulum-simulado">
-<h1>PID código exemplo para aeropendulum <em>simulado</em><a class="headerlink" href="#PID-código-exemplo-para-aeropendulum-simulado" title="Link to this heading"></a></h1>
-<p>Para implementar um código de referência para o aeropendulo foi utilizada a biblioteca <code class="docutils literal notranslate"><span class="pre">PID_RT</span></code>de <a class="reference external" href="https://github.com/RobTillaart/PID_RT">Rob Tillaart</a>, também disponivel via biblioteca Arduino. O código está disponivel <a class="reference external" href="https://wokwi.com/projects/412312875773779969">neste simulador online</a> (adaptado de <a class="reference external" href="https://wokwi.com/projects/356437164264235009">aqui</a> e <a class="reference external" href="https://wokwi.com/projects/357374218559137793">aqui</a> ).</p>
+  <section id="Exemplo-aeropendulum-simulado">
+<h1>Exemplo aeropendulum <em>simulado</em><a class="headerlink" href="#Exemplo-aeropendulum-simulado" title="Link to this heading"></a></h1>
+<p>Para implementar um código de exemplo para o aeropendulo foi utilizada a biblioteca <code class="docutils literal notranslate"><span class="pre">PID_RT</span></code>de <a class="reference external" href="https://github.com/RobTillaart/PID_RT">Rob Tillaart</a>, também disponivel via biblioteca Arduino. O código está disponivel <a class="reference external" href="https://wokwi.com/projects/412312875773779969">neste simulador online</a> (adaptado de <a class="reference external" href="https://wokwi.com/projects/356437164264235009">aqui</a> e <a class="reference external" href="https://wokwi.com/projects/357374218559137793">aqui</a> ).</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">//</span>
 <span class="c1">//    FILE: PID_simulation</span>
 <span class="c1">//  AUTHOR:  mn</span>
@@ -257,7 +254,7 @@
 </div>
 <p>O código encontra disponivel no seguinte simulador online:</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">IPython.display</span><span class="w"> </span><span class="kn">import</span> <span class="n">IFrame</span>
@@ -266,7 +263,7 @@
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -286,7 +283,7 @@
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="controlo-PID-arduino.html" class="btn btn-neutral float-left" title="Controlador PID" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="integration.html" class="btn btn-neutral float-right" title="Integração do Sistema" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="integration.html" class="btn btn-neutral float-right" title="Integração" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

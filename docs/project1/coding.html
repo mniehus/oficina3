@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Programar &mdash; oficina3  documentation</title>
+  <title>Máquinas de Estado &mdash; oficina3  documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
@@ -27,8 +27,8 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="[PT] Máquinas de Estados aplicadas à Calibração de Motor DC" href="motorCalib-PT.html" />
-    <link rel="prev" title="Encoder" href="encoder.html" /> 
+    <link rel="next" title="Interrupções" href="interrupts.html" />
+    <link rel="prev" title="Motor DC (theory)" href="motorDC-theory.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -57,36 +57,30 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Projeto 1</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="aeropendulum.html">Projeto 1: Desenvolvimento e Teste de um Aeropêndulo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aeropendulum.html">Projeto 1: Aeropêndulo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="analogies.html">Analogias</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pendulum-theory.html">Aeropendulum (theory)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="motorDC-theory.html">Motor DC (theory)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="motorDC-lab.html">Motor DC (drive)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="encoder.html">Encoder</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Programar</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Máquinas de Estado</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#Arquitetura-Modular">Arquitetura Modular</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#Introdução-a-Máquinas-de-Estado">Introdução a Máquinas de Estado</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id1">Máquinas de Estado</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#Exemplo-1-—-Dois-LEDs-a-Piscar-em-Concorrência">Exemplo 1 — Dois LEDs a Piscar em Concorrência</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#Exemplo-2-—-Máquina-de-Estado-Temporal-(Protocolo)">Exemplo 2 — Máquina de Estado Temporal (Protocolo)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#Exemplo-3-—-FSM-baseada-em-Interação-do-Utilizador">Exemplo 3 — FSM baseada em Interação do Utilizador</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#Esqueleto-para-o-Aeropêndulo">Esqueleto para o Aeropêndulo</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#Interrupções-no-Arduino">Interrupções no Arduino</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#Exemplo:-Contagem-de-Pulsos-(Encoder-Simples)">Exemplo: Contagem de Pulsos (Encoder Simples)</a></li>
 </ul>
 </li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="motorCalib-PT.html">[PT] Máquinas de Estados aplicadas à Calibração de Motor DC</a></li>
-<li class="toctree-l1"><a class="reference internal" href="motorCalib-EN.html">[EN] State-Machines applied to DC Motor Calibration</a></li>
-<li class="toctree-l1"><a class="reference internal" href="controlo-intro.html">Controlador</a></li>
-<li class="toctree-l1"><a class="reference internal" href="controller.html">PID Controller</a></li>
+<li class="toctree-l1"><a class="reference internal" href="interrupts.html">Interrupções</a></li>
+<li class="toctree-l1"><a class="reference internal" href="motorCalib-PT.html">Aplicar FSMs na calibração</a></li>
+<li class="toctree-l1"><a class="reference internal" href="as5600.html">Sensor angular magnético AS5600</a></li>
+<li class="toctree-l1"><a class="reference internal" href="controlador.html">Sistema / Processo / <em>Planta</em></a></li>
+<li class="toctree-l1"><a class="reference internal" href="controlador.html#id1"></a></li>
+<li class="toctree-l1"><a class="reference internal" href="controlador.html#controlador">Controlador</a></li>
+<li class="toctree-l1"><a class="reference internal" href="controlador.html#controlo-em-malha-aberta">Controlo em malha aberta</a></li>
+<li class="toctree-l1"><a class="reference internal" href="controlador.html#controlo-em-malha-fechada">Controlo em malha fechada</a></li>
 <li class="toctree-l1"><a class="reference internal" href="controlo-PID-arduino.html">Controlador PID</a></li>
-<li class="toctree-l1"><a class="reference internal" href="controlo-PID-arduino.html#Afinar-os-coeficientes-PID-('PID-tuning')">Afinar os coeficientes PID (‘PID tuning’)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="controlo-PID-arduino.html#Procedimento-/-Metodologia-para-ajuste-manual">Procedimento / Metodologia para ajuste manual</a></li>
-<li class="toctree-l1"><a class="reference internal" href="controlo-PID-arduino.html#PID-no-arduino-(exemplo-1)">PID no arduino (exemplo 1)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="controlo-PID-arduino.html#PID-no-arduino-(exemplo-2)">PID no arduino (exemplo 2)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="controlo-ref-code-aeropendulo.html">Código exemplo para aeropendulum simulado</a></li>
-<li class="toctree-l1"><a class="reference internal" href="integration.html">Integração do Sistema</a></li>
+<li class="toctree-l1"><a class="reference internal" href="controlo-ref-code-aeropendulo.html">Exemplo aeropendulum <em>simulado</em></a></li>
+<li class="toctree-l1"><a class="reference internal" href="integration.html">Integração</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Projeto 2</span></p>
 <ul>
@@ -111,7 +105,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">Programar</li>
+      <li class="breadcrumb-item active">Máquinas de Estado</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/project1/coding.ipynb.txt" rel="nofollow"> View page source</a>
       </li>
@@ -121,8 +115,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="Programar">
-<h1>Programar<a class="headerlink" href="#Programar" title="Link to this heading"></a></h1>
+  <section id="Máquinas-de-Estado">
+<h1>Máquinas de Estado<a class="headerlink" href="#Máquinas-de-Estado" title="Link to this heading"></a></h1>
 <section id="Arquitetura-Modular">
 <h2>Arquitetura Modular<a class="headerlink" href="#Arquitetura-Modular" title="Link to this heading"></a></h2>
 <div class="line-block">
@@ -139,8 +133,8 @@
 </ul>
 </section>
 <hr class="docutils" />
-<section id="Introdução-a-Máquinas-de-Estado">
-<h2>Introdução a Máquinas de Estado<a class="headerlink" href="#Introdução-a-Máquinas-de-Estado" title="Link to this heading"></a></h2>
+<section id="id1">
+<h2>Máquinas de Estado<a class="headerlink" href="#id1" title="Link to this heading"></a></h2>
 <p>Uma <strong>máquina de estados finitos (FSM – Finite State Machine)</strong> é um modelo que organiza o comportamento de um sistema em <strong>estados</strong>, com <strong>transições</strong> entre eles, desencadeadas por <strong>eventos</strong>.</p>
 <p>Elementos principais:</p>
 <ul class="simple">
@@ -259,9 +253,6 @@
 <h2>Esqueleto para o Aeropêndulo<a class="headerlink" href="#Esqueleto-para-o-Aeropêndulo" title="Link to this heading"></a></h2>
 <p>Segue uma estrutura modular que poderá ser usada como ponto de partida:</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">setup</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="n">initSensor</span><span class="p">();</span>
-<span class="w">  </span><span class="n">initMotor</span><span class="p">();</span>
-<span class="w">  </span><span class="n">initControl</span><span class="p">();</span>
 <span class="p">}</span>
 
 <span class="kt">void</span><span class="w"> </span><span class="nf">loop</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
@@ -274,42 +265,14 @@
 </div>
 <p>Cada função pode ser implementada como uma <strong>máquina de estado própria</strong>, permitindo testar e substituir módulos sem afetar os restantes.</p>
 </section>
-<hr class="docutils" />
-<section id="Interrupções-no-Arduino">
-<h2>Interrupções no Arduino<a class="headerlink" href="#Interrupções-no-Arduino" title="Link to this heading"></a></h2>
-<p>O Arduino permite associar funções a <strong>interrupções de hardware</strong>, que são executadas automaticamente quando ocorre um evento (ex.: transição num pino digital, overflow de um timer).</p>
-<section id="Exemplo:-Contagem-de-Pulsos-(Encoder-Simples)">
-<h3>Exemplo: Contagem de Pulsos (Encoder Simples)<a class="headerlink" href="#Exemplo:-Contagem-de-Pulsos-(Encoder-Simples)" title="Link to this heading"></a></h3>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#define ENCODER_PIN 2</span>
-<span class="k">volatile</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">counter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-
-<span class="kt">void</span><span class="w"> </span><span class="nf">ISR_encoder</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="n">counter</span><span class="o">++</span><span class="p">;</span>
-<span class="p">}</span>
-
-<span class="kt">void</span><span class="w"> </span><span class="nf">setup</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="n">attachInterrupt</span><span class="p">(</span><span class="n">digitalPinToInterrupt</span><span class="p">(</span><span class="n">ENCODER_PIN</span><span class="p">),</span><span class="w"> </span><span class="n">ISR_encoder</span><span class="p">,</span><span class="w"> </span><span class="n">RISING</span><span class="p">);</span>
-<span class="w">  </span><span class="n">Serial</span><span class="p">.</span><span class="n">begin</span><span class="p">(</span><span class="mi">115200</span><span class="p">);</span>
-<span class="p">}</span>
-
-<span class="kt">void</span><span class="w"> </span><span class="nf">loop</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">counter</span><span class="p">);</span>
-<span class="w">  </span><span class="n">delay</span><span class="p">(</span><span class="mi">500</span><span class="p">);</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-<p>Para <strong>encoders em quadratura</strong>, usam-se duas interrupções (canais A e B), permitindo detetar também o sentido de rotação.</p>
-<hr class="docutils" />
-</section>
-</section>
 </section>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="encoder.html" class="btn btn-neutral float-left" title="Encoder" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="motorCalib-PT.html" class="btn btn-neutral float-right" title="[PT] Máquinas de Estados aplicadas à Calibração de Motor DC" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="motorDC-theory.html" class="btn btn-neutral float-left" title="Motor DC (theory)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="interrupts.html" class="btn btn-neutral float-right" title="Interrupções" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

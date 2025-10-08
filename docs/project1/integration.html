@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Integração do Sistema &mdash; oficina3  documentation</title>
+  <title>Integração &mdash; oficina3  documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
@@ -28,7 +28,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Carro programável" href="../project2/readme.html" />
-    <link rel="prev" title="Código exemplo para aeropendulum simulado" href="controlo-ref-code-aeropendulo.html" /> 
+    <link rel="prev" title="Exemplo aeropendulum simulado" href="controlo-ref-code-aeropendulo.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -57,29 +57,26 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Projeto 1</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="aeropendulum.html">Projeto 1: Desenvolvimento e Teste de um Aeropêndulo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aeropendulum.html">Projeto 1: Aeropêndulo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="analogies.html">Analogias</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pendulum-theory.html">Aeropendulum (theory)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="motorDC-theory.html">Motor DC (theory)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="motorDC-lab.html">Motor DC (drive)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="encoder.html">Encoder</a></li>
-<li class="toctree-l1"><a class="reference internal" href="coding.html">Programar</a></li>
-<li class="toctree-l1"><a class="reference internal" href="motorCalib-PT.html">[PT] Máquinas de Estados aplicadas à Calibração de Motor DC</a></li>
-<li class="toctree-l1"><a class="reference internal" href="motorCalib-EN.html">[EN] State-Machines applied to DC Motor Calibration</a></li>
-<li class="toctree-l1"><a class="reference internal" href="controlo-intro.html">Controlador</a></li>
-<li class="toctree-l1"><a class="reference internal" href="controller.html">PID Controller</a></li>
+<li class="toctree-l1"><a class="reference internal" href="coding.html">Máquinas de Estado</a></li>
+<li class="toctree-l1"><a class="reference internal" href="interrupts.html">Interrupções</a></li>
+<li class="toctree-l1"><a class="reference internal" href="motorCalib-PT.html">Aplicar FSMs na calibração</a></li>
+<li class="toctree-l1"><a class="reference internal" href="as5600.html">Sensor angular magnético AS5600</a></li>
+<li class="toctree-l1"><a class="reference internal" href="controlador.html">Sistema / Processo / <em>Planta</em></a></li>
+<li class="toctree-l1"><a class="reference internal" href="controlador.html#id1"></a></li>
+<li class="toctree-l1"><a class="reference internal" href="controlador.html#controlador">Controlador</a></li>
+<li class="toctree-l1"><a class="reference internal" href="controlador.html#controlo-em-malha-aberta">Controlo em malha aberta</a></li>
+<li class="toctree-l1"><a class="reference internal" href="controlador.html#controlo-em-malha-fechada">Controlo em malha fechada</a></li>
 <li class="toctree-l1"><a class="reference internal" href="controlo-PID-arduino.html">Controlador PID</a></li>
-<li class="toctree-l1"><a class="reference internal" href="controlo-PID-arduino.html#Afinar-os-coeficientes-PID-('PID-tuning')">Afinar os coeficientes PID (‘PID tuning’)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="controlo-PID-arduino.html#Procedimento-/-Metodologia-para-ajuste-manual">Procedimento / Metodologia para ajuste manual</a></li>
-<li class="toctree-l1"><a class="reference internal" href="controlo-PID-arduino.html#PID-no-arduino-(exemplo-1)">PID no arduino (exemplo 1)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="controlo-PID-arduino.html#PID-no-arduino-(exemplo-2)">PID no arduino (exemplo 2)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="controlo-ref-code-aeropendulo.html">Código exemplo para aeropendulum simulado</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Integração do Sistema</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="controlo-ref-code-aeropendulo.html">Exemplo aeropendulum <em>simulado</em></a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Integração</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#Requisitos-Gerais">Requisitos Gerais</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#Componentes-Típicos">Componentes Típicos</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#Passos-de-Integração">Passos de Integração</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#Cuidados-a-Ter">Cuidados a Ter</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#Da-Simulação-à-Implementação">Da Simulação à Implementação</a></li>
 </ul>
 </li>
 </ul>
@@ -106,7 +103,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">Integração do Sistema</li>
+      <li class="breadcrumb-item active">Integração</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/project1/integration.ipynb.txt" rel="nofollow"> View page source</a>
       </li>
@@ -116,8 +113,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="Integração-do-Sistema">
-<h1>Integração do Sistema<a class="headerlink" href="#Integração-do-Sistema" title="Link to this heading"></a></h1>
+  <section id="Integração">
+<h1>Integração<a class="headerlink" href="#Integração" title="Link to this heading"></a></h1>
 <section id="Requisitos-Gerais">
 <h2>Requisitos Gerais<a class="headerlink" href="#Requisitos-Gerais" title="Link to this heading"></a></h2>
 <p>O sistema de controlo do aeropêndulo deve integrar, de forma coerente e segura, os seguintes elementos:</p>
@@ -191,29 +188,13 @@
 <li><p><strong>Segurança física:</strong> trabalhar sempre com proteções na hélice e desligar a fonte de alimentação antes de alterar a montagem.</p></li>
 </ul>
 </section>
-<hr class="docutils" />
-<section id="Da-Simulação-à-Implementação">
-<h2>Da Simulação à Implementação<a class="headerlink" href="#Da-Simulação-à-Implementação" title="Link to this heading"></a></h2>
-<div class="line-block">
-<div class="line">Antes da integração, o comportamento do pêndulo deve ser explorado em <strong>simulação</strong>, ajustando e comparando diferentes controladores.</div>
-<div class="line">Posteriormente, a lógica de controlo validada é <strong>portada para Arduino</strong>:</div>
-</div>
-<ol class="arabic simple">
-<li><p>Isolar a função de controlo no código Python (entrada = ângulo, saída = comando motor).</p></li>
-<li><p>Reescrever em C/C++ para Arduino, respeitando limites de tempo de execução e memória.</p></li>
-<li><p>Substituir as interfaces simuladas por leituras reais do sensor e comandos reais para o driver.</p></li>
-<li><p>Garantir execução periódica estável com <code class="docutils literal notranslate"><span class="pre">millis()</span></code> ou interrupções de temporizador.</p></li>
-<li><p>Voltar a ajustar os ganhos com base no comportamento físico real.</p></li>
-</ol>
-<hr class="docutils" />
-</section>
 </section>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="controlo-ref-code-aeropendulo.html" class="btn btn-neutral float-left" title="Código exemplo para aeropendulum simulado" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="controlo-ref-code-aeropendulo.html" class="btn btn-neutral float-left" title="Exemplo aeropendulum simulado" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="../project2/readme.html" class="btn btn-neutral float-right" title="Carro programável" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
