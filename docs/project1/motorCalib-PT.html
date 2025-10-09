@@ -1,0 +1,587 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Calibração &amp; software modular &mdash; oficina3  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../_static/copybutton.js?v=f281be69"></script>
+      <script src="../_static/design-tabs.js?v=f930bc37"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script type="module" src="https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs"></script>
+      <script type="module" src="https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.1.4/dist/mermaid-layout-elk.esm.min.mjs"></script>
+      <script type="module">import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs";import elkLayouts from "https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.1.4/dist/mermaid-layout-elk.esm.min.mjs";mermaid.registerLayoutLoaders(elkLayouts);mermaid.initialize({startOnLoad:false});</script>
+      <script src="https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js"></script>
+      <script type="module">
+import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs";
+window.addEventListener("load", () => mermaid.run());
+</script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Sensor AS5600" href="as5600.html" />
+    <link rel="prev" title="Interrupções" href="interrupts.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            oficina3
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">oficina3</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../readme.html">LEFA Oficina 3 – Laboratório de Estimação e Controlo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../readme.html#lefa-oficina-3-estimation-and-control-lab">LEFA Oficina 3 – Estimation and Control Lab</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Projeto 1</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="aeropendulum.html">Projeto 1: Aeropêndulo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="analogies.html">Analogias &amp; números</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pendulum-theory.html">Aeropendulum (theory)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="motorDC-theory.html">Motor DC (theory)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="L298N.html">Modulo L298N</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fsms.html">Máquinas de Estado</a></li>
+<li class="toctree-l1"><a class="reference internal" href="interrupts.html">Interrupções</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Calibração &amp; software modular</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#porque-usar-maquinas-de-estados">Porque usar Máquinas de Estados?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#layout-do-software">Layout do software</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#dicas-para-laboratorio-testes">Dicas para Laboratório &amp; Testes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#anexo-1-base-de-codigo-de-referencia">Anexo 1: Base de código de referência</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#anexo-2-controlador-de-calibracao">Anexo 2: Controlador de Calibração</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#anexo-3-sinais-globais">Anexo 3: Sinais globais</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#anexo-4-modulos-fsm-diagramas">Anexo 4: Módulos FSM — diagramas</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#reference-fsm-generic-example">Reference FSM (generic example)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#waveform-generator-fsm">Waveform Generator FSM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pwm-output-fsm">PWM Output FSM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rpm-fsm">RPM FSM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#data-logger-fsm">Data Logger FSM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#user-input-fsm">User Input FSM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#user-output-fsm">User Output FSM</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="as5600.html">Sensor AS5600</a></li>
+<li class="toctree-l1"><a class="reference internal" href="controlador.html">Controlador</a></li>
+<li class="toctree-l1"><a class="reference internal" href="controlo-PID-arduino.html">Controlador PID</a></li>
+<li class="toctree-l1"><a class="reference internal" href="integration.html">Integração</a></li>
+<li class="toctree-l1"><a class="reference internal" href="resultados.html">Resultados</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Projeto 2</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../project2/readme.html">Carro programável</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Project 3</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../project3/readme.html">Inverted Pendulum</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">oficina3</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Calibração &amp; software modular</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/project1/motorCalib-PT.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section class="tex2jax_ignore mathjax_ignore" id="calibracao-software-modular">
+<h1>Calibração &amp; software modular<a class="headerlink" href="#calibracao-software-modular" title="Link to this heading"></a></h1>
+<p>O projeto começa por automatizar uma <strong>calibração velocidade–tensão</strong> para uma pequena unidade de propulsão DC. Um Arduino gera uma <strong>rampa PWM (=pulse width modulation) em sinal TTL</strong> configurável que comanda um driver em ponte-H, o qual alimenta um <strong>motor DC de drone de 3,7 V</strong> com <strong>hélice de duas pás</strong>. O motor está montado num dispositivo simples com um <strong>sensor ótico de fenda</strong> a funcionar como encoder incremental: cada passagem da pá gera um impulso usado para inferir a <strong>velocidade de rotação RPM (=rotações por minuto)</strong>. Os parâmetros de teste—máximo da rampa, duração, passo/cadência—são definidos em software para que o mesmo hardware de bancada execute várias varridas repetíveis.</p>
+<p>Durante a execução, a rampa PWM e as medições de RPM são <strong>sincronizadas</strong>: as atualizações de PWM definem janelas temporais limpas nas quais os impulsos são contados e convertidos em RPM (ou, em alternativa, pode usar-se um período de amostragem fixo). Após cada medição, o sistema envia <strong>valores separados por tabulações (TSV)</strong> pela ligação série USB—tempo, valor de onda comandado, PWM aplicado e RPM—permitindo ao utilizador copiar e colar diretamente para o Excel (ou outra folha de cálculo) para traçar gráficos e analisar.</p>
+<p>A <strong>parte de hardware</strong> é simples. Um <strong>PC</strong> liga por <strong>USB</strong> a uma <strong>placa Arduino</strong> (p. ex., Arduino Uno). Um <strong>pino digital PWM</strong> do Arduino alimenta a <strong>entrada enable/PWM</strong> do driver de motor em <strong>ponte-H</strong>.</p>
+<p>A placa da ponte-H é alimentada por uma <strong>fonte DC de bancada</strong> (ajustada à tensão/corrente do motor) e aciona um <strong>mini motor DC de drone de 3,7 V</strong> com <strong>hélice de duas pás</strong>. Verifique que os pontos de funcionamento tensão–corrente durante a varrida de calibração <strong>não</strong> ficam limitados pela fonte DC (limite de corrente/abaixamento de tensão), sobretudo a alta velocidade e carga elevada.</p>
+<p>Um <strong>sensor ótico de fenda</strong> (LED IR + fototransístor) é montado numa pequena estrutura mecânica para que cada pá interrompa o feixe uma vez por meia rotação, produzindo dois impulsos limpos por volta. Use os <strong>LEDs indicadores</strong> da placa do sensor para alinhar as pás e obter um sinal de RPM limpo, e <strong>prefira a saída digital</strong> à saída analógica. A saída do sensor liga a um <strong>pino de interrupção do Arduino</strong> (p. ex., D2) para contagem precisa de impulsos.</p>
+<p>As massas lógicas devem estar comuns: GND do Arduino ↔ GND lógico do driver ↔ GND do sensor. A alimentação do motor é separada da alimentação lógica, que permanece referida no driver. Alimente o <strong>motor</strong> pela fonte de bancada e o <strong>Arduino</strong> por USB para reduzir acoplamentos; os díodos internos da ponte-H tratam do flyback.</p>
+<p>Para observação em tempo real, use dois pontos de teste para osciloscópio: o <strong>sinal PWM</strong> (Arduino → enable do driver) e o <strong>sinal de impulsos de RPM</strong> (sensor → interrupção do Arduino). Visualize a razão cíclica e a temporização dos impulsos no osciloscópio enquanto o Arduino os utiliza (comando e medição).</p>
+<p>Para <strong>input do utilizador</strong> poderá servir um <strong>botão</strong> e/ou um <strong>potenciómetro (knob)</strong>. Para <strong>output do utilizador</strong>, existem <strong>LEDs</strong> para feedback visual e um <strong>buzzer piezo</strong> para sinalização acústica/feedback sonoro.  A <strong>comunicação Serial</strong> suporta <em>input</em> e, claro, <em>output</em> do <em>user</em>. O uso neste projeto é opcional.</p>
+<p>A <strong>parte de software</strong> organiza-se em várias pequenas tarefas independentes, através de módulos implementados como <strong>máquinas de estados finitos (FSMs)</strong>.</p>
+<p>O sistema de calibração constitui um <strong>banco de ensaio experimental para formação académica</strong>. Embora a calibração automática do motor DC pudesse ser implementada de forma mais simples, o objetivo é introduzir e consolidar um <strong>framework modular e reutilizável de FSMs</strong>, escalável e fácil de adaptar a projetos futuros.</p>
+<p>Destina-se a ensinar como funcionam as FSMs, como as implementar e testar, porque as usamos, e a mostrar que o código é reutilizável e <strong>escalável</strong>, mantendo-se claro e arrumado à medida que o sistema cresce (sem “spaghetti”!), e como os módulos se integram num sistema e interagem através de um pequeno conjunto de variáveis globais partilhadas.</p>
+<hr class="docutils" />
+<section id="porque-usar-maquinas-de-estados">
+<h2>Porque usar Máquinas de Estados?<a class="headerlink" href="#porque-usar-maquinas-de-estados" title="Link to this heading"></a></h2>
+<p><strong>O problema:</strong> sistemas embebidos gerem várias tarefas—geração de onda, saída PWM, medição de RPM, registo, I/O do utilizador—muitas vezes com cadências e restrições de hardware distintas. Ciclos ingênuos com <code class="docutils literal notranslate"><span class="pre">delay()</span></code> tornam-se rapidamente ingovernáveis.</p>
+<p>As <strong>máquinas de estados</strong> resolvem isto:</p>
+<ul class="simple">
+<li><p><strong>Modularidade:</strong> cada funcionalidade vive no seu próprio ficheiro/função com estados, temporizadores e configuração; sem delays “espaguete”.</p></li>
+<li><p><strong>Testabilidade:</strong> cada FSM pode ser exercitada isoladamente (forçar estados, injetar entradas) e validada.</p></li>
+<li><p><strong>Determinismo:</strong> todas as FSMs são <strong>não bloqueantes</strong> e correm em cada <code class="docutils literal notranslate"><span class="pre">loop()</span></code>; a temporização é explícita (verificações de período), não implícita (<code class="docutils literal notranslate"><span class="pre">delay()</span></code>).</p></li>
+<li><p><strong>Extensibilidade:</strong> adicione um estado/transição sem reescrever módulos não relacionados.</p></li>
+<li><p><strong>Baixo acoplamento:</strong> os módulos “falam” apenas através de algumas <strong>variáveis globais partilhadas</strong> (bytes, floats, contadores), e não por cadeias de chamadas profundas.</p></li>
+<li><p><strong>Usabilidade:</strong> o comportamento de cada módulo é fácil de explicar com um simples <strong>diagrama UML de estados</strong>.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="layout-do-software">
+<h2>Layout do software<a class="headerlink" href="#layout-do-software" title="Link to this heading"></a></h2>
+<p>A arquitetura segue um modelo <strong>modular por FSM</strong>: cada tarefa essencial corre de forma <strong>não bloqueante</strong> na sua própria máquina de estados, codificada num <strong>ficheiro separado e reutilizável</strong>. Cada FSM mantém a sua configuração local (como <code class="docutils literal notranslate"><span class="pre">const</span></code> dentro da função), usa estado interno para gerir temporização (sem <code class="docutils literal notranslate"><span class="pre">delay()</span></code>), e comunica apenas através de algumas variáveis globais partilhadas. O <strong>ficheiro controlador do Arduino</strong> na mesma pasta configura as interrupções, declara as globais e monta o sistema chamando todas as FSMs no <code class="docutils literal notranslate"><span class="pre">loop()</span></code>.</p>
+<p><strong>Ficheiro controlador</strong></p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">MotorCalib</span><span class="p">.</span><span class="n">ino</span><span class="w">                  </span><span class="c1">// controller, globals, interrupt config, empty setup(), loop() calling all FSMs</span>
+</pre></div>
+</div>
+<p><strong>Módulos FSM</strong></p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">WaveformFSM</span><span class="p">.</span><span class="n">ino</span><span class="w">                 </span><span class="c1">// WaveformFSM_update()</span>
+<span class="n">PWMOutputFSM</span><span class="p">.</span><span class="n">ino</span><span class="w">                </span><span class="c1">// PWMOutputFSM_update()</span>
+<span class="n">RPM_FSM</span><span class="p">.</span><span class="n">ino</span><span class="w">                     </span><span class="c1">// RPM_FSM_update()</span>
+<span class="n">DataLogger_FSM</span><span class="p">.</span><span class="n">ino</span><span class="w">              </span><span class="c1">// DataLogger_FSM_update(...)</span>
+<span class="n">UserInput_FSM</span><span class="p">.</span><span class="n">ino</span><span class="w">               </span><span class="c1">// UserInput_FSM_update()</span>
+<span class="n">UserOutput_FSM</span><span class="p">.</span><span class="n">ino</span><span class="w">              </span><span class="c1">// UserOutput_FSM_update()</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><strong>Waveform FSM</strong>: Gera uma sequência de amostras (seno / quadrada / dente-de-serra / rampa única) com período de amostragem e modulação configuráveis; escreve <code class="docutils literal notranslate"><span class="pre">sig_waveform_value</span></code>.</p></li>
+<li><p><strong>PWM Output FSM</strong>: Aplica periodicamente <code class="docutils literal notranslate"><span class="pre">sig_waveform_value</span></code> ao pino PWM com limite, mínimo opcional e <strong>slew limiter</strong>; escreve <code class="docutils literal notranslate"><span class="pre">sig_pwm_applied</span></code> e incrementa <code class="docutils literal notranslate"><span class="pre">sig_pwm_update_counter</span></code> a cada atualização.</p></li>
+<li><p><strong>RPM FSM</strong>: Conta impulsos do encoder ótico (via ISR) e calcula RPM em <strong>período fixo</strong> ou <strong>sincronizado</strong> com janelas de PWM usando <code class="docutils literal notranslate"><span class="pre">sig_pwm_update_counter</span></code>; escreve <code class="docutils literal notranslate"><span class="pre">sig_rpm</span></code>.</p></li>
+<li><p><strong>Data Logger FSM</strong>: Único logger com dois modos—<strong>free-run</strong> (cadência fixa) ou <strong>sincronizado ao PWM</strong>—imprime colunas selecionadas (tempo, onda, PWM, RPM) em TSV.</p></li>
+<li><p><strong>User Input FSM</strong>: Debounce do botão, amostragem do potenciómetro e parser de comandos série <strong>key=value</strong>; escreve <code class="docutils literal notranslate"><span class="pre">sig_input_*</span></code>.</p></li>
+<li><p><strong>User Output FSM</strong>: Comanda LEDs RGB e buzzer piezo via <code class="docutils literal notranslate"><span class="pre">tone()</span></code> (contínuo ou temporizado) ou alternância digital; consome <code class="docutils literal notranslate"><span class="pre">sig_led_*</span></code> e <code class="docutils literal notranslate"><span class="pre">sig_buzzer_*</span></code>.</p></li>
+</ul>
+<p><strong>Como tudo se articula?</strong></p>
+<ol class="arabic simple">
+<li><p><strong>Waveform → PWM:</strong> A Waveform FSM produz o <strong>duty desejado</strong> (<code class="docutils literal notranslate"><span class="pre">sig_waveform_value</span></code>).</p></li>
+<li><p><strong>PWM aplica (com segurança):</strong> A PWM FSM limita, eleva valores pequenos se necessário e <strong>suaviza variações</strong> antes de escrever no pino. Incrementa <code class="docutils literal notranslate"><span class="pre">sig_pwm_update_counter</span></code> em cada atualização.</p></li>
+<li><p><strong>Amostragem de RPM:</strong> A RPM FSM mede impulsos em período fixo ou <strong>sincronizada</strong> com janelas de PWM (borda-a-borda) e escreve <code class="docutils literal notranslate"><span class="pre">sig_rpm</span></code>.</p></li>
+<li><p><strong>Registo:</strong> A Data Logger imprime linhas TSV periodicamente ou por janela de PWM, com colunas selecionáveis <strong>tempo / onda / PWM / RPM</strong>.</p></li>
+<li><p><strong>I/O do utilizador:</strong> A User Input FSM atualiza <code class="docutils literal notranslate"><span class="pre">sig_input_*</span></code> (botão, potenciómetro, série). <code class="docutils literal notranslate"><span class="pre">sig_led_*</span></code> e os sinais do buzzer estão globalmente declarados e são acionados pela User Output FSM (qualquer FSM pode lê-los).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">MotorCalib.ino</span></code> é o “compositor”: declara as <strong>variáveis globais partilhadas</strong>, configura e anexa a <strong>ISR do encoder</strong>, deixa o <code class="docutils literal notranslate"><span class="pre">setup()</span></code> vazio (as FSMs auto-inicializam na primeira chamada) e, no <code class="docutils literal notranslate"><span class="pre">loop()</span></code>, chama as FSMs por ordem, p. ex.:
+<code class="docutils literal notranslate"><span class="pre">Waveform</span> <span class="pre">→</span> <span class="pre">PWM</span> <span class="pre">Output</span> <span class="pre">→</span> <span class="pre">RPM</span> <span class="pre">→</span> <span class="pre">Datalogger</span> <span class="pre">→</span> <span class="pre">User</span> <span class="pre">Input</span> <span class="pre">→</span> <span class="pre">User</span> <span class="pre">Output</span></code>.</p></li>
+<li><p>Cada FSM é <strong>não bloqueante</strong> e avança por temporizadores e <code class="docutils literal notranslate"><span class="pre">switch(state)</span></code>; lê/escreve apenas as globais documentadas, mantendo os ficheiros independentes e reutilizáveis entre projetos.</p></li>
+</ol>
+</section>
+<section id="dicas-para-laboratorio-testes">
+<h2>Dicas para Laboratório &amp; Testes<a class="headerlink" href="#dicas-para-laboratorio-testes" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><strong>Testes por módulo:</strong> Comente os restantes e execute uma FSM de cada vez; use o Logger em modo free-run para observar o comportamento.</p></li>
+<li><p><strong>Rastreabilidade:</strong> O cabeçalho de cada FSM no código documenta <strong>tarefa, entradas (sinais), saídas (sinais), uso, testes e como estender</strong>—explore e estude cada módulo.</p></li>
+<li><p><strong>Implemente o use-case:</strong> Defina a Waveform como <strong>SINGLE_RAMP</strong> (sem repetição) para capturar uma varrida completa de calibração PWM→RPM.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="anexo-1-base-de-codigo-de-referencia">
+<h2>Anexo 1: Base de código de referência<a class="headerlink" href="#anexo-1-base-de-codigo-de-referencia" title="Link to this heading"></a></h2>
+<p>A base de código completa está disponível para download para os participantes na plataforma Moodle da unidade curricular.</p>
+</section>
+<section id="anexo-2-controlador-de-calibracao">
+<h2>Anexo 2: Controlador de Calibração<a class="headerlink" href="#anexo-2-controlador-de-calibracao" title="Link to this heading"></a></h2>
+<p>O ficheiro Arduino <strong>controlador de calibração</strong> <code class="docutils literal notranslate"><span class="pre">motorCalib.ino</span></code> é o ponto de orquestração do projeto. <strong>Detém os sinais partilhados</strong> (variáveis globais simples), <strong>define a ISR do encoder</strong> e <strong>executa todas as FSMs uma vez por ciclo</strong> numa ordem fixa e não bloqueante. Cada FSM mantém a sua configuração local e temporização interna; o controlador apenas as interliga através de algumas globais.</p>
+<p><strong>Tarefas</strong></p>
+<ul class="simple">
+<li><p><strong>Globais partilhadas:</strong> declarar o pequeno conjunto de variáveis entre módulos (p. ex., <code class="docutils literal notranslate"><span class="pre">sig_waveform_value</span></code>, <code class="docutils literal notranslate"><span class="pre">sig_pwm_applied</span></code>, <code class="docutils literal notranslate"><span class="pre">sig_pwm_update_counter</span></code>, <code class="docutils literal notranslate"><span class="pre">sig_encoder_pulses</span></code>, <code class="docutils literal notranslate"><span class="pre">sig_rpm</span></code>, intenções de I/O do utilizador).</p></li>
+<li><p><strong>Propriedade da interrupção:</strong> definir a <strong>ISR</strong> (incrementa <code class="docutils literal notranslate"><span class="pre">volatile</span> <span class="pre">unsigned</span> <span class="pre">long</span> <span class="pre">sig_encoder_pulses</span></code>) e o <strong>pino do encoder</strong>. O <strong>attach/detach</strong> é efetuado pela RPM FSM no estado <code class="docutils literal notranslate"><span class="pre">INIT</span></code> (fonte única de verdade para modo/borda); o controlador permanece o local canónico do símbolo e contador da ISR.</p></li>
+<li><p><strong>Modelo de execução:</strong> escalonamento cooperativo e <strong>não bloqueante</strong>—todas as FSMs são chamadas uma vez por <code class="docutils literal notranslate"><span class="pre">loop()</span></code>. Cada FSM progride por temporizadores/guardas (sem <code class="docutils literal notranslate"><span class="pre">delay()</span></code>), intercalando tarefas de forma previsível.</p></li>
+<li><p><strong>Ordem de chamada (define o fluxo de dados):</strong>
+<code class="docutils literal notranslate"><span class="pre">Waveform</span> <span class="pre">→</span> <span class="pre">PWM</span> <span class="pre">Output</span> <span class="pre">→</span> <span class="pre">RPM</span> <span class="pre">→</span> <span class="pre">Datalogger</span> <span class="pre">→</span> <span class="pre">User</span> <span class="pre">Input</span> <span class="pre">→</span> <span class="pre">User</span> <span class="pre">Output</span></code>.
+Garante que:</p>
+<ul>
+<li><p>a PWM lê a amostra mais recente da onda,</p></li>
+<li><p>a RPM pode <strong>acoplar</strong> a janela de medição às atualizações de PWM via <code class="docutils literal notranslate"><span class="pre">sig_pwm_update_counter</span></code>,</p></li>
+<li><p>a Datalogger imprime valores <strong>deste</strong> ciclo,</p></li>
+<li><p>I/O do utilizador é aplicada em cada ciclo sem bloquear.</p></li>
+</ul>
+</li>
+</ul>
+<p><strong>Temporização &amp; determinismo</strong></p>
+<ul class="simple">
+<li><p>Toda a temporização é <strong>explícita</strong> (verificações de período dentro de cada FSM). A frequência do <code class="docutils literal notranslate"><span class="pre">loop()</span></code> pode variar; o comportamento não.</p></li>
+<li><p>A única fonte assíncrona é a <strong>ISR do encoder</strong>; aceda ao contador com <code class="docutils literal notranslate"><span class="pre">volatile</span></code> e secções críticas curtas (já tratadas na RPM FSM).</p></li>
+</ul>
+<p><strong>Código:</strong>   <a class="reference download internal" download="" href="../_downloads/526e5112078a99e1d8169c9ab9470d84/motorCalib.ino"><span class="xref download myst">motorCalib.ino</span></a></p>
+</section>
+<section id="anexo-3-sinais-globais">
+<h2>Anexo 3: Sinais globais<a class="headerlink" href="#anexo-3-sinais-globais" title="Link to this heading"></a></h2>
+<p>Estas são as únicas variáveis entre módulos. Cada FSM <strong>lê</strong> e/ou <strong>escreve</strong> nelas.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Sinal</p></th>
+<th class="head"><p>Tipo</p></th>
+<th class="head"><p>Produtor(es)</p></th>
+<th class="head"><p>Consumidor(es)</p></th>
+<th class="head"><p>Significado</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">sig_waveform_value</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">byte</span></code></p></td>
+<td><p>Waveform FSM</p></td>
+<td><p>PWM Output, Logger</p></td>
+<td><p>Amostra de duty desejado (0..255)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">sig_pwm_applied</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">byte</span></code></p></td>
+<td><p>PWM Output</p></td>
+<td><p>Logger</p></td>
+<td><p>PWM efetivamente escrito (0..255)</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">sig_pwm_update_counter</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">unsigned</span> <span class="pre">long</span></code></p></td>
+<td><p>PWM Output</p></td>
+<td><p>RPM FSM, Logger</p></td>
+<td><p>Incrementa a cada atualização de PWM</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">sig_encoder_pulses</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">volatile</span> <span class="pre">unsigned</span> <span class="pre">long</span></code></p></td>
+<td><p><strong>ISR</strong></p></td>
+<td><p>RPM FSM</p></td>
+<td><p>Contador de impulsos (fenda ótica)</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">sig_rpm</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">float</span></code></p></td>
+<td><p>RPM FSM</p></td>
+<td><p>Logger</p></td>
+<td><p>RPM mais recente</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">sig_input_button</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">byte</span></code></p></td>
+<td><p>User Input</p></td>
+<td><p>Qualquer</p></td>
+<td><p>Botão debounced (0/1)</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">sig_input_pot</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">int</span></code></p></td>
+<td><p>User Input</p></td>
+<td><p>Qualquer</p></td>
+<td><p>ADC do potenciómetro (0..1023)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">sig_input_key</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">char</span></code></p></td>
+<td><p>User Input</p></td>
+<td><p>Qualquer</p></td>
+<td><p>Última tecla série</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">sig_input_value</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">long</span></code></p></td>
+<td><p>User Input</p></td>
+<td><p>Qualquer</p></td>
+<td><p>Último valor série</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">sig_input_has_cmd</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">bool</span></code></p></td>
+<td><p>User Input</p></td>
+<td><p>Qualquer</p></td>
+<td><p>“Novo comando disponível” (latched)</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">sig_led_r/g/b</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">byte</span></code></p></td>
+<td><p>Qualquer</p></td>
+<td><p>User Output</p></td>
+<td><p>Comandos on/off para LEDs RGB</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">sig_buzzer_tone_enable</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">bool</span></code></p></td>
+<td><p>Qualquer</p></td>
+<td><p>User Output</p></td>
+<td><p>Usar <code class="docutils literal notranslate"><span class="pre">tone()</span></code> se true</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">sig_buzzer_tone_freq_hz</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">unsigned</span> <span class="pre">int</span></code></p></td>
+<td><p>Qualquer</p></td>
+<td><p>User Output</p></td>
+<td><p>Frequência do tom</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">sig_buzzer_tone_ms</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">unsigned</span> <span class="pre">int</span></code></p></td>
+<td><p>Qualquer</p></td>
+<td><p>User Output</p></td>
+<td><p>0=contínuo; &gt;0 duração do tom</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">sig_buzzer_toggle_enable</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">bool</span></code></p></td>
+<td><p>Qualquer</p></td>
+<td><p>User Output</p></td>
+<td><p>Alternância digital se true e sem <code class="docutils literal notranslate"><span class="pre">tone()</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">sig_buzzer_toggle_period_ms</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">unsigned</span> <span class="pre">int</span></code></p></td>
+<td><p>Qualquer</p></td>
+<td><p>User Output</p></td>
+<td><p>Meia-período para alternância</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<hr class="docutils" />
+<section id="anexo-4-modulos-fsm-diagramas">
+<h2>Anexo 4: Módulos FSM — diagramas<a class="headerlink" href="#anexo-4-modulos-fsm-diagramas" title="Link to this heading"></a></h2>
+<p>Abaixo, um diagrama UML (unified model language) por FSM (estados e transições).
+Note a correspondência estrita entre diagrama e código.</p>
+<p>A lista começa com um exemplo genérico e educativo de um FSM de referência, seguido pela descrição detalhada dos FSMs utilizados.</p>
+<section id="reference-fsm-generic-example">
+<h3>Reference FSM (generic example)<a class="headerlink" href="#reference-fsm-generic-example" title="Link to this heading"></a></h3>
+<p><strong>Task:</strong> este exemplo <strong>genérico</strong> de máquina de estados com três estados — <code class="docutils literal notranslate"><span class="pre">INIT</span></code>, <code class="docutils literal notranslate"><span class="pre">STATE1</span></code>, <code class="docutils literal notranslate"><span class="pre">STATE2</span></code> — ilustra um ciclo típico: inicializar, operar num primeiro modo, alternar para um segundo modo mediante um evento/condição, e regressar.</p>
+<pre  class="mermaid">
+        stateDiagram-v2
+  [*] --&gt; INIT
+  INIT --&gt; STATE1 : event/condition_1 (p.ex., &quot;inicialização concluída&quot;)
+  STATE1 --&gt; STATE2 : event/condition_2 (p.ex., &quot;temporizador1 expirou&quot; OU &quot;botão premido&quot;)
+  STATE1 --&gt; STATE1 : else (permanece até ocorrer event/condition_2)
+  STATE2 --&gt; STATE1 : event/condition_3 (p.ex., &quot;temporizador2 expirou&quot; OU &quot;valor abaixo do limiar&quot;)
+  STATE2 --&gt; STATE2 : else (permanece até ocorrer event/condition_3)
+    </pre><p><strong>Events/transition conditions:</strong></p>
+<ul class="simple">
+<li><p>event/condition_1: sistema pronto (ex.: configuração feita).</p></li>
+<li><p>event/condition_2: condição para mudar de <code class="docutils literal notranslate"><span class="pre">STATE1</span></code> para <code class="docutils literal notranslate"><span class="pre">STATE2</span></code> (ex.: temporizador1, entrada externa, limiar atingido).</p></li>
+<li><p>event/condition_3: condição para regressar de <code class="docutils literal notranslate"><span class="pre">STATE2</span></code> para <code class="docutils literal notranslate"><span class="pre">STATE1</span></code> (ex.: temporizador2, entrada externa, limiar desfeito).</p></li>
+</ul>
+<p><strong>Activities:</strong></p>
+<ul class="simple">
+<li><p>INIT: preparar variáveis/recursos; marcar sistema como pronto.</p></li>
+<li><p>STATE1: executar atividade A (ex.: atualizar saída/monitorizar entrada com período T1).</p></li>
+<li><p>STATE2: executar atividade B (ex.: outra estratégia/saída com período T2).</p></li>
+</ul>
+<p><strong>Code</strong> (Arduino/C++; não bloqueante, educativo)</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">// ---------------- Optional shared signal for demos ----------------</span>
+<span class="n">byte</span><span class="w"> </span><span class="n">sig_ref_state</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w">  </span><span class="c1">// 0=INIT, 1=STATE1, 2=STATE2</span>
+
+<span class="c1">// ---------------- Three-state reference FSM ----------------------</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">ReferenceFSM_update</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// -------- Local configuration constants (tunable) --------------</span>
+<span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w">  </span><span class="n">PERIOD_STATE1_MS</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">250</span><span class="p">;</span><span class="w">   </span><span class="c1">// drives event/condition_2 (example)</span>
+<span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w">  </span><span class="n">PERIOD_STATE2_MS</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">500</span><span class="p">;</span><span class="w">   </span><span class="c1">// drives event/condition_3 (example)</span>
+
+<span class="w">  </span><span class="c1">// -------- Local state constants (UPPERCASE) --------------------</span>
+<span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">byte</span><span class="w"> </span><span class="n">INIT</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">byte</span><span class="w"> </span><span class="n">STATE1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">byte</span><span class="w"> </span><span class="n">STATE2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
+
+<span class="w">  </span><span class="c1">// -------- Local static variables -------------------------------</span>
+<span class="w">  </span><span class="k">static</span><span class="w"> </span><span class="n">byte</span><span class="w">          </span><span class="n">state</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">INIT</span><span class="p">;</span>
+<span class="w">  </span><span class="k">static</span><span class="w"> </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">t1_ms</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w">   </span><span class="c1">// timer for STATE1</span>
+<span class="w">  </span><span class="k">static</span><span class="w"> </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">t2_ms</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w">   </span><span class="c1">// timer for STATE2</span>
+<span class="w">  </span><span class="k">static</span><span class="w"> </span><span class="kt">bool</span><span class="w">          </span><span class="n">ready</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span><span class="w"> </span><span class="c1">// models event/condition_1</span>
+
+<span class="w">  </span><span class="c1">// -------- Time base --------------------------------------------</span>
+<span class="w">  </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">now</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">millis</span><span class="p">();</span>
+
+<span class="w">  </span><span class="c1">// -------- FSM ---------------------------------------------------</span>
+<span class="w">  </span><span class="k">switch</span><span class="w"> </span><span class="p">(</span><span class="n">state</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="no">INIT</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="c1">// Activities: initialize resources/vars</span>
+<span class="w">      </span><span class="n">ready</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span><span class="w">                  </span><span class="c1">// event/condition_1 satisfied</span>
+<span class="w">      </span><span class="n">sig_ref_state</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+
+<span class="w">      </span><span class="c1">// Transition: INIT -&gt; STATE1 on event/condition_1</span>
+<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">ready</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">t1_ms</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">now</span><span class="p">;</span><span class="w">                 </span><span class="c1">// reset STATE1 timer</span>
+<span class="w">        </span><span class="n">state</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">STATE1</span><span class="p">;</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">      </span><span class="k">break</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="no">STATE1</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="c1">// Activities: do-A (periodic action at PERIOD_STATE1_MS)</span>
+<span class="w">      </span><span class="n">sig_ref_state</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+
+<span class="w">      </span><span class="c1">// Example periodic activity (replace with your own):</span>
+<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">((</span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">long</span><span class="p">)(</span><span class="n">now</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">t1_ms</span><span class="p">)</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="n">PERIOD_STATE1_MS</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// --- event/condition_2 occurs here (e.g., timer1 expired) ---</span>
+<span class="w">        </span><span class="n">t2_ms</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">now</span><span class="p">;</span><span class="w">                 </span><span class="c1">// prepare STATE2 timer</span>
+<span class="w">        </span><span class="n">state</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">STATE2</span><span class="p">;</span><span class="w">              </span><span class="c1">// Transition: STATE1 -&gt; STATE2</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">      </span><span class="c1">// else: remain in STATE1</span>
+<span class="w">      </span><span class="k">break</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="no">STATE2</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="c1">// Activities: do-B (periodic action at PERIOD_STATE2_MS)</span>
+<span class="w">      </span><span class="n">sig_ref_state</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
+
+<span class="w">      </span><span class="c1">// Example periodic activity (replace with your own):</span>
+<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">((</span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">long</span><span class="p">)(</span><span class="n">now</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">t2_ms</span><span class="p">)</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="n">PERIOD_STATE2_MS</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// --- event/condition_3 occurs here (e.g., timer2 expired) ---</span>
+<span class="w">        </span><span class="n">t1_ms</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">now</span><span class="p">;</span><span class="w">                 </span><span class="c1">// prepare STATE1 timer</span>
+<span class="w">        </span><span class="n">state</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">STATE1</span><span class="p">;</span><span class="w">              </span><span class="c1">// Transition: STATE2 -&gt; STATE1</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">      </span><span class="c1">// else: remain in STATE2</span>
+<span class="w">      </span><span class="k">break</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">default</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="c1">// Safety net</span>
+<span class="w">      </span><span class="n">state</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">INIT</span><span class="p">;</span>
+<span class="w">      </span><span class="k">break</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="c1">// switch</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Uso:</strong> chame <code class="docutils literal notranslate"><span class="pre">ReferenceFSM_update()</span></code> em cada iteração de <code class="docutils literal notranslate"><span class="pre">loop()</span></code>.
+<strong>Adaptação:</strong> substitua os temporizadores por entradas reais (botões/sensores) para materializar <code class="docutils literal notranslate"><span class="pre">event/condition_2</span></code> e <code class="docutils literal notranslate"><span class="pre">event/condition_3</span></code>.</p>
+</section>
+<section id="waveform-generator-fsm">
+<h3>Waveform Generator FSM<a class="headerlink" href="#waveform-generator-fsm" title="Link to this heading"></a></h3>
+<p><strong>Tarefa:</strong> “Avançar a um ritmo estável e calcular o ponto seguinte da onda escolhida.”</p>
+<pre  class="mermaid">
+        stateDiagram-v2
+  [*] --&gt; INIT
+  INIT --&gt; WAIT_TICK : após a configuração
+  WAIT_TICK --&gt; COMPUTE : a cada período de amostragem
+  COMPUTE --&gt; WAIT_TICK : ondas periódicas (seno/quadrada/dente-de-serra) ou rampa ainda a decorrer
+  COMPUTE --&gt; HOLD : rampa única terminada E sem repetição
+  HOLD --&gt; WAIT_TICK : se for reiniciada
+    </pre><p><strong>Eventos:</strong> temporizador decorrido.
+<strong>Atividades:</strong> calcular a onda a partir de <code class="docutils literal notranslate"><span class="pre">phase</span> <span class="pre">=</span> <span class="pre">(now</span> <span class="pre">-</span> <span class="pre">t0)</span> <span class="pre">%</span> <span class="pre">MOD_PERIOD</span></code>.</p>
+<p><strong>Código:</strong>
+<a class="reference download internal" download="" href="../_downloads/154570e2dc62230a9038a3c430b7ce9c/WaveformFSM.ino"><span class="xref download myst">void WaveformFSM_update()</span></a></p>
+</section>
+<hr class="docutils" />
+<section id="pwm-output-fsm">
+<h3>PWM Output FSM<a class="headerlink" href="#pwm-output-fsm" title="Link to this heading"></a></h3>
+<p><strong>Tarefa:</strong> “A um ritmo fixo, atualizar o PWM do motor; limitar a rapidez de variação.”</p>
+<pre  class="mermaid">
+        stateDiagram-v2
+  [*] --&gt; INIT
+  INIT --&gt; WAIT_TICK : após a configuração
+  WAIT_TICK --&gt; UPDATE : a cada período de atualização do PWM
+  UPDATE --&gt; WAIT_TICK : após escrever o PWM (com limites &amp; slew)
+    </pre><p><strong>Eventos:</strong> temporizador decorrido.
+<strong>Atividades:</strong> aplicar <code class="docutils literal notranslate"><span class="pre">MAX_DUTY</span></code>, mínimo opcional, <strong>slew limit</strong> lógico; escrever PWM &amp; sinais.</p>
+<p><strong>Código:</strong>
+<a class="reference download internal" download="" href="../_downloads/17a3aba8fa7e7829c2f0a6e281aebd23/PWMOutputFSM.ino"><span class="xref download myst">PWMOutputFSM_update()</span></a></p>
+</section>
+<hr class="docutils" />
+<section id="rpm-fsm">
+<h3>RPM FSM<a class="headerlink" href="#rpm-fsm" title="Link to this heading"></a></h3>
+<p><strong>Tarefa:</strong> “Abrir uma janela de medição, contar impulsos, calcular RPM; janelas cronometradas ou alinhadas com o PWM.”</p>
+<pre  class="mermaid">
+        stateDiagram-v2
+  [*] --&gt; INIT
+  INIT --&gt; IDLE : após a configuração
+  IDLE --&gt; START_WINDOW : MODO=acoplado E houve atualização de PWM
+  IDLE --&gt; START_WINDOW : MODO=free-run E temporizador decorreu
+  START_WINDOW --&gt; END_WINDOW : janela iniciada
+  END_WINDOW --&gt; COMPUTE : MODO=acoplado E próxima atualização de PWM
+  END_WINDOW --&gt; COMPUTE : MODO=free-run E tempo da janela decorreu
+  COMPUTE --&gt; IDLE : após calcular o RPM
+    </pre><p><strong>Eventos:</strong> borda de PWM via <code class="docutils literal notranslate"><span class="pre">sig_pwm_update_counter</span></code> (acoplado) ou temporizador (free-run).
+<strong>Atividades:</strong> instantâneo/repôr contador; calcular RPM (proteger <code class="docutils literal notranslate"><span class="pre">dt</span></code> muito curto).</p>
+<p><strong>Código:</strong>
+<a class="reference download internal" download="" href="../_downloads/5cbb9a9761dd2592badd1d8a6375357d/RpmFSM.ino"><span class="xref download myst">void RPM_FSM_update()</span></a></p>
+</section>
+<hr class="docutils" />
+<section id="data-logger-fsm">
+<h3>Data Logger FSM<a class="headerlink" href="#data-logger-fsm" title="Link to this heading"></a></h3>
+<p><strong>Tarefa:</strong> “Registar por temporização fixa ou por janela de PWM—apenas as colunas escolhidas.”</p>
+<pre  class="mermaid">
+        stateDiagram-v2
+  [*] --&gt; INIT
+  INIT --&gt; IDLE : após a configuração
+  IDLE --&gt; LOG : MODO=acoplado E houve atualização de PWM
+  IDLE --&gt; LOG : MODO=free-run E período de registo decorreu
+  LOG --&gt; IDLE : após imprimir uma linha
+    </pre><p><strong>Eventos:</strong> borda de PWM ou temporizador fixo.
+<strong>Atividades:</strong> imprimir colunas selecionadas; reimprimir cabeçalho se layout mudar.</p>
+<p><strong>Código:</strong>
+<a class="reference download internal" download="" href="../_downloads/e546f0e6ecc4312330a1b54958f9cbb2/DataLoggerFSM.ino"><span class="xref download myst">void DataLogger_FSM_update()</span></a></p>
+</section>
+<hr class="docutils" />
+<section id="user-input-fsm">
+<h3>User Input FSM<a class="headerlink" href="#user-input-fsm" title="Link to this heading"></a></h3>
+<p><strong>Tarefa:</strong> “Ler continuamente botão e knob; quando chega uma linha série completa, fazer parse key=value.”</p>
+<pre  class="mermaid">
+        stateDiagram-v2
+  [*] --&gt; INIT
+  INIT --&gt; WAIT_TICK : após a configuração
+  WAIT_TICK --&gt; SCAN_INPUTS : há dados na série
+  SCAN_INPUTS --&gt; PARSE_LINE : chegou fim de linha
+  SCAN_INPUTS --&gt; WAIT_TICK : ainda não há linha completa
+  PARSE_LINE --&gt; WAIT_TICK : após registar key/value
+    </pre><p><strong>Eventos:</strong> debounce, amostragem, EOL na série.
+<strong>Atividades:</strong> normalizar botão ativo-baixo para 0/1; ler ADC; interpretar <code class="docutils literal notranslate"><span class="pre">char=value</span></code>.</p>
+<p><strong>Código:</strong>
+<a class="reference download internal" download="" href="../_downloads/bf6c954079c348af89854b01979d3069/UserInputFSM.ino"><span class="xref download myst">void UserInput_FSM_update()</span></a></p>
+</section>
+<hr class="docutils" />
+<section id="user-output-fsm">
+<h3>User Output FSM<a class="headerlink" href="#user-output-fsm" title="Link to this heading"></a></h3>
+<p><strong>Tarefa:</strong> “A um ritmo estável, atualizar LEDs; produzir som via <code class="docutils literal notranslate"><span class="pre">tone()</span></code> ou alternância on/off.”</p>
+<pre  class="mermaid">
+        stateDiagram-v2
+  [*] --&gt; INIT
+  INIT --&gt; WAIT_TICK : após a configuração
+  WAIT_TICK --&gt; APPLY : a cada período de atualização de saída
+  APPLY --&gt; WAIT_TICK : depois de refrescar LEDs/buzzer
+    </pre><p><strong>Eventos:</strong> temporizador decorrido.
+<strong>Atividades:</strong> <code class="docutils literal notranslate"><span class="pre">tone()</span></code> contínuo/one-shot, ou alternância digital; LEDs ativo-alto/baixo.</p>
+<p><strong>Código:</strong>
+<a class="reference download internal" download="" href="../_downloads/201f180e43b6bbefa03811626f4aa9c3/UserOutputFSM.ino"><span class="xref download myst">void UserOutput_FSM_update()</span></a></p>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="interrupts.html" class="btn btn-neutral float-left" title="Interrupções" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="as5600.html" class="btn btn-neutral float-right" title="Sensor AS5600" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, mniehus.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

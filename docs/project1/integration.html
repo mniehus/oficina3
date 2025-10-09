@@ -1,0 +1,221 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Integração &mdash; oficina3  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../_static/copybutton.js?v=f281be69"></script>
+      <script src="../_static/design-tabs.js?v=f930bc37"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+      <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Resultados" href="resultados.html" />
+    <link rel="prev" title="Controlador PID" href="controlo-PID-arduino.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            oficina3
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">oficina3</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../readme.html">LEFA Oficina 3 – Laboratório de Estimação e Controlo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../readme.html#lefa-oficina-3-estimation-and-control-lab">LEFA Oficina 3 – Estimation and Control Lab</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Projeto 1</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="aeropendulum.html">Projeto 1: Aeropêndulo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="analogies.html">Analogias &amp; números</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pendulum-theory.html">Aeropendulum (theory)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="motorDC-theory.html">Motor DC (theory)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="L298N.html">Modulo L298N</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fsms.html">Máquinas de Estado</a></li>
+<li class="toctree-l1"><a class="reference internal" href="interrupts.html">Interrupções</a></li>
+<li class="toctree-l1"><a class="reference internal" href="motorCalib-PT.html">Calibração &amp; software modular</a></li>
+<li class="toctree-l1"><a class="reference internal" href="as5600.html">Sensor AS5600</a></li>
+<li class="toctree-l1"><a class="reference internal" href="controlador.html">Controlador</a></li>
+<li class="toctree-l1"><a class="reference internal" href="controlo-PID-arduino.html">Controlador PID</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Integração</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#Requisitos-Gerais">Requisitos Gerais</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Componentes-Típicos">Componentes Típicos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Passos-de-Integração">Passos de Integração</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Cuidados-a-Ter">Cuidados a Ter</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="resultados.html">Resultados</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Projeto 2</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../project2/readme.html">Carro programável</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Project 3</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../project3/readme.html">Inverted Pendulum</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">oficina3</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Integração</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/project1/integration.ipynb.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="Integração">
+<h1>Integração<a class="headerlink" href="#Integração" title="Link to this heading"></a></h1>
+<section id="Requisitos-Gerais">
+<h2>Requisitos Gerais<a class="headerlink" href="#Requisitos-Gerais" title="Link to this heading"></a></h2>
+<p>O sistema de controlo do aeropêndulo deve integrar, de forma coerente e segura, os seguintes elementos:</p>
+<ul class="simple">
+<li><p><strong>Projeto mecânico:</strong> estrutura física do pêndulo, montagem do motor, hélice e sensor no braço rotativo, fixação estável à base.</p></li>
+<li><p><strong>Projeto elétrico:</strong> ligação da fonte de alimentação, motor, driver, sensor e microcontrolador, garantindo compatibilidade de tensões e correntes.</p></li>
+<li><p><strong>Projeto de controlo:</strong> definição do algoritmo de estabilização (Bang-Bang, PID ou LQR) e respetiva implementação em tempo real.</p></li>
+<li><p><strong>Projeto de software:</strong> programação em Arduino IDE (C/C++), com leitura de sensores, execução periódica do controlo e comando ao atuador.</p></li>
+<li><p><strong>Desenvolvimento e testes:</strong> verificação faseada, primeiro em simulação, depois com módulos isolados, e finalmente no sistema integrado.</p></li>
+<li><p><strong>Documentação:</strong> registo dos esquemas, código, parâmetros e resultados experimentais.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="Componentes-Típicos">
+<h2>Componentes Típicos<a class="headerlink" href="#Componentes-Típicos" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><strong>Microcontrolador:</strong> Arduino Uno, Nano ou Mega.</p></li>
+<li><p><strong>Sensor de ângulo:</strong> encoder magnético (ex.: AS5600 via I²C).</p></li>
+<li><p><strong>Atuador:</strong> motor DC com hélice, comandado por um driver (ex.: L298N ou TB6612FNG).</p></li>
+<li><p><strong>Fonte de alimentação:</strong> adequada às especificações do motor e do controlador (tipicamente 3,3–5 V para lógica e 3–6 V para motor).</p></li>
+<li><p><strong>Materiais auxiliares:</strong> cabos, resistências, breadboard ou PCB, e elementos de fixação mecânica.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="Passos-de-Integração">
+<h2>Passos de Integração<a class="headerlink" href="#Passos-de-Integração" title="Link to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p><strong>Validação individual de módulos</strong></p>
+<ul class="simple">
+<li><p>Testar o sensor: confirmar leituras coerentes de ângulo ao rodar manualmente o pêndulo.</p></li>
+<li><p>Testar o driver: verificar resposta do motor a sinais PWM simples.</p></li>
+<li><p>Testar a fonte: confirmar tensões e correntes fornecidas.</p></li>
+</ul>
+</li>
+<li><p><strong>Integração elétrica</strong></p>
+<ul class="simple">
+<li><p>Garantir massa comum entre todos os módulos.</p></li>
+<li><p>Confirmar tensões de alimentação (3,3 V/5 V para lógica, tensão adequada ao motor no driver).</p></li>
+<li><p>Usar cabos curtos e ligações firmes para evitar ruído.</p></li>
+</ul>
+</li>
+<li><p><strong>Integração de software</strong></p>
+<ul class="simple">
+<li><p>Programar aquisição periódica de dados do sensor (I²C).</p></li>
+<li><p>Implementar ciclo de controlo no <code class="docutils literal notranslate"><span class="pre">loop()</span></code> com temporização via <code class="docutils literal notranslate"><span class="pre">millis()</span></code> ou <code class="docutils literal notranslate"><span class="pre">timer</span></code> (tipicamente 100 Hz).</p></li>
+<li><p>Comandar o driver via <code class="docutils literal notranslate"><span class="pre">analogWrite()</span></code> (PWM) para regular a velocidade da hélice.</p></li>
+</ul>
+</li>
+<li><p><strong>Integração mecânica</strong></p>
+<ul class="simple">
+<li><p>Montar o motor e o sensor no braço do pêndulo de forma rígida, evitando folgas.</p></li>
+<li><p>Proteger a hélice para segurança durante os ensaios.</p></li>
+</ul>
+</li>
+<li><p><strong>Testes de sistema</strong></p>
+<ul class="simple">
+<li><p>Ensaiar primeiro com ganhos baixos no controlador, aumentando progressivamente.</p></li>
+<li><p>Registar leituras de ângulo, sinais de controlo e resposta do pêndulo.</p></li>
+<li><p>Ajustar parâmetros do controlador até alcançar estabilização.</p></li>
+</ul>
+</li>
+</ol>
+</section>
+<hr class="docutils" />
+<section id="Cuidados-a-Ter">
+<h2>Cuidados a Ter<a class="headerlink" href="#Cuidados-a-Ter" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><strong>Compatibilidade elétrica:</strong> nunca alimentar o sensor com tensão superior à recomendada (ex.: AS5600 funciona apenas a 3,3 V).</p></li>
+<li><p><strong>Corrente do motor:</strong> evitar correntes de arranque ou bloqueio elevadas que possam danificar o driver.</p></li>
+<li><p><strong>Atrasos no ciclo de controlo:</strong> manter a frequência de execução constante; não usar <code class="docutils literal notranslate"><span class="pre">delay()</span></code> no <code class="docutils literal notranslate"><span class="pre">loop()</span></code>.</p></li>
+<li><p><strong>Segurança física:</strong> trabalhar sempre com proteções na hélice e desligar a fonte de alimentação antes de alterar a montagem.</p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="controlo-PID-arduino.html" class="btn btn-neutral float-left" title="Controlador PID" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="resultados.html" class="btn btn-neutral float-right" title="Resultados" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, mniehus.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

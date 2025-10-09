@@ -1,0 +1,196 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Interrupt &mdash; oficina3  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../_static/copybutton.js?v=f281be69"></script>
+      <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+      <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            oficina3
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">oficina3</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../readme.html">LEFA Oficina 3 – Laboratório de Estimação e Controlo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../readme.html#lefa-oficina-3-estimation-and-control-lab">LEFA Oficina 3 – Estimation and Control Lab</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Projeto 1</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../aeropendulum.html">Projeto 1: Aeropêndulo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../analogies.html">Analogias &amp; números</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pendulum-theory.html">Aeropendulum (theory)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../motorDC-theory.html">Motor DC (theory)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L298N.html">Modulo L298N</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fsms.html">Máquinas de Estado</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../interrupts.html">Interrupções</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../motorCalib-PT.html">Calibração &amp; software modular</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../as5600.html">Sensor AS5600</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../controlador.html">Controlador</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../controlo-PID-arduino.html">Controlador PID</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../integration.html">Integração</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../resultados.html">Resultados</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Projeto 2</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../project2/readme.html">Carro programável</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Project 3</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../project3/readme.html">Inverted Pendulum</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">oficina3</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Interrupt</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/project1/ipy/interrupts.ipynb.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="Interrupt">
+<h1>Interrupt<a class="headerlink" href="#Interrupt" title="Link to this heading"></a></h1>
+<p>As interrupções permitem-nos responder a determinados eventos interrompendo o código em execução. Isto é muito útil num microcontrolador. Há muitas formas diferentes de acionar uma interrupção. Uma delas é o pino de interrupção externa. No UNO, este está nos pinos D2 e D3, e as respectivas interrupções são referenciadas internamente como INT0 e INT1. Isto permite interromper a execução do código quando é detectada uma borda ascendente ou descendente no pino. Uma aplicação disto seria um circuito
+que responde a um botão de pressão, outro a um codificador. Em vez de verificar periodicamente o estado de uma entrada para ver se um botão foi premido, pode utilizar o pino INT para interromper o código quando o botão é premido. Então, o que acontece quando ocorre uma interrupção? A resposta é que o estado do sistema é guardado (chamado contexto) e, em seguida, o processador é direcionado para o seu código de interrupção. O código de interrupção é executado e, quando termina, o estado
+(contexto) é restaurado e o processador regressa ao ponto de partida. O código normal prossegue então como antes. O código que é executado quando ocorre uma interrupção é chamado de Rotina de Serviço de Interrupção (ISR). É uma função especial que só é executada quando há uma interrupção. Pode haver rotinas separadas para cada interrupção.</p>
+<p>Funções temporais como <code class="docutils literal notranslate"><span class="pre">delay()</span></code> ou <code class="docutils literal notranslate"><span class="pre">millis()</span></code> ou <code class="docutils literal notranslate"><span class="pre">micros()</span></code> usam internamente interrupções. As interrupções configuradas pelo programador não são desactivadas por <code class="docutils literal notranslate"><span class="pre">delay()</span></code>. É o contrário: as interrupções configuradas pelo programador tem prioridade: as interrupções que suportam as funções temporais são desativadas enquanto a ISR estiver em execução, e os valores em <code class="docutils literal notranslate"><span class="pre">delay()</span></code> ou <code class="docutils literal notranslate"><span class="pre">delayMicroseconds()</span></code>ou <code class="docutils literal notranslate"><span class="pre">millis()</span></code> ou <code class="docutils literal notranslate"><span class="pre">micros()</span></code> não incrementam.</p>
+<p>Por vezes, em determinadas circunstâncias, pode ser necessário ter uma secção crítica no código. Normalmente, trata-se de um par de instruções que se pretende que o CPU execute sem ser interrompido. Isto pode ser conseguido desactivando e reactivando as interrupções globais no microcontrolador.</p>
+</section>
+<section id="Funções">
+<h1>Funções<a class="headerlink" href="#Funções" title="Link to this heading"></a></h1>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">digitalPinToInterrupt(ENC)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">attachInterrupt(digitalPinToInterrupt(ENC),</span> <span class="pre">encoder_action,</span> <span class="pre">RISING)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">detachInterrupt(digitalPinToInterrupt(ENC))</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">interrupts()</span></code> (alternativa: <code class="docutils literal notranslate"><span class="pre">sei()</span></code>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">noInterrupts()</span></code> (alternativa: <code class="docutils literal notranslate"><span class="pre">cli()</span></code>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">encoder_action</span></code> ISR Interrupt Service Routine</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">volatile</span></code> qualificador para variaveis np ISR</p></li>
+</ul>
+</section>
+<section id="Exemplo-código">
+<h1>Exemplo código<a class="headerlink" href="#Exemplo-código" title="Link to this heading"></a></h1>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">//Minimum working exemplo (MWE)</span>
+<span class="c1">//Configuração básica de &#39;Interrupt&#39; para deteção automática da transição de encoder/switch,</span>
+<span class="c1">//e ação imediata e curta (&#39;atómica&#39;), neste caso: incrementar um contador</span>
+
+<span class="c1">//definir pin do encoder/switch como CONSTANT</span>
+<span class="c1">//no Arduino Uno: pin D2 ou D3</span>
+<span class="cp">#define ENC 2 </span><span class="c1">//Encoder pin (INPUT)</span>
+
+<span class="c1">//declarar globalmente as variáveis a atualizar durante ação/rotina do interrupt</span>
+<span class="c1">//deve ser com qualificador &#39;volatil&#39; !</span>
+<span class="k">volatile</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">counter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">setup</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">//pinMode(ENC, INPUT);//configuracao explicita do pin; default é: INPUT</span>
+<span class="w">  </span><span class="c1">//para configura como INPUT incluindo resistência interna &#39;pull-up&#39; de 20kOhm</span>
+<span class="w">  </span><span class="n">pinMode</span><span class="p">(</span><span class="n">ENC</span><span class="p">,</span><span class="w"> </span><span class="n">INPUT_PULLUP</span><span class="p">);</span>
+<span class="w">  </span><span class="n">Serial</span><span class="p">.</span><span class="n">begin</span><span class="p">(</span><span class="mi">115200</span><span class="p">);</span>
+<span class="w">  </span><span class="c1">//inicializar o &#39;interrupt</span>
+<span class="w">  </span><span class="c1">//digitalPinToInterrupt(ENC): maps interrupt number to pin (no Uno: D2-&gt;0,D3-&gt;1)</span>
+<span class="w">  </span><span class="c1">//encoder_action: ação imediata, a definir pelo programador como método/função</span>
+<span class="w">  </span><span class="c1">//configurar &#39;evento&#39; do interrupt: RISING, FALLING, or CHANGE</span>
+<span class="w">  </span><span class="n">attachInterrupt</span><span class="p">(</span><span class="n">digitalPinToInterrupt</span><span class="p">(</span><span class="n">ENC</span><span class="p">),</span><span class="w"> </span><span class="n">encoder_action</span><span class="p">,</span><span class="w"> </span><span class="n">RISING</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="c1">//define atomic action upon interrupt (ISR=Interrupt Service Routine)</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">encoder_action</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">counter</span><span class="o">++</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">loop</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">counter</span><span class="p">);</span><span class="w">  </span><span class="c1">//mostrar contagens</span>
+<span class="w">    </span><span class="n">delay</span><span class="p">(</span><span class="mi">1000</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="Exemplo-simulado">
+<h1>Exemplo simulado<a class="headerlink" href="#Exemplo-simulado" title="Link to this heading"></a></h1>
+<p><a class="reference external" href="https://www.tinkercad.com/things/cUCCBxLfVty-swanky-wluff-jarv">Exemplo simulado de Interrupt</a></p>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, mniehus.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

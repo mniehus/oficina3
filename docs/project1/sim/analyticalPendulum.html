@@ -1,0 +1,1703 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>1. System Description &mdash; oficina3  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+      <link rel="stylesheet" type="text/css" href="../../_static/nbsphinx-code-cells.css?v=2aa19091" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../_static/copybutton.js?v=f281be69"></script>
+      <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+      <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            oficina3
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">oficina3</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../readme.html">LEFA Oficina 3 – Laboratório de Estimação e Controlo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../readme.html#lefa-oficina-3-estimation-and-control-lab">LEFA Oficina 3 – Estimation and Control Lab</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Projeto 1</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../aeropendulum.html">Projeto 1: Aeropêndulo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../analogies.html">Analogias &amp; números</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pendulum-theory.html">Aeropendulum (theory)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../motorDC-theory.html">Motor DC (theory)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L298N.html">Modulo L298N</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fsms.html">Máquinas de Estado</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../interrupts.html">Interrupções</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../motorCalib-PT.html">Calibração &amp; software modular</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../as5600.html">Sensor AS5600</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../controlador.html">Controlador</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../controlo-PID-arduino.html">Controlador PID</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../integration.html">Integração</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../resultados.html">Resultados</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Projeto 2</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../project2/readme.html">Carro programável</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Project 3</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../project3/readme.html">Inverted Pendulum</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">oficina3</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">1. <strong>System Description</strong></li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/project1/sim/analyticalPendulum.ipynb.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <p>Analysis of a <strong>damped driven pendulum</strong> with a <strong>step torque input</strong> starting at <span class="math notranslate nohighlight">\(t = 0\)</span>, including:</p>
+<ol class="arabic">
+<li><p><strong>Equations of motion</strong></p></li>
+<li><p><strong>Equilibrium point shift</strong></p></li>
+<li><p><strong>Natural frequency change</strong></p></li>
+<li><p><strong>Time-dependent solution</strong> with initial conditions:</p>
+<div class="math notranslate nohighlight">
+\[\theta(0) = 0, \quad \dot{\theta}(0) = 0\]</div>
+</li>
+</ol>
+<hr class="docutils" />
+<section id="1.-System-Description">
+<h1>1. <strong>System Description</strong><a class="headerlink" href="#1.-System-Description" title="Link to this heading"></a></h1>
+<ul class="simple">
+<li><p>Mass: <span class="math notranslate nohighlight">\(m\)</span></p></li>
+<li><p>Length: <span class="math notranslate nohighlight">\(L\)</span></p></li>
+<li><p>Damping coefficient: <span class="math notranslate nohighlight">\(b\)</span> (viscous damping torque <span class="math notranslate nohighlight">\(= b \dot{\theta}\)</span>)</p></li>
+<li><p>Gravitational torque: <span class="math notranslate nohighlight">\(\tau_g = -mgL \sin\theta\)</span></p></li>
+<li><p>Driving torque: <span class="math notranslate nohighlight">\(\tau_d(t) = \tau_0 \cdot u(t)\)</span> (step function)</p></li>
+</ul>
+<p>Using Newton’s 2nd law for rotation:</p>
+<div class="math notranslate nohighlight">
+\[I \ddot{\theta} = -b \dot{\theta} - mgL \sin\theta + \tau_0 u(t)\]</div>
+<p>where <span class="math notranslate nohighlight">\(I = mL^2\)</span> is the moment of inertia.</p>
+</section>
+<hr class="docutils" />
+<section id="🧪-2.-Linearized-Equation-of-Motion">
+<h1>🧪 2. <strong>Linearized Equation of Motion</strong><a class="headerlink" href="#🧪-2.-Linearized-Equation-of-Motion" title="Link to this heading"></a></h1>
+<p>For <strong>small angles</strong> (<span class="math notranslate nohighlight">\(\theta \ll 1\)</span>), we linearize <span class="math notranslate nohighlight">\(\sin\theta \approx \theta\)</span>. Then:</p>
+<div class="math notranslate nohighlight">
+\[mL^2 \ddot{\theta} + b \dot{\theta} + mgL \theta = \tau_0 u(t)\]</div>
+<p>Dividing through by <span class="math notranslate nohighlight">\(mL^2\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[\ddot{\theta} + \underbrace{\frac{b}{mL^2}}_{2\zeta\omega_0} \dot{\theta} + \underbrace{\frac{g}{L}}_{\omega_0^2} \theta = \frac{\tau_0}{mL^2} u(t)\]</div>
+<p>Define:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\omega_0 = \sqrt{\frac{g}{L}}\)</span> (undamped natural frequency)</p></li>
+<li><p><span class="math notranslate nohighlight">\(\zeta = \frac{b}{2mL^2 \omega_0}\)</span> (damping ratio)</p></li>
+<li><p><span class="math notranslate nohighlight">\(A = \frac{\tau_0}{mL^2}\)</span> (normalized torque)</p></li>
+</ul>
+<p>So the linear equation is:</p>
+<div class="math notranslate nohighlight">
+\[\boxed{\ddot{\theta} + 2\zeta\omega_0 \dot{\theta} + \omega_0^2 \theta = A u(t)}\]</div>
+</section>
+<hr class="docutils" />
+<section id="🧷-3.-Equilibrium-Position-Shift">
+<h1>🧷 3. <strong>Equilibrium Position Shift</strong><a class="headerlink" href="#🧷-3.-Equilibrium-Position-Shift" title="Link to this heading"></a></h1>
+<p>Set derivatives to zero in the steady-state:</p>
+<div class="math notranslate nohighlight">
+\[0 + 0 + \omega_0^2 \theta_{\text{eq}} = A
+\Rightarrow \boxed{\theta_{\text{eq}} = \frac{A}{\omega_0^2} = \frac{\tau_0}{mgL}}\]</div>
+<p>This is the new equilibrium position under constant torque.</p>
+</section>
+<hr class="docutils" />
+<section id="⌛-4.-Time-Dependent-Solution">
+<h1>⌛ 4. <strong>Time-Dependent Solution</strong><a class="headerlink" href="#⌛-4.-Time-Dependent-Solution" title="Link to this heading"></a></h1>
+<p>This is a standard second-order linear ODE with step forcing. The general solution is:</p>
+<div class="math notranslate nohighlight">
+\[\theta(t) = \theta_{\text{hom}}(t) + \theta_{\text{part}}(t)\]</div>
+<section id="🧩-Particular-solution:">
+<h2>🧩 Particular solution:<a class="headerlink" href="#🧩-Particular-solution:" title="Link to this heading"></a></h2>
+<div class="math notranslate nohighlight">
+\[\theta_{\text{part}} = \theta_{\text{eq}} = \frac{A}{\omega_0^2}\]</div>
+</section>
+<hr class="docutils" />
+<section id="🧩-Homogeneous-solution:">
+<h2>🧩 Homogeneous solution:<a class="headerlink" href="#🧩-Homogeneous-solution:" title="Link to this heading"></a></h2>
+<p>Solve:</p>
+<div class="math notranslate nohighlight">
+\[\ddot{\theta} + 2\zeta\omega_0 \dot{\theta} + \omega_0^2 \theta = 0\]</div>
+<p>The solution depends on damping regime.</p>
+</section>
+<hr class="docutils" />
+<section id="Case:-Underdamped-(\zeta-&lt;-1)">
+<h2>Case: <strong>Underdamped</strong> (<span class="math notranslate nohighlight">\(\zeta &lt; 1\)</span>)<a class="headerlink" href="#Case:-Underdamped-(\zeta-<-1)" title="Link to this heading"></a></h2>
+<p>Let:</p>
+<div class="math notranslate nohighlight">
+\[\omega_d = \omega_0 \sqrt{1 - \zeta^2}\]</div>
+<p>Then:</p>
+<div class="math notranslate nohighlight">
+\[\theta(t) = \theta_{\text{eq}} \left( 1 - e^{-\zeta \omega_0 t} \left( \cos(\omega_d t) + \frac{\zeta}{\sqrt{1 - \zeta^2}} \sin(\omega_d t) \right) \right)\]</div>
+<p>This satisfies:</p>
+<div class="math notranslate nohighlight">
+\[\theta(0) = 0, \quad \dot{\theta}(0) = 0\]</div>
+<hr class="docutils" />
+<p>$ A = :nbsphinx-math:<a href="#id1"><span class="problematic" id="id2">`</span></a>frac{tau_0}{mL^2}`$</p>
+<p><span class="math notranslate nohighlight">\(\omega_0 = \sqrt{\frac{g}{L}}\)</span></p>
+<p><span class="math notranslate nohighlight">\(\zeta = \frac{b}{2mL^2\omega_0}\)</span></p>
+<p><span class="math notranslate nohighlight">\(\theta_{\text{eq}} = \dfrac{\tau_0}{mgL}\)</span></p>
+<p><span class="math notranslate nohighlight">\(\omega_d = \omega_0 \sqrt{1 - \zeta^2}\)</span></p>
+<p><span class="math notranslate nohighlight">\(\beta = \frac{\zeta}{\sqrt{1 - \zeta^2}}\)</span></p>
+</section>
+<section id="🔹-Equation-of-motion:">
+<h2>🔹 Equation of motion:<a class="headerlink" href="#🔹-Equation-of-motion:" title="Link to this heading"></a></h2>
+<div class="math notranslate nohighlight">
+\[\boxed{ \ddot{\theta} + 2\zeta\omega_0 \dot{\theta} + \omega_0^2 \theta = A u(t) }\]</div>
+<div class="math notranslate nohighlight">
+\[\theta(t) = \theta_{\text{eq}} (1 - f(t))\]</div>
+<div class="math notranslate nohighlight">
+\[f(t) = e^{-\zeta \omega_0 t} \left( \cos(\omega_d t) + \beta \sin(\omega_d t) \right)\]</div>
+</section>
+<section id="🔹-Equilibrium-shift:">
+<h2>🔹 Equilibrium shift:<a class="headerlink" href="#🔹-Equilibrium-shift:" title="Link to this heading"></a></h2>
+<div class="math notranslate nohighlight">
+\[\boxed{ \theta_{\text{eq}} = \frac{A}{\omega_0^2} = \frac{\tau_0}{mgL} }\]</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+<span class="c1"># Physical constants</span>
+<span class="n">g</span> <span class="o">=</span> <span class="mf">9.81</span>       <span class="c1"># gravity (m/s^2)</span>
+<span class="n">L</span> <span class="o">=</span> <span class="mf">0.1</span>        <span class="c1"># length of pendulum (m)</span>
+<span class="n">m</span> <span class="o">=</span> <span class="mf">0.1</span>        <span class="c1"># mass (kg)</span>
+
+<span class="n">km</span><span class="o">=</span><span class="mf">0.02</span>
+<span class="n">I</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+
+<span class="n">tetaeq</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">asin</span><span class="p">(</span><span class="n">I</span><span class="o">*</span><span class="n">km</span><span class="o">/</span><span class="p">(</span><span class="n">m</span><span class="o">*</span><span class="n">g</span><span class="o">*</span><span class="n">L</span><span class="p">))</span><span class="o">*</span><span class="mi">180</span><span class="o">/</span><span class="mf">3.14</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">I</span><span class="p">,</span> <span class="n">tetaeq</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;eq&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Current (A)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Equilibrium Angle (deg)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<br/></pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+C:\Users\Utilizador\AppData\Local\Temp\ipykernel_18112\749860262.py:12: RuntimeWarning: invalid value encountered in arcsin
+  tetaeq=np.asin(I*km/(m*g*L))*180/3.14
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/project1_sim_analyticalPendulum_4_1.png" src="../../_images/project1_sim_analyticalPendulum_4_1.png" />
+</div>
+</div>
+<p>Natural frequency: <span class="math notranslate nohighlight">\(\omega_0 = \sqrt{\frac{g}{L}}\)</span></p>
+<p>Damped frequency: $:nbsphinx-math:<cite>omega</cite>_d = <span class="math">\omega</span>_0 <span class="math">\sqrt{1 - \zeta^2}</span> $</p>
+<p>Angle (underdamped, step torque at <span class="math notranslate nohighlight">\(t = 0\)</span>, zero initial state):</p>
+<div class="math notranslate nohighlight">
+\[\boxed{
+\theta(t) = \theta_{\text{eq}} \left( 1 - e^{-\zeta \omega_0 t} \left( \cos(\omega_d t) + \frac{\zeta}{\sqrt{1 - \zeta^2}} \sin(\omega_d t) \right) \right)
+}\]</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">wo</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">g</span><span class="o">/</span><span class="n">L</span><span class="p">)</span>
+<span class="n">b</span> <span class="o">=</span> <span class="mf">0.0005</span>        <span class="c1"># damping coefficient (kg/s)</span>
+<span class="n">zeta</span> <span class="o">=</span> <span class="n">b</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">m</span><span class="o">*</span><span class="n">L</span><span class="o">**</span><span class="mi">2</span><span class="o">*</span><span class="n">wo</span><span class="p">)</span>
+<span class="n">wd</span><span class="o">=</span><span class="n">wo</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">zeta</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="n">t</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">1000</span><span class="p">)</span>
+<span class="n">I</span><span class="o">=</span><span class="mi">4</span>
+<span class="n">tetaeq</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">asin</span><span class="p">(</span><span class="n">I</span><span class="o">*</span><span class="n">km</span><span class="o">/</span><span class="p">(</span><span class="n">m</span><span class="o">*</span><span class="n">g</span><span class="o">*</span><span class="n">L</span><span class="p">))</span><span class="o">*</span><span class="mi">180</span><span class="o">/</span><span class="mf">3.14</span>
+
+<span class="n">teta</span> <span class="o">=</span> <span class="n">tetaeq</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">zeta</span><span class="o">*</span><span class="n">wo</span><span class="o">*</span><span class="n">t</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">wd</span><span class="o">*</span><span class="n">t</span><span class="p">)</span> <span class="o">+</span> <span class="n">zeta</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">zeta</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">wd</span><span class="o">*</span><span class="n">t</span><span class="p">)))</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">teta</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">heta(t)&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">tetaeq</span><span class="o">*</span><span class="n">t</span><span class="o">/</span><span class="n">t</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">heta_</span><span class="si">{eq}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">tetaeq</span><span class="o">*</span><span class="n">t</span><span class="o">/</span><span class="n">t</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">heta_</span><span class="si">{eq}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">((</span><span class="mi">2</span><span class="o">*</span><span class="mf">3.14</span><span class="o">/</span><span class="n">wd</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="mf">3.14</span><span class="o">/</span><span class="n">wd</span><span class="o">/</span><span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">tetaeq</span><span class="p">),</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">heta_{T_d/2}&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">((</span><span class="mi">2</span><span class="o">*</span><span class="mf">3.14</span><span class="o">/</span><span class="n">wd</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="mf">3.14</span><span class="o">/</span><span class="n">wd</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">tetaeq</span><span class="p">),</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">heta_</span><span class="si">{T_d}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Angle (deg)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Time (s)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">(</span><span class="n">rect</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.03</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">0.95</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<br/></pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+C:\Users\Utilizador\AppData\Local\Temp\ipykernel_18112\4049947815.py:13: RuntimeWarning: invalid value encountered in divide
+  plt.plot(t, tetaeq*t/t, label=&#39;\theta_{eq}&#39;, color=&#39;red&#39;)
+C:\Users\Utilizador\AppData\Local\Temp\ipykernel_18112\4049947815.py:14: RuntimeWarning: invalid value encountered in divide
+  plt.plot(t, 2*tetaeq*t/t, label=&#39;\theta_{eq}&#39;, color=&#39;green&#39;)
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/project1_sim_analyticalPendulum_7_1.png" src="../../_images/project1_sim_analyticalPendulum_7_1.png" />
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">wo</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">g</span><span class="o">/</span><span class="n">L</span><span class="p">)</span>
+<span class="n">b</span> <span class="o">=</span> <span class="mf">0.001</span>        <span class="c1"># damping coefficient (kg/s)</span>
+<span class="n">zeta</span> <span class="o">=</span> <span class="n">b</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">m</span><span class="o">*</span><span class="n">L</span><span class="o">**</span><span class="mi">2</span><span class="o">*</span><span class="n">wo</span><span class="p">)</span>
+<span class="n">wd</span><span class="o">=</span><span class="n">wo</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">zeta</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="n">t</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1000</span><span class="p">)</span>
+<span class="n">I</span><span class="o">=</span><span class="mi">1</span>
+<span class="n">tetaeq</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">asin</span><span class="p">(</span><span class="n">I</span><span class="o">*</span><span class="n">km</span><span class="o">/</span><span class="p">(</span><span class="n">m</span><span class="o">*</span><span class="n">g</span><span class="o">*</span><span class="n">L</span><span class="p">))</span><span class="o">*</span><span class="mi">180</span><span class="o">/</span><span class="mf">3.14</span>
+
+<span class="n">teta</span> <span class="o">=</span> <span class="n">tetaeq</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">zeta</span><span class="o">*</span><span class="n">wo</span><span class="o">*</span><span class="n">t</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">wd</span><span class="o">*</span><span class="n">t</span><span class="p">)</span> <span class="o">+</span> <span class="n">zeta</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">zeta</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">wd</span><span class="o">*</span><span class="n">t</span><span class="p">)))</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">teta</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">heta(t)&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">tetaeq</span><span class="o">*</span><span class="n">t</span><span class="o">/</span><span class="n">t</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">heta_</span><span class="si">{eq}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">tetaeq</span><span class="o">*</span><span class="n">t</span><span class="o">/</span><span class="n">t</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">heta_</span><span class="si">{eq}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">((</span><span class="mi">2</span><span class="o">*</span><span class="mf">3.14</span><span class="o">/</span><span class="n">wd</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="mf">3.14</span><span class="o">/</span><span class="n">wd</span><span class="o">/</span><span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">tetaeq</span><span class="p">),</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">heta_{T_d/2}&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">((</span><span class="mi">2</span><span class="o">*</span><span class="mf">3.14</span><span class="o">/</span><span class="n">wd</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="mf">3.14</span><span class="o">/</span><span class="n">wd</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">tetaeq</span><span class="p">),</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">heta_</span><span class="si">{T_d}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Angle (deg)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Time (s)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">(</span><span class="n">rect</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.03</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">0.95</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<br/></pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+C:\Users\Utilizador\AppData\Local\Temp\ipykernel_18112\1905895250.py:13: RuntimeWarning: invalid value encountered in divide
+  plt.plot(t, tetaeq*t/t, label=&#39;\theta_{eq}&#39;, color=&#39;red&#39;)
+C:\Users\Utilizador\AppData\Local\Temp\ipykernel_18112\1905895250.py:14: RuntimeWarning: invalid value encountered in divide
+  plt.plot(t, 2*tetaeq*t/t, label=&#39;\theta_{eq}&#39;, color=&#39;green&#39;)
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/project1_sim_analyticalPendulum_8_1.png" src="../../_images/project1_sim_analyticalPendulum_8_1.png" />
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">2</span><span class="o">*</span><span class="mf">3.14</span><span class="o">/</span><span class="n">wd</span>
+<br/></pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+np.float64(0.6348618476973767)
+</pre></div></div>
+</div>
+</section>
+</section>
+<section id="🔹-1.-Angular-Velocity:-\omega(t)-=-\dot{\theta}(t)">
+<h1>🔹 1. Angular Velocity: <span class="math notranslate nohighlight">\(\omega(t) = \dot{\theta}(t)\)</span><a class="headerlink" href="#🔹-1.-Angular-Velocity:-\omega(t)-=-\dot{\theta}(t)" title="Link to this heading"></a></h1>
+<p>Differentiate:</p>
+<div class="math notranslate nohighlight">
+\[\dot{\theta}(t) = -\theta_{\text{eq}} \cdot \frac{d}{dt} f(t)\]</div>
+<p>Use product rule:</p>
+<div class="math notranslate nohighlight">
+\[\frac{d}{dt}f(t) = -\zeta \omega_0 e^{-\zeta \omega_0 t} \left( \cos(\omega_d t) + \beta \sin(\omega_d t) \right)
++ e^{-\zeta \omega_0 t} \left( -\omega_d \sin(\omega_d t) + \beta \omega_d \cos(\omega_d t) \right)\]</div>
+<p>Simplify:</p>
+<div class="math notranslate nohighlight">
+\[\boxed{
+\omega(t) = \dot{\theta}(t) = \theta_{\text{eq}} \cdot e^{-\zeta \omega_0 t}
+\left[
+\zeta \omega_0 \left( \cos(\omega_d t) + \beta \sin(\omega_d t) \right)
++ \omega_d \left( \sin(\omega_d t) - \beta \cos(\omega_d t) \right)
+\right]
+}\]</div>
+</section>
+<hr class="docutils" />
+<section id="🔹-2.-Angular-Acceleration:-\alpha(t)-=-\ddot{\theta}(t)">
+<h1>🔹 2. Angular Acceleration: <span class="math notranslate nohighlight">\(\alpha(t) = \ddot{\theta}(t)\)</span><a class="headerlink" href="#🔹-2.-Angular-Acceleration:-\alpha(t)-=-\ddot{\theta}(t)" title="Link to this heading"></a></h1>
+<p>Differentiate <span class="math notranslate nohighlight">\(\omega(t) = \dot{\theta}(t)\)</span> again:</p>
+<p>Use the expression above and apply product + chain rule. The full derivative is:</p>
+<div class="math notranslate nohighlight">
+\[\boxed{
+\alpha(t) = \ddot{\theta}(t) = \theta_{\text{eq}} \cdot e^{-\zeta \omega_0 t}
+\left[
+(\zeta^2 \omega_0^2 - \omega_d^2)\left( \cos(\omega_d t) + \beta \sin(\omega_d t) \right)
++ 2 \zeta \omega_0 \omega_d \left( \sin(\omega_d t) - \beta \cos(\omega_d t) \right)
+\right]
+}\]</div>
+<p>This expression gives the full angular acceleration under a constant step torque, starting from rest.</p>
+</section>
+<hr class="docutils" />
+<section id="✅-Summary-of-Time-Domain-Solutions">
+<h1>✅ Summary of Time-Domain Solutions<a class="headerlink" href="#✅-Summary-of-Time-Domain-Solutions" title="Link to this heading"></a></h1>
+<p>Given a <strong>damped pendulum</strong> under a <strong>constant torque</strong> <span class="math notranslate nohighlight">\(\tau_0\)</span> starting at <span class="math notranslate nohighlight">\(t = 0\)</span>, and initial conditions <span class="math notranslate nohighlight">\(\theta(0) = 0, \dot{\theta}(0) = 0\)</span>:</p>
+<hr class="docutils" />
+<section id="🟢-Angle:">
+<h2>🟢 <strong>Angle</strong>:<a class="headerlink" href="#🟢-Angle:" title="Link to this heading"></a></h2>
+<div class="math notranslate nohighlight">
+\[\boxed{
+\theta(t) = \theta_{\text{eq}} \left( 1 - e^{-\zeta \omega_0 t}
+\left( \cos(\omega_d t) + \frac{\zeta}{\sqrt{1 - \zeta^2}} \sin(\omega_d t) \right)
+\right)
+}\]</div>
+</section>
+<section id="🔵-Angular-Velocity:">
+<h2>🔵 <strong>Angular Velocity</strong>:<a class="headerlink" href="#🔵-Angular-Velocity:" title="Link to this heading"></a></h2>
+<div class="math notranslate nohighlight">
+\[\boxed{
+\dot{\theta}(t) = \theta_{\text{eq}} \cdot e^{-\zeta \omega_0 t}
+\left[
+\zeta \omega_0 \left( \cos(\omega_d t) + \frac{\zeta}{\sqrt{1 - \zeta^2}} \sin(\omega_d t) \right)
++ \omega_d \left( \sin(\omega_d t) - \frac{\zeta}{\sqrt{1 - \zeta^2}} \cos(\omega_d t) \right)
+\right]
+}\]</div>
+</section>
+<section id="🔴-Angular-Acceleration:">
+<h2>🔴 <strong>Angular Acceleration</strong>:<a class="headerlink" href="#🔴-Angular-Acceleration:" title="Link to this heading"></a></h2>
+<div class="math notranslate nohighlight">
+\[\boxed{
+\ddot{\theta}(t) = \theta_{\text{eq}} \cdot e^{-\zeta \omega_0 t}
+\left[
+(\zeta^2 \omega_0^2 - \omega_d^2)\left( \cos(\omega_d t) + \frac{\zeta}{\sqrt{1 - \zeta^2}} \sin(\omega_d t) \right)
++ 2 \zeta \omega_0 \omega_d \left( \sin(\omega_d t) - \frac{\zeta}{\sqrt{1 - \zeta^2}} \cos(\omega_d t) \right)
+\right]
+}\]</div>
+<p>Let me know if you’d like plots of these dynamics or versions for critical or overdamped regimes.</p>
+<p>The <strong>reduction in amplitude per cycle</strong> of a <strong>damped pendulum</strong> (or any underdamped harmonic oscillator) with <strong>viscous damping constant :math:`b`</strong> can be described using the <strong>logarithmic decrement</strong>, which quantifies how much the amplitude decays after one full oscillation.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="🧮-System-Overview">
+<h1>🧮 System Overview<a class="headerlink" href="#🧮-System-Overview" title="Link to this heading"></a></h1>
+<p>For a pendulum of:</p>
+<ul class="simple">
+<li><p>Mass <span class="math notranslate nohighlight">\(m\)</span></p></li>
+<li><p>Length <span class="math notranslate nohighlight">\(L\)</span></p></li>
+<li><p>Damping coefficient <span class="math notranslate nohighlight">\(b\)</span> (viscous damping torque <span class="math notranslate nohighlight">\(= b \dot{\theta}\)</span>)</p></li>
+</ul>
+<p>The linearized equation for small oscillations is:</p>
+<div class="math notranslate nohighlight">
+\[mL^2 \ddot{\theta} + b \dot{\theta} + mgL \theta = 0\]</div>
+</section>
+<hr class="docutils" />
+<section id="🧷-Define-key-parameters:">
+<h1>🧷 Define key parameters:<a class="headerlink" href="#🧷-Define-key-parameters:" title="Link to this heading"></a></h1>
+<ul>
+<li><p><strong>Undamped natural frequency</strong>:</p>
+<div class="math notranslate nohighlight">
+\[\omega_0 = \sqrt{\frac{g}{L}}\]</div>
+</li>
+<li><p><strong>Damping ratio</strong>:</p>
+<div class="math notranslate nohighlight">
+\[\zeta = \frac{b}{2mL^2 \omega_0}\]</div>
+</li>
+<li><p><strong>Damped frequency</strong> (if <span class="math notranslate nohighlight">\(\zeta &lt; 1\)</span>, underdamped case):</p>
+<div class="math notranslate nohighlight">
+\[\omega_d = \omega_0 \sqrt{1 - \zeta^2}\]</div>
+</li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="📉-Amplitude-Decay-and-Logarithmic-Decrement">
+<h1>📉 Amplitude Decay and Logarithmic Decrement<a class="headerlink" href="#📉-Amplitude-Decay-and-Logarithmic-Decrement" title="Link to this heading"></a></h1>
+<p>For underdamped motion, the amplitude decays exponentially:</p>
+<div class="math notranslate nohighlight">
+\[\theta(t) = \theta_0 e^{-\zeta \omega_0 t} \cos(\omega_d t + \phi)\]</div>
+<p>After one complete oscillation (period <span class="math notranslate nohighlight">\(T_d = \frac{2\pi}{\omega_d}\)</span>), the amplitude becomes:</p>
+<div class="math notranslate nohighlight">
+\[\theta(T_d) = \theta_0 e^{-\zeta \omega_0 T_d}\]</div>
+<section id="🔹-Logarithmic-decrement-\delta:">
+<h2>🔹 <strong>Logarithmic decrement</strong> <span class="math notranslate nohighlight">\(\delta\)</span>:<a class="headerlink" href="#🔹-Logarithmic-decrement-\delta:" title="Link to this heading"></a></h2>
+<div class="math notranslate nohighlight">
+\[\delta = \ln \left( \frac{\text{Amplitude at } t}{\text{Amplitude at } t + T_d} \right)
+= \zeta \omega_0 T_d
+= \frac{2\pi \zeta}{\sqrt{1 - \zeta^2}}\]</div>
+</section>
+<section id="🔹-Amplitude-ratio-per-cycle:">
+<h2>🔹 <strong>Amplitude ratio per cycle</strong>:<a class="headerlink" href="#🔹-Amplitude-ratio-per-cycle:" title="Link to this heading"></a></h2>
+<p>The ratio of amplitudes after one cycle is:</p>
+<div class="math notranslate nohighlight">
+\[\frac{A_{n+1}}{A_n} = e^{-\delta}
+\Rightarrow \boxed{
+\text{Amplitude reduction per cycle} = 1 - e^{-\delta}
+}\]</div>
+<p>This is the <strong>fractional reduction</strong> in amplitude each cycle.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="✅-Final-Answer">
+<h1>✅ Final Answer<a class="headerlink" href="#✅-Final-Answer" title="Link to this heading"></a></h1>
+<div class="math notranslate nohighlight">
+\[\boxed{
+\text{Reduction in amplitude per cycle} = 1 - \exp\left(-\frac{2\pi \zeta}{\sqrt{1 - \zeta^2}}\right)
+\quad \text{with } \zeta = \frac{b}{2mL^2 \omega_0}
+}\]</div>
+<p>This formula applies for <strong>small-angle</strong> approximations and <strong>underdamped systems</strong> (<span class="math notranslate nohighlight">\(\zeta &lt; 1\)</span>). If you want a numerical estimate, feel free to give values for <span class="math notranslate nohighlight">\(m, L, b\)</span>, and I’ll compute it.</p>
+<p>Excellent and insightful follow-up!</p>
+<section id="❓-Is-the-amplitude-decay-per-cycle-in-a-pendulum-under-constant-torque-step-the-same-as-in-the-free-damped-case?">
+<h2>❓ Is the <strong>amplitude decay per cycle</strong> in a pendulum under <strong>constant torque step</strong> the same as in the <strong>free damped case</strong>?<a class="headerlink" href="#❓-Is-the-amplitude-decay-per-cycle-in-a-pendulum-under-constant-torque-step-the-same-as-in-the-free-damped-case?" title="Link to this heading"></a></h2>
+<blockquote>
+<div><p>🔶 <strong>No, it is not the same</strong> — although similar transient dynamics occur, the presence of the <strong>constant torque fundamentally alters</strong> the nature of the motion and its amplitude evolution.</p>
+</div></blockquote>
+</section>
+</section>
+<hr class="docutils" />
+<section id="🔁-Compare-the-Two-Cases">
+<h1>🔁 Compare the Two Cases<a class="headerlink" href="#🔁-Compare-the-Two-Cases" title="Link to this heading"></a></h1>
+<section id="🅰️-Free-Damped-Oscillation">
+<h2>🅰️ <strong>Free Damped Oscillation</strong><a class="headerlink" href="#🅰️-Free-Damped-Oscillation" title="Link to this heading"></a></h2>
+<ul>
+<li><p>Equation (linearized):</p>
+<div class="math notranslate nohighlight">
+\[\ddot{\theta} + 2\zeta \omega_0 \dot{\theta} + \omega_0^2 \theta = 0\]</div>
+</li>
+<li><p>Homogeneous.</p></li>
+<li><p>Motion decays exponentially around zero.</p></li>
+<li><p><strong>Amplitude decay per cycle</strong> is constant and defined by:</p>
+<div class="math notranslate nohighlight">
+\[A_n = A_0 e^{-\zeta \omega_0 t_n}
+\quad \text{with } \delta = \frac{2\pi \zeta}{\sqrt{1 - \zeta^2}}\]</div>
+</li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="🅱️-Driven-Damped-Oscillator-(Step-Torque)">
+<h2>🅱️ <strong>Driven Damped Oscillator (Step Torque)</strong><a class="headerlink" href="#🅱️-Driven-Damped-Oscillator-(Step-Torque)" title="Link to this heading"></a></h2>
+<ul>
+<li><p>Equation (linearized):</p>
+<div class="math notranslate nohighlight">
+\[\ddot{\theta} + 2\zeta \omega_0 \dot{\theta} + \omega_0^2 \theta = \frac{\tau_0}{mL^2}\]</div>
+</li>
+<li><p>Inhomogeneous (non-zero forcing).</p></li>
+<li><p>The system <strong>asymptotically approaches a new equilibrium</strong> <span class="math notranslate nohighlight">\(\theta_{\text{eq}} = \dfrac{\tau_0}{mgL}\)</span>.</p></li>
+<li><p>The motion is a <strong>transient oscillation superimposed on a monotonic shift</strong> toward this new equilibrium:</p>
+<div class="math notranslate nohighlight">
+\[\theta(t) = \theta_{\text{eq}} \left(1 - f(t) \right)
+\quad \text{with } f(t) \sim e^{-\zeta \omega_0 t}\]</div>
+</li>
+</ul>
+<section id="❗-Key-difference:">
+<h3>❗ Key difference:<a class="headerlink" href="#❗-Key-difference:" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><strong>There’s no sustained “oscillation amplitude” per se</strong>, because the baseline (mean position) is changing.</p></li>
+<li><p>The motion <strong>is not centered around zero</strong>, but around a moving or shifted equilibrium.</p></li>
+<li><p>So, the <strong>concept of amplitude per cycle</strong> loses its original meaning.</p></li>
+</ul>
+</section>
+</section>
+</section>
+<hr class="docutils" />
+<section id="📌-However:-Can-you-define-a-transient-envelope?">
+<h1>📌 However: Can you define a <em>transient envelope</em>?<a class="headerlink" href="#📌-However:-Can-you-define-a-transient-envelope?" title="Link to this heading"></a></h1>
+<p>Yes — you <em>can</em> describe how far the system deviates from its new equilibrium after each cycle.</p>
+<p>Define:</p>
+<div class="math notranslate nohighlight">
+\[\Delta A_n = |\theta(t_n) - \theta_{\text{eq}}|\]</div>
+<p>Then, you get an <strong>exponentially decaying envelope</strong>:</p>
+<div class="math notranslate nohighlight">
+\[\Delta A_n = \theta_{\text{eq}} \cdot e^{-\zeta \omega_0 t_n} \cdot \sqrt{1 + \left( \frac{\zeta}{\sqrt{1 - \zeta^2}} \right)^2 }\]</div>
+<p>So the decay <strong>is still exponential</strong>, and governed by the <strong>same logarithmic decrement</strong>, but:</p>
+<ul class="simple">
+<li><p>The “amplitude” is <strong>relative to the final position</strong>.</p></li>
+<li><p>There’s no repeating peak-to-peak oscillation amplitude in the steady state.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="✅-Summary">
+<h1>✅ Summary<a class="headerlink" href="#✅-Summary" title="Link to this heading"></a></h1>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Feature</p></th>
+<th class="head"><p>Free Damped Oscillation</p></th>
+<th class="head"><p>Step-Driven Damped Oscillation</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Mean position</p></td>
+<td><p>Zero</p></td>
+<td><p>Shifts to <span class="math notranslate nohighlight">\(\theta_{\text{eq}}\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p>Oscillatory amplitude</p></td>
+<td><p>Centered around 0</p></td>
+<td><p>Around <span class="math notranslate nohighlight">\(\theta_{\text{eq}}\)</span>, transient only</p></td>
+</tr>
+<tr class="row-even"><td><p>Logarithmic decrement <span class="math notranslate nohighlight">\(\delta\)</span></p></td>
+<td><p>Well-defined for all cycles</p></td>
+<td><p>Applies to transient decay only</p></td>
+</tr>
+<tr class="row-odd"><td><p>Amplitude per cycle</p></td>
+<td><p>Constant decay</p></td>
+<td><p>Decay relative to final equilibrium</p></td>
+</tr>
+<tr class="row-even"><td><p>Motion</p></td>
+<td><p>Pure exponential decay</p></td>
+<td><p>Exponential settling to new offset</p></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<div><p>✅ So: <strong>the exponential decay rate (logarithmic decrement) is the same</strong>, but <strong>amplitude per cycle</strong> applies differently and is <strong>transient-only</strong> in the step-driven case.</p>
+</div></blockquote>
+<p>Let me know if you’d like plots comparing both cases or a derivation of energy decay instead.</p>
+<p>Thanks for the clarification!</p>
+<p>You’re defining a sequence <span class="math notranslate nohighlight">\((x_n)\)</span> with:</p>
+<ul>
+<li><p><span class="math notranslate nohighlight">\(x_1 = C\)</span> (a constant),</p></li>
+<li><p>And for <span class="math notranslate nohighlight">\(n \geq 2\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[x_n = 2x_{n-1} + x_1 = 2x_{n-1} + C\]</div>
+</li>
+</ul>
+<p>This is a <strong>non-homogeneous linear recurrence relation</strong> of the form:</p>
+<div class="math notranslate nohighlight">
+\[x_n = 2x_{n-1} + C\]</div>
+<hr class="docutils" />
+<section id="Step-by-step-solution">
+<h2>Step-by-step solution<a class="headerlink" href="#Step-by-step-solution" title="Link to this heading"></a></h2>
+<p>Let’s solve this recurrence:</p>
+<hr class="docutils" />
+<section id="Step-1:-Homogeneous-solution">
+<h3>Step 1: Homogeneous solution<a class="headerlink" href="#Step-1:-Homogeneous-solution" title="Link to this heading"></a></h3>
+<p>Solve the homogeneous part:</p>
+<div class="math notranslate nohighlight">
+\[x_n^{(h)} = 2x_{n-1}^{(h)}
+\quad \Rightarrow \quad x_n^{(h)} = A \cdot 2^n\]</div>
+</section>
+<hr class="docutils" />
+<section id="Step-2:-Particular-solution">
+<h3>Step 2: Particular solution<a class="headerlink" href="#Step-2:-Particular-solution" title="Link to this heading"></a></h3>
+<p>Guess a particular solution to the full recurrence:</p>
+<div class="math notranslate nohighlight">
+\[x_n^{(p)} = P \quad (\text{a constant})\]</div>
+<p>Plug into the recurrence:</p>
+<div class="math notranslate nohighlight">
+\[P = 2P + C \Rightarrow -P = C \Rightarrow P = -C\]</div>
+</section>
+<hr class="docutils" />
+<section id="Step-3:-General-solution">
+<h3>Step 3: General solution<a class="headerlink" href="#Step-3:-General-solution" title="Link to this heading"></a></h3>
+<div class="math notranslate nohighlight">
+\[x_n = x_n^{(h)} + x_n^{(p)} = A \cdot 2^n - C\]</div>
+</section>
+<hr class="docutils" />
+<section id="Step-4:-Apply-initial-condition">
+<h3>Step 4: Apply initial condition<a class="headerlink" href="#Step-4:-Apply-initial-condition" title="Link to this heading"></a></h3>
+<p>We know <span class="math notranslate nohighlight">\(x_1 = C\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[x_1 = A \cdot 2^1 - C = C \Rightarrow 2A - C = C \Rightarrow A = C\]</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="✅-Final-formula">
+<h2>✅ Final formula<a class="headerlink" href="#✅-Final-formula" title="Link to this heading"></a></h2>
+<div class="math notranslate nohighlight">
+\[\boxed{x_n = C \cdot 2^n - C = C(2^n - 1)}\]</div>
+</section>
+<hr class="docutils" />
+<section id="Example">
+<h2>Example<a class="headerlink" href="#Example" title="Link to this heading"></a></h2>
+<p>Let <span class="math notranslate nohighlight">\(C = 1\)</span>:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(x_1 = 1\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(x_2 = 2(1) + 1 = 3\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(x_3 = 2(3) + 1 = 7\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(x_4 = 2(7) + 1 = 15\)</span></p></li>
+</ul>
+<p>Closed-form:</p>
+<div class="math notranslate nohighlight">
+\[x_n = 2^n - 1\]</div>
+<p>✅ Matches perfectly.</p>
+<p>Let me know if you’d like to generalize this or vary the recurrence further!</p>
+<p>Ah! That changes everything — now the potential is:</p>
+<div class="math notranslate nohighlight">
+\[\boxed{U(x) = -\cos(x) + Cx}\]</div>
+<p>where <span class="math notranslate nohighlight">\(C &gt; 0\)</span> is a constant.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="🧭-Objective:">
+<h1>🧭 Objective:<a class="headerlink" href="#🧭-Objective:" title="Link to this heading"></a></h1>
+<p>Find the <strong>Taylor expansions</strong> of <span class="math notranslate nohighlight">\(U(x)\)</span> around the <strong>stable and unstable equilibrium points</strong>.</p>
+</section>
+<hr class="docutils" />
+<section id="✅-Step-1:-Find-equilibrium-points">
+<h1>✅ Step 1: Find equilibrium points<a class="headerlink" href="#✅-Step-1:-Find-equilibrium-points" title="Link to this heading"></a></h1>
+<p>Equilibrium points are defined by the vanishing force:</p>
+<div class="math notranslate nohighlight">
+\[F(x) = -\frac{dU}{dx} = \sin(x) - C = 0
+\quad \Rightarrow \quad \boxed{\sin(x) = C}\]</div>
+<p>This equation only has real solutions if <span class="math notranslate nohighlight">\(0 &lt; C \leq 1\)</span>. Let’s assume this holds.</p>
+<p>Then:</p>
+<div class="math notranslate nohighlight">
+\[x_{\text{eq}} = \arcsin(C) + 2\pi n \quad \text{and} \quad \pi - \arcsin(C) + 2\pi n\]</div>
+<p>Let’s choose the two distinct solutions in <span class="math notranslate nohighlight">\([0, 2\pi]\)</span>:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(x_u = \arcsin(C)\)</span>: <strong>Unstable equilibrium</strong></p></li>
+<li><p><span class="math notranslate nohighlight">\(x_s = \pi - \arcsin(C)\)</span>: <strong>Stable equilibrium</strong></p></li>
+</ul>
+<p>We’ll confirm that with the second derivative next.</p>
+</section>
+<hr class="docutils" />
+<section id="✅-Step-2:-Analyze-stability">
+<h1>✅ Step 2: Analyze stability<a class="headerlink" href="#✅-Step-2:-Analyze-stability" title="Link to this heading"></a></h1>
+<p>Compute:</p>
+<div class="math notranslate nohighlight">
+\[U''(x) = \cos(x)\]</div>
+<ul class="simple">
+<li><p>At <span class="math notranslate nohighlight">\(x = \arcsin(C)\)</span>, <span class="math notranslate nohighlight">\(\cos(x) = \sqrt{1 - C^2} &gt; 0\)</span> → <span class="math notranslate nohighlight">\(U'' &gt; 0\)</span> → <strong>potential minimum?</strong> Wait, no!</p></li>
+</ul>
+<p>Remember: The force is <span class="math notranslate nohighlight">\(F(x) = -U'(x) = \sin(x) - C\)</span></p>
+<p>So:</p>
+<ul>
+<li><p>The equilibrium is stable if <span class="math notranslate nohighlight">\(U''(x) &gt; 0\)</span>, <strong>but</strong> the force is the negative derivative.</p></li>
+<li><p>So we must check:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\frac{d^2U}{dx^2} = \cos(x)
+\Rightarrow
+\begin{cases}
+  \cos(x_u) = \sqrt{1 - C^2} &gt; 0 &amp; \Rightarrow U''(x_u) &gt; 0 \Rightarrow \textbf{local minimum (stable)} \\
+  \cos(x_s) = -\sqrt{1 - C^2} &lt; 0 &amp; \Rightarrow U''(x_s) &lt; 0 \Rightarrow \textbf{local maximum (unstable)}
+\end{cases}\end{split}\]</div>
+</li>
+</ul>
+<p>✅ Correction:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(x = \arcsin(C)\)</span>: <strong>Stable equilibrium</strong> (minimum of <span class="math notranslate nohighlight">\(U(x)\)</span>)</p></li>
+<li><p><span class="math notranslate nohighlight">\(x = \pi - \arcsin(C)\)</span>: <strong>Unstable equilibrium</strong> (maximum of <span class="math notranslate nohighlight">\(U(x)\)</span>)</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="✅-Step-3:-Taylor-expansion-of-U(x)-around-equilibrium-points">
+<h1>✅ Step 3: Taylor expansion of <span class="math notranslate nohighlight">\(U(x)\)</span> around equilibrium points<a class="headerlink" href="#✅-Step-3:-Taylor-expansion-of-U(x)-around-equilibrium-points" title="Link to this heading"></a></h1>
+<p>Let’s expand to 4th order:</p>
+<div class="math notranslate nohighlight">
+\[U(x) = U(x_0) + U'(x_0)(x - x_0) + \frac{1}{2}U''(x_0)(x - x_0)^2 + \frac{1}{6}U^{(3)}(x_0)(x - x_0)^3 + \frac{1}{24}U^{(4)}(x_0)(x - x_0)^4 + \cdots\]</div>
+<p>We need:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(U(x) = -\cos(x) + Cx\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(U'(x) = \sin(x) + C\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(U''(x) = \cos(x)\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(U^{(3)}(x) = -\sin(x)\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(U^{(4)}(x) = -\cos(x)\)</span></p></li>
+</ul>
+<p>Let’s plug in at each equilibrium.</p>
+</section>
+<hr class="docutils" />
+<section id="🔵-Expansion-around-stable-equilibrium-x_s-=-\arcsin(C)">
+<h1>🔵 Expansion around <strong>stable equilibrium</strong> <span class="math notranslate nohighlight">\(x_s = \arcsin(C)\)</span><a class="headerlink" href="#🔵-Expansion-around-stable-equilibrium-x_s-=-\arcsin(C)" title="Link to this heading"></a></h1>
+<p>Let <span class="math notranslate nohighlight">\(x_0 = \arcsin(C)\)</span></p>
+<p>Then:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\sin(x_0) = C\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\cos(x_0) = \sqrt{1 - C^2}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\sin(x_0) = C\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\cos(x_0) = \sqrt{1 - C^2}\)</span></p></li>
+</ul>
+<p>So:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+U(x) \approx\;&amp; U(x_0) + 0 + \frac{1}{2}\sqrt{1 - C^2}(x - x_0)^2 \\
+&amp; - \frac{1}{6}C(x - x_0)^3 - \frac{1}{24}\sqrt{1 - C^2}(x - x_0)^4 + \cdots
+\end{aligned}\end{split}\]</div>
+</section>
+<hr class="docutils" />
+<section id="🔴-Expansion-around-unstable-equilibrium-x_u-=-\pi---\arcsin(C)">
+<h1>🔴 Expansion around <strong>unstable equilibrium</strong> <span class="math notranslate nohighlight">\(x_u = \pi - \arcsin(C)\)</span><a class="headerlink" href="#🔴-Expansion-around-unstable-equilibrium-x_u-=-\pi---\arcsin(C)" title="Link to this heading"></a></h1>
+<p>Then:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\sin(x_u) = C\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\cos(x_u) = -\sqrt{1 - C^2}\)</span></p></li>
+</ul>
+<p>So:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+U(x) \approx\;&amp; U(x_u) + 0 - \frac{1}{2}\sqrt{1 - C^2}(x - x_u)^2 \\
+&amp; + \frac{1}{6}C(x - x_u)^3 + \frac{1}{24}\sqrt{1 - C^2}(x - x_u)^4 + \cdots
+\end{aligned}\end{split}\]</div>
+</section>
+<hr class="docutils" />
+<section id="✅-Final-boxed-expressions">
+<h1>✅ Final boxed expressions<a class="headerlink" href="#✅-Final-boxed-expressions" title="Link to this heading"></a></h1>
+<section id="🔵-Around-stable-point-x_0-=-\arcsin(C):">
+<h2>🔵 Around <strong>stable point</strong> <span class="math notranslate nohighlight">\(x_0 = \arcsin(C)\)</span>:<a class="headerlink" href="#🔵-Around-stable-point-x_0-=-\arcsin(C):" title="Link to this heading"></a></h2>
+<div class="math notranslate nohighlight">
+\[\boxed{
+U(x) = U(x_0) + \frac{1}{2}\sqrt{1 - C^2}(x - x_0)^2 - \frac{1}{6}C(x - x_0)^3 - \frac{1}{24}\sqrt{1 - C^2}(x - x_0)^4 + \cdots
+}\]</div>
+</section>
+<section id="🔴-Around-unstable-point-x_0-=-\pi---\arcsin(C):">
+<h2>🔴 Around <strong>unstable point</strong> <span class="math notranslate nohighlight">\(x_0 = \pi - \arcsin(C)\)</span>:<a class="headerlink" href="#🔴-Around-unstable-point-x_0-=-\pi---\arcsin(C):" title="Link to this heading"></a></h2>
+<div class="math notranslate nohighlight">
+\[\boxed{
+U(x) = U(x_0) - \frac{1}{2}\sqrt{1 - C^2}(x - x_0)^2 + \frac{1}{6}C(x - x_0)^3 + \frac{1}{24}\sqrt{1 - C^2}(x - x_0)^4 + \cdots
+}\]</div>
+<p>These expressions capture the <strong>tilted cosine potential</strong>’s shape near the equilibrium points: a <strong>well</strong> near the stable point and an <strong>inverted hill</strong> near the unstable one.</p>
+<p>Let me know if you want to plot this or analyze the small oscillations near the minimum!</p>
+<p>To find the <strong>time-dependent solution</strong> of a <strong>damped pendulum</strong> (linearized for small angles) subject to:</p>
+<ul class="simple">
+<li><p>An <strong>arbitrary initial angle</strong> <span class="math notranslate nohighlight">\(\theta(0) = \theta_0\)</span></p></li>
+<li><p>An <strong>arbitrary initial angular velocity</strong> <span class="math notranslate nohighlight">\(\dot{\theta}(0) = \omega_0\)</span></p></li>
+<li><p>A <strong>torque step</strong> at <span class="math notranslate nohighlight">\(t = 0\)</span>: from a <strong>previous constant torque</strong> <span class="math notranslate nohighlight">\(\tau_{\text{prev}}\)</span> to a <strong>new constant torque</strong> <span class="math notranslate nohighlight">\(\tau_0\)</span></p></li>
+</ul>
+<p>we’ll derive the full analytic solution to the second-order linear ODE:</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="⚙️-1.-System-Setup">
+<h1>⚙️ 1. System Setup<a class="headerlink" href="#⚙️-1.-System-Setup" title="Link to this heading"></a></h1>
+<p>Let the pendulum have:</p>
+<ul class="simple">
+<li><p>Length <span class="math notranslate nohighlight">\(L\)</span>, mass <span class="math notranslate nohighlight">\(m\)</span></p></li>
+<li><p>Viscous damping coefficient <span class="math notranslate nohighlight">\(b\)</span></p></li>
+<li><p>Small-angle approximation: <span class="math notranslate nohighlight">\(\sin\theta \approx \theta\)</span></p></li>
+</ul>
+<section id="🔸-Equation-of-motion:">
+<h2>🔸 Equation of motion:<a class="headerlink" href="#🔸-Equation-of-motion:" title="Link to this heading"></a></h2>
+<div class="math notranslate nohighlight">
+\[mL^2 \ddot{\theta} + b \dot{\theta} + mgL \theta = \tau(t)\]</div>
+<p>Define:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\omega_0^2 = \dfrac{g}{L}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\zeta = \dfrac{b}{2mL^2 \omega_0}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\theta_{\text{eq,new}} = \dfrac{\tau_0}{mgL}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\theta_{\text{eq,prev}} = \dfrac{\tau_{\text{prev}}}{mgL}\)</span></p></li>
+</ul>
+<p>We assume a <strong>step function</strong> in torque:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\tau(t) = \begin{cases}
+\tau_{\text{prev}} &amp; t &lt; 0 \\
+\tau_0 &amp; t \ge 0
+\end{cases}\end{split}\]</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="🧮-2.-Shift-the-system-to-homogeneous-form">
+<h1>🧮 2. Shift the system to homogeneous form<a class="headerlink" href="#🧮-2.-Shift-the-system-to-homogeneous-form" title="Link to this heading"></a></h1>
+<p>Let us define a <strong>shifted angle</strong> <span class="math notranslate nohighlight">\(\tilde{\theta}(t) = \theta(t) - \theta_{\text{eq,new}}\)</span>. Then the equation becomes:</p>
+<div class="math notranslate nohighlight">
+\[\ddot{\tilde{\theta}} + 2\zeta \omega_0 \dot{\tilde{\theta}} + \omega_0^2 \tilde{\theta} = 0\]</div>
+<p>We solve this <strong>homogeneous equation</strong> with initial conditions:</p>
+<div class="math notranslate nohighlight">
+\[\tilde{\theta}(0) = \theta_0 - \theta_{\text{eq,new}}, \quad \dot{\tilde{\theta}}(0) = \omega_0\]</div>
+</section>
+<hr class="docutils" />
+<section id="📘-3.-General-Time-Dependent-Solution-(Underdamped-Case:-\zeta-&lt;-1)">
+<h1>📘 3. General Time-Dependent Solution (Underdamped Case: <span class="math notranslate nohighlight">\(\zeta &lt; 1\)</span>)<a class="headerlink" href="#📘-3.-General-Time-Dependent-Solution-(Underdamped-Case:-\zeta-<-1)" title="Link to this heading"></a></h1>
+<p>Let:</p>
+<div class="math notranslate nohighlight">
+\[\omega_d = \omega_0 \sqrt{1 - \zeta^2}\]</div>
+<p>Then the solution is:</p>
+<div class="math notranslate nohighlight">
+\[\tilde{\theta}(t) = e^{-\zeta \omega_0 t} \left( A \cos(\omega_d t) + B \sin(\omega_d t) \right)\]</div>
+<p>So the full angle is:</p>
+<div class="math notranslate nohighlight">
+\[\boxed{
+\theta(t) = \theta_{\text{eq,new}} + e^{-\zeta \omega_0 t} \left( A \cos(\omega_d t) + B \sin(\omega_d t) \right)
+}\]</div>
+</section>
+<hr class="docutils" />
+<section id="🧩-4.-Solve-for-Constants-A-and-B">
+<h1>🧩 4. Solve for Constants <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span><a class="headerlink" href="#🧩-4.-Solve-for-Constants-A-and-B" title="Link to this heading"></a></h1>
+<p>Using:</p>
+<div class="math notranslate nohighlight">
+\[\theta(0) = \theta_0 \Rightarrow A = \theta_0 - \theta_{\text{eq,new}}\]</div>
+<div class="math notranslate nohighlight">
+\[\dot{\theta}(0) = \omega_0 = -\zeta \omega_0 A + \omega_d B
+\Rightarrow B = \frac{\omega_0 + \zeta \omega_0 A}{\omega_d}\]</div>
+<p>Final constants:</p>
+<div class="math notranslate nohighlight">
+\[A = \theta_0 - \frac{\tau_0}{mgL}, \quad B = \frac{\omega_0 + \zeta \omega_0 A}{\omega_d}\]</div>
+</section>
+<hr class="docutils" />
+<section id="✅-Final-Time-Domain-Solution:">
+<h1>✅ Final Time-Domain Solution:<a class="headerlink" href="#✅-Final-Time-Domain-Solution:" title="Link to this heading"></a></h1>
+<div class="math notranslate nohighlight">
+\[\boxed{
+\theta(t) = \frac{\tau_0}{mgL} + e^{-\zeta \omega_0 t}
+\left[
+(\theta_0 - \frac{\tau_0}{mgL}) \cos(\omega_d t)
++ \left( \frac{\omega_0 + \zeta \omega_0 (\theta_0 - \frac{\tau_0}{mgL})}{\omega_d} \right) \sin(\omega_d t)
+\right]
+}\]</div>
+</section>
+<hr class="docutils" />
+<section id="🔁-Note-on-Discontinuities">
+<h1>🔁 Note on Discontinuities<a class="headerlink" href="#🔁-Note-on-Discontinuities" title="Link to this heading"></a></h1>
+<p>This solution is <strong>valid for :math:`t ge 0`</strong>. If you want a full solution for all <span class="math notranslate nohighlight">\(t\)</span>, including <span class="math notranslate nohighlight">\(t &lt; 0\)</span> under constant <span class="math notranslate nohighlight">\(\tau_{\text{prev}}\)</span>, you’d solve a similar homogeneous problem with <span class="math notranslate nohighlight">\(\theta_{\text{eq,prev}} = \tau_{\text{prev}} / (mgL)\)</span>, and match the state (<span class="math notranslate nohighlight">\(\theta(0), \dot{\theta}(0)\)</span>) at <span class="math notranslate nohighlight">\(t = 0\)</span>.</p>
+<hr class="docutils" />
+<p>Would you like the overdamped and critically damped versions too?</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[65]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+<span class="c1"># Physical parameters</span>
+<span class="n">m</span> <span class="o">=</span> <span class="mf">1.0</span>          <span class="c1"># mass (kg)</span>
+<span class="n">L</span> <span class="o">=</span> <span class="mf">1.0</span>          <span class="c1"># pendulum length (m)</span>
+<span class="n">b</span> <span class="o">=</span> <span class="mf">0.2</span>          <span class="c1"># damping coefficient (N*m*s)</span>
+<span class="n">g</span> <span class="o">=</span> <span class="mf">9.81</span>         <span class="c1"># gravity (m/s^2)</span>
+
+<span class="c1"># Torque input (step change)</span>
+<span class="n">tau_0</span> <span class="o">=</span> <span class="mf">0.3</span>      <span class="c1"># torque applied after t=0 (N*m)</span>
+
+<span class="c1"># Initial conditions</span>
+<span class="n">theta_0</span> <span class="o">=</span> <span class="mf">0.1</span>    <span class="c1"># initial angle (rad)</span>
+<span class="n">omega_0</span> <span class="o">=</span> <span class="mf">0.0</span>    <span class="c1"># initial angular velocity (rad/s)</span>
+
+<span class="c1"># Derived parameters</span>
+<span class="n">I</span> <span class="o">=</span> <span class="n">m</span> <span class="o">*</span> <span class="n">L</span><span class="o">**</span><span class="mi">2</span>
+<span class="n">omega_n</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">g</span> <span class="o">/</span> <span class="n">L</span><span class="p">)</span>
+<span class="n">zeta</span> <span class="o">=</span> <span class="n">b</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">I</span> <span class="o">*</span> <span class="n">omega_n</span><span class="p">)</span>
+<span class="n">omega_d</span> <span class="o">=</span> <span class="n">omega_n</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">zeta</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">theta_eq</span> <span class="o">=</span> <span class="n">tau_0</span> <span class="o">/</span> <span class="p">(</span><span class="n">m</span> <span class="o">*</span> <span class="n">g</span> <span class="o">*</span> <span class="n">L</span><span class="p">)</span>   <span class="c1"># new equilibrium position</span>
+
+<span class="c1"># Time vector</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>  <span class="c1"># 10 seconds, 1000 points</span>
+
+<span class="c1"># Coefficients A and B from general solution</span>
+<span class="n">A</span> <span class="o">=</span> <span class="n">theta_0</span> <span class="o">-</span> <span class="n">theta_eq</span>
+<span class="n">B</span> <span class="o">=</span> <span class="p">(</span><span class="n">omega_0</span> <span class="o">+</span> <span class="n">zeta</span> <span class="o">*</span> <span class="n">omega_n</span> <span class="o">*</span> <span class="n">A</span><span class="p">)</span> <span class="o">/</span> <span class="n">omega_d</span>
+
+<span class="c1"># Analytical solution</span>
+<span class="n">theta_t</span> <span class="o">=</span> <span class="n">theta_eq</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">zeta</span> <span class="o">*</span> <span class="n">omega_n</span> <span class="o">*</span> <span class="n">t</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">A</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">omega_d</span> <span class="o">*</span> <span class="n">t</span><span class="p">)</span> <span class="o">+</span> <span class="n">B</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">omega_d</span> <span class="o">*</span> <span class="n">t</span><span class="p">))</span>
+
+<span class="c1"># Plotting</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">theta_t</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;θ(t) [rad]&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">theta_eq</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Equilibrium θ_eq&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Damped Pendulum Response to Step Torque&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Time [s]&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Angle [rad]&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<br/></pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/project1_sim_analyticalPendulum_18_0.png" src="../../_images/project1_sim_analyticalPendulum_18_0.png" />
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[87]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+<span class="c1"># --- Physical parameters ---</span>
+<span class="n">m</span> <span class="o">=</span> <span class="mf">1.0</span>          <span class="c1"># mass (kg)</span>
+<span class="n">L</span> <span class="o">=</span> <span class="mf">0.3</span>          <span class="c1"># length (m)</span>
+<span class="n">b</span> <span class="o">=</span> <span class="mf">0.001</span>          <span class="c1"># viscous damping (N*m*s)</span>
+<span class="n">g</span> <span class="o">=</span> <span class="mf">9.81</span>         <span class="c1"># gravity (m/s^2)</span>
+<span class="n">I</span> <span class="o">=</span> <span class="n">m</span> <span class="o">*</span> <span class="n">L</span><span class="o">**</span><span class="mi">2</span>     <span class="c1"># moment of inertia</span>
+<span class="n">tau_0</span> <span class="o">=</span> <span class="mf">0.5</span>      <span class="c1"># magnitude of torque (N*m)</span>
+
+<span class="c1"># --- Simulation parameters ---</span>
+<span class="n">dt</span> <span class="o">=</span> <span class="mf">0.001</span>       <span class="c1"># time step (s)</span>
+<span class="n">t_max</span> <span class="o">=</span> <span class="mi">20</span>       <span class="c1"># max simulation time (s)</span>
+<span class="n">n_steps</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">t_max</span> <span class="o">/</span> <span class="n">dt</span><span class="p">)</span>
+
+
+<span class="c1"># --- Initialize arrays ---</span>
+
+<span class="c1">#linear model, start with positive torque</span>
+<span class="n">t_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">t_max</span><span class="p">,</span> <span class="n">n_steps</span><span class="p">)</span>
+<span class="n">theta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n_steps</span><span class="p">)</span>     <span class="c1"># angle [rad]</span>
+<span class="n">omega</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n_steps</span><span class="p">)</span>     <span class="c1"># angular velocity [rad/s]</span>
+<span class="n">alpha</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n_steps</span><span class="p">)</span>     <span class="c1"># angular acceleration [rad/s^2]</span>
+<span class="n">tau</span> <span class="o">=</span> <span class="n">tau_0</span>                   <span class="c1"># initial torque</span>
+
+<span class="c1">#, linear model, start with negative torque</span>
+<span class="n">t_array2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">t_max</span><span class="p">,</span> <span class="n">n_steps</span><span class="p">)</span>
+<span class="n">theta2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n_steps</span><span class="p">)</span>     <span class="c1"># angle [rad]</span>
+<span class="n">omega2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n_steps</span><span class="p">)</span>     <span class="c1"># angular velocity [rad/s]</span>
+<span class="n">alpha2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n_steps</span><span class="p">)</span>     <span class="c1"># angular acceleration [rad/s^2]</span>
+<span class="n">tau2</span> <span class="o">=</span> <span class="o">-</span><span class="n">tau_0</span>                   <span class="c1"># initial torque</span>
+
+<span class="c1">#non-linear model, start with positive torque</span>
+<span class="n">t_array3</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">t_max</span><span class="p">,</span> <span class="n">n_steps</span><span class="p">)</span>
+<span class="n">theta3</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n_steps</span><span class="p">)</span>     <span class="c1"># angular position (rad)</span>
+<span class="n">omega3</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n_steps</span><span class="p">)</span>     <span class="c1"># angular velocity (rad/s)</span>
+<span class="n">alpha3</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n_steps</span><span class="p">)</span>     <span class="c1"># angular acceleration (rad/s^2)</span>
+<span class="n">tau3</span> <span class="o">=</span> <span class="n">tau_0</span>                   <span class="c1"># initial torque</span>
+
+<span class="c1"># --- Simulation loop ---</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n_steps</span><span class="p">):</span>
+
+    <span class="c1"># Linear pendulum equation (start torque positive)</span>
+
+    <span class="c1"># Compute angular acceleration (linearized)</span>
+    <span class="n">alpha</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span> <span class="o">-</span><span class="n">m</span> <span class="o">*</span> <span class="n">g</span> <span class="o">*</span> <span class="n">L</span> <span class="o">*</span> <span class="n">theta</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">b</span> <span class="o">*</span> <span class="n">omega</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">tau</span> <span class="p">)</span> <span class="o">/</span> <span class="n">I</span>
+
+    <span class="c1"># Update angular velocity and angle</span>
+    <span class="n">omega</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">omega</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">alpha</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="n">dt</span>
+    <span class="n">theta</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">theta</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">omega</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="n">dt</span>
+
+    <span class="c1"># Convert angle to degrees for stopping condition</span>
+    <span class="n">theta_deg</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">degrees</span><span class="p">(</span><span class="n">theta</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+
+    <span class="c1"># Check for switching condition: local extremum (ω ≈ 0)</span>
+    <span class="k">if</span> <span class="n">omega</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">omega</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>  <span class="c1"># sign change in ω</span>
+        <span class="n">tau</span> <span class="o">=</span> <span class="o">-</span><span class="n">tau</span>  <span class="c1"># flip torque</span>
+
+    <span class="c1"># Linear pendulum equation (start torque negative)</span>
+    <span class="n">alpha2</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span> <span class="o">-</span><span class="n">m</span> <span class="o">*</span> <span class="n">g</span> <span class="o">*</span> <span class="n">L</span> <span class="o">*</span> <span class="n">theta2</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">b</span> <span class="o">*</span> <span class="n">omega2</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">tau2</span> <span class="p">)</span> <span class="o">/</span> <span class="n">I</span>
+
+    <span class="c1"># Update angular velocity and angle</span>
+    <span class="n">omega2</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">omega2</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">alpha2</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="n">dt</span>
+    <span class="n">theta2</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">theta2</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">omega2</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="n">dt</span>
+
+    <span class="c1"># Convert angle to degrees for stopping condition</span>
+    <span class="n">theta_deg2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">degrees</span><span class="p">(</span><span class="n">theta2</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+
+    <span class="c1"># Check for switching condition: local extremum (ω ≈ 0)</span>
+    <span class="k">if</span> <span class="n">omega2</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">omega2</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>  <span class="c1"># sign change in ω</span>
+        <span class="n">tau2</span> <span class="o">=</span> <span class="o">-</span><span class="n">tau2</span>  <span class="c1"># flip torque</span>
+
+    <span class="c1"># Nonlinear pendulum equation</span>
+    <span class="n">alpha3</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="n">m</span> <span class="o">*</span> <span class="n">g</span> <span class="o">*</span> <span class="n">L</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta3</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span> <span class="o">-</span> <span class="n">b</span> <span class="o">*</span> <span class="n">omega3</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">tau3</span><span class="p">)</span> <span class="o">/</span> <span class="n">I</span>
+
+    <span class="c1"># Update angular velocity and angle</span>
+    <span class="n">omega3</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">omega3</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">alpha3</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="n">dt</span>
+    <span class="n">theta3</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">theta3</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">omega3</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="n">dt</span>
+
+    <span class="c1"># Convert to degrees for limit checking</span>
+    <span class="n">theta_deg3</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">degrees</span><span class="p">(</span><span class="n">theta3</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+
+    <span class="c1"># Flip torque at velocity zero crossings (extrema)</span>
+    <span class="k">if</span> <span class="n">omega3</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">omega3</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>  <span class="c1"># velocity changed sign</span>
+        <span class="n">tau3</span> <span class="o">=</span> <span class="o">-</span><span class="n">tau3</span>  <span class="c1"># invert torque</span>
+
+<span class="sd">&quot;&quot;&quot;    # Stop if magnitude reaches 180 degrees</span>
+<span class="sd">    if abs(theta_deg) &gt;= 180:</span>
+
+<span class="sd">        theta = theta[:i+1]</span>
+<span class="sd">        omega = omega[:i+1]</span>
+<span class="sd">        t_array = t_array[:i+1]</span>
+
+<span class="sd">        theta2 = theta2[:i+1]</span>
+<span class="sd">        omega2 = omega2[:i+1]</span>
+<span class="sd">        t_array2 = t_array2[:i+1]</span>
+
+<span class="sd">        theta3 = theta3[:i+1]</span>
+<span class="sd">        omega3 = omega3[:i+1]</span>
+<span class="sd">        t_array3 = t_array3[:i+1]</span>
+
+<span class="sd">        break&quot;&quot;&quot;</span>
+
+<span class="c1"># --- Plotting ---</span>
+<span class="n">theta_deg_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">degrees</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span>
+<span class="n">theta_deg_array2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">degrees</span><span class="p">(</span><span class="n">theta2</span><span class="p">)</span>
+<span class="n">theta_deg_array3</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">degrees</span><span class="p">(</span><span class="n">theta3</span><span class="p">)</span>
+
+<span class="n">tetaeq</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">asin</span><span class="p">(</span><span class="n">tau_0</span><span class="o">/</span><span class="p">(</span><span class="n">m</span><span class="o">*</span><span class="n">g</span><span class="o">*</span><span class="n">L</span><span class="p">))</span><span class="o">*</span><span class="mi">180</span><span class="o">/</span><span class="mf">3.14</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t_array</span><span class="p">,</span> <span class="n">theta_deg_array</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;linear (initial torque positive)&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t_array2</span><span class="p">,</span> <span class="n">theta_deg_array2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;linear (initial torque negative)&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span><span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t_array3</span><span class="p">,</span> <span class="n">theta_deg_array3</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;non-linear (initial torque positive)&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span><span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="mi">180</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;180º&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="o">-</span><span class="mi">180</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="mi">90</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;grey&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;90º&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="o">-</span><span class="mi">90</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;grey&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">tetaeq</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="o">-</span><span class="n">tetaeq</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Time [s]&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Angle [deg]&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>          <span class="c1"># Set x-axis (time) limits from 0 to 10 seconds</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="o">-</span><span class="mi">250</span><span class="p">,</span> <span class="mi">250</span><span class="p">)</span>      <span class="c1"># Set y-axis (angle) limits from -200° to 200°</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Bang-Bang Driven Damped Pendulum (θ₀ = 0°, ω₀ = 0)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<br/></pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/project1_sim_analyticalPendulum_19_0.png" src="../../_images/project1_sim_analyticalPendulum_19_0.png" />
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[145]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+<span class="c1"># --- Parameters ---</span>
+<span class="n">phi_deg</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">180</span><span class="o">-</span><span class="mi">90</span><span class="p">,</span> <span class="mi">180</span><span class="o">+</span><span class="mi">90</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>       <span class="c1"># Angle in degrees</span>
+<span class="n">phi_rad</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="n">phi_deg</span><span class="p">)</span>                <span class="c1"># Convert to radians</span>
+
+<span class="c1"># Physical parameters (for shifted potential)</span>
+<span class="n">m</span> <span class="o">=</span> <span class="mf">1.0</span>     <span class="c1"># mass (kg)</span>
+<span class="n">L</span> <span class="o">=</span> <span class="mf">1.0</span>     <span class="c1"># pendulum length (m)</span>
+<span class="n">tau</span> <span class="o">=</span> <span class="mf">0.5</span>   <span class="c1"># constant torque (N·m) (in units of mgL)</span>
+<span class="n">Lz</span> <span class="o">=</span> <span class="mf">0.5</span>    <span class="c1"># angular momentum (kg·m^2/s)</span>
+
+<span class="c1"># --- Potentials ---</span>
+<span class="n">U_cosine</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">phi_rad</span><span class="p">)</span>                      <span class="c1"># 1 - cos(φ)</span>
+<span class="n">U_lin1</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">phi_rad</span><span class="o">**</span><span class="mi">2</span>                     <span class="c1"># ½ φ²</span>
+<span class="n">U_lin2</span> <span class="o">=</span> <span class="mi">2</span><span class="o">-</span><span class="mf">0.5</span> <span class="o">*</span> <span class="p">(</span><span class="n">phi_rad</span><span class="o">-</span><span class="mf">3.14</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>                     <span class="c1"># ½ φ²</span>
+<span class="n">U_lin3</span> <span class="o">=</span> <span class="mi">2</span><span class="o">-</span><span class="mf">0.5</span> <span class="o">*</span> <span class="p">(</span><span class="n">phi_rad</span><span class="o">+</span><span class="mf">3.14</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>                     <span class="c1"># ½ φ²</span>
+<span class="n">U_tilted</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">phi_rad</span><span class="p">)</span> <span class="o">-</span> <span class="n">tau</span> <span class="o">*</span> <span class="n">phi_rad</span>      <span class="c1"># 1 - cos(φ) - τφ</span>
+<span class="n">U_lin4</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">phi_rad</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="n">tau</span> <span class="o">*</span> <span class="n">phi_rad</span>      <span class="c1"># 1 - cos(φ) - τφ</span>
+<span class="n">U_lin5</span> <span class="o">=</span> <span class="mi">2</span><span class="o">-</span><span class="mf">0.5</span> <span class="o">*</span> <span class="p">(</span><span class="n">phi_rad</span><span class="o">-</span><span class="mf">3.14</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>  <span class="o">-</span> <span class="n">tau</span> <span class="o">*</span> <span class="n">phi_rad</span>      <span class="c1"># 1 - cos(φ) - τφ</span>
+<span class="n">U_lin6</span> <span class="o">=</span> <span class="mi">2</span><span class="o">-</span><span class="mf">0.5</span> <span class="o">*</span> <span class="p">(</span><span class="n">phi_rad</span><span class="o">+</span><span class="mf">3.14</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="n">tau</span> <span class="o">*</span> <span class="n">phi_rad</span>      <span class="c1"># 1 - cos(φ) - τφ</span>
+<span class="n">tau2</span><span class="o">=</span><span class="mi">1</span>
+<span class="n">U_tilted2</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">phi_rad</span><span class="p">)</span> <span class="o">-</span> <span class="n">tau2</span> <span class="o">*</span> <span class="n">phi_rad</span>      <span class="c1"># 1 - cos(φ) - τφ</span>
+<span class="n">tau3</span><span class="o">=</span><span class="mf">1.5</span>
+<span class="n">U_tilted3</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">phi_rad</span><span class="p">)</span> <span class="o">-</span> <span class="n">tau3</span> <span class="o">*</span> <span class="n">phi_rad</span>      <span class="c1"># 1 - cos(φ) - τφ</span>
+<span class="n">tau4</span><span class="o">=</span><span class="mf">2.0</span>
+<span class="n">U_tilted4</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">phi_rad</span><span class="p">)</span> <span class="o">-</span> <span class="n">tau4</span> <span class="o">*</span> <span class="n">phi_rad</span>      <span class="c1"># 1 - cos(φ) - τφ</span>
+
+<span class="c1">#U_lin7 = 0.5 * phi_rad**2 - tau2 * phi_rad      # 1 - cos(φ) - τφ</span>
+<span class="sd">&quot;&quot;&quot;U_lin8 = 2-0.5 * (phi_rad-3.14)**2  - tau * phi_rad      # 1 - cos(φ) - τφ</span>
+<span class="sd">U_lin9 = 2-0.5 * (phi_rad+3.14)**2 - tau * phi_rad      # 1 - cos(φ) - τφ&quot;&quot;&quot;</span>
+
+
+<span class="n">U_lin_tilted</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">phi_rad</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="n">tau</span> <span class="o">*</span> <span class="n">phi_rad</span>     <span class="c1"># ½ φ² - τφ</span>
+
+<span class="c1"># Effective potential due to angular momentum (centrifugal term)</span>
+<span class="k">with</span> <span class="n">np</span><span class="o">.</span><span class="n">errstate</span><span class="p">(</span><span class="n">divide</span><span class="o">=</span><span class="s1">&#39;ignore&#39;</span><span class="p">,</span> <span class="n">invalid</span><span class="o">=</span><span class="s1">&#39;ignore&#39;</span><span class="p">):</span>
+    <span class="n">U_shifted</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">phi_rad</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">Lz</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="n">m</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">L</span><span class="o">**</span><span class="mi">4</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">phi_rad</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span>
+    <span class="n">U_shifted</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">phi_rad</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mf">1e-2</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>  <span class="c1"># Avoid singularities near 0</span>
+
+<span class="n">tau_shift</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>       <span class="c1"># torques</span>
+<span class="n">tetaeq_shift1</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">asin</span><span class="p">(</span><span class="n">tau_shift</span><span class="p">)</span>
+<span class="n">U_shift1</span><span class="o">=</span><span class="mi">1</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">tetaeq_shift1</span><span class="p">)</span> <span class="o">-</span> <span class="n">tau_shift</span> <span class="o">*</span> <span class="n">tetaeq_shift1</span>
+<span class="n">tetaeq_shift2</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">asin</span><span class="p">(</span><span class="n">tau_shift</span><span class="p">)</span><span class="o">+</span><span class="mf">3.14</span>
+<span class="n">U_shift2</span><span class="o">=</span><span class="mi">1</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">tetaeq_shift2</span><span class="p">)</span> <span class="o">+</span> <span class="n">tau_shift</span> <span class="o">*</span> <span class="n">tetaeq_shift2</span>
+<span class="n">tetaeq_shift3</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">asin</span><span class="p">(</span><span class="n">tau_shift</span><span class="p">)</span><span class="o">-</span><span class="mf">3.14</span>
+<span class="n">U_shift3</span><span class="o">=</span><span class="mi">1</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">tetaeq_shift3</span><span class="p">)</span> <span class="o">+</span> <span class="n">tau_shift</span> <span class="o">*</span> <span class="n">tetaeq_shift3</span>
+
+<span class="c1"># --- Plotting 1---</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">phi_rad</span><span class="o">/</span><span class="mf">3.14</span><span class="p">,</span> <span class="n">U_cosine</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;τ/(mgL)=0&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">phi_rad</span><span class="o">/</span><span class="mf">3.14</span><span class="p">,</span> <span class="n">U_lin1</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;linearized&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">phi_rad</span><span class="o">/</span><span class="mf">3.14</span><span class="p">,</span> <span class="n">U_lin2</span><span class="p">,</span>  <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">phi_rad</span><span class="o">/</span><span class="mf">3.14</span><span class="p">,</span> <span class="n">U_lin3</span><span class="p">,</span>  <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">phi_rad</span><span class="o">/</span><span class="mf">3.14</span><span class="p">,</span> <span class="n">U_tilted</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;τ/(mgL)=0.5&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">phi_rad</span><span class="o">/</span><span class="mf">3.14</span><span class="p">,</span> <span class="n">U_lin4</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;linearized&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">phi_rad</span><span class="o">/</span><span class="mf">3.14</span><span class="p">,</span> <span class="n">U_lin5</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">phi_rad</span><span class="o">/</span><span class="mf">3.14</span><span class="p">,</span> <span class="n">U_lin6</span><span class="p">,</span>  <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">phi_rad</span><span class="o">/</span><span class="mf">3.14</span><span class="p">,</span> <span class="n">U_tilted2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;τ/(mgL)=1.0&#39;</span><span class="p">,</span><span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+<span class="sd">&quot;&quot;&quot;plt.plot(phi_rad/3.14, U_tilted3, label=&#39;τ/(mgL)=1.5&#39;,linewidth=2, color=&#39;black&#39;, linestyle=&#39;--&#39;)</span>
+<span class="sd">plt.plot(phi_rad/3.14, U_tilted4, label=&#39;τ/(mgL)=2.0&#39;,linewidth=2, color=&#39;black&#39;, linestyle=&#39;-.&#39;)&quot;&quot;&quot;</span>
+
+<span class="c1">#plt.plot(phi_rad/3.14, U_shifted, label=&#39;1 - cos(φ) + L²/(2m²L⁴sin²φ)&#39;, linestyle=&#39;dashdot&#39;)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">tetaeq_shift1</span><span class="o">/</span><span class="mf">3.14</span><span class="p">,</span> <span class="n">U_shift1</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;min/max shift&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">tetaeq_shift2</span><span class="o">/</span><span class="mf">3.14</span><span class="p">,</span> <span class="n">U_shift2</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">tetaeq_shift3</span><span class="o">/</span><span class="mf">3.14</span><span class="p">,</span> <span class="n">U_shift3</span><span class="p">,</span>  <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Effective quasi-Static Tilted cosine Potentials for constant torque forced Pendulum: 1 - cos(φ) - τφ&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Angle φ [$\pi$ rad]&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Potential Energy U(φ) (mgL)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="o">-</span><span class="mf">1.5</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+
+
+
+
+<span class="c1"># --- Plotting 2---</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">phi_rad</span><span class="o">/</span><span class="mf">3.14</span><span class="p">,</span> <span class="n">U_cosine</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;τ/(mgL)=0&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">phi_rad</span><span class="o">/</span><span class="mf">3.14</span><span class="p">,</span> <span class="n">U_lin1</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;linearized&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span>
+<span class="sd">&quot;&quot;&quot;plt.plot(phi_rad/3.14, U_lin2,  linestyle=&#39;--&#39;, color=&#39;blue&#39;)</span>
+<span class="sd">plt.plot(phi_rad/3.14, U_lin3,  linestyle=&#39;--&#39;, color=&#39;blue&#39;)&quot;&quot;&quot;</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">phi_rad</span><span class="o">/</span><span class="mf">3.14</span><span class="p">,</span> <span class="n">U_tilted</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;τ/(mgL)=0.5&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">phi_rad</span><span class="o">/</span><span class="mf">3.14</span><span class="p">,</span> <span class="n">U_lin4</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;linearized&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
+<span class="sd">&quot;&quot;&quot;plt.plot(phi_rad/3.14, U_lin5, linestyle=&#39;--&#39;, color=&#39;red&#39;)</span>
+<span class="sd">plt.plot(phi_rad/3.14, U_lin6,  linestyle=&#39;--&#39;, color=&#39;red&#39;)&quot;&quot;&quot;</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">phi_rad</span><span class="o">/</span><span class="mf">3.14</span><span class="p">,</span> <span class="n">U_tilted2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;τ/(mgL)=1.0&#39;</span><span class="p">,</span><span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">tetaeq_shift1</span><span class="o">/</span><span class="mf">3.14</span><span class="p">,</span> <span class="n">U_shift1</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;min/max shift&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">tetaeq_shift2</span><span class="o">/</span><span class="mf">3.14</span><span class="p">,</span> <span class="n">U_shift2</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">tetaeq_shift3</span><span class="o">/</span><span class="mf">3.14</span><span class="p">,</span> <span class="n">U_shift3</span><span class="p">,</span>  <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">)</span>
+
+<span class="c1">#plt.plot(phi_rad/3.14, U_shifted, label=&#39;1 - cos(φ) + L²/(2m²L⁴sin²φ)&#39;, linestyle=&#39;dashdot&#39;)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Effective quasi-Static Tilted cosine Potentials for constant torque forced Pendulum: 1 - cos(φ) - τφ&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Angle φ [$\pi$ rad]&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Potential Energy U(φ) (mgL)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="o">-</span><span class="mf">.6</span><span class="p">,</span> <span class="mf">.6</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="o">-</span><span class="mf">.6</span><span class="p">,</span> <span class="mf">.6</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="c1">#plt.legend()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<br/></pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+&lt;&gt;:73: SyntaxWarning: invalid escape sequence &#39;\p&#39;
+&lt;&gt;:107: SyntaxWarning: invalid escape sequence &#39;\p&#39;
+&lt;&gt;:73: SyntaxWarning: invalid escape sequence &#39;\p&#39;
+&lt;&gt;:107: SyntaxWarning: invalid escape sequence &#39;\p&#39;
+C:\Users\Utilizador\AppData\Local\Temp\ipykernel_18112\2628430219.py:73: SyntaxWarning: invalid escape sequence &#39;\p&#39;
+  plt.xlabel(&#39;Angle φ [$\pi$ rad]&#39;)
+C:\Users\Utilizador\AppData\Local\Temp\ipykernel_18112\2628430219.py:107: SyntaxWarning: invalid escape sequence &#39;\p&#39;
+  plt.xlabel(&#39;Angle φ [$\pi$ rad]&#39;)
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/project1_sim_analyticalPendulum_20_1.png" src="../../_images/project1_sim_analyticalPendulum_20_1.png" />
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/project1_sim_analyticalPendulum_20_2.png" src="../../_images/project1_sim_analyticalPendulum_20_2.png" />
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[166]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create side-by-side subplots with shared y-axis</span>
+<span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="n">sharey</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">phi_deg</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">180</span><span class="o">-</span><span class="mi">90</span><span class="p">,</span> <span class="mi">180</span><span class="o">+</span><span class="mi">90</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>       <span class="c1"># Angle in degrees</span>
+<span class="n">phi_rad</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="n">phi_deg</span><span class="p">)</span>                <span class="c1"># Convert to radians</span>
+
+<span class="c1"># --- Left plot ---</span>
+
+<span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">phi_rad</span><span class="o">/</span><span class="mf">3.14</span><span class="p">,</span> <span class="n">U_cosine</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;τ/(mgL)=0&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">phi_rad</span><span class="o">/</span><span class="mf">3.14</span><span class="p">,</span> <span class="n">U_lin1</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;linearized&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span>
+<span class="sd">&quot;&quot;&quot;plt.plot(phi_rad/3.14, U_lin2,  linestyle=&#39;--&#39;, color=&#39;blue&#39;)</span>
+<span class="sd">plt.plot(phi_rad/3.14, U_lin3,  linestyle=&#39;--&#39;, color=&#39;blue&#39;)&quot;&quot;&quot;</span>
+
+<span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">phi_rad</span><span class="o">/</span><span class="mf">3.14</span><span class="p">,</span> <span class="n">U_tilted</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;τ/(mgL)=0.5&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">phi_rad</span><span class="o">/</span><span class="mf">3.14</span><span class="p">,</span> <span class="n">U_lin4</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;linearized&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
+<span class="sd">&quot;&quot;&quot;plt.plot(phi_rad/3.14, U_lin5, linestyle=&#39;--&#39;, color=&#39;red&#39;)</span>
+<span class="sd">plt.plot(phi_rad/3.14, U_lin6,  linestyle=&#39;--&#39;, color=&#39;red&#39;)&quot;&quot;&quot;</span>
+
+<span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">phi_rad</span><span class="o">/</span><span class="mf">3.14</span><span class="p">,</span> <span class="n">U_tilted2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;τ/(mgL)=1.0&#39;</span><span class="p">,</span><span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+
+<span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">tetaeq_shift1</span><span class="o">/</span><span class="mf">3.14</span><span class="p">,</span> <span class="n">U_shift1</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;min/max shift&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">tetaeq_shift2</span><span class="o">/</span><span class="mf">3.14</span><span class="p">,</span> <span class="n">U_shift2</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">tetaeq_shift3</span><span class="o">/</span><span class="mf">3.14</span><span class="p">,</span> <span class="n">U_shift3</span><span class="p">,</span>  <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">)</span>
+
+<span class="c1">#ax1.set_title(&#39;Effective quasi-Static Tilted cosine Potentials for constant torque forced Pendulum: 1 - cos(φ) - τφ&#39;)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Angle φ [$\pi$ rad]&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+
+<span class="c1">#ax1.title(&#39;Effective quasi-Static Tilted cosine Potentials for constant torque forced Pendulum: 1 - cos(φ) - τφ&#39;)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Angle φ [$\pi$ rad]&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Potential Energy U(φ) (mgL)&#39;</span><span class="p">)</span>
+
+<span class="n">xmax</span><span class="o">=</span><span class="mi">1</span>
+
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="o">-</span><span class="n">xmax</span><span class="p">,</span><span class="n">xmax</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="o">-</span><span class="mf">.6</span><span class="p">,</span> <span class="mf">.6</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="c1">#plt.legend()</span>
+
+<span class="c1"># --- Right plot ---</span>
+<span class="n">phi_rad</span><span class="o">=</span><span class="mf">3.14</span><span class="o">/</span><span class="n">phi_rad</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">phi_rad</span><span class="o">/</span><span class="mf">3.14</span><span class="p">,</span> <span class="n">U_cosine</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;τ/(mgL)=0&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">phi_rad</span><span class="o">/</span><span class="mf">3.14</span><span class="p">,</span> <span class="n">U_lin1</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;linearized&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span>
+<span class="sd">&quot;&quot;&quot;plt.plot(phi_rad/3.14, U_lin2,  linestyle=&#39;--&#39;, color=&#39;blue&#39;)</span>
+<span class="sd">plt.plot(phi_rad/3.14, U_lin3,  linestyle=&#39;--&#39;, color=&#39;blue&#39;)&quot;&quot;&quot;</span>
+
+<span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">phi_rad</span><span class="o">/</span><span class="mf">3.14</span><span class="p">,</span> <span class="n">U_tilted</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;τ/(mgL)=0.5&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">phi_rad</span><span class="o">/</span><span class="mf">3.14</span><span class="p">,</span> <span class="n">U_lin4</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;linearized&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
+<span class="sd">&quot;&quot;&quot;plt.plot(phi_rad/3.14, U_lin5, linestyle=&#39;--&#39;, color=&#39;red&#39;)</span>
+<span class="sd">plt.plot(phi_rad/3.14, U_lin6,  linestyle=&#39;--&#39;, color=&#39;red&#39;)&quot;&quot;&quot;</span>
+
+<span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">phi_rad</span><span class="o">/</span><span class="mf">3.14</span><span class="p">,</span> <span class="n">U_tilted2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;τ/(mgL)=1.0&#39;</span><span class="p">,</span><span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+
+<span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">tetaeq_shift1</span><span class="o">/</span><span class="mf">3.14</span><span class="p">,</span> <span class="n">U_shift1</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;min/max shift&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">tetaeq_shift2</span><span class="o">/</span><span class="mf">3.14</span><span class="p">,</span> <span class="n">U_shift2</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">tetaeq_shift3</span><span class="o">/</span><span class="mf">3.14</span><span class="p">,</span> <span class="n">U_shift3</span><span class="p">,</span>  <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">)</span>
+
+<span class="c1">#ax2.set_title(&#39;Effective quasi-Static Tilted cosine Potentials for constant torque forced Pendulum: 1 - cos(φ) - τφ&#39;)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Angle φ [$\pi$ rad]&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+
+<span class="c1">#ax2.title(&#39;Effective quasi-Static Tilted cosine Potentials for constant torque forced Pendulum: 1 - cos(φ) - τφ&#39;)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;1/Angle φ [1/$\pi$ rad]&#39;</span><span class="p">)</span>
+
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">5</span><span class="o">/</span><span class="n">xmax</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="o">-</span><span class="mf">.6</span><span class="p">,</span> <span class="mf">.6</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="c1">#plt.legend()</span>
+
+<span class="c1"># Adjust layout</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<br/></pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+&lt;&gt;:26: SyntaxWarning: invalid escape sequence &#39;\p&#39;
+&lt;&gt;:31: SyntaxWarning: invalid escape sequence &#39;\p&#39;
+&lt;&gt;:60: SyntaxWarning: invalid escape sequence &#39;\p&#39;
+&lt;&gt;:65: SyntaxWarning: invalid escape sequence &#39;\p&#39;
+&lt;&gt;:26: SyntaxWarning: invalid escape sequence &#39;\p&#39;
+&lt;&gt;:31: SyntaxWarning: invalid escape sequence &#39;\p&#39;
+&lt;&gt;:60: SyntaxWarning: invalid escape sequence &#39;\p&#39;
+&lt;&gt;:65: SyntaxWarning: invalid escape sequence &#39;\p&#39;
+C:\Users\Utilizador\AppData\Local\Temp\ipykernel_18112\1671918300.py:26: SyntaxWarning: invalid escape sequence &#39;\p&#39;
+  ax1.set_xlabel(&#39;Angle φ [$\pi$ rad]&#39;)
+C:\Users\Utilizador\AppData\Local\Temp\ipykernel_18112\1671918300.py:31: SyntaxWarning: invalid escape sequence &#39;\p&#39;
+  plt.xlabel(&#39;Angle φ [$\pi$ rad]&#39;)
+C:\Users\Utilizador\AppData\Local\Temp\ipykernel_18112\1671918300.py:60: SyntaxWarning: invalid escape sequence &#39;\p&#39;
+  ax2.set_xlabel(&#39;Angle φ [$\pi$ rad]&#39;)
+C:\Users\Utilizador\AppData\Local\Temp\ipykernel_18112\1671918300.py:65: SyntaxWarning: invalid escape sequence &#39;\p&#39;
+  plt.xlabel(&#39;1/Angle φ [1/$\pi$ rad]&#39;)
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/project1_sim_analyticalPendulum_21_1.png" src="../../_images/project1_sim_analyticalPendulum_21_1.png" />
+</div>
+</div>
+<p><img alt="alt text" src="project1/sim/kepler-1.png" /></p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[110]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># Example: Mark and label a specific point</span>
+<span class="n">x_point</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="mi">2</span>
+<span class="n">y_point</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">x_point</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_point</span><span class="p">,</span> <span class="n">y_point</span><span class="p">,</span> <span class="s1">&#39;ro&#39;</span><span class="p">)</span>  <span class="c1"># red point</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;(</span><span class="si">{</span><span class="n">x_point</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">y_point</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">,</span>
+             <span class="p">(</span><span class="n">x_point</span><span class="p">,</span> <span class="n">y_point</span><span class="p">),</span>
+             <span class="n">textcoords</span><span class="o">=</span><span class="s2">&quot;offset points&quot;</span><span class="p">,</span>
+             <span class="n">xytext</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span>
+             <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span>
+             <span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+             <span class="n">arrowprops</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">arrowstyle</span><span class="o">=</span><span class="s2">&quot;-&gt;&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">))</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Angle (rad)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;U(φ)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Annotated Point on Graph&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<br/></pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/project1_sim_analyticalPendulum_23_0.png" src="../../_images/project1_sim_analyticalPendulum_23_0.png" />
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[106]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy.optimize</span><span class="w"> </span><span class="kn">import</span> <span class="n">fsolve</span>
+
+<span class="c1"># --- Angle range (in degrees) ---</span>
+<span class="n">phi_deg</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">180</span><span class="p">,</span> <span class="mi">180</span><span class="p">,</span> <span class="mi">2000</span><span class="p">)</span>
+<span class="n">phi_rad</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="n">phi_deg</span><span class="p">)</span>
+
+<span class="c1"># --- Torque values to explore ---</span>
+<span class="n">tau_values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mf">2.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mi">9</span><span class="p">)</span>  <span class="c1"># includes negative and positive torques</span>
+
+<span class="c1"># --- Prepare figure ---</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">7</span><span class="p">))</span>
+<span class="n">colors</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">coolwarm</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">tau_values</span><span class="p">)))</span>
+
+<span class="c1"># --- Store extrema positions for overlay ---</span>
+<span class="n">minima_phi</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">maxima_phi1</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">maxima_phi2</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">tau_record</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="c1"># --- Loop through different torque values ---</span>
+<span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">tau</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">tau_values</span><span class="p">):</span>
+    <span class="c1"># Tilted potential</span>
+    <span class="n">U</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">phi_rad</span><span class="p">)</span> <span class="o">-</span> <span class="n">tau</span> <span class="o">*</span> <span class="n">phi_rad</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">phi_deg</span><span class="p">,</span> <span class="n">U</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;τ = </span><span class="si">{</span><span class="n">tau</span><span class="si">:</span><span class="s1">+.2f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">colors</span><span class="p">[</span><span class="n">idx</span><span class="p">],</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">)</span>
+
+    <span class="c1"># --- Find extrema numerically ---</span>
+    <span class="c1"># Equation: dU/dφ = sin(φ) - τ = 0 ⇒ sin(φ) = τ</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">dU</span><span class="p">(</span><span class="n">phi</span><span class="p">):</span> <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">phi</span><span class="p">)</span> <span class="o">-</span> <span class="n">tau</span>
+
+    <span class="k">try</span><span class="p">:</span>
+        <span class="c1"># Compute critical points (within full range)</span>
+        <span class="c1"># Three guesses to catch multiple extrema</span>
+        <span class="n">phi_min</span> <span class="o">=</span> <span class="n">fsolve</span><span class="p">(</span><span class="n">dU</span><span class="p">,</span> <span class="mi">0</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>                <span class="c1"># center min (stable)</span>
+        <span class="n">phi_max1</span> <span class="o">=</span> <span class="n">fsolve</span><span class="p">(</span><span class="n">dU</span><span class="p">,</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>          <span class="c1"># left max</span>
+        <span class="n">phi_max2</span> <span class="o">=</span> <span class="n">fsolve</span><span class="p">(</span><span class="n">dU</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>           <span class="c1"># right max</span>
+
+        <span class="c1"># Save if within range</span>
+        <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">phi_min</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">:</span>
+            <span class="n">minima_phi</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">degrees</span><span class="p">(</span><span class="n">phi_min</span><span class="p">))</span>
+            <span class="n">tau_record</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">tau</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">phi_max1</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">:</span>
+            <span class="n">maxima_phi1</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">degrees</span><span class="p">(</span><span class="n">phi_max1</span><span class="p">))</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">maxima_phi1</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">phi_max2</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">:</span>
+            <span class="n">maxima_phi2</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">degrees</span><span class="p">(</span><span class="n">phi_max2</span><span class="p">))</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">maxima_phi2</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">)</span>
+
+    <span class="k">except</span><span class="p">:</span>
+        <span class="n">minima_phi</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">)</span>
+        <span class="n">maxima_phi1</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">)</span>
+        <span class="n">maxima_phi2</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">)</span>
+        <span class="n">tau_record</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">tau</span><span class="p">)</span>
+
+<span class="c1"># --- Plot formatting ---</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Angle φ [degrees]&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Potential Energy U(φ)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Effective Potentials with Tilt: $U(φ) = 1 - \cos(φ) - τφ$&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="o">-</span><span class="mi">180</span><span class="p">,</span> <span class="mi">180</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">7</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper right&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="c1"># --- Plot how extrema shift with τ ---</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">tau_values</span><span class="p">,</span> <span class="n">minima_phi</span><span class="p">,</span> <span class="s1">&#39;bo-&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Minimum φ&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">tau_values</span><span class="p">,</span> <span class="n">maxima_phi1</span><span class="p">,</span> <span class="s1">&#39;r^--&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Max φ (left)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">tau_values</span><span class="p">,</span> <span class="n">maxima_phi2</span><span class="p">,</span> <span class="s1">&#39;gs--&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Max φ (right)&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;:&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Torque τ [Nm]&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Extremum angle φ [deg]&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Shift of Potential Extrema with Torque&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<br/></pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+&lt;&gt;:61: SyntaxWarning: invalid escape sequence &#39;\c&#39;
+&lt;&gt;:61: SyntaxWarning: invalid escape sequence &#39;\c&#39;
+C:\Users\Utilizador\AppData\Local\Temp\ipykernel_18112\859635543.py:61: SyntaxWarning: invalid escape sequence &#39;\c&#39;
+  plt.title(&#34;Effective Potentials with Tilt: $U(φ) = 1 - \cos(φ) - τφ$&#34;)
+C:\Users\Utilizador\AppData\Local\Temp\ipykernel_18112\859635543.py:35: RuntimeWarning: The iteration is not making good progress, as measured by the
+ improvement from the last ten iterations.
+  phi_min = fsolve(dU, 0)[0]                # center min (stable)
+C:\Users\Utilizador\AppData\Local\Temp\ipykernel_18112\859635543.py:36: RuntimeWarning: The iteration is not making good progress, as measured by the
+ improvement from the last ten iterations.
+  phi_max1 = fsolve(dU, -np.pi)[0]          # left max
+C:\Users\Utilizador\AppData\Local\Temp\ipykernel_18112\859635543.py:37: RuntimeWarning: The iteration is not making good progress, as measured by the
+ improvement from the last ten iterations.
+  phi_max2 = fsolve(dU, np.pi)[0]           # right max
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/project1_sim_analyticalPendulum_24_1.png" src="../../_images/project1_sim_analyticalPendulum_24_1.png" />
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/project1_sim_analyticalPendulum_24_2.png" src="../../_images/project1_sim_analyticalPendulum_24_2.png" />
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[167]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy.integrate</span><span class="w"> </span><span class="kn">import</span> <span class="n">solve_ivp</span>
+
+<span class="c1"># Parameters</span>
+<span class="n">g</span> <span class="o">=</span> <span class="mf">9.81</span>    <span class="c1"># gravity (m/s^2)</span>
+<span class="n">L</span> <span class="o">=</span> <span class="mf">1.0</span>     <span class="c1"># length of pendulum (m)</span>
+
+<span class="c1"># Define the pendulum ODE system</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">pendulum</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+    <span class="n">theta</span><span class="p">,</span> <span class="n">omega</span> <span class="o">=</span> <span class="n">y</span>
+    <span class="n">dtheta_dt</span> <span class="o">=</span> <span class="n">omega</span>
+    <span class="n">domega_dt</span> <span class="o">=</span> <span class="o">-</span> <span class="p">(</span><span class="n">g</span> <span class="o">/</span> <span class="n">L</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span>
+    <span class="k">return</span> <span class="p">[</span><span class="n">dtheta_dt</span><span class="p">,</span> <span class="n">domega_dt</span><span class="p">]</span>
+
+<span class="c1"># Energy levels to explore</span>
+<span class="n">initial_conditions</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">),</span>  <span class="c1"># small angle, nearly harmonic</span>
+    <span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">),</span>  <span class="c1"># moderate angle</span>
+    <span class="p">(</span><span class="mf">2.5</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">),</span>  <span class="c1"># close to separatrix</span>
+    <span class="p">(</span><span class="mf">3.1</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">),</span>  <span class="c1"># just above separatrix (unbounded)</span>
+<span class="p">]</span>
+
+<span class="c1"># Time span</span>
+<span class="n">t_span</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+<span class="n">t_eval</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">*</span><span class="n">t_span</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
+
+<span class="c1"># Plot phase portraits</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">theta0</span><span class="p">,</span> <span class="n">omega0</span> <span class="ow">in</span> <span class="n">initial_conditions</span><span class="p">:</span>
+    <span class="n">sol</span> <span class="o">=</span> <span class="n">solve_ivp</span><span class="p">(</span><span class="n">pendulum</span><span class="p">,</span> <span class="n">t_span</span><span class="p">,</span> <span class="p">[</span><span class="n">theta0</span><span class="p">,</span> <span class="n">omega0</span><span class="p">],</span> <span class="n">t_eval</span><span class="o">=</span><span class="n">t_eval</span><span class="p">)</span>
+    <span class="n">theta</span> <span class="o">=</span> <span class="n">sol</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">omega</span> <span class="o">=</span> <span class="n">sol</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">theta</span><span class="p">,</span> <span class="n">omega</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;θ₀=</span><span class="si">{</span><span class="n">theta0</span><span class="si">}</span><span class="s1">, ω₀=</span><span class="si">{</span><span class="n">omega0</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Phase Space of the Nonlinear Pendulum&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;θ (rad)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;ω (rad/s)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<br/></pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/project1_sim_analyticalPendulum_25_0.png" src="../../_images/project1_sim_analyticalPendulum_25_0.png" />
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+<span class="c1"># Parameters for the harmonic oscillator</span>
+<span class="n">k</span> <span class="o">=</span> <span class="mf">1.0</span>     <span class="c1"># Spring constant</span>
+<span class="n">m</span> <span class="o">=</span> <span class="mf">1.0</span>     <span class="c1"># Mass</span>
+
+<span class="n">omega</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">k</span> <span class="o">/</span> <span class="n">m</span><span class="p">)</span>
+
+<span class="c1"># Phase space trajectory generator for a given energy and angular momentum</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">generate_trajectory</span><span class="p">(</span><span class="n">E</span><span class="p">,</span> <span class="n">L</span><span class="p">,</span> <span class="n">t_max</span><span class="o">=</span><span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="n">num</span><span class="o">=</span><span class="mi">1000</span><span class="p">):</span>
+    <span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">t_max</span><span class="p">,</span> <span class="n">num</span><span class="p">)</span>
+    <span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">E</span> <span class="o">/</span> <span class="n">k</span><span class="p">)</span>  <span class="c1"># amplitude from energy</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">A</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">omega</span> <span class="o">*</span> <span class="n">t</span><span class="p">)</span>
+    <span class="n">v</span> <span class="o">=</span> <span class="o">-</span><span class="n">A</span> <span class="o">*</span> <span class="n">omega</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">omega</span> <span class="o">*</span> <span class="n">t</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">x</span><span class="p">,</span> <span class="n">v</span>
+
+<span class="c1"># For plotting: use &quot;angular momentum&quot; as L = m * x * v at max (symbolic)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">calc_L</span><span class="p">(</span><span class="n">E</span><span class="p">,</span> <span class="n">phi</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+    <span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">E</span> <span class="o">/</span> <span class="n">k</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">m</span> <span class="o">*</span> <span class="n">A</span> <span class="o">*</span> <span class="n">omega</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">phi</span><span class="p">)</span> <span class="o">*</span> <span class="n">A</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">phi</span><span class="p">)</span>
+
+<span class="c1"># Base energy and angular momentum</span>
+<span class="n">E0</span> <span class="o">=</span> <span class="mf">1.0</span>
+<span class="n">phi0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="mi">4</span>  <span class="c1"># initial phase gives non-zero angular momentum</span>
+<span class="n">L0</span> <span class="o">=</span> <span class="n">calc_L</span><span class="p">(</span><span class="n">E0</span><span class="p">,</span> <span class="n">phi0</span><span class="p">)</span>
+
+<span class="c1"># Create figure</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+
+<span class="c1"># Top-left: Base case</span>
+<span class="n">x</span><span class="p">,</span> <span class="n">v</span> <span class="o">=</span> <span class="n">generate_trajectory</span><span class="p">(</span><span class="n">E0</span><span class="p">,</span> <span class="n">L0</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;E=</span><span class="si">{</span><span class="n">E0</span><span class="si">}</span><span class="s1">, L=</span><span class="si">{</span><span class="n">L0</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Base Case: Constant E and L&quot;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;x&quot;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;v&quot;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+
+<span class="c1"># Top-right: Same L, varied E</span>
+<span class="k">for</span> <span class="n">multiplier</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]:</span>
+    <span class="n">E</span> <span class="o">=</span> <span class="n">E0</span> <span class="o">*</span> <span class="n">multiplier</span>
+    <span class="n">x</span><span class="p">,</span> <span class="n">v</span> <span class="o">=</span> <span class="n">generate_trajectory</span><span class="p">(</span><span class="n">E</span><span class="p">,</span> <span class="n">L0</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;E=</span><span class="si">{</span><span class="n">E</span><span class="si">:</span><span class="s1">.1f</span><span class="si">}</span><span class="s1">, L=</span><span class="si">{</span><span class="n">L0</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Constant L, Varying E&quot;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;x&quot;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;v&quot;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+
+<span class="c1"># Bottom-left: Same E, varied L (via phase offset)</span>
+<span class="k">for</span> <span class="n">phi</span> <span class="ow">in</span> <span class="p">[</span><span class="n">phi0</span><span class="p">,</span> <span class="n">phi0</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span> <span class="n">phi0</span> <span class="o">/</span> <span class="mi">3</span><span class="p">]:</span>
+    <span class="n">L</span> <span class="o">=</span> <span class="n">calc_L</span><span class="p">(</span><span class="n">E0</span><span class="p">,</span> <span class="n">phi</span><span class="p">)</span>
+    <span class="n">x</span><span class="p">,</span> <span class="n">v</span> <span class="o">=</span> <span class="n">generate_trajectory</span><span class="p">(</span><span class="n">E0</span><span class="p">,</span> <span class="n">L</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;E=</span><span class="si">{</span><span class="n">E0</span><span class="si">}</span><span class="s1">, L=</span><span class="si">{</span><span class="n">L</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Constant E, Varying L (via phase)&quot;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;x&quot;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;v&quot;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+
+<span class="c1"># Bottom-right: Scale L and E quadratically</span>
+<span class="k">for</span> <span class="n">scale</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]:</span>
+    <span class="n">L</span> <span class="o">=</span> <span class="n">L0</span> <span class="o">*</span> <span class="n">scale</span>
+    <span class="n">E</span> <span class="o">=</span> <span class="n">E0</span> <span class="o">*</span> <span class="n">scale</span><span class="o">**</span><span class="mi">2</span>
+    <span class="n">x</span><span class="p">,</span> <span class="n">v</span> <span class="o">=</span> <span class="n">generate_trajectory</span><span class="p">(</span><span class="n">E</span><span class="p">,</span> <span class="n">L</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;L=</span><span class="si">{</span><span class="n">L</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">, E=</span><span class="si">{</span><span class="n">E</span><span class="si">:</span><span class="s1">.1f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;L scaled, E ∝ L²&quot;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;x&quot;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;v&quot;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<br/></pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/project1_sim_analyticalPendulum_26_0.png" src="../../_images/project1_sim_analyticalPendulum_26_0.png" />
+</div>
+</div>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, mniehus.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

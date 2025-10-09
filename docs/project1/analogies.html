@@ -1,0 +1,266 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Analogias &amp; números &mdash; oficina3  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../_static/copybutton.js?v=f281be69"></script>
+      <script src="../_static/design-tabs.js?v=f930bc37"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+      <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Aeropendulum (theory)" href="pendulum-theory.html" />
+    <link rel="prev" title="Projeto 1: Aeropêndulo" href="aeropendulum.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            oficina3
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">oficina3</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../readme.html">LEFA Oficina 3 – Laboratório de Estimação e Controlo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../readme.html#lefa-oficina-3-estimation-and-control-lab">LEFA Oficina 3 – Estimation and Control Lab</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Projeto 1</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="aeropendulum.html">Projeto 1: Aeropêndulo</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Analogias &amp; números</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pendulum-theory.html">Aeropendulum (theory)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="motorDC-theory.html">Motor DC (theory)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="L298N.html">Modulo L298N</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fsms.html">Máquinas de Estado</a></li>
+<li class="toctree-l1"><a class="reference internal" href="interrupts.html">Interrupções</a></li>
+<li class="toctree-l1"><a class="reference internal" href="motorCalib-PT.html">Calibração &amp; software modular</a></li>
+<li class="toctree-l1"><a class="reference internal" href="as5600.html">Sensor AS5600</a></li>
+<li class="toctree-l1"><a class="reference internal" href="controlador.html">Controlador</a></li>
+<li class="toctree-l1"><a class="reference internal" href="controlo-PID-arduino.html">Controlador PID</a></li>
+<li class="toctree-l1"><a class="reference internal" href="integration.html">Integração</a></li>
+<li class="toctree-l1"><a class="reference internal" href="resultados.html">Resultados</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Projeto 2</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../project2/readme.html">Carro programável</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Project 3</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../project3/readme.html">Inverted Pendulum</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">oficina3</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Analogias &amp; números</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/project1/analogies.ipynb.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="Analogias-&amp;-números">
+<h1>Analogias &amp; números<a class="headerlink" href="#Analogias-&-números" title="Link to this heading"></a></h1>
+<div class="line-block">
+<div class="line">Um recurso poderoso é o uso de <strong>analogias</strong>: compreender um sistema novo fazendo paralelos com algo que já conhecemos bem.</div>
+<div class="line">No projeto do aeropêndulo, vamos explorar duas analogias fundamentais:</div>
+</div>
+<ol class="arabic simple">
+<li><p><strong>Movimento linear ↔ movimento rotacional</strong></p></li>
+<li><p><strong>Domínio mecânico ↔ domínio elétrico</strong></p></li>
+</ol>
+<p>Estas correspondências não só ajudam a compreender novos conceitos, como permitem começar a <strong>quantificar</strong> os fenómenos com ordens de grandeza realistas.</p>
+<hr class="docutils" />
+<p><strong>Analogia Linear–Rotacional</strong></p>
+<div class="line-block">
+<div class="line">Assim como uma partícula se move em linha reta com posição, velocidade e aceleração, também um corpo rígido pode girar em torno de um eixo.</div>
+<div class="line">As grandezas correspondentes são:</div>
+</div>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Grandeza</p></th>
+<th class="head"><p>Linear</p></th>
+<th class="head"><p>Rotacional</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Posição</p></td>
+<td><p><span class="math notranslate nohighlight">\(x\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(\theta\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p>Velocidade</p></td>
+<td><p><span class="math notranslate nohighlight">\(v = \frac{dx}{dt}\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(\omega = \frac{d\theta}{dt}\)</span></p></td>
+</tr>
+<tr class="row-even"><td><p>Aceleração</p></td>
+<td><p><span class="math notranslate nohighlight">\(a = \frac{dv}{dt}\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(\alpha = \frac{d\omega}{dt}\)</span></p></td>
+</tr>
+</tbody>
+</table>
+<p>As leis de Newton aplicam-se de forma análoga:</p>
+<ul>
+<li><div class="line-block">
+<div class="line">Movimento linear:</div>
+<div class="line"><br /></div>
+</div>
+<blockquote>
+<div><div class="math notranslate nohighlight">
+\[F = m a\]</div>
+</div></blockquote>
+</li>
+<li><div class="line-block">
+<div class="line">Movimento rotacional:</div>
+<div class="line"><br /></div>
+</div>
+<blockquote>
+<div><div class="math notranslate nohighlight">
+\[\tau = I \alpha\]</div>
+</div></blockquote>
+</li>
+</ul>
+<p>onde <span class="math notranslate nohighlight">\(F\)</span> é a força, <span class="math notranslate nohighlight">\(m\)</span> a massa, <span class="math notranslate nohighlight">\(\tau\)</span> o binário (torque), <span class="math notranslate nohighlight">\(I\)</span> o momento de inércia e <span class="math notranslate nohighlight">\(\alpha\)</span> a aceleração angular.</p>
+<hr class="docutils" />
+<p><strong>Analogia Mecânica–Elétrica</strong></p>
+<p>Da mesma forma, existem paralelos entre o domínio mecânico e o elétrico:</p>
+<ul>
+<li><div class="line-block">
+<div class="line"><strong>Energia cinética rotacional</strong></div>
+<div class="line"><br /></div>
+</div>
+<blockquote>
+<div><div class="math notranslate nohighlight">
+\[E_{\text{rot}} = \tfrac{1}{2} I \omega^2\]</div>
+</div></blockquote>
+</li>
+<li><div class="line-block">
+<div class="line"><strong>Potência mecânica instantânea</strong></div>
+<div class="line"><br /></div>
+</div>
+<blockquote>
+<div><div class="math notranslate nohighlight">
+\[P_{\text{mec}} = \tau \cdot \omega\]</div>
+</div></blockquote>
+</li>
+<li><div class="line-block">
+<div class="line"><strong>Potência elétrica fornecida ao motor</strong></div>
+<div class="line"><br /></div>
+</div>
+<blockquote>
+<div><div class="math notranslate nohighlight">
+\[P_{\text{elec}} = I \cdot V\]</div>
+</div></blockquote>
+</li>
+</ul>
+<p>A corrente elétrica medida no motor está diretamente relacionada com o binário aplicado no eixo.</p>
+<hr class="docutils" />
+<p><strong>Estimativa numérica</strong></p>
+<p>Considere-se um braço do aeropêndulo com:</p>
+<ul class="simple">
+<li><p>massa equivalente <span class="math notranslate nohighlight">\(m = 0.05\)</span> kg (50 g na extremidade),</p></li>
+<li><p>comprimento <span class="math notranslate nohighlight">\(r = 0.10\)</span> m,</p></li>
+<li><p>velocidade angular <span class="math notranslate nohighlight">\(\omega = 2\pi\)</span> rad/s (1 volta por segundo),</p></li>
+<li><p>aceleração angular <span class="math notranslate nohighlight">\(\alpha = 2\pi\)</span> rad/s².</p></li>
+</ul>
+<ol class="arabic">
+<li><p><strong>Momento de inércia (massa concentrada na extremidade):</strong></p>
+<div class="math notranslate nohighlight">
+\[I = m r^2 = 0.05 x  0.10^2 = 5.0 \times 10^{-4}\ (kg·m)^2\]</div>
+</li>
+<li><p><strong>Energia cinética rotacional:</strong></p>
+<div class="math notranslate nohighlight">
+\[E_{{rot}} = \tfrac{1}{2} I \omega^2 = \tfrac{1}{2} \cdot 5.0 \times 10^{-4} x  (2\pi)^2 \approx 0.010\ J\]</div>
+</li>
+<li><p><strong>Binário necessário para a aceleração dada:</strong></p>
+<div class="math notranslate nohighlight">
+\[\tau = I \alpha = 5.0 \times 10^{-4} \cdot  2\pi \approx 0.0031\ N·m\]</div>
+</li>
+<li><p><strong>Potência mecânica correspondente:</strong></p>
+<div class="math notranslate nohighlight">
+\[P_{{mec}} = \tau   \omega = 0.0031 \cdot 2\pi \approx 0.019\ W\]</div>
+</li>
+<li><p><strong>Potência elétrica necessária (assumindo 70% eficiência):</strong></p>
+<div class="math notranslate nohighlight">
+\[P_{elec} = \frac{P_{mec}}{0.7} \approx 0.027\ W\]</div>
+</li>
+</ol>
+<p>Estes valores mostram que, apesar da energia envolvida ser pequena em termos absolutos (da ordem dos <strong>miliwatts a watts</strong>), é suficiente para exigir o uso de um <strong>driver de potência</strong> entre o microcontrolador (Arduino) e o motor, pois o microcontrolador não fornece correntes da ordem das centenas de miliamperes ou amperes.</p>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="aeropendulum.html" class="btn btn-neutral float-left" title="Projeto 1: Aeropêndulo" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="pendulum-theory.html" class="btn btn-neutral float-right" title="Aeropendulum (theory)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, mniehus.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
