@@ -92,8 +92,8 @@ Content
    project1/as5600.md
    project1/controlador.md
    project1/controlo-PID-arduino.ipynb
-   project1/aeropendulo-sim.ipynb
    project1/integration.ipynb
+   project1/resultados.ipynb
 
 .. toctree::
    :maxdepth: 1
