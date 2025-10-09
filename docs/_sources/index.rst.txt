@@ -85,9 +85,9 @@ Content
    project1/analogies.ipynb
    project1/pendulum-theory.ipynb
    project1/motorDC-theory.ipynb
-   project1/coding.ipynb
-   project1/interrupts.ipynb
    project1/L298N.md
+   project1/fsms.ipynb
+   project1/interrupts.ipynb
    project1/motorCalib-PT.md
    project1/as5600.md
    project1/controlador.md

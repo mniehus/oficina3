@@ -1,8 +1,6 @@
-# Calibração & software
+# Calibração & software modular
 
-Este documento é uma **introdução + guia** ao projeto do Sistema Automático de Calibração de Motor DC.
-
-O projeto automatiza uma **calibração velocidade–tensão** para uma pequena unidade de propulsão DC. Um Arduino gera uma **rampa PWM (=pulse width modulation) em sinal TTL** configurável que comanda um driver em ponte-H, o qual alimenta um **motor DC de drone de 3,7 V** com **hélice de duas pás**. O motor está montado num dispositivo simples com um **sensor ótico de fenda** a funcionar como encoder incremental: cada passagem da pá gera um impulso usado para inferir a **velocidade de rotação RPM (=rotações por minuto)**. Os parâmetros de teste—máximo da rampa, duração, passo/cadência—são definidos em software para que o mesmo hardware de bancada execute várias varridas repetíveis.
+O projeto começa por automatizar uma **calibração velocidade–tensão** para uma pequena unidade de propulsão DC. Um Arduino gera uma **rampa PWM (=pulse width modulation) em sinal TTL** configurável que comanda um driver em ponte-H, o qual alimenta um **motor DC de drone de 3,7 V** com **hélice de duas pás**. O motor está montado num dispositivo simples com um **sensor ótico de fenda** a funcionar como encoder incremental: cada passagem da pá gera um impulso usado para inferir a **velocidade de rotação RPM (=rotações por minuto)**. Os parâmetros de teste—máximo da rampa, duração, passo/cadência—são definidos em software para que o mesmo hardware de bancada execute várias varridas repetíveis.
 
 Durante a execução, a rampa PWM e as medições de RPM são **sincronizadas**: as atualizações de PWM definem janelas temporais limpas nas quais os impulsos são contados e convertidos em RPM (ou, em alternativa, pode usar-se um período de amostragem fixo). Após cada medição, o sistema envia **valores separados por tabulações (TSV)** pela ligação série USB—tempo, valor de onda comandado, PWM aplicado e RPM—permitindo ao utilizador copiar e colar diretamente para o Excel (ou outra folha de cálculo) para traçar gráficos e analisar.
 
@@ -16,11 +14,11 @@ As massas lógicas devem estar comuns: GND do Arduino ↔ GND lógico do driver 
 
 Para observação em tempo real, use dois pontos de teste para osciloscópio: o **sinal PWM** (Arduino → enable do driver) e o **sinal de impulsos de RPM** (sensor → interrupção do Arduino). Visualize a razão cíclica e a temporização dos impulsos no osciloscópio enquanto o Arduino os utiliza (comando e medição).
 
-Para **input do utilizador**, estão previstos um **botão**, um **potenciómetro (knob)** e a **interface série USB** para utilização futura. Para **output do utilizador**, existem **três LEDs RGB** para feedback visual e um **buzzer piezo** para sinalização acústica/feedback sonoro. Estão incluídos por completude; o seu uso neste projeto é opcional, mas podem ser úteis para implementar interfaces simples aqui ou noutros projetos.
+Para **input do utilizador** poderá servir um **botão** e/ou um **potenciómetro (knob)**. Para **output do utilizador**, existem **LEDs** para feedback visual e um **buzzer piezo** para sinalização acústica/feedback sonoro.  A **comunicação Serial** suporta *input* e, claro, *output* do *user*. O uso neste projeto é opcional.
 
-A **parte de software** organiza-se em seis pequenas tarefas independentes, através de módulos implementados como **máquinas de estados finitos (FSMs)**.
+A **parte de software** organiza-se em várias pequenas tarefas independentes, através de módulos implementados como **máquinas de estados finitos (FSMs)**.
 
-Este sistema é um **banco de ensaio experimental para formação académica**. Embora a calibração automática do motor DC pudesse ser implementada de forma mais simples, o objetivo é introduzir e consolidar um **framework modular e reutilizável de FSMs**, escalável e fácil de adaptar a projetos futuros.
+O sistema de calibração constitui um **banco de ensaio experimental para formação académica**. Embora a calibração automática do motor DC pudesse ser implementada de forma mais simples, o objetivo é introduzir e consolidar um **framework modular e reutilizável de FSMs**, escalável e fácil de adaptar a projetos futuros.
 
 Destina-se a ensinar como funcionam as FSMs, como as implementar e testar, porque as usamos, e a mostrar que o código é reutilizável e **escalável**, mantendo-se claro e arrumado à medida que o sistema cresce (sem “spaghetti”!), e como os módulos se integram num sistema e interagem através de um pequeno conjunto de variáveis globais partilhadas.
 

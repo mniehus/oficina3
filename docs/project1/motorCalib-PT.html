@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Calibração &amp; software &mdash; oficina3  documentation</title>
+  <title>Calibração &amp; software modular &mdash; oficina3  documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
@@ -34,7 +34,7 @@ window.addEventListener("load", () => mermaid.run());
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Sensor AS5600" href="as5600.html" />
-    <link rel="prev" title="Modulo L298N" href="L298N.html" /> 
+    <link rel="prev" title="Interrupções" href="interrupts.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -67,10 +67,10 @@ window.addEventListener("load", () => mermaid.run());
 <li class="toctree-l1"><a class="reference internal" href="analogies.html">Analogias &amp; números</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pendulum-theory.html">Aeropendulum (theory)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="motorDC-theory.html">Motor DC (theory)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="coding.html">Máquinas de Estado</a></li>
-<li class="toctree-l1"><a class="reference internal" href="interrupts.html">Interrupções</a></li>
 <li class="toctree-l1"><a class="reference internal" href="L298N.html">Modulo L298N</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Calibração &amp; software</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="fsms.html">Máquinas de Estado</a></li>
+<li class="toctree-l1"><a class="reference internal" href="interrupts.html">Interrupções</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Calibração &amp; software modular</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#porque-usar-maquinas-de-estados">Porque usar Máquinas de Estados?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#layout-do-software">Layout do software</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#dicas-para-laboratorio-testes">Dicas para Laboratório &amp; Testes</a></li>
@@ -118,7 +118,7 @@ window.addEventListener("load", () => mermaid.run());
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">Calibração &amp; software</li>
+      <li class="breadcrumb-item active">Calibração &amp; software modular</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/project1/motorCalib-PT.md.txt" rel="nofollow"> View page source</a>
       </li>
@@ -128,19 +128,18 @@ window.addEventListener("load", () => mermaid.run());
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section class="tex2jax_ignore mathjax_ignore" id="calibracao-software">
-<h1>Calibração &amp; software<a class="headerlink" href="#calibracao-software" title="Link to this heading"></a></h1>
-<p>Este documento é uma <strong>introdução + guia</strong> ao projeto do Sistema Automático de Calibração de Motor DC.</p>
-<p>O projeto automatiza uma <strong>calibração velocidade–tensão</strong> para uma pequena unidade de propulsão DC. Um Arduino gera uma <strong>rampa PWM (=pulse width modulation) em sinal TTL</strong> configurável que comanda um driver em ponte-H, o qual alimenta um <strong>motor DC de drone de 3,7 V</strong> com <strong>hélice de duas pás</strong>. O motor está montado num dispositivo simples com um <strong>sensor ótico de fenda</strong> a funcionar como encoder incremental: cada passagem da pá gera um impulso usado para inferir a <strong>velocidade de rotação RPM (=rotações por minuto)</strong>. Os parâmetros de teste—máximo da rampa, duração, passo/cadência—são definidos em software para que o mesmo hardware de bancada execute várias varridas repetíveis.</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="calibracao-software-modular">
+<h1>Calibração &amp; software modular<a class="headerlink" href="#calibracao-software-modular" title="Link to this heading"></a></h1>
+<p>O projeto começa por automatizar uma <strong>calibração velocidade–tensão</strong> para uma pequena unidade de propulsão DC. Um Arduino gera uma <strong>rampa PWM (=pulse width modulation) em sinal TTL</strong> configurável que comanda um driver em ponte-H, o qual alimenta um <strong>motor DC de drone de 3,7 V</strong> com <strong>hélice de duas pás</strong>. O motor está montado num dispositivo simples com um <strong>sensor ótico de fenda</strong> a funcionar como encoder incremental: cada passagem da pá gera um impulso usado para inferir a <strong>velocidade de rotação RPM (=rotações por minuto)</strong>. Os parâmetros de teste—máximo da rampa, duração, passo/cadência—são definidos em software para que o mesmo hardware de bancada execute várias varridas repetíveis.</p>
 <p>Durante a execução, a rampa PWM e as medições de RPM são <strong>sincronizadas</strong>: as atualizações de PWM definem janelas temporais limpas nas quais os impulsos são contados e convertidos em RPM (ou, em alternativa, pode usar-se um período de amostragem fixo). Após cada medição, o sistema envia <strong>valores separados por tabulações (TSV)</strong> pela ligação série USB—tempo, valor de onda comandado, PWM aplicado e RPM—permitindo ao utilizador copiar e colar diretamente para o Excel (ou outra folha de cálculo) para traçar gráficos e analisar.</p>
 <p>A <strong>parte de hardware</strong> é simples. Um <strong>PC</strong> liga por <strong>USB</strong> a uma <strong>placa Arduino</strong> (p. ex., Arduino Uno). Um <strong>pino digital PWM</strong> do Arduino alimenta a <strong>entrada enable/PWM</strong> do driver de motor em <strong>ponte-H</strong>.</p>
 <p>A placa da ponte-H é alimentada por uma <strong>fonte DC de bancada</strong> (ajustada à tensão/corrente do motor) e aciona um <strong>mini motor DC de drone de 3,7 V</strong> com <strong>hélice de duas pás</strong>. Verifique que os pontos de funcionamento tensão–corrente durante a varrida de calibração <strong>não</strong> ficam limitados pela fonte DC (limite de corrente/abaixamento de tensão), sobretudo a alta velocidade e carga elevada.</p>
 <p>Um <strong>sensor ótico de fenda</strong> (LED IR + fototransístor) é montado numa pequena estrutura mecânica para que cada pá interrompa o feixe uma vez por meia rotação, produzindo dois impulsos limpos por volta. Use os <strong>LEDs indicadores</strong> da placa do sensor para alinhar as pás e obter um sinal de RPM limpo, e <strong>prefira a saída digital</strong> à saída analógica. A saída do sensor liga a um <strong>pino de interrupção do Arduino</strong> (p. ex., D2) para contagem precisa de impulsos.</p>
 <p>As massas lógicas devem estar comuns: GND do Arduino ↔ GND lógico do driver ↔ GND do sensor. A alimentação do motor é separada da alimentação lógica, que permanece referida no driver. Alimente o <strong>motor</strong> pela fonte de bancada e o <strong>Arduino</strong> por USB para reduzir acoplamentos; os díodos internos da ponte-H tratam do flyback.</p>
 <p>Para observação em tempo real, use dois pontos de teste para osciloscópio: o <strong>sinal PWM</strong> (Arduino → enable do driver) e o <strong>sinal de impulsos de RPM</strong> (sensor → interrupção do Arduino). Visualize a razão cíclica e a temporização dos impulsos no osciloscópio enquanto o Arduino os utiliza (comando e medição).</p>
-<p>Para <strong>input do utilizador</strong>, estão previstos um <strong>botão</strong>, um <strong>potenciómetro (knob)</strong> e a <strong>interface série USB</strong> para utilização futura. Para <strong>output do utilizador</strong>, existem <strong>três LEDs RGB</strong> para feedback visual e um <strong>buzzer piezo</strong> para sinalização acústica/feedback sonoro. Estão incluídos por completude; o seu uso neste projeto é opcional, mas podem ser úteis para implementar interfaces simples aqui ou noutros projetos.</p>
-<p>A <strong>parte de software</strong> organiza-se em seis pequenas tarefas independentes, através de módulos implementados como <strong>máquinas de estados finitos (FSMs)</strong>.</p>
-<p>Este sistema é um <strong>banco de ensaio experimental para formação académica</strong>. Embora a calibração automática do motor DC pudesse ser implementada de forma mais simples, o objetivo é introduzir e consolidar um <strong>framework modular e reutilizável de FSMs</strong>, escalável e fácil de adaptar a projetos futuros.</p>
+<p>Para <strong>input do utilizador</strong> poderá servir um <strong>botão</strong> e/ou um <strong>potenciómetro (knob)</strong>. Para <strong>output do utilizador</strong>, existem <strong>LEDs</strong> para feedback visual e um <strong>buzzer piezo</strong> para sinalização acústica/feedback sonoro.  A <strong>comunicação Serial</strong> suporta <em>input</em> e, claro, <em>output</em> do <em>user</em>. O uso neste projeto é opcional.</p>
+<p>A <strong>parte de software</strong> organiza-se em várias pequenas tarefas independentes, através de módulos implementados como <strong>máquinas de estados finitos (FSMs)</strong>.</p>
+<p>O sistema de calibração constitui um <strong>banco de ensaio experimental para formação académica</strong>. Embora a calibração automática do motor DC pudesse ser implementada de forma mais simples, o objetivo é introduzir e consolidar um <strong>framework modular e reutilizável de FSMs</strong>, escalável e fácil de adaptar a projetos futuros.</p>
 <p>Destina-se a ensinar como funcionam as FSMs, como as implementar e testar, porque as usamos, e a mostrar que o código é reutilizável e <strong>escalável</strong>, mantendo-se claro e arrumado à medida que o sistema cresce (sem “spaghetti”!), e como os módulos se integram num sistema e interagem através de um pequeno conjunto de variáveis globais partilhadas.</p>
 <hr class="docutils" />
 <section id="porque-usar-maquinas-de-estados">
@@ -558,7 +557,7 @@ Note a correspondência estrita entre diagrama e código.</p>
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="L298N.html" class="btn btn-neutral float-left" title="Modulo L298N" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="interrupts.html" class="btn btn-neutral float-left" title="Interrupções" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="as5600.html" class="btn btn-neutral float-right" title="Sensor AS5600" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
