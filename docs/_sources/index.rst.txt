@@ -106,3 +106,5 @@ Content
    :caption: Project 3 
 
    project3/readme.ipynb
+   project3/introduction.md 
+   project3/fundamentals.ipynb
